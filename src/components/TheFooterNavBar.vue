@@ -58,7 +58,9 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+
   background-color: #ffffff;
+  border-top: 1px solid red;
 
   .item {
     width: 100%;
