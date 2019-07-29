@@ -1,7 +1,7 @@
 <template>
   <nav class="footer">
     <router-link
-      :to="{ name: 'home' }"
+      :to="{ name: 'homeHot' }"
       class="item"
     >
       <div class="icon">

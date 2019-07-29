@@ -1,17 +1,20 @@
 <template>
   <div class="home">
-      Home
-      <HomeEditButton />
+    <HomeHeader />
+    <router-view />
+    <HomeEditButton />
   </div>
 
 </template>
 
 <script>
 import HomeEditButton from '@/components/HomeEditButton'
+import HomeHeader from '@/components/HomeHeader'
 export default {
   name: 'home',
   components: {
-    HomeEditButton
+    HomeEditButton,
+    HomeHeader,
   }
 }
 </script>
