@@ -20,6 +20,11 @@ export default new Router({
       path: '/profile',
       name: 'profile',
       component: () => import('@/views/Profile.vue')
+    },
+    {
+      path: '/questionEdit',
+      name: 'questionEdit',
+      component: () => import('@/views/QuestionEdit.vue')
     }
   ]
 })
