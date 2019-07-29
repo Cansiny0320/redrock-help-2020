@@ -12,7 +12,7 @@ import TheFooterNavBar from '@/components/TheFooterNavBar'
 export default {
   name: 'home',
   components: {
-    TheFooterNavBar
+    TheFooterNavBar,
   }
 }
 </script>
