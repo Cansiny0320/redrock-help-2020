@@ -1,10 +1,16 @@
 <template>
-  <div>最热问题</div>
+  <div>
+  <v-question/>
+  </div>
 </template>
 
 <script>
+import VQuestion from "../components/VQuestion"
 export default {
-  name: 'homeHot'
+  name: 'homeHot',
+  components:{
+    VQuestion
+  }
 }
 </script>
 

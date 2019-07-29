@@ -54,3 +54,9 @@ export const SearchService = {
     return ApiService.get(`search/hot`)
   }
 }
+
+export const QuestionService = {
+  hot(){
+    return ApiService.get(`questions`)
+  }
+}

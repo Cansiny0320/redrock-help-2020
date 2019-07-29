@@ -20,7 +20,7 @@ module.exports = {
     })
     // questions
     app.get('/api/questions', (req, res) => {
-      res.json(questions)
+      res.json(questions)  
     })
     app.post('/api/questions', (req, res) => {
       res.sendStatus(201)
