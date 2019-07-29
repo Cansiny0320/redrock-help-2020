@@ -1,4 +1,5 @@
 const path = require('path')
+const devServer = require('./mock')
 
 module.exports = {
   chainWebpack: config => {
@@ -13,6 +14,8 @@ module.exports = {
     const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
     types.forEach(type => addStyleResource(config.module.rule('less').oneOf(type)))
   },
+  // mock
+  devServer,
 };
 
 // style-resources-loader
