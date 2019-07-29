@@ -1,7 +1,15 @@
 <template>
   <header class="header">
-    <div class="item">最热问题</div>
-    <div class="item">最新问题</div>
+    <router-link
+      class="item"
+      :class="{ active: isHot }"
+      :to="{ name: 'homeHot' }"
+    >最热问题</router-link>
+    <router-link
+      class="item"
+      :class="{ active: !isHot }"
+      :to="{ name: 'homeNew' }"
+    >最新问题</router-link>
   </header>
 </template>
 
@@ -22,4 +30,17 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.header {
+  height: 70px;
+  font-size: 28px;
+  line-height: 70px;
+  display: flex;
+  justify-content: space-around;
+  color: #cdcdcf;
+  .active {
+    border-bottom: 4px solid @mainColor;
+    font-size: 32px;
+    color: @mainColor;
+  }
+}
 </style>
