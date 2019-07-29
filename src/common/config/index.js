@@ -1,3 +1,1 @@
-const { env } = process
-
-export const API_URL = env.VUE_APP_API
+export const API_URL = process.env.VUE_APP_API

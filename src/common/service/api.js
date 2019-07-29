@@ -6,8 +6,8 @@ import { API_URL } from "@/common/config";
 
 const ApiService = {
   init() {
-    Vue.use(VueAxios, axios);
-    Vue.axios.defaults.baseURL = API_URL;
+    Vue.use(VueAxios, axios)
+    Vue.axios.defaults.baseURL = API_URL
   },
 
   setHeader() {
@@ -48,3 +48,9 @@ const ApiService = {
 };
 
 export default ApiService;
+
+export const SearchService = {
+  hot() {
+    return ApiService.get(`search/hot`)
+  }
+}
