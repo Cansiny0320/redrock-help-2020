@@ -19,10 +19,16 @@ const initialState = {
 const state = { ...initialState }
 
 const actions = {
-  async [FETCH_SEARCH_HOT] ({ commit }) {
+  async [FETCH_SEARCH_HOT] ({ commit, state }) {
     commit(FETCH_START)
-    const { data } = await SearchService.hot()
-    commit(SET_SEARCH_HOT, data)
+    let hotData
+    if (!state.data.length) {
+      const { data } = await SearchService.hot()
+      hotData = data
+    } else {
+      hotData = state.data
+    }
+    commit(SET_SEARCH_HOT, hotData)
   }
 }
 
