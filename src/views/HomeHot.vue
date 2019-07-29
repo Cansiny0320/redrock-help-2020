@@ -1,6 +1,6 @@
 <template>
   <div>
-  <v-question/>
+    <VQuestion />
   </div>
 </template>
 
@@ -8,13 +8,12 @@
 import VQuestion from "../components/VQuestion"
 export default {
   name: 'homeHot',
-  components:{
+  components: {
     VQuestion
   }
 }
 </script>
 
 <style lang="less" scoped>
-
 </style>
 
