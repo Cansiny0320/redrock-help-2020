@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <HomeHeader />
-    <router-view />
+    <router-view class="router-box"/>
     <HomeEditButton />
   </div>
 
@@ -18,3 +18,9 @@ export default {
   }
 }
 </script>
+
+<style lang="less" scoped>
+.router-box {
+  padding-top: 70px;
+}
+</style>

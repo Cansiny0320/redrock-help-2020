@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-      <router-view />
+      <router-view class="router-box-app"/>
     <TheFooterNavBar />
   </div>
 </template>
@@ -17,4 +17,7 @@ export default {
 
 
 <style lang="less">
+.router-box-app {
+  padding-bottom: 88px;
+}
 </style>

@@ -31,15 +31,20 @@ export default {
 
 <style lang="less" scoped>
 .header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
   height: 70px;
   font-size: 28px;
   line-height: 70px;
   display: flex;
   justify-content: space-around;
   color: #cdcdcf;
+  background-color: #f2f6f9;
+  border-bottom: 1px solid @fontColor;
   .active {
     border-bottom: 4px solid @mainColor;
-    font-size: 32px;
     color: @mainColor;
   }
 }
