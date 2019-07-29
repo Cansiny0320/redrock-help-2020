@@ -3,6 +3,7 @@
     <router-link
       :to="{ name: 'homeHot' }"
       class="item"
+      :class="{ active: isHome }"
     >
       <div class="icon">
         <NavBarHomeSvg />
@@ -12,6 +13,7 @@
     <router-link
       :to="{ name: 'search' }"
       class="item"
+      :class="{ active: isSearch }"
     >
       <div class="icon">
         <NavBarSearchSvg />
@@ -21,6 +23,7 @@
     <router-link
       :to="{ name: 'profile' }"
       class="item"
+      :class="{ active: isProfile }"
     >
       <div class="icon">
         <NavBarProfileSvg />
@@ -36,11 +39,26 @@ import NavBarSearchSvg from '@/assets/svg/NavBarSearch.svg'
 import NavBarProfileSvg from '@/assets/svg/NavBarProfile.svg'
 
 export default {
+  name: 'theFooterNavBar',
   components: {
     NavBarHomeSvg,
     NavBarSearchSvg,
     NavBarProfileSvg,
   },
+  data() {
+    return {
+      isHome: false,
+      isSearch: false,
+      isProfile: false,
+    }
+  },
+  watch: {
+    $route (to) {
+      this.isHome = to.name === 'homeHot' || to.name === 'homeNew' ? true : false
+      this.isSearch = to.name === 'search' ? true : false
+      this.isProfile = to.name === 'profile' ? true : false
+    }
+  }
 }
 </script>
 
@@ -67,10 +85,10 @@ export default {
     text-align: center;
     font-size: 22px;
     color: @fontColor;
-    &.router-link-exact-active {
+    &.active {
       color: @mainColor;
 
-      & /deep/ path {
+      path {
         fill: @mainColor;
       }
     }
