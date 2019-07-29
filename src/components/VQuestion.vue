@@ -1,6 +1,6 @@
 <template>
   <div class="box">
-    <div class="question" v-for="item of questionHot" :key="item.id">
+    <div class="question" v-for="item of questionData" :key="item.id">
       <div class="user">
         <img class="img" :src="item.author.avatar">
         <span class="name">{{ item.author.name }}</span>
@@ -13,16 +13,19 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import { FETCH_QUESTION_HOT } from '@/store/type/actions'
+
 export default {
   name: 'vQuestion',
-  mounted () {
-    this.$store.dispatch(FETCH_QUESTION_HOT)
-  },
-  computed: {
-    ...mapGetters(['isLoadingQuestionHot', 'questionHot']),
-  },
+  props: {
+    isLoading: {
+      type: Boolean,
+      required: false,
+    },
+    questionData: {
+      type: Array,
+      required: true,
+    }
+  }
 }
 
 </script>

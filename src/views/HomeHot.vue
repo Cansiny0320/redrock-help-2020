@@ -1,16 +1,26 @@
 <template>
   <div>
-    <VQuestion />
+    <VQuestion :isLoading="isLoadingQuestionHot" :questionData="questionHot"/>
   </div>
 </template>
 
 <script>
-import VQuestion from "../components/VQuestion"
+import { mapGetters } from 'vuex'
+
+import { FETCH_QUESTION_HOT } from '@/store/type/actions'
+import VQuestion from "@/components/VQuestion"
+
 export default {
   name: 'homeHot',
   components: {
     VQuestion
-  }
+  },
+  mounted () {
+    this.$store.dispatch(FETCH_QUESTION_HOT)
+  },
+  computed: {
+    ...mapGetters(['isLoadingQuestionHot', 'questionHot']),
+  },
 }
 </script>
 
