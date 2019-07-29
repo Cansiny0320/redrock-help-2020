@@ -14,7 +14,7 @@ export default {
   name: 'home',
   components: {
     HomeEditButton,
-    HomeHeader,
+    HomeHeader
   }
 }
 </script>
