@@ -11,5 +11,15 @@ export default new Router({
       name: 'home',
       component: Home
     },
+    {
+      path: '/search',
+      name: 'search',
+      component: () => import('@/views/Search.vue')
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: () => import('@/views/Profile.vue')
+    }
   ]
 })
