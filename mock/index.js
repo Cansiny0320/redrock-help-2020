@@ -1,11 +1,87 @@
 const searchHot = require('./searchHot.json')
+const questions = require('./questions.json')
+const question = require('./question.json')
+const questionAndAnswer = require('./questionAndAnswer.json')
+const answer = require('./answer.json')
+const api = require('./api.json')
+const tagHot = require('./tagHot.json')
+const image = require('./image.json')
+const answers = require('./answers.json')
 
 module.exports = {
   port: 8080,
   before (app) {
-    app.get("/api/search/hot", (req, res) => {
-      res.json(searchHot);
-    },
-  );
+    // search
+    app.get('/api/search/hot', (req, res) => {
+      res.json(searchHot)
+    })
+    app.get('/api/search/questions', (req, res)=> {
+      res.json(questions)
+    })
+    // questions
+    app.get('/api/questions', (req, res) => {
+      res.json(questions)
+    })
+    app.post('/api/questions', (req, res) => {
+      res.sendStatus(201)
+      res.json(question)
+    })
+    app.get('/api/questions/tag/*', (req, res) => {
+      res.json(questions)
+    })
+    app.get('/api/questions/*', (req, res) => {
+      res.json(questionAndAnswer)
+    })
+    app.patch('/api/questions/*', (req, res) => {
+      res.sendStatus(201)
+      res.json(question)
+    })
+    app.delete('/api/questions/*', (req, res) => {
+      res.sendStatus(204)
+      res.text('')
+    })
+
+    // 回答
+    app.post('/api/questions/*/answer', (req, res) => {
+      res.sendStatus(201)
+      res.json(answer)
+    })
+
+    app.delete('/api/answers/*', (req, res) => {
+      res.sendStatus(204)
+      res.text('')
+    })
+
+    app.post('/api​/answers​/*/approval', (req, res) => {
+      res.json(api)
+    }),
+    app.post('​/api/answers​/*/oppose', (req, res) => {
+      res.json(api)
+    })
+
+    // tags 
+    app.get('/api/tags/hot', (req, res) => {
+      res.json(tagHot)
+    })
+
+    // 图片
+    app.post('/api/image', (req, res) => {
+      res.sendStatus(201)
+      res.json(image)
+    })
+
+    app.post('/api/image/delete', (req, res) => {
+      res.sendStatus(204)
+      res.text('/api')
+    })
+
+    // 用户
+    app.get('/api/user/questions', (req, res) => {
+      res.json(questions)
+    })
+
+    app.get('/api/user/answers', (req, res) => {
+      res.json(answers)
+    })
   }
 }

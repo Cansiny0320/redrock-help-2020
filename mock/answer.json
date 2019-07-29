@@ -1,0 +1,24 @@
+{
+  "id": 0,
+  "content": "15栋",
+  "photoUrls": [
+    "https://cdn.pixabay.com/photo/2019/07/25/10/43/ballerina-4362282_960_720.jpg",
+    "https://cdn.pixabay.com/photo/2019/07/25/14/39/skipper-4362807_960_720.jpg"
+  ],
+  "author": {
+    "id": 0,
+    "stuNum": 0,
+    "name": "昵称",
+    "gender": "男",
+    "avatar": "https://cdn.v2ex.com/gravatar/b0c30f91732cc5307a1cdcfa4d58cb19?s=48&d=retro",
+    "role": "新生",
+    "createdAt": "2019-07-21T02:05:28.742Z",
+    "updatedAt": "2019-07-21T02:05:28.742Z"
+  },
+  "approvalNum": 0,
+  "opposeNum": 0,
+  "isApproval": false,
+  "isOppose": false,
+  "createdAt": "2019-07-29T06:29:49.972Z",
+  "updatedAt": "2019-07-29T06:29:49.972Z"
+}
