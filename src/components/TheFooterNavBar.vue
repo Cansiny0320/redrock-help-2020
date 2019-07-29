@@ -46,8 +46,6 @@ export default {
 
 
 <style lang="less" scoped>
-@import "../assets/styles/base.less";
-
 .footer {
   position: fixed;
   bottom: 0;
