@@ -8,13 +8,13 @@
 <script>
 export default {
   name: 'homeHeader',
-  data() {
+  data () {
     return {
       isHot: true,
     }
   },
   watch: {
-     $route(to) {
+    $route (to) {
       this.isHot = to.name === 'homeHot' ? true : false
     }
   }
@@ -22,5 +22,4 @@ export default {
 </script>
 
 <style lang="less" scoped>
-
 </style>
