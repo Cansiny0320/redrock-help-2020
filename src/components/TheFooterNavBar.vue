@@ -46,6 +46,8 @@ export default {
 
 
 <style lang="less" scoped>
+@fontColor: #a0a0a0;
+
 .footer {
   position: fixed;
   bottom: 0;
@@ -58,12 +60,13 @@ export default {
   align-items: center;
 
   background-color: #ffffff;
-  border-top: 1px solid red;
+  border-top: 1px solid @fontColor;
 
   .item {
     width: 100%;
     text-align: center;
     font-size: 22px;
+    color: @fontColor;
     &.router-link-exact-active {
       color: @mainColor;
 
