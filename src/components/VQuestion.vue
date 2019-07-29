@@ -1,11 +1,11 @@
 <template>
-  <div>
-    <div class="question">
+  <div class="box">
+    <div class="question" v-for="item of questionHot" :key="item.id">
       <div class="user">
-        <img class="img">
-        <span class="name"></span>
+        <img class="img" :src="item.author.avatar">
+        <span class="name">{{ item.author.name }}</span>
       </div>
-      <div class="content"></div>
+      <div class="content">{{ item.content }}</div>
       <div class="info"></div>
     </div>
   </div>
@@ -28,34 +28,32 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.question {
-  width: 690px;
-  height: 230px;
-  border: 2px solid @mainColor;
-  border-radius: 30px;
-  position: relative;
-  top: 320px;
-  margin: 0 auto;
-  background: #ffffff;
-
-  .user {
-    height: 130px;
-    display: flex;
-    align-items: center;
-
-    .img {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      background: @mainColor;
-      margin: 20px;
+.box {
+  // 这种有具体内容最好不要设定 height 和 width  
+  margin: 50px 30px 0 30px;
+  .question {
+    margin-bottom: 32px;
+    border: 2px solid @mainColor;
+    border-radius: 30px;
+    background: #ffffff;
+    .user {
+      height: 130px;
+      display: flex;
+      align-items: center;
+      .img {
+        width: 90px;
+        height: 90px;
+        border-radius: 90px;
+        background: @mainColor;
+        margin: 20px;
+      }
+      .name {
+        color: @fontColor;
+      }
     }
-    .name {
-      color: @fontColor;
+    .content {
+      padding: 20px;
     }
-  }
-  .content {
-    margin-left: 20px;
   }
 }
 </style>
