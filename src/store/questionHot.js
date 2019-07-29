@@ -40,7 +40,7 @@ import {
     questionHot(state) {
       return state.data
     },
-    isLoading(state) {
+    isLoadingQuestionHot(state) {
       return state.isLoading
     },
   }

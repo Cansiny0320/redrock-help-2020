@@ -16,7 +16,7 @@ export default {
     this.$store.dispatch(FETCH_SEARCH_HOT)
   },
   computed: {
-    ...mapGetters(['isLoading', 'searchHot']),
+    ...mapGetters(['isLoadingSearchHot', 'searchHot']),
   },
 }
 </script>

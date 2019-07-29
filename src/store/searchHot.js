@@ -46,7 +46,7 @@ const getters = {
   searchHot(state) {
     return state.data
   },
-  isLoading(state) {
+  isLoadingSearchHot(state) {
     return state.isLoading
   },
 }
