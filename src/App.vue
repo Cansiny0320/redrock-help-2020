@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <keep-alive>
+    <keep-alive include="home,search,profile">
       <router-view />
     </keep-alive>
     <TheFooterNavBar />
