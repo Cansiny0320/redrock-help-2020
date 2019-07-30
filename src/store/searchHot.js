@@ -8,6 +8,7 @@ import {
 
 import {
   FETCH_START,
+  FETCH_END,
   SET_SEARCH_HOT,
 } from './type/mutations'
 
@@ -19,10 +20,11 @@ const state = { ...initialState }
 
 const actions = {
   async [FETCH_SEARCH_HOT] ({ commit, state }) {
-    commit(FETCH_START)
     let hotData
     if (!state.data.length) {
+      commit(FETCH_START)
       const { data } = await SearchService.hot()
+      commit(FETCH_END)
       hotData = data
     } else {
       hotData = state.data
@@ -32,9 +34,6 @@ const actions = {
 }
 
 const mutations = {
-  [FETCH_START] (state) {
-    state.isLoading = true
-  },
   [SET_SEARCH_HOT] (state, data) {
     state.data = data
     state.isLoading = false
@@ -44,10 +43,7 @@ const mutations = {
 const getters = {
   searchHot(state) {
     return state.data
-  },
-  isLoadingSearchHot(state) {
-    return state.isLoading
-  },
+  }
 }
 
 export default {

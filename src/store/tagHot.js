@@ -8,11 +8,11 @@ import {
 
 import {
   FETCH_START,
+  FETCH_END,
   SET_TAG_HOT,
 } from './type/mutations'
 
 const initialState = {
-  isLoading: false,
   data: [],
 }
 
@@ -20,10 +20,11 @@ const state = { ...initialState }
 
 const actions = {
   async [FETCH_TAG_HOT] ({ commit, state }) {
-    commit(FETCH_START)
     let hotData
     if (!state.data.length) {
+      commit(FETCH_START)
       const { data } = await TagService.hot()
+      commit(FETCH_END)
       hotData = data
     } else {
       hotData = state.data
@@ -33,21 +34,14 @@ const actions = {
 }
 
 const mutations = {
-  [FETCH_START] (state) {
-    state.isLoading = true
-  },
   [SET_TAG_HOT] (state, data) {
     state.data = data
-    state.isLoading = false
   }
 }
 
 const getters = {
   tagHot(state) {
     return state.data
-  },
-  isLoadingTagHot(state) {
-    return state.isLoading
   },
 }
 
