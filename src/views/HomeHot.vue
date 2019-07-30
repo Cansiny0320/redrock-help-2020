@@ -2,7 +2,10 @@
   <div>
     <HomeHotTag />
     <div class="home-hot-question">
-      <VQuestion :isLoading="isLoadingQuestionHot" :questionData="questionHot"/>
+      <VQuestion
+        :isLoading="isLoadingQuestionHot"
+        :questionData="questionHot"
+      />
     </div>
   </div>
 </template>
@@ -20,8 +23,13 @@ export default {
     VQuestion,
     HomeHotTag,
   },
+  watch: {
+    $route (to) {
+      this.$store.dispatch(FETCH_QUESTION_HOT, to.query.tagId)
+    }
+  },
   mounted () {
-    this.$store.dispatch(FETCH_QUESTION_HOT)
+    this.$store.dispatch(FETCH_QUESTION_HOT, this.$route.query.tagId)
   },
   computed: {
     ...mapGetters(['isLoadingQuestionHot', 'questionHot']),

@@ -3,6 +3,7 @@
     <VHotTag
       name="热门标签"
       :hotTagData="tagHot"
+      @hotTagClick="handelHomeHotTagClick"
     />
   </div>
 </template>
@@ -16,6 +17,11 @@ export default {
   name: 'homeHotTag',
   components: {
     VHotTag
+  },
+  methods: {
+    handelHomeHotTagClick(index) {
+      this.$router.push({ name: 'homeHot', query: { tagId: this.tagHot[index].id } })
+    }
   },
   mounted () {
     this.$store.dispatch(FETCH_TAG_HOT)

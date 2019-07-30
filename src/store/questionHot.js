@@ -19,9 +19,9 @@ import {
   const state = { ...initialState }
   
   const actions = {
-    async [FETCH_QUESTION_HOT] ({ commit }) {
+    async [FETCH_QUESTION_HOT] ({ commit }, tagId) {
       commit(FETCH_START)
-      const { data } = await QuestionService.hot()
+      const { data } = await QuestionService.hot(tagId)
       commit(SET_QUESTION_HOT, data)
     }
   }

@@ -56,8 +56,14 @@ export const SearchService = {
 }
 
 export const QuestionService = {
-  hot(){
-    return ApiService.get(`questions`)
+  hot(tagId){
+    let url = ``
+    if (tagId != null) {
+      url = `questions/tag/${tagId}`
+    } else {
+      url = `questions`
+    }
+    return ApiService.get(url)
   }
 }
 
