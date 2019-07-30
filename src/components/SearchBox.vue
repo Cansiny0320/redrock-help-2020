@@ -23,6 +23,8 @@
 import SearchButtonSvg from '@/assets/svg/SearchButton.svg'
 import VBack from '@/components/VBack'
 
+import VQuestion from "@/components/VQuestion"
+
 export default {
   name: 'searchBox',
   data () {
@@ -34,6 +36,7 @@ export default {
   components: {
     SearchButtonSvg,
     VBack,
+    VQuestion,
   },
   watch: {
     $route (to) {

@@ -1,11 +1,13 @@
 import {
   QuestionService,
+  SearchService
 } from '@/common/service/api'
 
 import {
   FETCH_QUESTION_HOT,
   FETCH_QUESTION_NEW,
   FETCH_QUESTION_BY_TAG,
+  FETCH_QUESTION_BY_SEARCH,
 } from './type/actions'
 
 import {
@@ -36,6 +38,12 @@ const actions = {
   async [FETCH_QUESTION_BY_TAG] ({commit}, tagId) {
     commit(FETCH_START)
     const { data } = await QuestionService.tag(tagId)
+    commit(FETCH_END)
+    commit(SET_QUESTION_LIST, data)
+  },
+  async [FETCH_QUESTION_BY_SEARCH] ({commit}, q) {
+    commit(FETCH_START)
+    const { data } = await SearchService.search(q)
     commit(FETCH_END)
     commit(SET_QUESTION_LIST, data)
   }

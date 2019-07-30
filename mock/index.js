@@ -17,7 +17,7 @@ module.exports = {
     app.get('/api/search/hot', (req, res) => {
       res.json(searchHot)
     })
-    app.get('/api/search/questions', (req, res)=> {
+    app.get('/api/search/questions*', (req, res)=> {
       res.json(questions)
     })
     // questions
