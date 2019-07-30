@@ -21,7 +21,7 @@ module.exports = {
       res.json(questions)
     })
     // questions
-    app.get('/api/questions', (req, res) => {
+    app.get('/api/questions*', (req, res) => {
       res.json(questions)  
     })
     app.post('/api/questions', (req, res) => {

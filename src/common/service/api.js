@@ -5,42 +5,42 @@ import JwtService from "@/common/service/jwt";
 import { API_URL } from "@/common/config";
 
 const ApiService = {
-  init() {
+  init () {
     Vue.use(VueAxios, axios)
     Vue.axios.defaults.baseURL = API_URL
   },
 
-  setHeader() {
+  setHeader () {
     Vue.axios.defaults.headers.common[
       "Authorization"
     ] = `Token ${JwtService.getToken()}`;
   },
 
-  query(resource, params) {
+  query (resource, params) {
     return Vue.axios.get(resource, params).catch(error => {
       throw new Error(`[RWV] ApiService ${error}`);
     });
   },
 
-  get(resource, slug = "") {
+  get (resource, slug = "") {
     return Vue.axios.get(`${resource}/${slug}`).catch(error => {
       throw new Error(`[RWV] ApiService ${error}`);
     });
   },
 
-  post(resource, params) {
+  post (resource, params) {
     return Vue.axios.post(`${resource}`, params);
   },
 
-  update(resource, slug, params) {
+  update (resource, slug, params) {
     return Vue.axios.put(`${resource}/${slug}`, params);
   },
 
-  put(resource, params) {
+  put (resource, params) {
     return Vue.axios.put(`${resource}`, params);
   },
 
-  delete(resource) {
+  delete (resource) {
     return Vue.axios.delete(resource).catch(error => {
       throw new Error(`[RWV] ApiService ${error}`);
     });
@@ -50,13 +50,13 @@ const ApiService = {
 export default ApiService;
 
 export const SearchService = {
-  hot() {
+  hot () {
     return ApiService.get(`search/hot`)
   }
 }
 
 export const QuestionService = {
-  hot(tagId){
+  hot (tagId) {
     let url = ``
     if (tagId != null) {
       url = `questions/tag/${tagId}`
@@ -64,11 +64,14 @@ export const QuestionService = {
       url = `questions`
     }
     return ApiService.get(url)
+  },
+  new () {
+    return ApiService.get(`questions?sortby=new`)
   }
 }
 
 export const TagService = {
-  hot() {
+  hot () {
     return ApiService.get(`tags/hot`)
   }
 }
