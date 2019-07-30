@@ -56,14 +56,20 @@ export const SearchService = {
 }
 
 export const QuestionService = {
-  hot(){
+  hot() {
     return ApiService.get(`questions`)
   }
 }
 
 export const ProfileService = {
-  identify(){
+  identify() {
     return ApiService.get(`user`)
+  }
+}
 
+
+export const TagService = {
+  hot() {
+    return ApiService.get(`tags/hot`)
   }
 }

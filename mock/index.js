@@ -7,6 +7,8 @@ const api = require('./api.json')
 const tagHot = require('./tagHot.json')
 const image = require('./image.json')
 const answers = require('./answers.json')
+const userNew = require('./userNew.json')
+const userOld = require('./userOld.json')
 
 module.exports = {
   port: 8080,
@@ -82,6 +84,15 @@ module.exports = {
 
     app.get('/api/user/answers', (req, res) => {
       res.json(answers)
+    })
+
+    app.get('/api/user', (req, res) => {
+      if (Math.floor(Math.random()*10) % 2) {
+        res.json(userNew)
+      } else {
+        res.json(userOld)
+      }
+
     })
   }
 }

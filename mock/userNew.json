@@ -1,0 +1,12 @@
+{
+  "id": 0,
+  "stuNum": 0,
+  "name": "string",
+  "gender": "男",
+  "avatar": "string",
+  "role": "新生",
+  "createdAt": "2019-07-21T06:33:23.243Z",
+  "updatedAt": "2019-07-21T06:33:23.243Z",
+  "questionsNum": 0,
+  "answersNum": 0
+}

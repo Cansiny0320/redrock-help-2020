@@ -1,5 +1,5 @@
 <template>
-  <div>问题编辑 / 发布</div>
+  <div class="question-eidt">问题编辑 / 发布</div>
 </template>
 
 <script>

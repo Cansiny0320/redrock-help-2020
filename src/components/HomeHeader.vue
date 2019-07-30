@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="home-header">
     <router-link
       class="item"
       :class="{ active: isHot }"
@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.header {
+.home-header {
   position: fixed;
   top: 0;
   right: 0;
@@ -41,8 +41,9 @@ export default {
   display: flex;
   justify-content: space-around;
   color: #cdcdcf;
-  background-color: #f2f6f9;
-  border-bottom: 1px solid @fontColor;
+  background-color: @backgroundColor;
+  border-bottom: 1px solid @borderColor;
+  box-sizing: border-box;
   .active {
     border-bottom: 4px solid @mainColor;
     color: @mainColor;

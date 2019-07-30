@@ -5,11 +5,12 @@ import store from './store'
 import './registerServiceWorker'
 
 import ApiService from '@/common/service/api'
+import DateFilter from '@/common/filter/date'
 
 import '@/assets/styles/reset.css'
 import '@/assets/styles/global.less'
 
-
+Vue.filter('date', DateFilter)
 
 ApiService.init()
 
