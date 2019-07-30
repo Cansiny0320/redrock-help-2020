@@ -1,7 +1,7 @@
 <template>
   <div class="new">
     <div class="user">
-      <img class="img" />
+      <img class="img" :src="profileData.avatar"/>
       <span class="name">{{profileData.name}}</span>
     </div>
     <div class="approval">
@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="answer">
-      <span>我的回答{{profileData.questionNum}}个</span>
+      <span>我的回答{{profileData.questionsNum}}个</span>
       <div class="front-icon">
         <BaseFront />
       </div>
@@ -46,48 +46,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.user {
-  height: 130px;
-  display: flex;
-  align-items: center;
-  margin: 30px;
-  .img {
-    width: 140px;
-    height: 140px;
-    border-radius: 140px;
-    background: @mainColor;
-  }
-  .name {
-    color: @fontColor;
-    margin-left: 25px;
-  }
-}
-.approval,
-.oppose,
-.answer {
-  width: 690px;
-  height: 90px;
-  border: 2px solid @mainColor;
-  border-radius: 30px;
-  margin: 0 auto 30px auto;
-  position: relative;
-  span {
-    line-height: 90px;
-    padding-left: 30px;
-    color: #6a6a6a;
-    font-size: 30px;
-  }
-  .front-icon {
-    position: absolute;
-    top: 25px;
-    left: 640px;
-    svg {
-      width: 40px;
-      height: 40px;
-      path {
-        fill: #dfdfde;
-      }
-    }
-  }
-}
+@import "../assets/styles/profile.less";
 </style>
