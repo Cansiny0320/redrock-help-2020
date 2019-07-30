@@ -8,6 +8,7 @@ import { FETCH_SEARCH_HOT } from "@/store/type/actions"
 import VHotTag from '@/components/VHotTag'
 
 export default {
+  name: 'searchHot',
   components: {
     VHotTag
   },

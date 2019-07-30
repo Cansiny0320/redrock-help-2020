@@ -1,5 +1,5 @@
 <template>
-  <div class="box">
+  <div class="search-qustion-list">
     <div class="title">
       相关问题
     </div>
@@ -14,7 +14,7 @@ export default {
 
 
 <style lang="less" scoped>
-.box {
+.search-qustion-list {
   .title {
     margin: 30px 0 0 28px;
     font-size: 28px;

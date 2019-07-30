@@ -1,5 +1,5 @@
 <template>
-  <div>最新问题</div>
+  <div class="home-new">最新问题</div>
 </template>
 
 <script>

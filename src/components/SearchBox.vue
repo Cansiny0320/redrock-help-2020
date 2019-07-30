@@ -1,5 +1,5 @@
 <template>
-  <div class="search">
+  <div class="search-box">
     <div
       class="back-icon"
       v-if="isShowBack"
@@ -7,7 +7,7 @@
     >
       <BaseBackSvg />
     </div>
-    <div class="search-box">
+    <div class="box">
       <input
         class="search-input"
         placeholder="告诉我你的疑惑吧"
@@ -30,7 +30,7 @@ import SearchButtonSvg from '@/assets/svg/SearchButton.svg'
 import BaseBackSvg from '@/assets/svg/BaseBack.svg'
 
 export default {
-  name: 'SearchBox',
+  name: 'searchBox',
   data () {
     return {
       isShowBack: false,
@@ -40,6 +40,16 @@ export default {
   components: {
     SearchButtonSvg,
     BaseBackSvg,
+  },
+  watch: {
+    $route (to) {
+      this.searchVaule = to.query.q
+      if (to.query.q) {
+        this.isShowBack = true
+      } else {
+        this.isShowBack = false
+      }
+    }
   },
   methods: {
     handelSearchButtonClick () {
@@ -53,26 +63,16 @@ export default {
       this.$router.push(``)
     }
   },
-  watch: {
-    $route (to) {
-      this.searchVaule = to.query.q
-      if (to.query.q) {
-        this.isShowBack = true
-      } else {
-        this.isShowBack = false
-      }
-    }
-  }
 }
 </script>
 
 <style lang="less" scoped>
-.search {
+.search-box {
   margin: 30px 28px 0 28px;
   height: 64px;
   display: flex;
   flex: 1;
-  .search-box {
+  .box {
     height: 100%;
     width: 100%;
     // bug

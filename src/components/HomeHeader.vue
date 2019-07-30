@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="home-header">
     <router-link
       class="item"
       :class="{ active: isHot }"
@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.header {
+.home-header {
   position: fixed;
   top: 0;
   right: 0;

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-      <router-view class="router-box-app"/>
+      <router-view class="router-app"/>
     <TheFooterNavBar />
   </div>
 </template>
@@ -8,7 +8,7 @@
 <script>
 import TheFooterNavBar from '@/components/TheFooterNavBar'
 export default {
-  name: 'home',
+  name: 'app',
   components: {
     TheFooterNavBar,
   }
@@ -17,7 +17,7 @@ export default {
 
 
 <style lang="less">
-.router-box-app {
+.router-app {
   padding-bottom: 88px;
 }
 </style>

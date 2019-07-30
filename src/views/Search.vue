@@ -23,14 +23,14 @@ export default {
     SearchHot,
     SearchQuestionList,
   },
-  mounted () {
-    this.q = this.$route.query.q
-  },
   watch: {
     $route (to) {
       this.q = to.query.q
     }
-  }
+  },
+  mounted () {
+    this.q = this.$route.query.q
+  },
 }
 </script>
 

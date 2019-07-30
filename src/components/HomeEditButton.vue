@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{ name:'questionEdit' }" class="box">
+  <router-link :to="{ name:'questionEdit' }" class="home-edit-button">
     <div class="icon">
       <HomeEditButtonSvg />
     </div>
@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.box {
+.home-edit-button {
   position: fixed;
   right: 23px;
   bottom: 128px;
