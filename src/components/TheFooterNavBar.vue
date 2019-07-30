@@ -64,7 +64,6 @@ export default {
 
 
 <style lang="less" scoped>
-@fontColor: #a0a0a0;
 
 .footer {
   position: fixed;
@@ -78,7 +77,7 @@ export default {
   align-items: center;
 
   background-color: #ffffff;
-  border-top: 1px solid @fontColor;
+  border-top: 1px solid @borderColor;
 
   .item {
     width: 100%;

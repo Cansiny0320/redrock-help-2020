@@ -86,7 +86,7 @@ export default {
     .search-input {
       height: 100%;
       width: 100%;
-      color: #7e7e7e;
+      color: @fontColor;
       font-size: 30px;
       border-radius: 64px;
       padding: 0 32px 0 32px;

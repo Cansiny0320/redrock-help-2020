@@ -24,7 +24,7 @@ export default {
   bottom: 128px;
   height: 101px;
   width: 101px;
-  background-color: #ff9680;
+  background-color: @mainColor;
   border-radius: 101px;
   box-shadow: 3px 3px 7px rgba(255, 139, 117, 0.29);
 

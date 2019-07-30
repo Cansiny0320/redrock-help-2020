@@ -18,7 +18,7 @@ export default {
   .title {
     margin: 30px 0 0 28px;
     font-size: 28px;
-    color: #9e9e9f;
+    color: @fontColor;
   }
 }
 </style>
