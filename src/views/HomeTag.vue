@@ -7,7 +7,7 @@
     <div class="question">
       <VQuestion
         :isLoading="isLoading"
-        :questionData="questionHot"
+        :questionData="questionList"
       />
     </div>
     <HomeEditButton />
@@ -18,7 +18,7 @@
 import { mapGetters } from "vuex"
 
 import VBack from '@/components/VBack'
-import { FETCH_QUESTION_HOT } from '@/store/type/actions'
+import { FETCH_QUESTION_BY_TAG } from '@/store/type/actions'
 
 import VQuestion from "@/components/VQuestion"
 import HomeEditButton from '@/components/HomeEditButton'
@@ -32,11 +32,11 @@ export default {
   },
   watch: {
     $route (to) {
-      this.$store.dispatch(FETCH_QUESTION_HOT, to.query.id)
+      this.$store.dispatch(FETCH_QUESTION_BY_TAG, to.query.id)
     }
   },
   computed: {
-    ...mapGetters(['tagHot', 'isLoading', 'questionHot']),
+    ...mapGetters(['tagHot', 'isLoading', 'questionList']),
     tagName() {
       let tagName = ''
       this.tagHot.forEach(element => {
@@ -48,7 +48,7 @@ export default {
     }
   },
   mounted () {
-    this.$store.dispatch(FETCH_QUESTION_HOT, this.$route.query.id)
+    this.$store.dispatch(FETCH_QUESTION_BY_TAG, this.$route.query.id)
   }
 }
 </script>

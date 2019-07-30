@@ -3,7 +3,7 @@
     <div class="question">
       <VQuestion
         :isLoading="isLoading"
-        :questionData="questionNew"
+        :questionData="questionList"
       />
     </div>
   </div>
@@ -24,7 +24,7 @@ export default {
     this.$store.dispatch(FETCH_QUESTION_NEW)
   },
   computed: {
-    ...mapGetters(['isLoading', 'questionNew']),
+    ...mapGetters(['isLoading', 'questionList']),
   },
 }
 </script>
