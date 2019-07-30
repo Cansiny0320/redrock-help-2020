@@ -20,8 +20,13 @@ export default new Router({
           path: 'new',
           name: 'homeNew',
           component: () => import('@/views/HomeNew.vue')
-        }
+        },
       ]
+    },
+    {
+      path: '/tag',
+      name: 'homeTag',
+      component: () => import('@/views/HomeTag.vue')
     },
     {
       path: '/search',

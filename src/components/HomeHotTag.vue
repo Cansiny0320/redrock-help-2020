@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     handelHomeHotTagClick(index) {
-      this.$router.push({ name: 'homeHot', query: { tagId: this.tagHot[index].id } })
+      this.$router.push({ name: 'homeTag', query: { id: this.tagHot[index].id } })
     }
   },
   mounted () {

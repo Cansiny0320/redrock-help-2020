@@ -23,13 +23,8 @@ export default {
     VQuestion,
     HomeHotTag,
   },
-  watch: {
-    $route (to) {
-      this.$store.dispatch(FETCH_QUESTION_HOT, to.query.tagId)
-    }
-  },
   mounted () {
-    this.$store.dispatch(FETCH_QUESTION_HOT, this.$route.query.tagId)
+    this.$store.dispatch(FETCH_QUESTION_HOT)
   },
   computed: {
     ...mapGetters(['isLoadingQuestionHot', 'questionHot']),
