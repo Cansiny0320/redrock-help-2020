@@ -60,3 +60,9 @@ export const QuestionService = {
     return ApiService.get(`questions`)
   }
 }
+
+export const TagService = {
+  hot() {
+    return ApiService.get(`tags/hot`)
+  }
+}

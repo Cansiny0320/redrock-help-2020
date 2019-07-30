@@ -43,6 +43,7 @@ export default {
   color: #cdcdcf;
   background-color: #f2f6f9;
   border-bottom: 1px solid @fontColor;
+  box-sizing: border-box;
   .active {
     border-bottom: 4px solid @mainColor;
     color: @mainColor;

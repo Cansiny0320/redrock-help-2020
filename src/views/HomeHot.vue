@@ -1,6 +1,9 @@
 <template>
   <div>
-    <VQuestion :isLoading="isLoadingQuestionHot" :questionData="questionHot"/>
+    <HomeHotTag />
+    <div class="home-hot-question">
+      <VQuestion :isLoading="isLoadingQuestionHot" :questionData="questionHot"/>
+    </div>
   </div>
 </template>
 
@@ -9,11 +12,13 @@ import { mapGetters } from 'vuex'
 
 import { FETCH_QUESTION_HOT } from '@/store/type/actions'
 import VQuestion from "@/components/VQuestion"
+import HomeHotTag from '@/components/HomeHotTag'
 
 export default {
   name: 'homeHot',
   components: {
-    VQuestion
+    VQuestion,
+    HomeHotTag,
   },
   mounted () {
     this.$store.dispatch(FETCH_QUESTION_HOT)
@@ -25,5 +30,8 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.home-hot-question {
+  margin-top: 240px;
+}
 </style>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="box">
+  <div class="v-question">
     <div
       class="question"
       v-for="item of questionData"
@@ -39,9 +39,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.box {
+.v-question {
   // 这种有具体内容最好不要设定 height 和 width
-  margin: 50px 30px 0 30px;
+  margin: 0 28px;
   .question {
     margin-bottom: 32px;
     border: 2px solid @mainColor;
