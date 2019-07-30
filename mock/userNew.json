@@ -1,9 +1,9 @@
 {
   "id": 0,
   "stuNum": 0,
-  "name": "string",
+  "name": "昵称",
   "gender": "男",
-  "avatar": "string",
+  "avatar": "https://cdn.v2ex.com/gravatar/b0c30f91732cc5307a1cdcfa4d58cb19?s=48&d=retro",
   "role": "新生",
   "createdAt": "2019-07-21T06:33:23.243Z",
   "updatedAt": "2019-07-21T06:33:23.243Z",
