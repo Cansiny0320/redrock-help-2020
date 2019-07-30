@@ -54,7 +54,7 @@ export default {
   },
   watch: {
     $route (to) {
-      this.isHome = to.name === 'homeHot' || to.name === 'homeNew' ? true : false
+      this.isHome = to.name.match(/home/g) ? true : false
       this.isSearch = to.name === 'search' ? true : false
       this.isProfile = to.name === 'profile' ? true : false
     }
