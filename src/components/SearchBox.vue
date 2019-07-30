@@ -1,12 +1,6 @@
 <template>
   <div class="search-box">
-    <div
-      class="back-icon"
-      v-if="isShowBack"
-      @click="handelBackClick"
-    >
-      <BaseBackSvg />
-    </div>
+    <VBack :isShowBack="isShowBack"/>
     <div class="box">
       <input
         class="search-input"
@@ -27,7 +21,7 @@
 
 <script>
 import SearchButtonSvg from '@/assets/svg/SearchButton.svg'
-import BaseBackSvg from '@/assets/svg/BaseBack.svg'
+import VBack from '@/components/VBack'
 
 export default {
   name: 'searchBox',
@@ -39,7 +33,7 @@ export default {
   },
   components: {
     SearchButtonSvg,
-    BaseBackSvg,
+    VBack,
   },
   watch: {
     $route (to) {
@@ -105,18 +99,6 @@ export default {
       height: 30px;
       path {
         fill: #ffffff;
-      }
-    }
-  }
-  .back-icon {
-    display: flex;
-    align-items: center;
-    padding-right: 20px;
-    svg {
-      width: 38px;
-      height: 38px;
-      path {
-        fill: @mainColor;
       }
     }
   }
