@@ -2,7 +2,7 @@
   <div class="home-new">
     <div class="question">
       <VQuestion
-        :isLoading="isLoadingQuestionNew"
+        :isLoading="isLoading"
         :questionData="questionNew"
       />
     </div>
@@ -24,7 +24,7 @@ export default {
     this.$store.dispatch(FETCH_QUESTION_NEW)
   },
   computed: {
-    ...mapGetters(['isLoadingQuestionNew', 'questionNew']),
+    ...mapGetters(['isLoading', 'questionNew']),
   },
 }
 </script>

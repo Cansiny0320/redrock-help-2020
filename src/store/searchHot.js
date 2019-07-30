@@ -12,7 +12,6 @@ import {
 } from './type/mutations'
 
 const initialState = {
-  isLoading: false,
   data: [],
 }
 

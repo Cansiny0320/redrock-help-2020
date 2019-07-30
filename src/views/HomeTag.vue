@@ -6,7 +6,7 @@
     </header>
     <div class="question">
       <VQuestion
-        :isLoading="isLoadingQuestionHot"
+        :isLoading="isLoading"
         :questionData="questionHot"
       />
     </div>
@@ -36,7 +36,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['tagHot', 'isLoadingQuestionHot', 'questionHot']),
+    ...mapGetters(['tagHot', 'isLoading', 'questionHot']),
     tagName() {
       let tagName = ''
       this.tagHot.forEach(element => {

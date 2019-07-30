@@ -1,18 +1,18 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import loading from './loading'
 import searchHot from './searchHot'
-import qustionHot from './questionHot'
-import qustionNew from './qustionNew'
+import qustion from './question'
 import tagHot from './tagHot'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
+    loading,
     searchHot,
-    qustionHot,
-    qustionNew,
+    qustion,
     tagHot,
   }
 })
