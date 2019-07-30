@@ -60,3 +60,10 @@ export const QuestionService = {
     return ApiService.get(`questions`)
   }
 }
+
+export const ProfileService = {
+  identify(){
+    return ApiService.get(`user`)
+
+  }
+}
