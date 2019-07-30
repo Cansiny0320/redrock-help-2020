@@ -4,6 +4,7 @@ import Vuex from 'vuex'
 import searchHot from './searchHot'
 import qustionHot from './questionHot'
 import tagHot from './tagHot'
+import profileIdentity from './profileIdentify'
 
 Vue.use(Vuex)
 
@@ -12,5 +13,6 @@ export default new Vuex.Store({
     searchHot,
     qustionHot,
     tagHot,
+    profileIdentity
   }
 })
