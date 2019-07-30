@@ -47,7 +47,7 @@ export default {
   },
   data() {
     return {
-      isHome: false,
+      isHome: true,
       isSearch: false,
       isProfile: false,
     }
