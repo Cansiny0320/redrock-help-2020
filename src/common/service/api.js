@@ -70,6 +70,13 @@ export const QuestionService = {
   }
 }
 
+export const ProfileService = {
+  identify() {
+    return ApiService.get(`user`)
+  }
+}
+
+
 export const TagService = {
   hot () {
     return ApiService.get(`tags/hot`)
