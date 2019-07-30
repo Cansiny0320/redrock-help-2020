@@ -1,5 +1,5 @@
 <template>
-  <VHotTag name="热门搜索" :hotTagData="searchHot"/>
+  <VHotTag name="热门搜索" :hotTagData="searchHot" @hotTagClick="handelSearchHotTagClick"/>
 </template>
 
 <script>
@@ -18,6 +18,11 @@ export default {
   computed: {
     ...mapGetters(['isLoadingSearchHot', 'searchHot']),
   },
+  methods: {
+    handelSearchHotTagClick(index) {
+      this.$router.push(`?q=${this.searchHot[index].name}`)
+    }
+  }
 }
 </script>
 

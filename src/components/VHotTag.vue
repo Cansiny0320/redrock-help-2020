@@ -2,7 +2,7 @@
   <div class="v-hot-tag">
     <div class="title">{{ name }}</div>
     <div class="content">
-      <div class="item" v-for="item of hotTagData" :key="item.id">{{item.name}}</div>
+      <div class="item" v-for="(item, index) of hotTagData" :key="item.id" @click="handelItemClick(index)">{{item.name}}</div>
     </div>
   </div>
 </template>
@@ -18,6 +18,11 @@ export default {
     hotTagData: {
       type: Array,
       required: true,
+    }
+  },
+  methods: {
+    handelItemClick (index) {
+      this.$emit('hotTagClick', index)
     }
   }
 }
