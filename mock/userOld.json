@@ -1,0 +1,13 @@
+{
+  "id": 0,
+  "stuNum": 0,
+  "name": "string",
+  "gender": "男",
+  "avatar": "string",
+  "role": "志愿者",
+  "createdAt": "2019-07-21T06:33:23.243Z",
+  "updatedAt": "2019-07-21T06:33:23.243Z",
+  "approvalNum": 0,
+  "opposeNum": 0,
+  "questionsNum": 0
+}
