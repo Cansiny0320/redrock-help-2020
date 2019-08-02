@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <div id ="back"
-    v-on:touchstart.prevent
-    ></div>
+  <div @touchstart.prevent>
+    <div id="back"></div>
 
     <div class="tipBox">
       <div class="require">
@@ -10,13 +8,14 @@
       </div>
       <div class="button">
         <p class="cancel">取消</p>
-        <p class="confirm"
-        >确认</p>
+        <p class="confirm">确认</p>
       </div>
     </div>
 
-    
-    <div class="tip"  v-if = "isSucceed">
+    <div
+      class="tip"
+      v-if="isSucceed"
+    >
       <p>删除成功!</p>
     </div>
   </div>
@@ -26,9 +25,9 @@
 
 export default {
   name: "VToast",
-  data(){
-    return{
-      isSucceed:false
+  data () {
+    return {
+      isSucceed: false
     }
   }
 };
