@@ -45,7 +45,7 @@ export default {
   .question {
     margin-bottom: 32px;
     border: 2px solid @mainColor;
-    border-radius: 30px;
+    border-radius: 8px;
     background: #ffffff;
     .user {
       display: flex;
