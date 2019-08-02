@@ -14,7 +14,14 @@
         <span class="time">{{ item.updatedAt | date }}</span>
       </div>
       <div class="content">{{ item.content }}</div>
-      <div class="info"></div>
+      <div class="info">
+        <div class="tags">
+          <div v-for="innerItem of item.tags" :key="innerItem.id">
+            {{ innerItem.name }}
+          </div>
+        </div>
+        <div class="count">{{ item.answersCount }}条评论</div>
+      </div>
     </div>
   </div>
 
@@ -65,6 +72,13 @@ export default {
     }
     .content {
       padding: 20px;
+    }
+    .info {
+      display: flex;
+      font-size: 22px;
+      color: @fontColor;
+      justify-content: space-between;
+      margin: 0 20px 15px 20px;
     }
   }
 }
