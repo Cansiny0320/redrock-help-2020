@@ -65,13 +65,16 @@ export const QuestionService = {
   new () {
     return ApiService.get(`questions?sortby=new`)
   },
-  tag(tagId) {
+  tag (tagId) {
     return ApiService.get(`questions/tag/${tagId}`)
+  },
+  getOne (questionId) {
+    return ApiService.get(`questions/${questionId}/answer`)
   }
 }
 
 export const ProfileService = {
-  identify() {
+  identify () {
     return ApiService.get(`user`)
   }
 }
