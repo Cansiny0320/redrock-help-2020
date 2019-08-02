@@ -1,5 +1,5 @@
 <template>
-  <div class="qustion">
+  <div class="qustion" v-if="!isLoading">
     <VHeader titleStr="问题详情" />
     <div class="user">
       <img :src="oneQuestion.author.avatar">
@@ -29,7 +29,7 @@ export default {
     this.$store.dispatch(FETCH_ONE_QUESTION_BY_ID, this.$route.query.id)
   },
   computed: {
-    ...mapGetters(['oneQuestion'])
+    ...mapGetters(['oneQuestion', 'isLoading'])
   }
 }
 </script>

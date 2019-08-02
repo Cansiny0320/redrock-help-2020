@@ -13,7 +13,11 @@ import {
 } from './type/mutations'
 
 const initialState = {
-  data: {},
+  data: {
+    author: {},
+    content: {},
+    answer: [],
+  },
 }
 
 const state = { ...initialState }
