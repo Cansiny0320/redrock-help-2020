@@ -1,9 +1,6 @@
 <template>
   <div class="home-tag">
-    <header class="header">
-      <VBack :isShowBack="true" />
-      <div class="title">{{ tagName }} 分类下的问题</div>
-    </header>
+    <VHeader :titleStr="tagName"/>
     <div class="question">
       <VQuestion
         :isLoading="isLoading"
@@ -17,16 +14,16 @@
 <script>
 import { mapGetters } from "vuex"
 
-import VBack from '@/components/VBack'
 import { FETCH_QUESTION_BY_TAG } from '@/store/type/actions'
 
 import VQuestion from "@/components/VQuestion"
 import HomeEditButton from '@/components/HomeEditButton'
+import VHeader from '@/components/VHeader'
 
 export default {
   name: 'homeTag',
   components: {
-    VBack,
+    VHeader,
     VQuestion,
     HomeEditButton,
   },
@@ -44,7 +41,7 @@ export default {
           tagName = element.name
         }
       });
-      return tagName
+      return `${tagName} 分类下的问题`
     }
   },
   mounted () {
@@ -54,9 +51,4 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.header {
-  margin: 30px;
-  display: flex;
-  align-items: center;
-}
 </style>
