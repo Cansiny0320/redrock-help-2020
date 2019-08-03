@@ -14,6 +14,9 @@ const state = { ...initialState }
 const mutations = {
   [SET_POPUP_SHOW] (state) {
     state.isShow = true
+    window.setTimeout(()=>{
+      state.isShow = false
+    }, 2000)
   },
   [SET_POPUP_CLOSE] (state) {
     state.isShow = false
