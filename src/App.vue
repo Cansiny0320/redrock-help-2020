@@ -13,9 +13,8 @@ import TheFooterNavBar from "@/components/TheFooterNavBar";
 export default {
   name: "app",
   components: {
-    TheFooterNavBar,
-  },
- 
+    TheFooterNavBar
+  }
 };
 </script>
 

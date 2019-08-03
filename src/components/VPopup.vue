@@ -10,10 +10,10 @@
 import { mapGetters } from 'vuex'
 
 export default {
-  name: "VToast",
+  name: "VPopup",
   data () {
     return {
-      isSucceed: false
+     
     }
   },
   computed: {

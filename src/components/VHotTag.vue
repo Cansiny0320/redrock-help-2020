@@ -15,29 +15,29 @@
 
 <script>
 export default {
-  name: 'vHotTag',
+  name: "vHotTag",
   props: {
     name: {
       type: String,
-      required: true,
+      required: true
     },
     hotTagData: {
       type: Array,
-      required: true,
+      required: true
     }
   },
   methods: {
-    handelItemClick (index) {
-      this.$emit('hotTagClick', index)
-      this.$set(this.whichItemsClicked, index, 1)
+    handelItemClick(index) {
+      this.$emit("hotTagClick", index);
+      this.$set(this.whichItemsClicked, index, 1);
     }
   },
-  data () {
+  data() {
     return {
       whichItemsClicked: Array(this.hotTagData.length + 1)
-    }
+    };
   }
-}
+};
 </script>
 
 
@@ -64,6 +64,10 @@ export default {
       box-sizing: border-box;
       font-size: 28px;
       color: @mainColor;
+    }
+    .active {
+      background: @mainColor;
+      color: #ffffff;
     }
   }
 }
