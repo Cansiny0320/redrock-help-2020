@@ -9,7 +9,7 @@
 
 <style lang="less" scoped>
 .v-mask {
-  z-index: 1;
+  z-index: 10000;
   position: fixed;
   top: 0;
   bottom: 0;

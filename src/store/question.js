@@ -21,6 +21,7 @@ const initialState = {
     author: {},
     content: {},
     answer: [],
+    photoUrls: [],
   },
 }
 

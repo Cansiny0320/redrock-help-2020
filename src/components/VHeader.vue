@@ -33,6 +33,7 @@ export default {
     align-items: center;
     border-bottom: 1px solid @fontColor;
     background-color: @backgroundColor;
+    z-index: 1;
   }
   .block {
     height: 100px;
