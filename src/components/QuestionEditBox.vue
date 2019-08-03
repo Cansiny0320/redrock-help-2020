@@ -14,6 +14,7 @@
 <script>
 import VHotTag from "@/components/VHotTag"
 import QuestionEditTag from '@/components/QuestionEditTag'
+import {SET_POPUP_SHOW,SET_POPUP_MASSAGE} from '@/store/type/mutations'
 export default {
   name: "QuestionEditBox",
   components: {
@@ -27,9 +28,10 @@ export default {
   } , 
    watch: {
         words() {
-            console.log(this.words.length)
             if (this.words.length > this.maxLength) {
                 this.words = String(this.words).slice(0, this.maxLength);
+                this.$store.commit(SET_POPUP_SHOW)
+                this.$store.commit( SET_POPUP_MASSAGE,"只能输入150字")
             }
         }
     }
