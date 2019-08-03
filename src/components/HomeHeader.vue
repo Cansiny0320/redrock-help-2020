@@ -21,10 +21,18 @@ export default {
       isHot: true,
     }
   },
+  mounted () {
+    this.refershInfo()
+  },
   watch: {
-    $route (to) {
-      this.isHot = to.name === 'homeHot' ? true : false
+    $route () {
+      this.refershInfo()
     }
+  },
+  methods: {
+    refershInfo () {
+      this.isHot = this.$route.name === 'homeHot' ? true : false
+    },
   }
 }
 </script>

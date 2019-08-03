@@ -45,6 +45,7 @@ export default {
   },
   mounted () {
     this.q = this.$route.query.q
+    this.$store.dispatch(FETCH_QUESTION_BY_SEARCH, this.q)
   },
   computed: {
     ...mapGetters(['isLoading', 'questionList'])
