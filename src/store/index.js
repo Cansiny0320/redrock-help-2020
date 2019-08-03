@@ -7,6 +7,8 @@ import qustionList from './questionList'
 import tagHot from './tagHot'
 import profileIdentity from './profileIdentify'
 import qustion from './question'
+import toast from './toast'
+import popup from './popup'
 
 Vue.use(Vuex)
 
@@ -17,6 +19,8 @@ export default new Vuex.Store({
     qustionList,
     qustion,
     tagHot,
-    profileIdentity
+    profileIdentity,
+    toast,
+    popup,
   }
 })

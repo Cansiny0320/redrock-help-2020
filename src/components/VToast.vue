@@ -1,8 +1,8 @@
 <template>
-  <VMask>
+  <VMask v-if="toastIsShow">
     <div class="tipBox">
       <div class="require">
-        <p>设置后你的问题将不被回复，确认设置吗？</p>
+        <p>{{ maskMassage }}</p>
       </div>
       <div class="button">
         <p class="cancel">取消</p>
@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 import VMask from '@/components/VMask'
 
 export default {
@@ -24,6 +26,9 @@ export default {
     return {
       isSucceed: false
     }
+  },
+  computed: {
+    ...mapGetters(['toastIsShow', 'toastMassage'])
   }
 };
 </script>
