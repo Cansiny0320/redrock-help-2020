@@ -1,9 +1,12 @@
 <template>
   <div class="v-image">
+    <VCarousel :imagesUrl="imagesUrl" v-if="isShowCarousel" @close="handelCloseClick" :navigateTo="navigateTo"/>
     <div
       v-for="(item, index) of showImages"
       :key="index"
       class="item"
+      :class="{ four : fourImage }"
+      @click="handelImageClick(index)"
     >
       <img
         :src="item"
@@ -14,7 +17,10 @@
           { four : fourImage }
         ]"
       >
-      <div class="tips" v-if="moreImage && index === 3">
+      <div
+        class="tips"
+        v-if="moreImage && index === 3"
+      >
         <span>+{{ imagesLeftNum }}</span>
       </div>
     </div>
@@ -32,8 +38,19 @@ export default {
   },
   data () {
     return {
-      showImages: this.imagesUrl.slice(0, 4)
+      showImages: this.imagesUrl.slice(0, 4),
+      isShowCarousel: false,
+      navigateTo: 0,
     }
+  },
+  methods: {
+    handelImageClick (index) {
+      this.isShowCarousel = true
+      this.navigateTo = index
+    },
+    handelCloseClick () {
+      this.isShowCarousel = false
+    },
   },
   computed: {
     imagesLeftNum () {
@@ -64,24 +81,28 @@ export default {
   justify-content: space-between;
   .item {
     position: relative;
-  }
-  img {
-    border-radius: 10px;
-    &.one {
-      width: 100%;
-      height: 410px;
-    }
-    &.two {
-      width: 340px;
-      height: 250px;
-    }
-    &.three {
-      width: 220px;
-      height: 180px;
-    }
     &.four {
       width: 165px;
       height: 165px;
+    }
+    img {
+      border-radius: 10px;
+      &.one {
+        width: 100%;
+        height: 410px;
+      }
+      &.two {
+        width: 340px;
+        height: 250px;
+      }
+      &.three {
+        width: 220px;
+        height: 180px;
+      }
+      &.four {
+        width: 165px;
+        height: 165px;
+      }
     }
   }
 
@@ -94,7 +115,8 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, .3);
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
     color: #ffffff;
     font-size: 40px;
   }

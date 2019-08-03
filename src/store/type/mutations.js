@@ -16,3 +16,7 @@ export const SET_POPUP_MASSAGE = 'setPopupMessage'
 
 export const SET_ANSWER_APPROVAL = 'setAnswerApproval' 
 export const SET_ANSWER_OPPOSE = 'setAnswerOppose'
+
+export const SET_CAROUSEL_URL = 'setCarouselUrl'
+export const SET_CAROUSEL_SHOW = 'setCarouselShow'
+export const SET_CAROUSEL_CLOSE = 'setCarouselClose'
