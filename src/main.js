@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './registerServiceWorker'
+import './globalsComponents'
 
 import ApiService from '@/common/service/api'
 import DateFilter from '@/common/filter/date'

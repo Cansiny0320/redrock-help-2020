@@ -1,19 +1,35 @@
 <template>
     <div>
-        <div class="add"></div>
+        <input id="fileUpload" type="file" @change = "preview($event)">
+        <label for = "fileUpload" class = "add" ></label>
     </div>
 </template>
 
 
 <script>
+
 export default {
-    name:"PhotoAdd"
+    name:"PhotoAdd",
+    methods:{
+      preview(e){
+       let fileList = e.target.files;
+       let fr = new FileReader;
+       
+       console.log(fileList)
+       
+      }
+    }
 }
 </script>
 
 
 <style lang = "less" scoped>
+
+ #fileUpload{
+  display: none;
+ }
   .add{
+    display: block;
     border: 4px solid #dfe2e4;
     width: 155px;
     height: 155px;
@@ -21,6 +37,7 @@ export default {
     position: relative;
     margin-left: 30px;
     margin-top: 40px;
+   
 }
   .add::before{
   content: '';

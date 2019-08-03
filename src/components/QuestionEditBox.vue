@@ -1,7 +1,11 @@
 <template>
   <div>
     <div class="box">
-      <textarea class="content"></textarea>
+      <textarea 
+      class="content"
+      max-length = "150"
+      v-model ="words" 
+      ></textarea>
       <QuestionEditTag/>
     </div>
   </div>
@@ -14,7 +18,23 @@ export default {
   name: "QuestionEditBox",
   components: {
    QuestionEditTag
+    },
+  data(){
+    return{
+    words:'',
+    maxLength:150
     }
+  } , 
+   watch: {
+        words() {
+            console.log(this.words.length)
+            if (this.words.length > this.maxLength) {
+                this.words = String(this.words).slice(0, this.maxLength);
+            }
+        }
+    }
+ 
+
 };
 </script>
 

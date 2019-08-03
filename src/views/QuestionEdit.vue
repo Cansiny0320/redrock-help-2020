@@ -5,7 +5,9 @@
       <QuestionPublishButton />
    </header>
    <QuestionEditBox/>
-   <PhotoAdd/>
+   <QuestionEditPhoto/>
+   
+   
   </div>
   
 </template>
@@ -14,14 +16,17 @@
 import VBack from '@/components/VBack'
 import QuestionPublishButton from '@/components/QuestionPublishButton'
 import QuestionEditBox from '@/components/QuestionEditBox'
-import PhotoAdd from '@/components/PhotoAdd'
+import QuestionEditPhoto from '@/components/QuestionEditPhoto'
+
 export default {
   name: 'questionEdit',
   components:{
     QuestionPublishButton,
     VBack,
     QuestionEditBox,
-    PhotoAdd
+    QuestionEditPhoto
+
+  
   }
 }
 </script>

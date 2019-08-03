@@ -2,35 +2,42 @@
   <div class="v-hot-tag">
     <div class="title">{{ name }}</div>
     <div class="content">
-      <div class="item"
-      :class = "{active:isActive}"
-      v-for="(item, index) of hotTagData" 
-      :key="item.id" 
-      @click="handelItemClick(index)">{{item.name}}</div>
+      <div
+        class="item"
+        v-for="(item, index) of hotTagData"
+        :key="item.id"
+        @click="handelItemClick(index)"
+        :class="{ active: whichItemsClicked[index] }"
+      >{{item.name}}</div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'vHotTag',
+  name: "vHotTag",
   props: {
     name: {
       type: String,
-      required: true,
+      required: true
     },
     hotTagData: {
       type: Array,
-      required: true,
+      required: true
     }
   },
   methods: {
-    handelItemClick (index) {
-      this.$emit('hotTagClick', index);
-      
+    handelItemClick(index) {
+      this.$emit("hotTagClick", index);
+      this.$set(this.whichItemsClicked, index, 1);
     }
+  },
+  data() {
+    return {
+      whichItemsClicked: Array(this.hotTagData.length + 1)
+    };
   }
-}
+};
 </script>
 
 
@@ -58,8 +65,10 @@ export default {
       font-size: 28px;
       color: @mainColor;
     }
-  
-    
+    .active {
+      background: @mainColor;
+      color: #ffffff;
+    }
   }
 }
 </style>

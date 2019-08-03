@@ -24,8 +24,6 @@ import SearchBox from '@/components/SearchBox'
 import SearchHot from '@/components/SearchHot'
 import { FETCH_QUESTION_BY_SEARCH } from '@/store/type/actions'
 
-import VQuestion from "@/components/VQuestion"
-
 export default {
   name: 'search',
   data () {
@@ -36,7 +34,6 @@ export default {
   components: {
     SearchBox,
     SearchHot,
-    VQuestion,
   },
   watch: {
     $route (to) {

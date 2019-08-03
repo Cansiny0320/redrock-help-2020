@@ -21,9 +21,6 @@
 
 <script>
 import SearchButtonSvg from '@/assets/svg/SearchButton.svg'
-import VBack from '@/components/VBack'
-
-import VQuestion from "@/components/VQuestion"
 
 export default {
   name: 'searchBox',
@@ -35,8 +32,6 @@ export default {
   },
   components: {
     SearchButtonSvg,
-    VBack,
-    VQuestion,
   },
   watch: {
     $route (to) {
@@ -65,7 +60,7 @@ export default {
 
 <style lang="less" scoped>
 .search-box {
-  margin: 30px 28px 0 28px;
+  padding: 30px 28px 0 28px;
   height: 64px;
   display: flex;
   flex: 1;

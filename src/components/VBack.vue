@@ -16,7 +16,8 @@ export default {
   props: {
     isShowBack: {
       type: Boolean,
-      required: true,
+      required: false,
+      default: true
     }
   },
   components: {

@@ -42,6 +42,11 @@ export default new Router({
       path: '/questionEdit',
       name: 'questionEdit',
       component: () => import('@/views/QuestionEdit.vue')
+    },
+    {
+      path: '/question',
+      name: 'question',
+      component: () => import('@/views/Question.vue')
     }
   ]
 })

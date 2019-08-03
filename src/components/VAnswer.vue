@@ -1,61 +1,37 @@
 <template>
-  <div class="v-question">
+  <div class="v-answer">
     <div
-      class="question"
-      v-for="item of questionData"
+      v-for="item of answersData"
       :key="item.id"
-      @click="handelQuestionBoxClick(item.id)"
+      class="answer"
     >
       <div class="user">
-        <img
-          class="img"
-          :src="item.author.avatar"
-        >
+        <img :src="item.author.avatar">
         <span class="name">{{ item.author.name }}</span>
-        <span class="time">{{ item.updatedAt | date }}</span>
       </div>
       <div class="content">{{ item.content }}</div>
       <div class="info">
-        <div class="tags">
-          <div v-for="innerItem of item.tags" :key="innerItem.id">
-            {{ innerItem.name }}
-          </div>
-        </div>
-        <div class="count">{{ item.answersCount }}条评论</div>
       </div>
     </div>
   </div>
-
 </template>
 
 <script>
-
 export default {
-  name: 'vQuestion',
+  name: 'vAnswer',
   props: {
-    isLoading: {
-      type: Boolean,
-      required: false,
-    },
-    questionData: {
+    answersData: {
       type: Array,
       required: true,
     }
-  },
-  methods: {
-    handelQuestionBoxClick(id) {
-      this.$router.push({ name: 'question', query: { id } })
-    }
   }
 }
-
 </script>
 
 <style lang="less" scoped>
-.v-question {
-  // 这种有具体内容最好不要设定 height 和 width
+.v-answer {
   margin: 0 28px;
-  .question {
+  .answer {
     margin-bottom: 32px;
     border: 2px solid @mainColor;
     border-radius: 8px;
@@ -65,15 +41,12 @@ export default {
       align-items: center;
       justify-content: flex-start;
       color: @fontColor;
-      .img {
+      img {
         width: 86px;
         height: 86px;
         border-radius: 86px;
         background: @mainColor;
         margin: 20px;
-      }
-      .time {
-        margin: 0 20px 0 auto;
       }
     }
     .content {
@@ -89,3 +62,4 @@ export default {
   }
 }
 </style>
+
