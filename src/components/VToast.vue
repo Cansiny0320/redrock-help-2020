@@ -1,7 +1,5 @@
 <template>
-  <div @touchstart.prevent class="v-toast">
-    <div id="back"></div>
-
+  <VMask>
     <div class="tipBox">
       <div class="require">
         <p>设置后你的问题将不被回复，确认设置吗？</p>
@@ -11,13 +9,17 @@
         <p class="confirm">确认</p>
       </div>
     </div>
-  </div>
+  </VMask>
 </template>
 
 <script>
+import VMask from '@/components/VMask'
 
 export default {
   name: "VToast",
+  components: {
+    VMask,
+  },
   data () {
     return {
       isSucceed: false
@@ -27,14 +29,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-#back {
-  position: absolute;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  background: #c3c4c6;
-  opacity: 0.5;
-}
 .tipBox {
   border-radius: 10px;
   width: 570px;
