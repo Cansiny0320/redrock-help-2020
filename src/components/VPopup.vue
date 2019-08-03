@@ -9,13 +9,8 @@
 <script>
 import { mapGetters } from 'vuex'
 
-import VMask from '@/components/VMask'
-
 export default {
   name: "VToast",
-  components: {
-    VMask,
-  },
   data () {
     return {
       isSucceed: false

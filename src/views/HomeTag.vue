@@ -16,15 +16,11 @@ import { mapGetters } from "vuex"
 
 import { FETCH_QUESTION_BY_TAG } from '@/store/type/actions'
 
-import VQuestion from "@/components/VQuestion"
 import HomeEditButton from '@/components/HomeEditButton'
-import VHeader from '@/components/VHeader'
 
 export default {
   name: 'homeTag',
   components: {
-    VHeader,
-    VQuestion,
     HomeEditButton,
   },
   watch: {

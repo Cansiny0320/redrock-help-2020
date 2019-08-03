@@ -16,15 +16,8 @@
 import { mapGetters } from 'vuex'
 import { FETCH_ONE_QUESTION_BY_ID } from '@/store/type/actions'
 
-import VHeader from '@/components/VHeader'
-import VAnswer from '@/components/VAnswer'
-
 export default {
   name: 'qustion',
-  components: {
-    VHeader,
-    VAnswer,
-  },
   mounted () {
     this.$store.dispatch(FETCH_ONE_QUESTION_BY_ID, this.$route.query.id)
   },

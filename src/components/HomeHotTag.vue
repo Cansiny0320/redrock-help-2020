@@ -11,13 +11,9 @@
 <script>
 import { mapGetters } from "vuex"
 import { FETCH_TAG_HOT } from "@/store/type/actions"
-import VHotTag from '@/components/VHotTag'
 
 export default {
   name: 'homeHotTag',
-  components: {
-    VHotTag
-  },
   methods: {
     handelHomeHotTagClick(index) {
       this.$router.push({ name: 'homeTag', query: { id: this.tagHot[index].id } })

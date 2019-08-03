@@ -6,8 +6,6 @@
 </template>
 
 <script>
-import VBack from '@/components/VBack'
-
 export default {
   name: 'vHeader',
   props: {
@@ -16,9 +14,6 @@ export default {
       required: false,
       default: '',
     }
-  },
-  components: {
-    VBack,
   },
 }
 </script>

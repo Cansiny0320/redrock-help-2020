@@ -9,15 +9,11 @@
 
 <script>
 import TheFooterNavBar from "@/components/TheFooterNavBar";
-import VToast from "@/components/VToast";
-import VPopup from '@/components/VPopup'
 
 export default {
   name: "app",
   components: {
     TheFooterNavBar,
-    VToast,
-    VPopup,
   },
  
 };

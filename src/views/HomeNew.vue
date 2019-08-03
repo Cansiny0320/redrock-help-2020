@@ -13,13 +13,8 @@
 import { mapGetters } from 'vuex'
 import { FETCH_QUESTION_NEW } from '@/store/type/actions'
 
-import VQuestion from "@/components/VQuestion"
-
 export default {
   name: 'homeNew',
-  components: {
-    VQuestion,
-  },
   mounted () {
     this.$store.dispatch(FETCH_QUESTION_NEW)
   },
