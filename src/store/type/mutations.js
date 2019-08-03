@@ -16,3 +16,5 @@ export const SET_POPUP_MASSAGE = 'setPopupMessage'
 
 export const SET_ANSWER_APPROVAL = 'setAnswerApproval' 
 export const SET_ANSWER_OPPOSE = 'setAnswerOppose'
+
+export const SET_PROFILE_QUESTION = 'setProfileQuestion'

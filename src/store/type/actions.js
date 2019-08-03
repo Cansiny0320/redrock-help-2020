@@ -11,3 +11,5 @@ export const FETCH_QUESTION_SOLVE = 'fetchQuestionSolve'
 
 export const FETCH_ANSWER_APPROVAL = 'fetchAnswerApproval'
 export const FETCH_ANSWER_OPPOSE = 'fechAnswerOppose'
+
+export const FETCH_PROFILE_QUESTION = 'fetchProfileQuestion'

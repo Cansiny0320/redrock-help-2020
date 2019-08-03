@@ -7,12 +7,16 @@
       />
       <span class="name">{{profileData.name}}</span>
     </div>
+
+    <router-link :to="{name:'questionNew'}">
     <div class="question">
       <span>我提过的问题{{profileData.questionsNum}}个</span>
       <div class="front-icon">
         <BaseFront />
       </div>
     </div>
+    </router-link>
+
     <div class="comment">
       <span>我收到的评论{{profileData.answersNum}}个</span>
       <div class="front-icon">

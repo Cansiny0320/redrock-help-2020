@@ -36,7 +36,7 @@ export default new Router({
     {
       path: '/profile',
       name: 'profile',
-      component: () => import('@/views/Profile.vue')
+      component: () => import('@/views/Profile.vue'),
     },
     {
       path: '/questionEdit',
@@ -47,6 +47,11 @@ export default new Router({
       path: '/question',
       name: 'question',
       component: () => import('@/views/Question.vue')
+    },
+    {
+      path: '/questioNew',
+      name: 'questionNew',
+      component: () => import('@/views/ProfileQuestionNew.vue')
     }
   ]
 })

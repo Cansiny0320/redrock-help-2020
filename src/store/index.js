@@ -9,6 +9,7 @@ import profileIdentity from './profileIdentify'
 import qustion from './question'
 import toast from './toast'
 import popup from './popup'
+import profileQuestion from './profileQuestion'
 
 Vue.use(Vuex)
 
@@ -22,5 +23,6 @@ export default new Vuex.Store({
     profileIdentity,
     toast,
     popup,
+    profileQuestion
   }
 })
