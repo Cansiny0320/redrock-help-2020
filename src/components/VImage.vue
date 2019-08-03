@@ -82,8 +82,8 @@ export default {
   .item {
     position: relative;
     &.four {
-      width: 165px;
-      height: 165px;
+      width: 163px;
+      height: 163px;
     }
     img {
       border-radius: 10px;
@@ -92,7 +92,7 @@ export default {
         height: 410px;
       }
       &.two {
-        width: 340px;
+        width: 334px;
         height: 250px;
       }
       &.three {
@@ -100,8 +100,8 @@ export default {
         height: 180px;
       }
       &.four {
-        width: 165px;
-        height: 165px;
+        width: 163px;
+        height: 163px;
       }
     }
   }

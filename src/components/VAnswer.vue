@@ -10,6 +10,9 @@
         <span class="name">{{ item.author.name }}</span>
       </div>
       <div class="content">{{ item.content }}</div>
+      <div class="images">
+        <VImage :imagesUrl="item.photoUrls" />
+      </div>
       <div class="info">
         <div class="time">{{ item.createdAt | date }}</div>
         <div class="action">
@@ -88,6 +91,9 @@ export default {
     }
     .content {
       padding: 20px;
+    }
+    .images {
+      margin: 0 10px 20px 10px;
     }
     .info {
       display: flex;

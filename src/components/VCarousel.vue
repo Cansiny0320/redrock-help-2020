@@ -92,6 +92,10 @@ export default {
     z-index: 1;
     display: flex;
     align-items: center;
+    width: 100%;
+    span {
+      margin: 0 30px;
+    }
   }
   .carousel {
     & /deep/ .VueCarousel-wrapper {
