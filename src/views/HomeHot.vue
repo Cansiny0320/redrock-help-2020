@@ -14,13 +14,11 @@
 import { mapGetters } from 'vuex'
 
 import { FETCH_QUESTION_HOT } from '@/store/type/actions'
-import VQuestion from "@/components/VQuestion"
 import HomeHotTag from '@/components/HomeHotTag'
 
 export default {
   name: 'homeHot',
   components: {
-    VQuestion,
     HomeHotTag,
   },
   mounted () {

@@ -15,15 +15,9 @@ const ApiService = {
       "Authorization"
     ] = `Token ${JwtService.getToken()}`;
   },
-
-  query (resource, params) {
-    return Vue.axios.get(resource, params).catch(error => {
-      throw new Error(`[RWV] ApiService ${error}`);
-    });
-  },
-
-  get (resource, slug = "") {
-    return Vue.axios.get(`${resource}/${slug}`).catch(error => {
+  
+  get (resource) {
+    return Vue.axios.get(resource).catch(error => {
       throw new Error(`[RWV] ApiService ${error}`);
     });
   },
@@ -32,12 +26,12 @@ const ApiService = {
     return Vue.axios.post(`${resource}`, params);
   },
 
-  update (resource, slug, params) {
-    return Vue.axios.put(`${resource}/${slug}`, params);
+  patch (resource, params) {
+    return Vue.axios.patch(resource, params);
   },
 
   put (resource, params) {
-    return Vue.axios.put(`${resource}`, params);
+    return Vue.axios.put(resource, params);
   },
 
   delete (resource) {
@@ -65,13 +59,25 @@ export const QuestionService = {
   new () {
     return ApiService.get(`questions?sortby=new`)
   },
-  tag(tagId) {
+  tag (tagId) {
     return ApiService.get(`questions/tag/${tagId}`)
+  },
+  get (questionId) {
+    return ApiService.get(`questions/${questionId}/answer`)
+  },
+  solve (questionId, params) {
+    return ApiService.patch(`questions/${questionId}`, params)
+  },
+  approval (answerId) {
+    return ApiService.get(`questions`)
+  },
+  oppose (answerId) {
+    return ApiService.get(`questions`)
   }
 }
 
 export const ProfileService = {
-  identify() {
+  identify () {
     return ApiService.get(`user`)
   }
 }

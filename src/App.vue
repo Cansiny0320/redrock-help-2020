@@ -1,18 +1,21 @@
 <template>
   <div id="app">
-      <router-view class="router-app"/>
+    <router-view class="router-app" />
     <TheFooterNavBar />
+    <VToast />
+    <VPopup />
   </div>
 </template>
 
 <script>
-import TheFooterNavBar from '@/components/TheFooterNavBar'
+import TheFooterNavBar from "@/components/TheFooterNavBar";
+
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    TheFooterNavBar,
+    TheFooterNavBar
   }
-}
+};
 </script>
 
 

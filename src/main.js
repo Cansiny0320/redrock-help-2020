@@ -3,12 +3,17 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './registerServiceWorker'
+import './globalsComponents'
+
+import VueCarousel from 'vue-carousel';
 
 import ApiService from '@/common/service/api'
 import DateFilter from '@/common/filter/date'
 
 import '@/assets/styles/reset.css'
 import '@/assets/styles/global.less'
+
+Vue.use(VueCarousel)
 
 Vue.filter('date', DateFilter)
 

@@ -1,7 +1,7 @@
 <template>
-  <div class="home-hot-tag">
+  <div class="question-edit-tag">
     <VHotTag
-      name="热门标签"
+      name="选择标签"
       :hotTagData="tagHot"
       @hotTagClick="handelHomeHotTagClick"
     />
@@ -11,12 +11,16 @@
 <script>
 import { mapGetters } from "vuex"
 import { FETCH_TAG_HOT } from "@/store/type/actions"
+import VHotTag from '@/components/VHotTag'
 
 export default {
-  name: 'homeHotTag',
+  name: 'questionEditTag',
+  components: {
+    VHotTag
+  },
   methods: {
     handelHomeHotTagClick(index) {
-      this.$router.push({ name: 'homeTag', query: { id: this.tagHot[index].id } })
+      console.log(this.tagHot[index])
     }
   },
   mounted () {
@@ -30,14 +34,5 @@ export default {
 
 
 <style lang="less" scoped>
-.home-hot-tag {
-  position: fixed;
-  top: 70px;
-  left: 0;
-  right: 0;
-  height: 220px;
-  overflow: hidden;
-  background-color: @backgroundColor;
-  border-bottom: 1px solid @borderColor;
-}
+
 </style>

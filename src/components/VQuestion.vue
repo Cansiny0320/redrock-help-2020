@@ -4,6 +4,7 @@
       class="question"
       v-for="item of questionData"
       :key="item.id"
+      @click="handelQuestionBoxClick(item.id)"
     >
       <div class="user">
         <img
@@ -14,7 +15,14 @@
         <span class="time">{{ item.updatedAt | date }}</span>
       </div>
       <div class="content">{{ item.content }}</div>
-      <div class="info"></div>
+      <div class="info">
+        <div class="tags">
+          <div v-for="innerItem of item.tags" :key="innerItem.id">
+            {{ innerItem.name }}
+          </div>
+        </div>
+        <div class="count">{{ item.answersCount }}条评论</div>
+      </div>
     </div>
   </div>
 
@@ -33,6 +41,11 @@ export default {
       type: Array,
       required: true,
     }
+  },
+  methods: {
+    handelQuestionBoxClick(id) {
+      this.$router.push({ name: 'question', query: { id } })
+    }
   }
 }
 
@@ -45,7 +58,7 @@ export default {
   .question {
     margin-bottom: 32px;
     border: 2px solid @mainColor;
-    border-radius: 30px;
+    border-radius: 8px;
     background: #ffffff;
     .user {
       display: flex;
@@ -65,6 +78,13 @@ export default {
     }
     .content {
       padding: 20px;
+    }
+    .info {
+      display: flex;
+      font-size: 22px;
+      color: @fontColor;
+      justify-content: space-between;
+      margin: 0 20px 15px 20px;
     }
   }
 }

@@ -3,6 +3,7 @@
     <HomeHeader />
     <router-view class="router-home"/>
     <HomeEditButton />
+  
   </div>
 
 </template>
@@ -14,7 +15,8 @@ export default {
   name: 'home',
   components: {
     HomeEditButton,
-    HomeHeader
+    HomeHeader,
+    
   }
 }
 </script>

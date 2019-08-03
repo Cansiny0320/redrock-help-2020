@@ -1,6 +1,6 @@
 <template>
   <div class="search-box">
-    <VBack :isShowBack="isShowBack"/>
+    <VBack :isShowBack="isShowBack" />
     <div class="box">
       <input
         class="search-input"
@@ -21,9 +21,6 @@
 
 <script>
 import SearchButtonSvg from '@/assets/svg/SearchButton.svg'
-import VBack from '@/components/VBack'
-
-import VQuestion from "@/components/VQuestion"
 
 export default {
   name: 'searchBox',
@@ -35,17 +32,13 @@ export default {
   },
   components: {
     SearchButtonSvg,
-    VBack,
-    VQuestion,
+  },
+  mounted () {
+    this.refershInfo()
   },
   watch: {
-    $route (to) {
-      this.searchVaule = to.query.q
-      if (to.query.q) {
-        this.isShowBack = true
-      } else {
-        this.isShowBack = false
-      }
+    $route () {
+      this.refershInfo()
     }
   },
   methods: {
@@ -58,14 +51,22 @@ export default {
     },
     handelBackClick () {
       this.$router.push(``)
-    }
+    },
+    refershInfo () {
+      this.searchVaule = this.$route.query.q
+      if (this.$route.query.q) {
+        this.isShowBack = true
+      } else {
+        this.isShowBack = false
+      }
+    },
   },
 }
 </script>
 
 <style lang="less" scoped>
 .search-box {
-  margin: 30px 28px 0 28px;
+  padding: 30px 28px 0 28px;
   height: 64px;
   display: flex;
   flex: 1;
