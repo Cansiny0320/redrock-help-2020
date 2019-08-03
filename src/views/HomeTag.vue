@@ -47,4 +47,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.question {
+  padding-top: 20px;
+}
 </style>
