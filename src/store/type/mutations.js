@@ -13,3 +13,6 @@ export const SET_TOAST_MASSAGE = 'setToastMessage'
 export const SET_POPUP_SHOW = 'setPopupShow'
 export const SET_POPUP_CLOSE = 'setPopupClose'
 export const SET_POPUP_MASSAGE = 'setPopupMessage'
+
+export const SET_ANSWER_APPROVAL = 'setAnswerApproval' 
+export const SET_ANSWER_OPPOSE = 'setAnswerOppose'

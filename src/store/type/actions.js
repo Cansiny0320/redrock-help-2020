@@ -8,3 +8,6 @@ export const FETCH_PROFILE_IDENTITY = 'fetchProfileIdentity'
 export const FETCH_ONE_QUESTION_BY_ID = 'fetchOneQuestionById'
 
 export const FETCH_QUESTION_SOLVE = 'fetchQuestionSolve'
+
+export const FETCH_ANSWER_APPROVAL = 'fetchAnswerApproval'
+export const FETCH_ANSWER_OPPOSE = 'fechAnswerOppose'

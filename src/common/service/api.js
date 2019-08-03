@@ -62,11 +62,17 @@ export const QuestionService = {
   tag (tagId) {
     return ApiService.get(`questions/tag/${tagId}`)
   },
-  getOne (questionId) {
+  get (questionId) {
     return ApiService.get(`questions/${questionId}/answer`)
   },
-  solveOne (questionId, params) {
+  solve (questionId, params) {
     return ApiService.patch(`questions/${questionId}`, params)
+  },
+  approval (answerId) {
+    return ApiService.get(`questions`)
+  },
+  oppose (answerId) {
+    return ApiService.get(`questions`)
   }
 }
 
