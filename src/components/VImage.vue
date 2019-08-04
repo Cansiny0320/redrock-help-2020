@@ -87,6 +87,7 @@ export default {
     }
     img {
       border-radius: 10px;
+      object-fit: cover;
       &.one {
         width: 100%;
         height: 410px;

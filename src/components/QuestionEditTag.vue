@@ -11,13 +11,9 @@
 <script>
 import { mapGetters } from "vuex"
 import { FETCH_TAG_HOT } from "@/store/type/actions"
-import VHotTag from '@/components/VHotTag'
 
 export default {
   name: 'questionEditTag',
-  components: {
-    VHotTag
-  },
   methods: {
     handelHomeHotTagClick(index) {
       console.log(this.tagHot[index])
@@ -27,7 +23,7 @@ export default {
     this.$store.dispatch(FETCH_TAG_HOT)
   },
   computed: {
-    ...mapGetters(['isLoadingTagHot', 'tagHot']),
+    ...mapGetters(['isLoading', 'tagHot']),
   },
 }
 </script>

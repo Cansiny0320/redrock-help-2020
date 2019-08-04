@@ -25,15 +25,11 @@
 <script>
 import BaseFront from "@/assets/svg/BaseFront.svg";
 export default {
-  name: "ProfileNew",
+  name: "profileNew",
   components: {
     BaseFront
   },
   props: {
-    isLoadingIdentity: {
-      type: Boolean,
-      required: false
-    },
     profileData: {
       type: Object,
       required: true

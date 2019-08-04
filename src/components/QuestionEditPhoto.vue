@@ -1,34 +1,48 @@
 <template>
   <div class="question-edit-photo">
-    <div class="imgContain">
-      <ul>
-        <li class="imgList" v-for="item in urlList" :key="item.data">
-          <img :src="item" />
-          <span class="delete"></span>
-        </li>
-
-        <li>
-          <div>
-            <input id="fileUpload" type="file" multiple @change="previewFiles($event)" />
-            <label for="fileUpload" class="add"></label>
-          </div>
-        </li>
-      </ul>
-    </div>
+    <ul>
+      <li
+        class="list"
+        v-for="(item, index) of urlList"
+        :key="index"
+      >
+        <img :src="item" />
+        <div class="delete" @click="handelDeleteClick(index)">
+          <BaseDeleteSvg />
+        </div>
+      </li>
+      <div>
+        <input
+          id="fileUpload"
+          type="file"
+          multiple
+          @change="previewFiles($event)"
+        />
+        <label
+          for="fileUpload"
+          class="add"
+        ></label>
+      </div>
+    </ul>
   </div>
 </template>
 
 <script>
+import BaseDeleteSvg from '@/assets/svg/BaseDelete.svg'
+
 export default {
   name: "QuestionEditPhoto",
-  data() {
+  components: {
+    BaseDeleteSvg,
+  },
+  data () {
     return {
       urlList: []
     };
   },
 
   methods: {
-    previewFiles(e) {
+    previewFiles (e) {
       let files = e.target.files || e.dataTransfer.files;
       const imgMasSize = 1024 * 1024 * 10; // 10MB
       let filesLength = files.length;
@@ -40,6 +54,9 @@ export default {
           this.urlList.push(url);
         };
       }
+    },
+    handelDeleteClick(index) {
+      this.urlList.splice(index, 1)
     }
   }
 };
@@ -51,30 +68,34 @@ ul {
   display: flex;
   flex-wrap: wrap;
   li {
-    width: 174px;
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 20px;
     img {
       width: 164px;
       height: 164px;
       border-radius: 10px;
+      object-fit: cover;
     }
-     .delete{
-        background: #657178;
-        color: #ffffff;
-        border-radius: 100%;
-        line-height: 35px;
-        text-align: center;
-        height: 35px;
-        width: 35px;
-        font-size: 26px;
-        padding: 5px;
-        opacity: 0.7;
-        position: relative;
-        bottom: 150px;
-        left:120px;
-    }
-
-    .delete::before {
-        content: '\2716';
+    .delete {
+      top: 0px;
+      left: 0px;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+      display: flex;
+      justify-content: flex-end;
+      svg {
+        margin: 5px;
+        width: 50px;
+        height: 50px;
+        path:nth-of-type(1) {
+          fill: rgba(0, 0, 0, 0.7);
+        }
+        path:nth-of-type(2) {
+          fill: rgba(255, 255, 255, 0.9);
+        }
+      }
     }
   }
 }
@@ -85,29 +106,30 @@ ul {
 .add {
   display: block;
   border: 4px solid #dfe2e4;
-  width: 147px;
-  height: 147px;
+  width: 164px;
+  height: 164px;
+  box-sizing: border-box;
   color: #dfe2e4;
   position: relative;
-}
-.add::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 80px;
-  margin-left: -40px;
-  margin-top: -5px;
-  border-top: 5px solid;
-}
-.add::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  height: 80px;
-  margin-left: -5px;
-  margin-top: -40px;
-  border-left: 5px solid;
+  &:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 80px;
+    margin-left: -40px;
+    margin-top: -5px;
+    border-top: 5px solid;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 80px;
+    margin-left: -5px;
+    margin-top: -40px;
+    border-left: 5px solid;
+  }
 }
 </style>

@@ -1,12 +1,11 @@
 <template>
-  <div>
+  <div class="question-edit-box">
+    <VPopup :massage="TipsMassage" v-if="isShowTips"/>
     <div class="box">
-      <textarea 
-      class="content"
-      max-length = "150"
-      v-model ="words" 
+      <textarea
+        v-model="words"
       ></textarea>
-      <QuestionEditTag/>
+      <QuestionEditTag />
     </div>
   </div>
 </template>
@@ -14,27 +13,34 @@
 <script>
 import VHotTag from "@/components/VHotTag"
 import QuestionEditTag from '@/components/QuestionEditTag'
-export default {
-  name: "QuestionEditBox",
-  components: {
-   QuestionEditTag
-    },
-  data(){
-    return{
-    words:'',
-    maxLength:150
-    }
-  } , 
-   watch: {
-        words() {
-            console.log(this.words.length)
-            if (this.words.length > this.maxLength) {
-                this.words = String(this.words).slice(0, this.maxLength);
-            }
-        }
-    }
- 
 
+export default {
+  name: "questionEditBox",
+  components: {
+    QuestionEditTag
+  },
+  data () {
+    return {
+      words: '',
+      maxLength: 150,
+      isShowTips: false,
+      TipsMassage: '您最多只能输入 150 个字符',
+      timer: null,
+    }
+  },
+  watch: {
+    words () {
+      if (this.words.length > this.maxLength) {
+        this.words = String(this.words).slice(0, this.maxLength);
+        this.isShowTips = true
+
+        clearTimeout(this.timer)
+        this.timer = setTimeout(()=>{
+          this.isShowTips = false
+        }, 1500)
+      }
+    }
+  }
 };
 </script>
 
@@ -46,14 +52,14 @@ export default {
   height: 380px;
   border-radius: 30px;
   background: #ffffff;
-  .content {
+  textarea {
     border: 0;
     outline: 0;
     width: 650px;
     background: none;
-    min-height: 110px;
-    overflow: hidden;
-    padding: 25px;
+    min-height: 140px;
+    padding: 20px 20px 0 20px;
+    font-size: 30px;
   }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <div v-if="!isLoadingIdentity">
-    <ProfileNew v-if="isNew" :isloadingIdentity="isLoadingIdentity" :profileData="profileIdentity" />
-    <ProfileOld v-if="isOld" :isloadingIdentity="isLoadingIdentity" :profileData="profileIdentity" />
+  <div>
+    <ProfileNew v-if="isNew" :profileData="profileIdentity" />
+    <ProfileOld v-if="isOld" :profileData="profileIdentity" />
   </div>
 </template>
 
@@ -10,7 +10,6 @@ import { mapGetters } from "vuex";
 import { FETCH_PROFILE_IDENTITY } from "@/store/type/actions";
 import ProfileNew from "@/components/ProfileNew";
 import ProfileOld from "@/components/ProfileOld";
-import profileIdentify from "../store/profileIdentify";
 
 export default {
   name: "profile",
@@ -23,13 +22,13 @@ export default {
   },
 
   computed: {
-    ...mapGetters(["isLoadingIdentity", "profileIdentity"]),
+    ...mapGetters([ "profileIdentity", "isLoading"]),
     isNew() {
-      if (this.profileIdentity.role == "新生") return true;
+      if (this.profileIdentity.role === "新生") return true;
       else return false;
     },
     isOld() {
-      if (this.profileIdentity.role == "志愿者") return true;
+      if (this.profileIdentity.role === "志愿者") return true;
       else return false;
     }
   }

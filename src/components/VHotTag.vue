@@ -27,12 +27,16 @@ export default {
     }
   },
   methods: {
-    handelItemClick(index) {
+    handelItemClick (index) {
       this.$emit("hotTagClick", index);
-      this.$set(this.whichItemsClicked, index, 1);
+      if (this.whichItemsClicked[index]) {
+        this.$set(this.whichItemsClicked, index, 0);
+      } else {
+        this.$set(this.whichItemsClicked, index, 1);
+      }
     }
   },
-  data() {
+  data () {
     return {
       whichItemsClicked: Array(this.hotTagData.length + 1)
     };
