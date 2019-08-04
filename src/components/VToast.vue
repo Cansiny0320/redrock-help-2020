@@ -1,12 +1,12 @@
 <template>
-  <VMask v-if="toastIsShow">
+  <VMask>
     <div class="tipBox">
       <div class="require">
-        <p>{{ maskMassage }}</p>
+        <p>{{ massage }}</p>
       </div>
       <div class="button">
-        <p class="cancel">取消</p>
-        <p class="confirm">确认</p>
+        <p class="cancel" @touchstart="handelCancelClick">取消</p>
+        <p class="confirm" @touchstart="handelConfirmClick">确认</p>
       </div>
     </div>
   </VMask>
@@ -16,14 +16,20 @@
 import { mapGetters } from 'vuex'
 
 export default {
-  name: "VToast",
-  data () {
-    return {
-      isSucceed: false
-    }
+  name: "vToast",
+  props: {
+    massage: {
+      type: String,
+      required: true,
+    },
   },
-  computed: {
-    ...mapGetters(['toastIsShow', 'toastMassage'])
+  methods: {
+    handelCancelClick() {
+      this.$emit('cancel')
+    },
+    handelConfirmClick() {
+      this.$emit('confirm')
+    }
   }
 };
 </script>

@@ -1,24 +1,20 @@
 <template>
-  <VMask v-if="popupIsShow">
+  <VMask>
     <div class="tip">
-      <p>{{ popupMassage }}</p>
+      <p>{{ massage }}</p>
     </div>
   </VMask>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-
 export default {
-  name: "VPopup",
-  data () {
-    return {
-     
-    }
+  name: "vPopup",
+  props: {
+    massage: {
+      type: String,
+      required: true,
+    },
   },
-  computed: {
-    ...mapGetters(['popupIsShow', 'popupMassage'])
-  }
 };
 </script>
 

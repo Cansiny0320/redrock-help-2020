@@ -2,8 +2,6 @@
   <div id="app">
     <router-view class="router-app" />
     <TheFooterNavBar />
-    <VToast />
-    <VPopup />
   </div>
 </template>
 
