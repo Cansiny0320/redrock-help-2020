@@ -5,6 +5,10 @@
     "https://cdn.pixabay.com/photo/2019/07/25/10/43/ballerina-4362282_960_720.jpg",
     "https://cdn.pixabay.com/photo/2019/07/25/14/39/skipper-4362807_960_720.jpg"
   ],
+  "question":{
+    "id":0,
+    "content":"小卖部打印店"
+  },
   "author": {
     "id": 0,
     "stuNum": 0,
@@ -28,6 +32,10 @@
     "https://cdn.pixabay.com/photo/2019/07/25/10/43/ballerina-4362282_960_720.jpg",
     "https://cdn.pixabay.com/photo/2019/07/25/14/39/skipper-4362807_960_720.jpg"
   ],
+  "question":{
+    "id":0,
+    "content":"小卖部打印店"
+  },
   "author": {
     "id": 0,
     "stuNum": 0,
@@ -51,6 +59,10 @@
     "https://cdn.pixabay.com/photo/2019/07/25/10/43/ballerina-4362282_960_720.jpg",
     "https://cdn.pixabay.com/photo/2019/07/25/14/39/skipper-4362807_960_720.jpg"
   ],
+  "question":{
+    "id":0,
+    "content":"小卖部打印店"
+  },
   "author": {
     "id": 0,
     "stuNum": 0,

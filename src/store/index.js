@@ -7,6 +7,8 @@ import qustionList from './questionList'
 import tagHot from './tagHot'
 import profileIdentity from './profileIdentify'
 import qustion from './question'
+import profileQuestion from './profileQuestion'
+import profileComment from './profileComment'
 
 Vue.use(Vuex)
 
@@ -18,5 +20,7 @@ export default new Vuex.Store({
     qustion,
     tagHot,
     profileIdentity,
+    profileQuestion,
+    profileComment
   }
 })

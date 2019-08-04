@@ -7,7 +7,7 @@
       @click="handelQuestionBoxClick(item.id)"
     >
       <div class="user">
-        <img
+        <img 
           class="img"
           :src="item.author.avatar"
         >
