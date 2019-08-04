@@ -18,26 +18,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.home-edit-button {
-  position: fixed;
-  right: 23px;
-  bottom: 128px;
-  height: 101px;
-  width: 101px;
-  background-color: @mainColor;
-  border-radius: 101px;
-  box-shadow: 3px 3px 7px rgba(255, 139, 117, 0.29);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .icon {
-    width: 41px;
-    height: 47px;
-    path {
-      fill: #ffffff;
-    }
-  }
-}
+@import '../assets/styles/button.less';
 </style>
 

@@ -3,6 +3,7 @@
     class="qustion"
     v-if="!isLoading"
   >
+    <QuestionReplyButton />
     <VHeader titleStr="问题详情" />
     <div class="user">
       <img :src="oneQuestion.author.avatar">
@@ -22,8 +23,13 @@
 import { mapGetters } from 'vuex'
 import { FETCH_ONE_QUESTION_BY_ID } from '@/store/type/actions'
 
+import QuestionReplyButton from '@/components/QuestionReplyButton'
+
 export default {
   name: 'qustion',
+  components: {
+    QuestionReplyButton,
+  },
   mounted () {
     this.$store.dispatch(FETCH_ONE_QUESTION_BY_ID, this.$route.query.id)
   },

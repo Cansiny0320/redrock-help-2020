@@ -5,19 +5,19 @@
       <textarea
         v-model="words"
       ></textarea>
-      <QuestionEditTag />
+      <EditTag />
     </div>
   </div>
 </template>
 
 <script>
 import VHotTag from "@/components/VHotTag"
-import QuestionEditTag from '@/components/QuestionEditTag'
+import EditTag from '@/components/EditTag'
 
 export default {
   name: "questionEditBox",
   components: {
-    QuestionEditTag
+    EditTag
   },
   data () {
     return {
