@@ -39,6 +39,16 @@ export default new Router({
       component: () => import('@/views/Profile.vue'),
     },
     {
+      path: '/profile/question',
+      name: 'profileQuestion',
+      component: () => import('@/views/ProfileQuestion.vue')
+    },
+    {
+      path: '/profile/answer',
+      name: 'profileAnswer',
+      component: () => import('@/views/ProfileAnswer.vue')
+    },
+    {
       path: '/questionEdit',
       name: 'questionEdit',
       component: () => import('@/views/QuestionEdit.vue')
@@ -53,15 +63,5 @@ export default new Router({
       name: 'question',
       component: () => import('@/views/Question.vue')
     },
-    {
-      path: '/questioNew',
-      name: 'questionNew',
-      component: () => import('@/views/ProfileQuestionNew.vue')
-    },
-    {
-      path: '/commentNew/:content',
-      name: 'commentNew',
-      component: () => import('@/views/ProfileCommentNew.vue')
-    }
   ]
 })

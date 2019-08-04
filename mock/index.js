@@ -82,7 +82,7 @@ module.exports = {
       res.json(questions)
     })
 
-    app.get('/api/user/answers', (req, res) => {
+    app.get('/api/user/answers*', (req, res) => {
       res.json(answers)
     })
 

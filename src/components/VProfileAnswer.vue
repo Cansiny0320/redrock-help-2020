@@ -1,24 +1,22 @@
 <template>
   <div>
-    <div class="box"
-    v-for = "item in commentData"
-    :key = "item.id"
+    <div
+      class="box"
+      v-for="item in commentData"
+      :key="item.id"
     >
       <div class="comment">{{item.content}}</div>
       <div class="question">来自于问题“{{item.question.content}}”</div>
       <div class="info">
         <div class="time">{{item.createdAt|date}}</div>
-
         <div class="action">
           <div>
             <AnswerApprovalSvg />{{item.approvalNum}}人
           </div>
-
           <div>
             <AnswerOpposeSvg />{{item.opposeNum}}人
           </div>
         </div>
-
         <div class="delete">删除</div>
       </div>
     </div>
@@ -26,8 +24,6 @@
 </template>
 
 <script>
-import profileComment from "../store/profileComment";
-
 import { mapGetters } from "vuex";
 import { FETCH_PROFILE_COMMENT } from "@/store/type/actions";
 
@@ -35,21 +31,17 @@ import AnswerApprovalSvg from "@/assets/svg/AnswerApproval.svg";
 import AnswerOpposeSvg from "@/assets/svg/AnswerOppose.svg";
 
 export default {
-  name: "ProfileComment",
+  name: "VProfileAnswer",
   components: {
     AnswerApprovalSvg,
     AnswerOpposeSvg
   },
   props: {
-    isLoading: {
-        type: Boolean,
-        required: false,
-    },
     commentData: {
-        type: Array,
-        required: true,
+      type: Array,
+      required: true,
     }
-    }
+  },
 };
 </script>
 
@@ -62,15 +54,14 @@ export default {
   margin: 30px;
   padding: 30px;
   border-radius: 10px;
-  .comment{
-    font-size:40px;
+  .comment {
+    font-size: 40px;
     margin-bottom: 20px;
   }
-  .question{
+  .question {
     color: @fontColor;
     font-size: 30px;
     margin-bottom: 30px;
-
   }
 }
 
@@ -85,7 +76,7 @@ export default {
     display: flex;
     align-items: center;
     color: @fontColor;
-    margin:0 10px 0 190px;
+    margin: 0 10px 0 190px;
     div {
       display: flex;
       align-items: center;

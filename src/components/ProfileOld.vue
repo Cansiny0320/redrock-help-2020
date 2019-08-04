@@ -50,9 +50,8 @@ export default {
     }
   },
   methods:{
-     handleClick(content) {
-      this.$router.push({ name: 'commentNew', params: { content } })
-      
+     handleClick(type) {
+      this.$router.push({ name: 'profileAnswer', query: { type } })
     }
   }
 };

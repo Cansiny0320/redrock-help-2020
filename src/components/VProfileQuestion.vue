@@ -1,8 +1,10 @@
 <template>
   <div class="profile-question">
-    <div class="box"  
-    v-for="item of questionData"
-    :key="item.id">
+    <div
+      class="box"
+      v-for="item of questionData"
+      :key="item.id"
+    >
       <p class="content">{{item.content}}</p>
 
       <div class="tips">
@@ -15,20 +17,14 @@
 </template>
 
 <script>
-import profileQuestion from "../store/profileQuestion";
-
 export default {
   name: "ProfileQuestion",
-    props: {
-    isLoading: {
-        type: Boolean,
-        required: false,
-    },
+  props: {
     questionData: {
-        type: Array,
-        required: true,
+      type: Array,
+      required: true,
     }
-    },
+  },
 }
 </script>
 

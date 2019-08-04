@@ -13,8 +13,6 @@ export const FETCH_ANSWER_APPROVAL = 'fetchAnswerApproval'
 export const FETCH_ANSWER_OPPOSE = 'fechAnswerOppose'
 
 export const FETCH_PROFILE_QUESTION = 'fetchProfileQuestion'
-export const FETCH_PROFILE_COMMENT = 'fetchProfileComment'
-
 export const FETCH_PROFILE_ANSWER = 'fetchProfileAnswer'
 export const FETCH_PROFILE_APPROVAL = 'fetchProfileApproval'
 export const FETCH_PROFILE_OPPOSE = 'fetchProfileOppose'

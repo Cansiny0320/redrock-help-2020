@@ -15,7 +15,7 @@ const ApiService = {
       "Authorization"
     ] = `Token ${JwtService.getToken()}`;
   },
-  
+
   get (resource) {
     return Vue.axios.get(resource).catch(error => {
       throw new Error(`[RWV] ApiService ${error}`);
@@ -74,18 +74,24 @@ export const QuestionService = {
   oppose (answerId) {
     return ApiService.get(`questions`)
   },
-  getNew () {
-    return ApiService.get(`user/answers`)
-  },
-  getOld (){
-    return ApiService.get(`answers`)
-  }
 }
 
 export const ProfileService = {
   identify () {
     return ApiService.get(`user`)
-  }
+  },
+  getAllAnswer () {
+    return ApiService.get(`user/answers`)
+  },
+  getApprovalAnswer () {
+    return ApiService.get(`user/answers?status=approval`)
+  },
+  getOpposeAnswer () {
+    return ApiService.get(`user/answers?status=oppose`)
+  },
+  getQustion () {
+    return ApiService.get(`/user/questions`)
+  },
 }
 
 
