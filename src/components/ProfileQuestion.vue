@@ -6,7 +6,7 @@
       <p class="content">{{item.content}}</p>
 
       <div class="tips">
-        <span class="time">2019-08-09</span>
+        <span class="time">{{item.createdAt | date}}</span>
         <span class="comment">{{item.answersCount}}条评论</span>
         <span class="delete">删除</span>
       </div>
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import questionList from "../store/questionList";
+import profileQuestion from "../store/profileQuestion";
 
 export default {
   name: "ProfileQuestion",

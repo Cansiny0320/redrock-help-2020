@@ -8,21 +8,28 @@
       <span class="name">{{profileData.name}}</span>
     </div>
 
-    <router-link :to="{name:'questionNew'}">
-    <div class="question">
+  
+    <div 
+    class="question"
+    @click="handleProfileQuestionClick(profileData.id)">
       <span>我提过的问题{{profileData.questionsNum}}个</span>
       <div class="front-icon">
         <BaseFront />
       </div>
     </div>
-    </router-link>
+  
 
-    <div class="comment">
+ 
+    <div 
+    class="comment"
+    @click="handleProfileCommentClick('comment')">
       <span>我收到的评论{{profileData.answersNum}}个</span>
       <div class="front-icon">
         <BaseFront />
       </div>
     </div>
+
+
   </div>
 </template>
 
@@ -42,6 +49,17 @@ export default {
       type: Object,
       required: true
     }
+  },
+   methods: {
+  
+    handleProfileQuestionClick(id) {
+      this.$router.push({ name: 'questionNew', query: { id } })
+    },
+     handleProfileCommentClick(content) {
+      this.$router.push({ name: 'commentNew', params: { content } })
+      console.log(this.profileData)
+    },
+    
   }
 };
 </script>

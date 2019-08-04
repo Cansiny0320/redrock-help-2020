@@ -52,6 +52,11 @@ export default new Router({
       path: '/questioNew',
       name: 'questionNew',
       component: () => import('@/views/ProfileQuestionNew.vue')
+    },
+    {
+      path: '/commentNew/:content',
+      name: 'commentNew',
+      component: () => import('@/views/ProfileCommentNew.vue')
     }
   ]
 })

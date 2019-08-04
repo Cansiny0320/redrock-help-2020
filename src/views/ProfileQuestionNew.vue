@@ -4,13 +4,13 @@
     :titleStr = "titleStr"/>
     <ProfileQuestion
     :isLoading="isLoading"
-    :questionData="questionList"/>
+    :questionData="questionNewList"/>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import { FETCH_QUESTION_HOT } from '@/store/type/actions'
+import { FETCH_PROFILE_QUESTION } from '@/store/type/actions'
 import ProfileQuestion from '@/components/ProfileQuestion'
 
 export default {
@@ -24,11 +24,11 @@ export default {
         ProfileQuestion
     },
     mounted () {
-    this.$store.dispatch(FETCH_QUESTION_HOT) 
+    this.$store.dispatch(FETCH_PROFILE_QUESTION) 
     
   },
    computed: {
-    ...mapGetters(['isLoading', 'questionList']),
+    ...mapGetters(['isLoading', 'questionNewList']),
     
     
   },

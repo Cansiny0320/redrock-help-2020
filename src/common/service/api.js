@@ -73,6 +73,12 @@ export const QuestionService = {
   },
   oppose (answerId) {
     return ApiService.get(`questions`)
+  },
+  getNew () {
+    return ApiService.get(`user/answers`)
+  },
+  getOld (){
+    return ApiService.get(`answers`)
   }
 }
 
