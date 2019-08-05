@@ -9,7 +9,6 @@ export const SET_ONE_QUESTION = 'setOneQuestion'
 export const SET_ANSWER_APPROVAL = 'setAnswerApproval' 
 export const SET_ANSWER_OPPOSE = 'setAnswerOppose'
 
-export const SET_PROFILE_QUESTION = 'setProfileQuestion'
 export const SET_PROFILE_ANSWER = 'setProfileAnswer'
 export const SET_PROFILE_APPROVAL = 'setProfileApproval'
 export const SET_PROFILE_OPPOSE = 'setProfileOppose'
