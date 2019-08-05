@@ -8,14 +8,26 @@
       v-for="item of questionData"
       :key="item.id"
     >
-      <p class="content">{{item.content}}</p>
+      <p
+        class="content"
+        @click="handelQuestionClick(item.id)"
+      >{{item.content}}</p>
 
       <div class="tips">
         <span class="time">{{item.createdAt | date}}</span>
         <span class="comment">{{item.answersCount}}条评论</span>
-        <span class="delete">删除</span>
+        <span
+          class="delete"
+          @click="handelDeleteClick(item.id)"
+        >删除</span>
       </div>
     </div>
+    <VToast
+      v-show="isShowToast"
+      :massage="deleteTipmassage"
+      @confirm="handelDeleteConfirm"
+      @cancel="handelDeleteCancel"
+    />
   </div>
 </template>
 
@@ -30,8 +42,33 @@ export default {
       required: true,
     }
   },
+  data () {
+    return {
+      isShowToast: false,
+      deleteTipmassage: '',
+      deleteId: null,
+    }
+  },
   computed: {
     ...mapGetters(['isLoading'])
+  },
+  methods: {
+    handelDeleteClick (questionId) {
+      this.isShowToast = true
+      this.deleteTipmassage = '你真的想要删除该问题吗？'
+      this.deleteId = questionId
+    },
+    handelDeleteConfirm (questionId) {
+      this.isShowToast = false
+      this.deleteTipmassage = ''
+    },
+    handelDeleteCancel () {
+      this.isShowToast = false
+      this.deleteTipmassage = ''
+    },
+    handelQuestionClick (questionId) {
+      this.$router.push({ name: 'question', query: { id: questionId } })
+    }
   },
 }
 </script>
