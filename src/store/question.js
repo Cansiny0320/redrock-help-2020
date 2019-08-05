@@ -51,16 +51,26 @@ const mutations = {
   [SET_ANSWER_APPROVAL] (state, answerId) {
     state.data.answer.forEach(item=>{
       if(item.id === answerId) {
-        item.approvalNum++
-        item.isApproval = true
+        if (!item.isApproval) {
+          item.approvalNum++
+          item.isApproval = true
+        } else {
+          item.approvalNum--
+          item.isApproval = false
+        }
       }
     })
   },
   [SET_ANSWER_OPPOSE] (state, answerId) {
     state.data.answer.forEach(item=>{
       if(item.id === answerId) {
-        item.opposeNum++
-        item.isOppose = true
+        if (!item.isOppose) {
+          item.opposeNum++
+          item.isOppose = true
+        } else {
+          item.opposeNum--
+          item.isOppose = false
+        }
       }
     })
   }

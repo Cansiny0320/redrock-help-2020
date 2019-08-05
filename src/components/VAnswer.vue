@@ -18,14 +18,14 @@
         <div class="action">
           <div
             :class="{ active: item.isApproval }"
-            @click="handelApprovalClick(item.id, item.isApproval)"
+            @click="handelApprovalClick(item.id, item.isOppose)"
           >
             <AnswerApprovalSvg />
             {{ item.approvalNum }}
           </div>
           <div
             :class="{ active: item.isOppose }"
-            @click="handelOpposeClick(item.id, item.isOppose)"
+            @click="handelOpposeClick(item.id, item.isApproval)"
           >
             <AnswerOpposeSvg />
             {{ item.opposeNum }}
@@ -58,11 +58,11 @@ export default {
     AnswerOpposeSvg,
   },
   methods: {
-    handelApprovalClick (answerId, isApproval) {
-      if (!isApproval) this.$store.dispatch(FETCH_ANSWER_APPROVAL, answerId)
+    handelApprovalClick (answerId, isOppose) {
+      if (!isOppose) this.$store.dispatch(FETCH_ANSWER_APPROVAL, answerId)
     },
-    handelOpposeClick (answerId, isOppose) {
-      if (!isOppose) this.$store.dispatch(FETCH_ANSWER_OPPOSE, answerId)
+    handelOpposeClick (answerId, isApproval) {
+      if (!isApproval) this.$store.dispatch(FETCH_ANSWER_OPPOSE, answerId)
     }
   }
 }
@@ -109,7 +109,7 @@ export default {
         div {
           display: flex;
           align-items: center;
-          margin: 0 4px;
+          margin: 0 10px;
           svg {
             margin: 0 4px;
             height: 30px;
