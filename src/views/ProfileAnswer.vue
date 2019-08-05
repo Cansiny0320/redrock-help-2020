@@ -1,9 +1,7 @@
 <template>
   <div class="profile-answer">
     <VHeader :titleStr="titleStr" />
-    <VProfileAnswer
-      :commentData="profileAnswer"
-    />
+    <ProfileAnswer :commentData="profileAnswer" />
   </div>
 </template>
 
@@ -11,12 +9,17 @@
 import { mapGetters } from "vuex";
 import { FETCH_PROFILE_ANSWER } from "@/store/type/actions";
 
+import ProfileAnswer from '@/components/ProfileAnswer'
+
 export default {
   name: "profileAnswer",
   data () {
     return {
       paramsResult: ""
     }
+  },
+  components: {
+    ProfileAnswer,
   },
   created () {
     this.$store.dispatch(FETCH_PROFILE_ANSWER);

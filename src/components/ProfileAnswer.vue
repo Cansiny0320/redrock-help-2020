@@ -31,7 +31,7 @@ import AnswerApprovalSvg from "@/assets/svg/AnswerApproval.svg";
 import AnswerOpposeSvg from "@/assets/svg/AnswerOppose.svg";
 
 export default {
-  name: "VProfileAnswer",
+  name: "profileAnswer",
   components: {
     AnswerApprovalSvg,
     AnswerOpposeSvg
