@@ -16,3 +16,6 @@ export const FETCH_PROFILE_QUESTION = 'fetchProfileQuestion'
 export const FETCH_PROFILE_ANSWER = 'fetchProfileAnswer'
 export const FETCH_PROFILE_APPROVAL = 'fetchProfileApproval'
 export const FETCH_PROFILE_OPPOSE = 'fetchProfileOppose'
+
+export const FETCH_PUBLISH_QUESTION = 'fetchPublishQuestion'
+export const FETCH_PUBLISH_ANSWER = 'fetchPublishAnswer'

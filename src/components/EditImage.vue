@@ -3,7 +3,7 @@
     <ul>
       <li
         class="list"
-        v-for="(item, index) of urlList"
+        v-for="(item, index) of editImage"
         :key="index"
       >
         <img :src="item" />
@@ -28,19 +28,16 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 import BaseDeleteSvg from '@/assets/svg/BaseDelete.svg'
+import { SET_EDIT_IMAGES, DELETE_EDIT_IMAGES } from '@/store/type/mutations'
 
 export default {
   name: "QuestionEditPhoto",
   components: {
     BaseDeleteSvg,
   },
-  data () {
-    return {
-      urlList: []
-    };
-  },
-
   methods: {
     previewFiles (e) {
       let files = e.target.files || e.dataTransfer.files;
@@ -51,13 +48,16 @@ export default {
         reader.readAsDataURL(files[i]);
         reader.onload = e => {
           let url = e.target.result;
-          this.urlList.push(url);
+          this.$store.commit(SET_EDIT_IMAGES, url)
         };
       }
     },
     handelDeleteClick(index) {
-      this.urlList.splice(index, 1)
+      this.$store.commit(DELETE_EDIT_IMAGES, index)
     }
+  },
+  computed: {
+    ...mapGetters(['editImage'])
   }
 };
 </script>
