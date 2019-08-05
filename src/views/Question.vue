@@ -1,21 +1,21 @@
 <template>
-  <div
-    class="qustion"
-    v-if="!isLoading"
-  >
+  <div class="qustion">
     <QuestionReplyButton />
     <VHeader titleStr="问题详情" />
-    <div class="user">
-      <img :src="oneQuestion.author.avatar">
-      <span class="name">{{ oneQuestion.author.name }}</span>
-    </div>
-    <div class="content">
-      {{ oneQuestion.content }}
-    </div>
-    <div class="images">
-      <VImage :imagesUrl="oneQuestion.photoUrls" />
-    </div>
-    <Answer :answersData="oneQuestion.answer" />
+    <template v-if="!isLoading">
+      <div class="user">
+        <img :src="oneQuestion.author.avatar">
+        <span class="name">{{ oneQuestion.author.name }}</span>
+      </div>
+      <div class="content">
+        {{ oneQuestion.content }}
+      </div>
+      <div class="images">
+        <VImage :imagesUrl="oneQuestion.photoUrls" />
+      </div>
+      <Answer :answersData="oneQuestion.answer" />
+    </template>
+
   </div>
 </template>
 
