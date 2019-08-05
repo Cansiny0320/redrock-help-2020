@@ -7,7 +7,7 @@
     <div class="question">{{ oneQuestion.content }}</div>
     <div class="title">问题回答</div>
     <EditBox />
-    <EditPhoto />
+    <EditImage />
 
   </div>
 
@@ -17,13 +17,13 @@
 import { mapGetters } from 'vuex'
 
 import EditBox from '@/components/EditBox'
-import EditPhoto from '@/components/EditPhoto'
+import EditImage from '@/components/EditImage'
 
 export default {
   name: 'answerEdit',
   components: {
     EditBox,
-    EditPhoto
+    EditImage
   },
   computed: {
     ...mapGetters(['oneQuestion'])

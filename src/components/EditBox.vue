@@ -11,6 +11,10 @@
 </template>
 
 <script>
+import {
+  SET_EDIT_WORDS,
+} from '@/store/type/mutations'
+
 import VHotTag from "@/components/VHotTag"
 import EditTag from '@/components/EditTag'
 
@@ -30,6 +34,7 @@ export default {
   },
   watch: {
     words () {
+      this.$store.commit(SET_EDIT_WORDS, this.words)
       if (this.words.length > this.maxLength) {
         this.words = String(this.words).slice(0, this.maxLength);
         this.isShowTips = true
