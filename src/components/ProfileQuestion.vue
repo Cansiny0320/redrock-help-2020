@@ -1,5 +1,8 @@
 <template>
-  <div class="profile-question" v-if="!isLoading">
+  <div
+    class="profile-question"
+    v-if="!isLoading"
+  >
     <div
       class="box"
       v-for="item of questionData"
@@ -48,12 +51,12 @@ export default {
   .tips {
     display: flex;
     span {
-      color: #a6a6a6;
+      color: @fontColor;
       font-size: 24px;
-    }
-    .comment {
-      display: block;
-      margin: 0 45px 0 300px;
+      &.comment {
+        display: block;
+        margin: 0 30px 0 auto;
+      }
     }
   }
 }

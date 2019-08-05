@@ -9,7 +9,7 @@
       <div class="question">来自于问题“{{item.question.content}}”</div>
       <div class="info">
         <div class="time">{{item.createdAt|date}}</div>
-        <AnswerAction :item="item" />
+        <AnswerAction class="action" :item="item" />
         <div class="delete">删除</div>
       </div>
     </div>
@@ -46,7 +46,7 @@ export default {
   background: #ffffff;
   height: 160px;
   margin: 30px;
-  padding: 30px;
+  padding: 30px 30px 20px 30px;
   border-radius: 10px;
   .comment {
     font-size: 40px;
@@ -57,30 +57,14 @@ export default {
     font-size: 30px;
     margin-bottom: 30px;
   }
-}
-
-.info {
-  display: flex;
-  font-size: 24px;
-  line-height: 30px;
-  color: @fontColor;
-  justify-content: space-between;
-  margin: 0 20px 15px 0px;
-  .action {
+  .info {
     display: flex;
-    align-items: center;
+    font-size: 24px;
+    line-height: 30px;
     color: @fontColor;
-    margin: 0 10px 0 190px;
-    div {
-      display: flex;
-      align-items: center;
-      margin: 0 8px;
-      svg {
-        margin: 0 4px;
-        height: 30px;
-        width: 30px;
-      }
-      fill: @fontColor;
+    justify-content: space-between;
+    .action {
+      margin: 0 30px 0 auto;
     }
   }
 }
