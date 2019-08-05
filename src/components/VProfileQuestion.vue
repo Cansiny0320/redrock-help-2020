@@ -1,5 +1,5 @@
 <template>
-  <div class="profile-question">
+  <div class="profile-question" v-if="!isLoading">
     <div
       class="box"
       v-for="item of questionData"
@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "ProfileQuestion",
   props: {
@@ -24,6 +26,9 @@ export default {
       type: Array,
       required: true,
     }
+  },
+  computed: {
+    ...mapGetters(['isLoading'])
   },
 }
 </script>

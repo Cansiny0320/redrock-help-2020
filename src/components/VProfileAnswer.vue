@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="!isLoading">
     <div
       class="box"
       v-for="item in commentData"
@@ -41,6 +41,9 @@ export default {
       type: Array,
       required: true,
     }
+  },
+  computed: {
+    ...mapGetters(['isLoading'])
   },
 };
 </script>

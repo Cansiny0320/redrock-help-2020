@@ -1,5 +1,5 @@
 <template>
-  <div class="v-question">
+  <div class="v-question" v-if="!isLoading">
     <div
       class="question"
       v-for="item of questionData"
@@ -29,18 +29,18 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'vQuestion',
   props: {
-    isLoading: {
-      type: Boolean,
-      required: false,
-    },
     questionData: {
       type: Array,
       required: true,
     }
+  },
+  computed: {
+    ...mapGetters(['isLoading'])
   },
   methods: {
     handelQuestionBoxClick(id) {
