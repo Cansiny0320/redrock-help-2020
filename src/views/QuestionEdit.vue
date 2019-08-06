@@ -5,22 +5,27 @@
       <vPublishButton />
     </header>
     <EditBox />
-    <EditPhoto />
-
+    <EditImage />
   </div>
 
 </template>
 
 <script>
 import EditBox from '@/components/EditBox'
-import EditPhoto from '@/components/EditPhoto'
+import EditImage from '@/components/EditImage'
 
 export default {
   name: 'questionEdit',
   components: {
     EditBox,
-    EditPhoto
-  }
+    EditImage
+  },
+  data() {
+    return {
+      words: '',
+      urlList: [],
+    }
+  },
 }
 </script>
 

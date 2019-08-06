@@ -9,7 +9,12 @@ export const SET_ONE_QUESTION = 'setOneQuestion'
 export const SET_ANSWER_APPROVAL = 'setAnswerApproval' 
 export const SET_ANSWER_OPPOSE = 'setAnswerOppose'
 
-export const SET_PROFILE_QUESTION = 'setProfileQuestion'
 export const SET_PROFILE_ANSWER = 'setProfileAnswer'
 export const SET_PROFILE_APPROVAL = 'setProfileApproval'
 export const SET_PROFILE_OPPOSE = 'setProfileOppose'
+
+export const SET_EDIT_WORDS = 'setEditWords'
+export const SET_EDIT_TAGS = 'setEditTags'
+export const SET_EDIT_IMAGES = 'setEditImages'
+export const DELETE_EDIT_IMAGES = 'deleteEditImages'
+export const DELETE_EDIT_TAGS = 'deleteEditTags'

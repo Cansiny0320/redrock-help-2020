@@ -56,7 +56,7 @@ export default {
     $route (to) {
       this.isHome = to.name.match(/home/g) || to.name.match(/question/g) ? true : false
       this.isSearch = to.name === 'search' ? true : false
-      this.isProfile = to.name === 'profile' ? true : false
+      this.isProfile = to.name.match(/profile/g) ? true : false
     }
   }
 }

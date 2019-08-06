@@ -1,6 +1,7 @@
 import {
   QuestionService,
-  SearchService
+  SearchService,
+  ProfileService,
 } from '@/common/service/api'
 
 import {
@@ -8,6 +9,7 @@ import {
   FETCH_QUESTION_NEW,
   FETCH_QUESTION_BY_TAG,
   FETCH_QUESTION_BY_SEARCH,
+  FETCH_PROFILE_QUESTION,
 } from './type/actions'
 
 import {
@@ -46,7 +48,13 @@ const actions = {
     const { data } = await SearchService.search(q)
     commit(FETCH_END)
     commit(SET_QUESTION_LIST, data)
-  }
+  },
+  async [FETCH_PROFILE_QUESTION] ({ commit }) {
+    commit(FETCH_START)
+    const { data } = await ProfileService.getQustion()
+    commit(FETCH_END)
+    commit(SET_QUESTION_LIST, data)
+  },
 }
 
 const mutations = {
@@ -59,6 +67,9 @@ const getters = {
   questionList(state) {
     return state.data
   },
+  profileQuestion(state) {
+    return state.data
+  }
 }
 
 export default {

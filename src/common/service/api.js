@@ -68,6 +68,9 @@ export const QuestionService = {
   solve (questionId, params) {
     return ApiService.patch(`questions/${questionId}`, params)
   },
+}
+
+export const AnswerService = {
   approval (answerId) {
     return ApiService.get(`questions`)
   },
