@@ -15,7 +15,7 @@
     <div class="images">
       <VImage :imagesUrl="oneQuestion.photoUrls" />
     </div>
-    <VAnswer :answersData="oneQuestion.answer" />
+    <Answer :answersData="oneQuestion.answer" />
   </div>
 </template>
 
@@ -24,11 +24,13 @@ import { mapGetters } from 'vuex'
 import { FETCH_ONE_QUESTION_BY_ID } from '@/store/type/actions'
 
 import QuestionReplyButton from '@/components/QuestionReplyButton'
+import Answer from '@/components/Answer'
 
 export default {
   name: 'qustion',
   components: {
     QuestionReplyButton,
+    Answer,
   },
   mounted () {
     this.$store.dispatch(FETCH_ONE_QUESTION_BY_ID, this.$route.query.id)

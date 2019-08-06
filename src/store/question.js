@@ -1,11 +1,16 @@
 import {
   QuestionService,
+  ProfileService,
+  AnswerService
 } from '@/common/service/api'
 
 import {
   FETCH_ONE_QUESTION_BY_ID,
   FETCH_ANSWER_APPROVAL,
   FETCH_ANSWER_OPPOSE,
+  FETCH_PROFILE_ANSWER,
+  FETCH_PROFILE_APPROVAL,
+  FETCH_PROFILE_OPPOSE,
 } from './type/actions'
 
 import {
@@ -14,6 +19,9 @@ import {
   SET_ONE_QUESTION,
   SET_ANSWER_APPROVAL,
   SET_ANSWER_OPPOSE,
+  SET_PROFILE_ANSWER,
+  SET_PROFILE_APPROVAL,
+  SET_PROFILE_OPPOSE,
 } from './type/mutations'
 
 const initialState = {
@@ -35,12 +43,30 @@ const actions = {
     commit(SET_ONE_QUESTION, data)
   },
   async [FETCH_ANSWER_APPROVAL] ({ commit }, answerId) {
-    await QuestionService.approval(answerId)
+    await AnswerService.approval(answerId)
     commit(SET_ANSWER_APPROVAL, answerId)
   },
   async [FETCH_ANSWER_OPPOSE] ({ commit }, answerId) {
-    await QuestionService.oppose(answerId)
+    await AnswerService.oppose(answerId)
     commit(SET_ANSWER_OPPOSE, answerId)
+  },
+  async [FETCH_PROFILE_ANSWER] ({ commit }) {
+    commit(FETCH_START)
+    const { data } = await ProfileService.getAllAnswer()
+    commit(FETCH_END)
+    commit(SET_PROFILE_ANSWER, data)
+  },
+  async [FETCH_PROFILE_APPROVAL] ({ commit }) {
+    commit(FETCH_START)
+    const { data } = await ProfileService.getApprovalAnswer()
+    commit(FETCH_END)
+    commit(SET_PROFILE_APPROVAL, data)
+  },
+  async [FETCH_PROFILE_OPPOSE] ({ commit }) {
+    commit(FETCH_START)
+    const { data } = await ProfileService.getOpposeAnswer()
+    commit(FETCH_END)
+    commit(SET_PROFILE_OPPOSE, data)
   },
 }
 
@@ -51,24 +77,46 @@ const mutations = {
   [SET_ANSWER_APPROVAL] (state, answerId) {
     state.data.answer.forEach(item=>{
       if(item.id === answerId) {
-        item.approvalNum++
-        item.isApproval = true
+        if (!item.isApproval) {
+          item.approvalNum++
+          item.isApproval = true
+        } else {
+          item.approvalNum--
+          item.isApproval = false
+        }
       }
     })
   },
   [SET_ANSWER_OPPOSE] (state, answerId) {
     state.data.answer.forEach(item=>{
       if(item.id === answerId) {
-        item.opposeNum++
-        item.isOppose = true
+        if (!item.isOppose) {
+          item.opposeNum++
+          item.isOppose = true
+        } else {
+          item.opposeNum--
+          item.isOppose = false
+        }
       }
     })
-  }
+  },
+  [SET_PROFILE_ANSWER] (state, data) {
+    state.data.answer = data
+  },
+  [SET_PROFILE_APPROVAL] (state, data) {
+    state.data.answer = data
+  },
+  [SET_PROFILE_OPPOSE] (state, data) {
+    state.data.answer = data
+  },
 }
 
 const getters = {
   oneQuestion(state) {
     return state.data
+  },
+  profileAnswer(state) {
+    return state.data.answer
   },
 }
 

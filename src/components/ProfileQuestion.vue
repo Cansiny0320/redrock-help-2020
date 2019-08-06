@@ -1,5 +1,8 @@
 <template>
-  <div class="profile-question" v-if="!isLoading">
+  <div
+    class="profile-question"
+    v-if="!isLoading"
+  >
     <div
       class="box"
       v-for="item of questionData"
@@ -51,11 +54,18 @@ export default {
     display: flex;
     justify-content: space-between;
     span {
-      color: #a6a6a6;
+      color: @fontColor;
       font-size: 24px;
+<<<<<<< HEAD:src/components/VProfileQuestion.vue
     }
     .comment {
       margin-right: 8px;
+=======
+      &.comment {
+        display: block;
+        margin: 0 30px 0 auto;
+      }
+>>>>>>> 931b092984755692fcfaf23074c7814d42e1290d:src/components/ProfileQuestion.vue
     }
   }
 }
