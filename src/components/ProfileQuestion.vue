@@ -16,6 +16,12 @@
       <div class="tips">
         <span class="time">{{item.createdAt | date}}</span>
         <span class="comment">{{item.answersCount}}条评论</span>
+          <span
+            class="solve"
+            @click="handelSolveClick(item.id)"
+            v-if="item.status === '未解决'"
+          >解决该问题</span>
+
         <span
           class="delete"
           @click="handelDeleteClick(item.id)"
@@ -23,17 +29,23 @@
       </div>
     </div>
     <VToast
-      v-if="isShowToast"
+      v-if="isShowDeleteToast"
       :massage="deleteTipmassage"
       @confirm="handelDeleteConfirm"
       @cancel="handelDeleteCancel"
+    />
+    <VToast
+      v-if="isShowSolveToast"
+      :massage="SolveTipmassage"
+      @confirm="handelSolveConfirm"
+      @cancel="handelSolveCancel"
     />
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import { FETCH_DELETE_QUESTION } from '../store/type/actions';
+import { FETCH_DELETE_QUESTION, FETCH_QUESTION_SOLVE } from '../store/type/actions';
 
 export default {
   name: "ProfileQuestion",
@@ -45,9 +57,12 @@ export default {
   },
   data () {
     return {
-      isShowToast: false,
-      deleteTipmassage: '',
+      isShowDeleteToast: false,
+      deleteTipmassage: '你真的想要删除该问题吗？',
+      isShowSolveToast: false,
+      SolveTipmassage: '请确认是否要将问题设置成已解决？',
       deleteId: null,
+      solveId: null,
     }
   },
   computed: {
@@ -55,22 +70,35 @@ export default {
   },
   methods: {
     handelDeleteClick (questionId) {
-      this.isShowToast = true
+      this.isShowDeleteToast = true
       this.deleteTipmassage = '你真的想要删除该问题吗？'
       this.deleteId = questionId
     },
     handelDeleteConfirm () {
       this.$store.dispatch(FETCH_DELETE_QUESTION, this.deleteId)
-      this.isShowToast = false
-      this.deleteTipmassage = ''
+      this.isShowDeleteToast = false
+      this.deleteId = null
     },
     handelDeleteCancel () {
-      this.isShowToast = false
-      this.deleteTipmassage = ''
+      this.isShowDeleteToast = false
+      this.deleteId = null
+    },
+    handelSolveClick (questionId) {
+      this.isShowSolveToast = true
+      this.solveId = questionId
+    },
+    handelSolveConfirm () {
+      this.$store.dispatch(FETCH_QUESTION_SOLVE, this.solveId)
+      this.isShowSolveToast = false
+      this.solveId = null
+    },
+    handelDeleteCancel () {
+      this.isShowDeleteToast = false
+      this.deleteId = null
     },
     handelQuestionClick (questionId) {
       this.$router.push({ name: 'question', query: { id: questionId } })
-    }
+    },
   },
 }
 </script>
@@ -95,6 +123,9 @@ export default {
       &.comment {
         display: block;
         margin: 0 30px 0 auto;
+      }
+      &.solve {
+        margin-right: 30px;
       }
     }
   }

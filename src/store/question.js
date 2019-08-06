@@ -71,7 +71,6 @@ const actions = {
     commit(SET_PROFILE_OPPOSE, data)
   },
   async [FETCH_DELETE_ANSWER] ({ commit }, answerId) {
-    console.log(answerId)
     await AnswerService.delete(answerId)
     commit(DELETE_ANSWER, answerId)
   },

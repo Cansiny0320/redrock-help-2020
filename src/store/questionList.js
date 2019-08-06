@@ -11,6 +11,7 @@ import {
   FETCH_QUESTION_BY_SEARCH,
   FETCH_PROFILE_QUESTION,
   FETCH_DELETE_QUESTION,
+  FETCH_QUESTION_SOLVE,
 } from './type/actions'
 
 import {
@@ -18,6 +19,7 @@ import {
   FETCH_END,
   SET_QUESTION_LIST,
   DELETE_QUESTION,
+  SET_QUESTION_SOLVE,
 } from './type/mutations'
 
 const initialState = {
@@ -61,6 +63,10 @@ const actions = {
     await QuestionService.delete(questionId)
     commit(DELETE_QUESTION, questionId)
   },
+  async [FETCH_QUESTION_SOLVE] ({commit}, questionId) {
+    await QuestionService.solve(questionId)
+    commit(SET_QUESTION_SOLVE, questionId)
+  },
 }
 
 const mutations = {
@@ -69,6 +75,13 @@ const mutations = {
   },
   [DELETE_QUESTION] (state, questionId) {
     state.data = state.data.filter(item => item.id !== questionId)
+  },
+  [SET_QUESTION_SOLVE] (state, questionId) {
+    state.data.forEach(item => {
+      if(item.id === questionId) {
+        item.status = '已解决'
+      }
+    })
   }
 }
 
