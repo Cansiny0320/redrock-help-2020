@@ -13,7 +13,7 @@
           class="action"
           :item="item"
         />
-        <div class="delete">删除</div>
+        <div class="delete" @click="handelDeleteClick(item.id)">删除</div>
       </div>
     </div>
     <VToast
@@ -36,6 +36,13 @@ export default {
   components: {
     AnswerAction,
   },
+  data() {
+    return {
+      isShowToast: false,
+      deleteTipmassage: '',
+      deleteId: null,
+    }
+  },
   props: {
     commentData: {
       type: Array,
@@ -45,6 +52,21 @@ export default {
   computed: {
     ...mapGetters(['isLoading'])
   },
+  methods: {
+    handelDeleteClick (answerId) {
+      this.isShowToast = true
+      this.deleteTipmassage = '你真的想要删除该回答吗？'
+      this.deleteId = answerId
+    },
+    handelDeleteConfirm (answerId) {
+      this.isShowToast = false
+      this.deleteTipmassage = ''
+    },
+    handelDeleteCancel () {
+      this.isShowToast = false
+      this.deleteTipmassage = ''
+    },
+  }
 };
 </script>
 
