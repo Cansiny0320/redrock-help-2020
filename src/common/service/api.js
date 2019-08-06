@@ -68,6 +68,10 @@ export const QuestionService = {
   solve (questionId, params) {
     return ApiService.patch(`questions/${questionId}`, params)
   },
+  delete (questionId) {
+    return 1
+    // return ApiService.delete(`answers`)
+  }
 }
 
 export const AnswerService = {
@@ -77,6 +81,10 @@ export const AnswerService = {
   oppose (answerId) {
     return ApiService.get(`questions`)
   },
+  delete (answerId) {
+    return 1
+    // return ApiService.delete(`answers`)
+  }
 }
 
 export const ProfileService = {

@@ -11,6 +11,7 @@ import {
   FETCH_PROFILE_ANSWER,
   FETCH_PROFILE_APPROVAL,
   FETCH_PROFILE_OPPOSE,
+  FETCH_DELETE_ANSWER,
 } from './type/actions'
 
 import {
@@ -22,6 +23,7 @@ import {
   SET_PROFILE_ANSWER,
   SET_PROFILE_APPROVAL,
   SET_PROFILE_OPPOSE,
+  DELETE_ANSWER,
 } from './type/mutations'
 
 const initialState = {
@@ -68,6 +70,11 @@ const actions = {
     commit(FETCH_END)
     commit(SET_PROFILE_OPPOSE, data)
   },
+  async [FETCH_DELETE_ANSWER] ({ commit }, answerId) {
+    console.log(answerId)
+    await AnswerService.delete(answerId)
+    commit(DELETE_ANSWER, answerId)
+  },
 }
 
 const mutations = {
@@ -108,6 +115,9 @@ const mutations = {
   },
   [SET_PROFILE_OPPOSE] (state, data) {
     state.data.answer = data
+  },
+  [DELETE_ANSWER] (state, answerId) {
+    state.data.answer = state.data.answer.filter(item => item.id !== answerId)
   },
 }
 

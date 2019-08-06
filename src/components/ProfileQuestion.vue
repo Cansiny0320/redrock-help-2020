@@ -12,7 +12,7 @@
 
       <div class="tips">
         <span class="time">{{item.createdAt | date}}</span>
-        <div>
+        <div class="action">
           <span class="comment">{{item.answersCount}}条评论</span>
           <span class="delete">删除</span>
         </div>
@@ -53,6 +53,9 @@ export default {
   .tips {
     display: flex;
     justify-content: space-between;
+    .action{
+      display: flex;
+    }
     span {
       color: @fontColor;
       font-size: 24px;
