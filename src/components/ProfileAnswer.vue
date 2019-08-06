@@ -9,19 +9,12 @@
       <div class="question">来自于问题“{{item.question.content}}”</div>
       <div class="info">
         <div class="time">{{item.createdAt|date}}</div>
+        <AnswerAction
+        :item = "item"/>
+        <div class="delete"></div>
+        
 
-        <div class="action">
-          <div>
-            <AnswerApprovalSvg />{{item.approvalNum}}人
-          </div>
-          <div>
-            <AnswerOpposeSvg />{{item.opposeNum}}人
-          </div>
-            <div class="delete">删除</div>
-        </div>
-    
-
-
+      
       </div>
     </div>
   </div>
@@ -30,6 +23,9 @@
 <script>
 import { mapGetters } from "vuex";
 import { FETCH_PROFILE_COMMENT } from "@/store/type/actions";
+import AnswerOpposeSvg from "@/assets/svg/AnswerOppose.svg"
+import AnswerApprovalSvg from "@/assets/svg/AnswerApproval.svg"
+
 
 import AnswerAction from '@/components/AnswerAction'
 
@@ -37,6 +33,8 @@ export default {
   name: "profileAnswer",
   components: {
     AnswerAction,
+    AnswerOpposeSvg,
+    AnswerApprovalSvg
   },
   props: {
     commentData: {
