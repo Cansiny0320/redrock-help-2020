@@ -56,16 +56,10 @@ export default {
     span {
       color: @fontColor;
       font-size: 24px;
-<<<<<<< HEAD:src/components/VProfileQuestion.vue
-    }
-    .comment {
-      margin-right: 8px;
-=======
       &.comment {
         display: block;
         margin: 0 30px 0 auto;
       }
->>>>>>> 931b092984755692fcfaf23074c7814d42e1290d:src/components/ProfileQuestion.vue
     }
   }
 }
