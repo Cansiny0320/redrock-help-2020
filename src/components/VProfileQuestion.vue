@@ -9,8 +9,10 @@
 
       <div class="tips">
         <span class="time">{{item.createdAt | date}}</span>
-        <span class="comment">{{item.answersCount}}条评论</span>
-        <span class="delete">删除</span>
+        <div>
+          <span class="comment">{{item.answersCount}}条评论</span>
+          <span class="delete">删除</span>
+        </div>
       </div>
     </div>
   </div>
@@ -47,13 +49,13 @@ export default {
   }
   .tips {
     display: flex;
+    justify-content: space-between;
     span {
       color: #a6a6a6;
       font-size: 24px;
     }
     .comment {
-      display: block;
-      margin: 0 45px 0 300px;
+      margin-right: 8px;
     }
   }
 }

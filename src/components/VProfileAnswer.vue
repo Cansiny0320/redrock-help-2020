@@ -16,8 +16,9 @@
           <div>
             <AnswerOpposeSvg />{{item.opposeNum}}人
           </div>
+            <div class="delete">删除</div>
         </div>
-        <div class="delete">删除</div>
+    
       </div>
     </div>
   </div>
@@ -90,6 +91,9 @@ export default {
         width: 30px;
       }
       fill: @fontColor;
+    }
+    .delete{
+      margin-right:-24px;
     }
   }
 }
