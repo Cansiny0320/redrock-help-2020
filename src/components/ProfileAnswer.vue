@@ -13,7 +13,10 @@
           class="action"
           :item="item"
         />
-        <div class="delete" @click="handelDeleteClick(item.id)">删除</div>
+        <div
+          class="delete"
+          @click="handelDeleteClick(item.id)"
+        >删除</div>
       </div>
     </div>
     <VToast
@@ -36,7 +39,7 @@ export default {
   components: {
     AnswerAction,
   },
-  data() {
+  data () {
     return {
       isShowToast: false,
       deleteTipmassage: '',
@@ -81,10 +84,12 @@ export default {
   padding: 30px 30px 20px 30px;
   border-radius: 10px;
   .comment {
+    @nowrap();
     font-size: 40px;
     margin-bottom: 20px;
   }
   .question {
+    @nowrap();
     color: @fontColor;
     font-size: 30px;
     margin-bottom: 30px;

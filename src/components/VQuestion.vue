@@ -1,5 +1,8 @@
 <template>
-  <div class="v-question" v-if="!isLoading">
+  <div
+    class="v-question"
+    v-if="!isLoading"
+  >
     <div
       class="question"
       v-for="item of questionData"
@@ -7,7 +10,7 @@
       @click="handelQuestionBoxClick(item.id)"
     >
       <div class="user">
-        <img 
+        <img
           class="img"
           :src="item.author.avatar"
         >
@@ -17,7 +20,10 @@
       <div class="content">{{ item.content }}</div>
       <div class="info">
         <div class="tags">
-          <div v-for="innerItem of item.tags" :key="innerItem.id">
+          <div
+            v-for="innerItem of item.tags"
+            :key="innerItem.id"
+          >
             {{ innerItem.name }}
           </div>
         </div>
@@ -43,7 +49,7 @@ export default {
     ...mapGetters(['isLoading'])
   },
   methods: {
-    handelQuestionBoxClick(id) {
+    handelQuestionBoxClick (id) {
       this.$router.push({ name: 'question', query: { id } })
     }
   }
@@ -77,6 +83,7 @@ export default {
       }
     }
     .content {
+      @nowrap();
       padding: 20px;
     }
     .info {
@@ -85,6 +92,9 @@ export default {
       color: @fontColor;
       justify-content: space-between;
       margin: 0 20px 15px 20px;
+      .tags {
+        @nowrap();
+      }
     }
   }
 }

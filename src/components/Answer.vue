@@ -69,6 +69,7 @@ export default {
     }
     .content {
       padding: 20px;
+      line-height: 40px;
     }
     .images {
       margin: 0 10px 20px 10px;

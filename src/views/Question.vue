@@ -60,6 +60,7 @@ export default {
   }
 }
 .content {
+  line-height: 40px;
   margin: 0 30px 30px 30px;
 }
 .images {

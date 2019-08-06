@@ -16,11 +16,11 @@
       <div class="tips">
         <span class="time">{{item.createdAt | date}}</span>
         <span class="comment">{{item.answersCount}}条评论</span>
-          <span
-            class="solve"
-            @click="handelSolveClick(item.id)"
-            v-if="item.status === '未解决'"
-          >解决该问题</span>
+        <span
+          class="solve"
+          @click="handelSolveClick(item.id)"
+          v-if="item.status === '未解决'"
+        >解决该问题</span>
 
         <span
           class="delete"
@@ -114,6 +114,7 @@ export default {
     height: 40px;
     margin-bottom: 30px;
     font-size: 36px;
+    @nowrap();
   }
   .tips {
     display: flex;
