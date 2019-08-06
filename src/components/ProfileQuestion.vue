@@ -60,7 +60,7 @@ export default {
       isShowDeleteToast: false,
       deleteTipmassage: '你真的想要删除该问题吗？',
       isShowSolveToast: false,
-      SolveTipmassage: '请确认是否要将问题设置成已解决？',
+      SolveTipmassage: '设置“已解决”后你的问题将无法再回复, 确定设置吗？',
       deleteId: null,
       solveId: null,
     }
