@@ -10,12 +10,14 @@ import {
   FETCH_QUESTION_BY_TAG,
   FETCH_QUESTION_BY_SEARCH,
   FETCH_PROFILE_QUESTION,
+  FETCH_DELETE_QUESTION,
 } from './type/actions'
 
 import {
   FETCH_START,
   FETCH_END,
   SET_QUESTION_LIST,
+  DELETE_QUESTION,
 } from './type/mutations'
 
 const initialState = {
@@ -55,12 +57,19 @@ const actions = {
     commit(FETCH_END)
     commit(SET_QUESTION_LIST, data)
   },
+  async [FETCH_DELETE_QUESTION] ({ commit }, questionId) {
+    await QuestionService.delete(questionId)
+    commit(DELETE_QUESTION, questionId)
+  },
 }
 
 const mutations = {
   [SET_QUESTION_LIST] (state, data) {
     state.data = data
   },
+  [DELETE_QUESTION] (state, questionId) {
+    state.data = state.data.filter(item => item.id !== questionId)
+  }
 }
 
 const getters = {

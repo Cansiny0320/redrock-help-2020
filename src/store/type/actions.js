@@ -19,3 +19,6 @@ export const FETCH_PROFILE_OPPOSE = 'fetchProfileOppose'
 
 export const FETCH_PUBLISH_QUESTION = 'fetchPublishQuestion'
 export const FETCH_PUBLISH_ANSWER = 'fetchPublishAnswer'
+
+export const FETCH_DELETE_QUESTION = 'fetchDeleteQuestion'
+export const FETCH_DELETE_ANSWER = 'fetchDeleteAnswer'

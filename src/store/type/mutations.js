@@ -18,3 +18,6 @@ export const SET_EDIT_TAGS = 'setEditTags'
 export const SET_EDIT_IMAGES = 'setEditImages'
 export const DELETE_EDIT_IMAGES = 'deleteEditImages'
 export const DELETE_EDIT_TAGS = 'deleteEditTags'
+
+export const DELETE_QUESTION = 'deleteQuestion'
+export const DELETE_ANSWER = 'deleteAnswer'

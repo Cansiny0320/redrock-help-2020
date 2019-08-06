@@ -27,7 +27,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import { FETCH_PROFILE_COMMENT } from "@/store/type/actions";
+import { FETCH_PROFILE_COMMENT, FETCH_DELETE_ANSWER } from "@/store/type/actions";
 
 import AnswerAction from '@/components/AnswerAction'
 
@@ -58,7 +58,8 @@ export default {
       this.deleteTipmassage = '你真的想要删除该回答吗？'
       this.deleteId = answerId
     },
-    handelDeleteConfirm (answerId) {
+    handelDeleteConfirm () {
+      this.$store.dispatch(FETCH_DELETE_ANSWER, this.deleteId)
       this.isShowToast = false
       this.deleteTipmassage = ''
     },

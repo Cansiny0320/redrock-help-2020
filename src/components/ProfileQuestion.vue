@@ -33,6 +33,7 @@
 
 <script>
 import { mapGetters } from "vuex";
+import { FETCH_DELETE_QUESTION } from '../store/type/actions';
 
 export default {
   name: "ProfileQuestion",
@@ -58,7 +59,8 @@ export default {
       this.deleteTipmassage = '你真的想要删除该问题吗？'
       this.deleteId = questionId
     },
-    handelDeleteConfirm (questionId) {
+    handelDeleteConfirm () {
+      this.$store.dispatch(FETCH_DELETE_QUESTION, this.deleteId)
       this.isShowToast = false
       this.deleteTipmassage = ''
     },
