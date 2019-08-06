@@ -87,7 +87,7 @@ export default {
   .item {
     display: flex;
     align-items: center;
-    margin: 0 10px;
+    margin-left: 10px;
     svg {
       margin: 0 4px;
       height: 30px;

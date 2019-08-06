@@ -1,20 +1,16 @@
 <template>
   <div v-if="!isLoading">
-    <div
-      class="box"
-      v-for="item in commentData"
-      :key="item.id"
-    >
+    <div class="box" v-for="item in commentData" :key="item.id">
       <div class="comment">{{item.content}}</div>
       <div class="question">来自于问题“{{item.question.content}}”</div>
       <div class="info">
         <div class="time">{{item.createdAt|date}}</div>
-        <AnswerAction
-        :item = "item"/>
-        <div class="delete"></div>
-        
 
-      
+        <div class="action">
+          <AnswerAction class="action" :item="item" />
+          <div class="delete">删除</div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -23,11 +19,10 @@
 <script>
 import { mapGetters } from "vuex";
 import { FETCH_PROFILE_COMMENT } from "@/store/type/actions";
-import AnswerOpposeSvg from "@/assets/svg/AnswerOppose.svg"
-import AnswerApprovalSvg from "@/assets/svg/AnswerApproval.svg"
+import AnswerOpposeSvg from "@/assets/svg/AnswerOppose.svg";
+import AnswerApprovalSvg from "@/assets/svg/AnswerApproval.svg";
 
-
-import AnswerAction from '@/components/AnswerAction'
+import AnswerAction from "@/components/AnswerAction";
 
 export default {
   name: "profileAnswer",
@@ -39,12 +34,12 @@ export default {
   props: {
     commentData: {
       type: Array,
-      required: true,
+      required: true
     }
   },
   computed: {
-    ...mapGetters(['isLoading'])
-  },
+    ...mapGetters(["isLoading"])
+  }
 };
 </script>
 
@@ -73,11 +68,11 @@ export default {
     color: @fontColor;
     justify-content: space-between;
     .action {
-      margin: 0 30px 0 auto;
+      display: flex;
     }
-    .delete{
-      margin-right:-24px;
-    }
+   .delete{
+     margin-left: 10px;
+   }
   }
 }
 </style>
