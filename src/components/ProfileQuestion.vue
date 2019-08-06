@@ -23,7 +23,7 @@
       </div>
     </div>
     <VToast
-      v-show="isShowToast"
+      v-if="isShowToast"
       :massage="deleteTipmassage"
       @confirm="handelDeleteConfirm"
       @cancel="handelDeleteCancel"

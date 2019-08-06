@@ -9,10 +9,19 @@
       <div class="question">来自于问题“{{item.question.content}}”</div>
       <div class="info">
         <div class="time">{{item.createdAt|date}}</div>
-        <AnswerAction class="action" :item="item" />
+        <AnswerAction
+          class="action"
+          :item="item"
+        />
         <div class="delete">删除</div>
       </div>
     </div>
+    <VToast
+      v-show="isShowToast"
+      :massage="deleteTipmassage"
+      @confirm="handelDeleteConfirm"
+      @cancel="handelDeleteCancel"
+    />
   </div>
 </template>
 

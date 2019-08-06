@@ -1,6 +1,7 @@
 <template>
   <div class="v-answer-action">
     <div
+      class="item"
       :class="{ active: item.isApproval }"
       @click="handelApprovalClick(item.id, item.isOppose)"
     >
@@ -8,12 +9,17 @@
       {{ item.approvalNum }}
     </div>
     <div
+      class="item"
       :class="{ active: item.isOppose }"
       @click="handelOpposeClick(item.id, item.isApproval)"
     >
       <AnswerOpposeSvg />
       {{ item.opposeNum }}
     </div>
+    <VPopup
+      v-if="isShowPopup"
+      :massage="approvalOpposeTipsMassage"
+    />
   </div>
 </template>
 
@@ -34,16 +40,40 @@ export default {
       required: true,
     }
   },
+  data () {
+    return {
+      isShowPopup: false,
+      approvalOpposeTipsMassage: '',
+      timer: null,
+    }
+  },
   components: {
     AnswerApprovalSvg,
     AnswerOpposeSvg,
   },
   methods: {
     handelApprovalClick (answerId, isOppose) {
-      if (!isOppose) this.$store.dispatch(FETCH_ANSWER_APPROVAL, answerId)
+      if (!isOppose) {
+        this.$store.dispatch(FETCH_ANSWER_APPROVAL, answerId)
+      } else {
+        this.autoHidePopup()
+        this.approvalOpposeTipsMassage = '请在点赞之前先取消反对'
+      }
     },
     handelOpposeClick (answerId, isApproval) {
-      if (!isApproval) this.$store.dispatch(FETCH_ANSWER_OPPOSE, answerId)
+      if (!isApproval) {
+        this.$store.dispatch(FETCH_ANSWER_OPPOSE, answerId)
+      } else {
+        this.autoHidePopup()
+        this.approvalOpposeTipsMassage = '请在反对之前先取消点赞'
+      }
+    },
+    autoHidePopup () {
+      this.isShowPopup = true
+      clearTimeout(this.timer)
+      this.timer = setTimeout(() => {
+        this.isShowPopup = false
+      }, 1500)
     }
   }
 }
@@ -54,7 +84,7 @@ export default {
   display: flex;
   align-items: center;
   color: @fontColor;
-  div {
+  .item {
     display: flex;
     align-items: center;
     margin: 0 10px;
