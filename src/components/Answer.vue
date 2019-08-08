@@ -11,7 +11,7 @@
       </div>
       <div class="content">{{ item.content }}</div>
       <div class="images">
-        <VImage :imagesUrl="item.photoUrls" />
+        <VImageForAnswer :imagesUrl="item.photoUrls" />
       </div>
       <div class="info">
         <div class="time">{{ item.createdAt | date }}</div>
@@ -72,7 +72,7 @@ export default {
       line-height: 40px;
     }
     .images {
-      margin: 0 10px 20px 10px;
+      margin: 0 20px 20px 20px;
     }
     .info {
       display: flex;
@@ -80,7 +80,7 @@ export default {
       line-height: 30px;
       color: @fontColor;
       justify-content: space-between;
-      margin: 0 20px 15px 20px;
+      margin: 0 20px 20px 20px;
       .action {
         display: flex;
         align-items: center;

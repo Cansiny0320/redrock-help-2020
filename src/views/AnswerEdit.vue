@@ -40,6 +40,7 @@ header {
 .question {
   margin: 30px;
   font-size: 32px;
+  line-height: 40px;
 }
 .title {
   margin: 30px 0 20px 30px;

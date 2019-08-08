@@ -92,7 +92,7 @@ export default {
       font-size: 22px;
       color: @fontColor;
       justify-content: space-between;
-      margin: 0 20px 15px 20px;
+      margin: 0 20px 20px 20px;
       .tags {
         @nowrap();
       }
