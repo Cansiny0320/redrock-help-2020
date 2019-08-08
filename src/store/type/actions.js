@@ -7,6 +7,11 @@ export const FETCH_QUESTION_BY_SEARCH = 'fetchQuestionBySearch'
 export const FETCH_PROFILE_IDENTITY = 'fetchProfileIdentity'
 export const FETCH_ONE_QUESTION_BY_ID = 'fetchOneQuestionById'
 
+export const FETCH_NEXT_HOT_QUESTION = 'fecthNextHotQuestion'
+export const FETCH_NEXT_NEW_QUESTION = 'fetchNextNewQuestion'
+export const FETCH_NEXT_TAG_QUESTION = 'fetchNextTagQuestion'
+export const FETCH_NEXT_ANSWER = 'fetchNextAnswer'
+
 export const FETCH_QUESTION_SOLVE = 'fetchQuestionSolve'
 
 export const FETCH_ANSWER_APPROVAL = 'fetchAnswerApproval'

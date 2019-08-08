@@ -14,12 +14,15 @@
 <script>
 import { mapGetters } from "vuex"
 
-import { FETCH_QUESTION_BY_TAG } from '@/store/type/actions'
+import { FETCH_QUESTION_BY_TAG, FETCH_NEXT_TAG_QUESTION } from '@/store/type/actions'
 
 import HomeEditButton from '@/components/HomeEditButton'
 
+import fetchMore from '@/mixin/fectchMore'
+
 export default {
   name: 'homeTag',
+  mixins: [fetchMore],
   components: {
     HomeEditButton,
   },
@@ -35,8 +38,13 @@ export default {
       return `${tagName} 分类下的问题`
     }
   },
-  created () {
+  mounted () {
     this.$store.dispatch(FETCH_QUESTION_BY_TAG, this.$route.query.id)
+  },
+  methods: {
+    handelFecthMore() {
+      this.$store.dispatch(FETCH_NEXT_TAG_QUESTION, this.$route.query.id)
+    }
   }
 }
 </script>

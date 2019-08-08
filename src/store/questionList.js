@@ -12,6 +12,9 @@ import {
   FETCH_PROFILE_QUESTION,
   FETCH_DELETE_QUESTION,
   FETCH_QUESTION_SOLVE,
+  FETCH_NEXT_HOT_QUESTION,
+  FETCH_NEXT_NEW_QUESTION,
+  FETCH_NEXT_TAG_QUESTION,
 } from './type/actions'
 
 import {
@@ -20,10 +23,12 @@ import {
   SET_QUESTION_LIST,
   DELETE_QUESTION,
   SET_QUESTION_SOLVE,
+  SET_MORE_QUESTION,
 } from './type/mutations'
 
 const initialState = {
   data: [],
+  page: 1,
 }
 
 const state = { ...initialState }
@@ -34,6 +39,14 @@ const actions = {
     const { data } = await QuestionService.hot()
     commit(FETCH_END)
     commit(SET_QUESTION_LIST, data)
+  },
+  async [FETCH_NEXT_HOT_QUESTION] ({ commit, state }) {
+    const { data } = await QuestionService.hot()
+    commit(SET_MORE_QUESTION, data)
+  },
+  async [FETCH_NEXT_NEW_QUESTION] ({ commit, state }) {
+    const { data } = await QuestionService.new()
+    commit(SET_MORE_QUESTION, data)
   },
   async [FETCH_QUESTION_NEW] ({ commit }) {
     commit(FETCH_START)
@@ -46,6 +59,10 @@ const actions = {
     const { data } = await QuestionService.tag(tagId)
     commit(FETCH_END)
     commit(SET_QUESTION_LIST, data)
+  },
+  async [FETCH_NEXT_TAG_QUESTION] ({ commit }, tagId) {
+    const { data } = await QuestionService.tag()
+    commit(SET_MORE_QUESTION, data)
   },
   async [FETCH_QUESTION_BY_SEARCH] ({commit}, q) {
     commit(FETCH_START)
@@ -72,6 +89,9 @@ const actions = {
 const mutations = {
   [SET_QUESTION_LIST] (state, data) {
     state.data = data
+  },
+  [SET_MORE_QUESTION] (state, data) {
+    state.data = [...state.data, ...data]
   },
   [DELETE_QUESTION] (state, questionId) {
     state.data = state.data.filter(item => item.id !== questionId)

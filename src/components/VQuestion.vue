@@ -36,6 +36,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { FETCH_NEXT_QUESTIONS } from '../store/type/actions';
 
 export default {
   name: 'vQuestion',
@@ -51,8 +52,8 @@ export default {
   methods: {
     handelQuestionBoxClick (id) {
       this.$router.push({ name: 'question', query: { id } })
-    }
-  }
+    },
+  },
 }
 
 </script>
