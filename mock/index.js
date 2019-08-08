@@ -11,7 +11,7 @@ const userNew = require('./userNew.json')
 const userOld = require('./userOld.json')
 
 module.exports = {
-  port: 8080,
+  port: 8088,
   before (app) {
     // search
     app.get('/api/search/hot', (req, res) => {
