@@ -12,7 +12,7 @@
       class="question"
       @click="handleProfileQuestionClick(profileData.id)"
     >
-      <span>我提过的问题{{profileData.questionsNum}}个</span>
+      <span>我提过的问题 {{profileData.questionsNum}} 个</span>
       <div class="front-icon">
         <BaseFront />
       </div>
@@ -22,7 +22,7 @@
       class="comment"
       @click="handleProfileAnswerClick('comment')"
     >
-      <span>我收到的评论{{profileData.answersNum}}个</span>
+      <span>我收到的评论 {{profileData.answersNum}} 个</span>
       <div class="front-icon">
         <BaseFront />
       </div>

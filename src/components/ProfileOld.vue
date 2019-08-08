@@ -9,7 +9,7 @@
     <div 
     class="approval"
     @click="handleClick('approval')">
-      <span>我收到的赞同{{profileData.approvalNum}}个</span>
+      <span>我收到的赞同 {{profileData.approvalNum}} 个</span>
       <div class="front-icon">
         <BaseFront />
       </div>
@@ -18,7 +18,7 @@
     <div 
     class="oppose"
     @click="handleClick('oppose')">
-      <span>我收到的反对{{profileData.opposeNum}}个</span>
+      <span>我收到的反对 {{profileData.opposeNum}} 个</span>
       <div class="front-icon">
         <BaseFront />
       </div>
@@ -27,7 +27,7 @@
     <div 
     class="answer"
     @click="handleClick('answers')">
-      <span>我的回答{{profileData.questionsNum}}个</span>
+      <span>我的回答 {{profileData.questionsNum}} 个</span>
       <div class="front-icon">
         <BaseFront />
       </div>
