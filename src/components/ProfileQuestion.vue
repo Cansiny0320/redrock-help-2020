@@ -92,9 +92,9 @@ export default {
       this.isShowSolveToast = false
       this.solveId = null
     },
-    handelDeleteCancel () {
-      this.isShowDeleteToast = false
-      this.deleteId = null
+    handelSolveCancel () {
+      this.isShowSolveToast = false
+      this.solveId = null
     },
     handelQuestionClick (questionId) {
       this.$router.push({ name: 'question', query: { id: questionId } })
