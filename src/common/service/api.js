@@ -54,8 +54,8 @@ export const SearchService = {
 }
 
 export const QuestionService = {
-  hot () {
-    return ApiService.get(`questions?pageNo=1`)
+  hot (page = 1) {
+    return ApiService.get(`questions?pageNo=${page}`)
   },
   new () {
     return ApiService.get(`questions?sortby=new`)

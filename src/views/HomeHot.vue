@@ -3,6 +3,7 @@
     <HomeHotTag />
     <div class="home-hot-question">
       <VQuestion :questionData="questionList" />
+      <div class="no-more" v-if="questionListNoMore">没有更多了</div>
     </div>
   </div>
 </template>
@@ -22,7 +23,7 @@ export default {
     HomeHotTag,
   },
   computed: {
-    ...mapGetters(['questionList']),
+    ...mapGetters(['questionList', 'questionListNoMore']),
   },
   mounted () {
     this.$store.dispatch(FETCH_QUESTION_HOT)
@@ -38,6 +39,10 @@ export default {
 <style lang="less" scoped>
 .home-hot-question {
   margin-top: 240px;
+}
+.no-more {
+  text-align: center;
+  padding: 0 30px 30px 30px;
 }
 </style>
 

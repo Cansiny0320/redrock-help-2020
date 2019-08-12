@@ -15,7 +15,7 @@
           :src="item.author.avatar"
         >
         <span class="name">{{ item.author.name }}</span>
-        <span class="time">{{ item.updatedAt | date }}</span>
+        <span class="time">{{ item.createdAt | date }}</span>
       </div>
       <div class="content">{{ item.content }}</div>
       <div class="info">

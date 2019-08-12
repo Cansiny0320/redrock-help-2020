@@ -29,6 +29,8 @@ import {
 const initialState = {
   data: [],
   page: 1,
+  noMore: false,
+  prePage: 10,
 }
 
 const state = { ...initialState }
@@ -41,8 +43,10 @@ const actions = {
     commit(SET_QUESTION_LIST, data)
   },
   async [FETCH_NEXT_HOT_QUESTION] ({ commit, state }) {
-    const { data } = await QuestionService.hot()
-    commit(SET_MORE_QUESTION, data)
+    if (!state.noMore) {
+      const { data } = await QuestionService.hot(state.page + 1)
+      commit(SET_MORE_QUESTION, data)
+    }
   },
   async [FETCH_NEXT_NEW_QUESTION] ({ commit, state }) {
     const { data } = await QuestionService.new()
@@ -54,7 +58,7 @@ const actions = {
     commit(FETCH_END)
     commit(SET_QUESTION_LIST, data)
   },
-  async [FETCH_QUESTION_BY_TAG] ({commit}, tagId) {
+  async [FETCH_QUESTION_BY_TAG] ({ commit }, tagId) {
     commit(FETCH_START)
     const { data } = await QuestionService.tag(tagId)
     commit(FETCH_END)
@@ -64,7 +68,7 @@ const actions = {
     const { data } = await QuestionService.tag()
     commit(SET_MORE_QUESTION, data)
   },
-  async [FETCH_QUESTION_BY_SEARCH] ({commit}, q) {
+  async [FETCH_QUESTION_BY_SEARCH] ({ commit }, q) {
     commit(FETCH_START)
     const { data } = await SearchService.search(q)
     commit(FETCH_END)
@@ -80,7 +84,7 @@ const actions = {
     await QuestionService.delete(questionId)
     commit(DELETE_QUESTION, questionId)
   },
-  async [FETCH_QUESTION_SOLVE] ({commit}, questionId) {
+  async [FETCH_QUESTION_SOLVE] ({ commit }, questionId) {
     await QuestionService.solve(questionId)
     commit(SET_QUESTION_SOLVE, questionId)
   },
@@ -89,16 +93,22 @@ const actions = {
 const mutations = {
   [SET_QUESTION_LIST] (state, data) {
     state.data = data
+    state.noMore = false
   },
   [SET_MORE_QUESTION] (state, data) {
     state.data = [...state.data, ...data]
+    state.page = state.page + 1
+    // console.log(state.noMore)
+    if (data.length < state.prePage) {
+      state.noMore = true
+    }
   },
   [DELETE_QUESTION] (state, questionId) {
     state.data = state.data.filter(item => item.id !== questionId)
   },
   [SET_QUESTION_SOLVE] (state, questionId) {
     state.data.forEach(item => {
-      if(item.id === questionId) {
+      if (item.id === questionId) {
         item.status = '已解决'
       }
     })
@@ -106,12 +116,15 @@ const mutations = {
 }
 
 const getters = {
-  questionList(state) {
+  questionList (state) {
     return state.data
   },
-  profileQuestion(state) {
+  profileQuestion (state) {
     return state.data
-  }
+  },
+  questionListNoMore (state) {
+    return state.noMore
+  },
 }
 
 export default {
