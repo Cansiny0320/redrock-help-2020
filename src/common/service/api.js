@@ -8,12 +8,13 @@ const ApiService = {
   init () {
     Vue.use(VueAxios, axios)
     Vue.axios.defaults.baseURL = API_URL
+    this.setHeader()
   },
 
   setHeader () {
     Vue.axios.defaults.headers.common[
       "Authorization"
-    ] = `Token ${JwtService.getToken()}`;
+    ] = `Bearer ${JwtService.getToken()}`;
   },
 
   get (resource) {
@@ -54,7 +55,7 @@ export const SearchService = {
 
 export const QuestionService = {
   hot () {
-    return ApiService.get(`questions`)
+    return ApiService.get(`questions?pageNo=1`)
   },
   new () {
     return ApiService.get(`questions?sortby=new`)
