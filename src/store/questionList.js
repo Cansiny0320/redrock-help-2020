@@ -49,8 +49,10 @@ const actions = {
     }
   },
   async [FETCH_NEXT_NEW_QUESTION] ({ commit, state }) {
-    const { data } = await QuestionService.new()
-    commit(SET_MORE_QUESTION, data)
+    if (!state.noMore) {
+      const { data } = await QuestionService.new(state.page + 1)
+      commit(SET_MORE_QUESTION, data)
+    }
   },
   async [FETCH_QUESTION_NEW] ({ commit }) {
     commit(FETCH_START)
@@ -60,13 +62,22 @@ const actions = {
   },
   async [FETCH_QUESTION_BY_TAG] ({ commit }, tagId) {
     commit(FETCH_START)
-    const { data } = await QuestionService.tag(tagId)
+    let { data } = await QuestionService.tag(tagId)
+    data = data.map(item => {
+      return item.value
+    })
     commit(FETCH_END)
     commit(SET_QUESTION_LIST, data)
   },
-  async [FETCH_NEXT_TAG_QUESTION] ({ commit }, tagId) {
-    const { data } = await QuestionService.tag()
-    commit(SET_MORE_QUESTION, data)
+
+  async [FETCH_NEXT_TAG_QUESTION] ({ commit, state }, tagId) {
+    if (!state.noMore) {
+      let { data } = await QuestionService.tag(tagId, state.page + 1)
+      data = data.map(item => {
+        return item.value
+      })
+      commit(SET_MORE_QUESTION, data)
+    }
   },
   async [FETCH_QUESTION_BY_SEARCH] ({ commit }, q) {
     commit(FETCH_START)
@@ -94,11 +105,11 @@ const mutations = {
   [SET_QUESTION_LIST] (state, data) {
     state.data = data
     state.noMore = false
+    state.page = 1
   },
   [SET_MORE_QUESTION] (state, data) {
     state.data = [...state.data, ...data]
     state.page = state.page + 1
-    // console.log(state.noMore)
     if (data.length < state.prePage) {
       state.noMore = true
     }

@@ -5,6 +5,7 @@
         :isLoading="isLoading"
         :questionData="questionList"
       />
+      <div class="no-more" v-if="questionListNoMore">没有更多了</div>
     </div>
   </div>
 </template>
@@ -21,7 +22,7 @@ export default {
     this.$store.dispatch(FETCH_QUESTION_NEW)
   },
   computed: {
-    ...mapGetters(['isLoading', 'questionList']),
+    ...mapGetters(['isLoading', 'questionList', 'questionListNoMore']),
   },
   methods: {
     handelFecthMore() {
@@ -34,6 +35,10 @@ export default {
 <style lang="less" scoped>
 .question {
   margin-top: 30px;
+}
+.no-more {
+  text-align: center;
+  padding: 0 30px 30px 30px;
 }
 </style>
 

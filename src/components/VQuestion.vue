@@ -27,7 +27,7 @@
             {{ innerItem.name }}
           </div>
         </div>
-        <div class="count">{{ item.answersCount }}条评论</div>
+        <div class="count">{{ item.answersCount }} 条评论</div>
       </div>
     </div>
   </div>
@@ -94,7 +94,11 @@ export default {
       justify-content: space-between;
       margin: 0 20px 20px 20px;
       .tags {
+        display: flex;
         @nowrap();
+        div {
+          margin: 0 5px;
+        }
       }
     }
   }

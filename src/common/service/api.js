@@ -57,11 +57,11 @@ export const QuestionService = {
   hot (page = 1) {
     return ApiService.get(`questions?pageNo=${page}`)
   },
-  new () {
-    return ApiService.get(`questions?sortby=new`)
+  new (page = 1) {
+    return ApiService.get(`questions?pageNo=${page}&sortby=new`)
   },
-  tag (tagId) {
-    return ApiService.get(`questions/tag/${tagId}`)
+  tag (tagId, page = 1) {
+    return ApiService.get(`questions/tag?tagId=${tagId}&pageNo=${page}`)
   },
   get (questionId) {
     return ApiService.get(`questions/${questionId}/answer`)

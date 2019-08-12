@@ -6,6 +6,7 @@
         :isLoading="isLoading"
         :questionData="questionList"
       />
+      <div class="no-more" v-if="questionListNoMore">没有更多了</div>
     </div>
     <HomeEditButton />
   </div>
@@ -27,12 +28,12 @@ export default {
     HomeEditButton,
   },
   computed: {
-    ...mapGetters(['tagHot', 'isLoading', 'questionList']),
+    ...mapGetters(['tagHot', 'isLoading', 'questionList', 'questionListNoMore']),
     tagName() {
       let tagName = ''
       this.tagHot.forEach(element => {
         if(element.id === Number(this.$route.query.id)) {
-          tagName = element.name
+          tagName = element.label
         }
       });
       return `${tagName} 分类下的问题`
@@ -52,5 +53,9 @@ export default {
 <style lang="less" scoped>
 .question {
   padding-top: 20px;
+}
+.no-more {
+  text-align: center;
+  padding: 0 30px 30px 30px;
 }
 </style>
