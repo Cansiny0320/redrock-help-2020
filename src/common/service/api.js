@@ -49,7 +49,7 @@ export const SearchService = {
     return ApiService.get(`search/hot`)
   },
   search (q) {
-    return ApiService.get(`search/questions?q=${q}`)
+    return ApiService.get(`search/questions?content=${q}`)
   }
 }
 

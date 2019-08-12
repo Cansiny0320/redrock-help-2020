@@ -64,6 +64,8 @@ const actions = {
     commit(FETCH_START)
     let { data } = await QuestionService.tag(tagId)
     data = data.map(item => {
+      item.value.answersCount = item.value.author.answersCount
+      delete item.value.author.answersCount
       return item.value
     })
     commit(FETCH_END)
@@ -81,7 +83,12 @@ const actions = {
   },
   async [FETCH_QUESTION_BY_SEARCH] ({ commit }, q) {
     commit(FETCH_START)
-    const { data } = await SearchService.search(q)
+    let { data } = await SearchService.search(q)
+    data = data.map(item => {
+      item.value.answersCount = item.value.author.answersCount
+      delete item.value.author.answersCount
+      return item.value
+    })
     commit(FETCH_END)
     commit(SET_QUESTION_LIST, data)
   },

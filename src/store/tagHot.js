@@ -23,7 +23,12 @@ const actions = {
     let hotData
     if (!state.data.length) {
       commit(FETCH_START)
-      const { data } = await TagService.hot()
+      let { data } = await TagService.hot()
+      data = data.map(item=>{
+        item.name = item.label
+        delete item.label
+        return item
+      })
       commit(FETCH_END)
       hotData = data
     } else {

@@ -33,7 +33,7 @@ export default {
       let tagName = ''
       this.tagHot.forEach(element => {
         if(element.id === Number(this.$route.query.id)) {
-          tagName = element.label
+          tagName = element.name
         }
       });
       return `${tagName} 分类下的问题`
