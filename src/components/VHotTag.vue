@@ -8,7 +8,7 @@
         :key="item.id"
         @click="handelItemClick(index)"
         :class="{ active: whichItemsClicked[index] }"
-      >{{item.name}}</div>
+      >{{item.label}}</div>
     </div>
   </div>
 </template>
