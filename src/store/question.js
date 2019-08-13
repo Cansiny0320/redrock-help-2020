@@ -58,7 +58,8 @@ const actions = {
   },
   async [FETCH_PROFILE_ANSWER] ({ commit }) {
     commit(FETCH_START)
-    const { data } = await ProfileService.getAllAnswer()
+    let { data } = await ProfileService.getAllAnswer()
+    data = data.answers
     commit(FETCH_END)
     commit(SET_PROFILE_ANSWER, data)
   },
@@ -120,7 +121,7 @@ const mutations = {
     state.data.answer = data
   },
   [DELETE_ANSWER] (state, answerId) {
-    state.data.answer = state.data.answer.filter(item => item.id !== answerId)
+    state.data.answer = state.data.answer.filter(item => item.ansId !== answerId)
   },
 }
 

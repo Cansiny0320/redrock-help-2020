@@ -82,8 +82,7 @@ export const AnswerService = {
     return ApiService.get(`attitude/disagree?ansId=${answerId}`)
   },
   delete (answerId) {
-    return 1
-    // return ApiService.delete(`answers`)
+    return ApiService.post(`answer/questions/deleteanswer?ansId=${answerId}`)
   }
 }
 

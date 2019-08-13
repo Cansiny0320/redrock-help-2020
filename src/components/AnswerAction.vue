@@ -53,19 +53,23 @@ export default {
   },
   methods: {
     handelApprovalClick (answerId, isOppose) {
-      if (!isOppose) {
-        this.$store.dispatch(FETCH_ANSWER_APPROVAL, answerId)
-      } else {
-        this.autoHidePopup()
-        this.approvalOpposeTipsMassage = '请在点赞之前先取消反对'
+      if (isOppose !== undefined) {
+        if (!isOppose) {
+          this.$store.dispatch(FETCH_ANSWER_APPROVAL, answerId)
+        } else {
+          this.autoHidePopup()
+          this.approvalOpposeTipsMassage = '请在点赞之前先取消反对'
+        }
       }
     },
     handelOpposeClick (answerId, isApproval) {
-      if (!isApproval) {
-        this.$store.dispatch(FETCH_ANSWER_OPPOSE, answerId)
-      } else {
-        this.autoHidePopup()
-        this.approvalOpposeTipsMassage = '请在反对之前先取消点赞'
+      if (isApproval !== undefined) {
+        if (!isApproval) {
+          this.$store.dispatch(FETCH_ANSWER_OPPOSE, answerId)
+        } else {
+          this.autoHidePopup()
+          this.approvalOpposeTipsMassage = '请在反对之前先取消点赞'
+        }
       }
     },
     autoHidePopup () {

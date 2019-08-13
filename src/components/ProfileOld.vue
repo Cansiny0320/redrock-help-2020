@@ -6,7 +6,7 @@
       <span class="name">{{profileData.name}}</span>
     </div>
 
-    <div 
+    <!-- <div 
     class="approval"
     @click="handleClick('approval')">
       <span>我收到的赞同 {{profileData.approvalNum}} 个</span>
@@ -22,7 +22,7 @@
       <div class="front-icon">
         <BaseFront />
       </div>
-    </div>
+    </div> -->
 
     <div 
     class="answer"

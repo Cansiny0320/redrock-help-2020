@@ -3,19 +3,21 @@
     <div
       class="box"
       v-for="item in commentData"
-      :key="item.id"
+      :key="item.ansId"
     >
       <div class="comment">{{item.content}}</div>
       <div class="question">来自于问题“{{item.question.content}}”</div>
       <div class="info">
         <div class="time">{{item.createdAt|date}}</div>
         <AnswerAction
+          @touchstart.prevent
+          @click.prevent
           class="action"
           :item="item"
         />
         <div
           class="delete"
-          @click="handelDeleteClick(item.id)"
+          @click="handelDeleteClick(item.ansId)"
         >删除</div>
       </div>
     </div>
