@@ -2,8 +2,8 @@
   <div class="home-tag">
     <VHeader :titleStr="tagName"/>
     <div class="question">
+      <VLoading v-if="isLoading"/>
       <VQuestion
-        :isLoading="isLoading"
         :questionData="questionList"
       />
       <div class="no-more" v-if="questionListNoMore">没有更多了</div>

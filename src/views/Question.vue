@@ -2,7 +2,8 @@
   <div class="qustion">
     <QuestionReplyButton v-if="isShowQuestionReplyButton" />
     <VHeader titleStr="问题详情" />
-    <template v-if="!isLoading">
+    <VLoading v-if="isLoading" />
+    <template v-else>
       <div class="user">
         <img :src="oneQuestion.author.avatar">
         <span class="name">{{ oneQuestion.author.name }}</span>

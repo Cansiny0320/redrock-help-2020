@@ -1,6 +1,7 @@
 <template>
   <div class="home-new">
     <div class="question">
+      <VLoading v-if="isLoading"/>
       <VQuestion
         :isLoading="isLoading"
         :questionData="questionList"

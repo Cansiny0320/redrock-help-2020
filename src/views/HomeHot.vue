@@ -1,9 +1,15 @@
 <template>
   <div>
     <HomeHotTag />
-    <div class="home-hot-question">
-      <VQuestion :questionData="questionList" />
-      <div class="no-more" v-if="questionListNoMore">没有更多了</div>
+    <div
+      class="home-hot-question"
+    >
+      <VLoading v-if="isLoading"/>
+      <VQuestion v-else :questionData="questionList" />
+      <div
+        class="no-more"
+        v-if="questionListNoMore"
+      >没有更多了</div>
     </div>
   </div>
 </template>
@@ -23,7 +29,7 @@ export default {
     HomeHotTag,
   },
   computed: {
-    ...mapGetters(['questionList', 'questionListNoMore']),
+    ...mapGetters(['questionList', 'questionListNoMore', 'isLoading']),
   },
   mounted () {
     this.$store.dispatch(FETCH_QUESTION_HOT)
