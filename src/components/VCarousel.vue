@@ -1,6 +1,6 @@
 <template>
-  <div class="v-carousel">
-    <header @click="handelBackClick">
+  <div class="v-carousel" @touchstart.prevent>
+    <header @touchstart="handelBackClick">
       <BaseBackSvg />
       <span>{{ pageNum }}/{{ totalPageNum }}</span>
     </header>
