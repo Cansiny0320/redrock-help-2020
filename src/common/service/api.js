@@ -64,7 +64,7 @@ export const QuestionService = {
     return ApiService.get(`questions/tag?tagId=${tagId}&pageNo=${page}`)
   },
   get (questionId) {
-    return ApiService.get(`questions/${questionId}/answer`)
+    return ApiService.get(`questions/id?id=${questionId}`)
   },
   solve (questionId, params) {
     return ApiService.patch(`questions/${questionId}`, params)

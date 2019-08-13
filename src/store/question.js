@@ -40,7 +40,11 @@ const state = { ...initialState }
 const actions = {
   async [FETCH_ONE_QUESTION_BY_ID] ({ commit }, questionId) {
     commit(FETCH_START)
-    const { data } = await QuestionService.get(questionId)
+    let { data } = await QuestionService.get(questionId)
+    data.answer.forEach(item=>{
+      item.isApproval = item.isApproval === 'true'
+      item.isOppose = item.isOppose === 'true'
+    })
     commit(FETCH_END)
     commit(SET_ONE_QUESTION, data)
   },
