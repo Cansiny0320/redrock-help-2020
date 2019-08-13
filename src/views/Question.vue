@@ -1,6 +1,6 @@
 <template>
   <div class="qustion">
-    <QuestionReplyButton />
+    <QuestionReplyButton v-if="isShowQuestionReplyButton" />
     <VHeader titleStr="问题详情" />
     <template v-if="!isLoading">
       <div class="user">
@@ -38,6 +38,10 @@ export default {
   },
   computed: {
     ...mapGetters(['oneQuestion', 'isLoading']),
+    isShowQuestionReplyButton() {
+      return this.oneQuestion.answer.length < 31 &&
+        this.oneQuestion.status === '未解决'
+    }
   }
 }
 </script>
