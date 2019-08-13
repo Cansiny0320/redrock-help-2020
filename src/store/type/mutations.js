@@ -23,3 +23,6 @@ export const DELETE_EDIT_TAGS = 'deleteEditTags'
 
 export const DELETE_QUESTION = 'deleteQuestion'
 export const DELETE_ANSWER = 'deleteAnswer'
+
+export const SET_PORGRESSING = 'setProgressing'
+export const END_PORGRESSING = 'endProgressing'

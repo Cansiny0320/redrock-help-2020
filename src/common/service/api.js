@@ -71,6 +71,9 @@ export const QuestionService = {
   },
   delete (questionId) {
     return ApiService.delete(`questions?id=${questionId}`)
+  },
+  post(params) {
+    return ApiService.post(`questions`, params)
   }
 }
 

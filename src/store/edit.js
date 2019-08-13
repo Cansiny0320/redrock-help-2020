@@ -9,17 +9,33 @@ import {
   SET_EDIT_WORDS,
   DELETE_EDIT_IMAGES,
   DELETE_EDIT_TAGS,
+  SET_PORGRESSING,
+  END_PORGRESSING,
 } from './type/mutations'
+import { QuestionService } from '@/common/service/api';
 
 const initialState = {
   words: '',
   tags: [],
   image: [],
+  isProgressing: false,
 }
 
 const state = { ...initialState }
 
-const actions = {}
+const actions = {
+  async [FETCH_PUBLISH_QUESTION] ({ commit, state }) {
+    commit(SET_PORGRESSING)
+    const { data } = await QuestionService.post({
+      content: state.words,
+      tags: state.tags.map(item=>{
+        return { id: item }
+      }),
+      photo: [],
+    })
+    commit(END_PORGRESSING)
+  }
+}
 
 const mutations = {
   [SET_EDIT_IMAGES] (state, base64) {
@@ -36,6 +52,15 @@ const mutations = {
   },
   [SET_EDIT_WORDS] (state, words) {
     state.words = words
+  },
+  [SET_PORGRESSING] (state) {
+    state.isProgressing = true
+  },
+  [END_PORGRESSING] (state) {
+    state.isProgressing = false
+    state.words = ''
+    state.image = []
+    state.tags = []
   }
 }
 
@@ -48,7 +73,10 @@ const getters = {
   },
   editTags() {
     return state.tags
-  }
+  },
+  editProgress() {
+    return state.isProgressing
+  },
 }
 
 export default {
