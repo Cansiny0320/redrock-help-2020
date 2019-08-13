@@ -27,7 +27,7 @@
     <div 
     class="answer"
     @click="handleClick('answers')">
-      <span>我的回答 {{profileData.questionsNum}} 个</span>
+      <span>我的回答 {{profileData.answersNum}} 个</span>
       <div class="front-icon">
         <BaseFront />
       </div>
