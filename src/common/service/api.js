@@ -77,10 +77,10 @@ export const QuestionService = {
 
 export const AnswerService = {
   approval (answerId) {
-    return ApiService.get(`questions`)
+    return ApiService.get(`attitude/agree?ansId=${answerId}`)
   },
   oppose (answerId) {
-    return ApiService.get(`questions`)
+    return ApiService.get(`attitude/disagree?ansId=${answerId}`)
   },
   delete (answerId) {
     return 1
