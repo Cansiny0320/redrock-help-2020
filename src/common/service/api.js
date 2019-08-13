@@ -70,8 +70,7 @@ export const QuestionService = {
     return ApiService.patch(`questions/${questionId}`, params)
   },
   delete (questionId) {
-    return 1
-    // return ApiService.delete(`answers`)
+    return ApiService.delete(`questions?id=${questionId}`)
   }
 }
 
@@ -90,7 +89,7 @@ export const AnswerService = {
 
 export const ProfileService = {
   identify () {
-    return ApiService.get(`user`)
+    return ApiService.get(`user/info`)
   },
   getAllAnswer () {
     return ApiService.get(`user/answers`)

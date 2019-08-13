@@ -15,7 +15,8 @@
 
       <div class="tips">
         <span class="time">{{item.createdAt | date}}</span>
-        <span class="comment">{{item.answersCount}}条评论</span>
+        <!-- <span class="comment">{{item.answersCount}}条评论</span> -->
+        <span class="comment"></span>
         <span
           class="solve"
           @click="handelSolveClick(item.id)"

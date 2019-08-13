@@ -18,7 +18,7 @@
       </div>
     </div>
 
-    <div
+    <!-- <div
       class="comment"
       @click="handleProfileAnswerClick('comment')"
     >
@@ -26,7 +26,7 @@
       <div class="front-icon">
         <BaseFront />
       </div>
-    </div>
+    </div> -->
 
   </div>
 </template>

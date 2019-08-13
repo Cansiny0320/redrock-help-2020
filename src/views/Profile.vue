@@ -24,11 +24,11 @@ export default {
   computed: {
     ...mapGetters([ "profileIdentity", "isLoading"]),
     isNew() {
-      if (this.profileIdentity.role === "新生") return true;
+      if (this.profileIdentity.role === 1) return true;
       else return false;
     },
     isOld() {
-      if (this.profileIdentity.role === "志愿者") return true;
+      if (this.profileIdentity.role === 0) return true;
       else return false;
     }
   }
