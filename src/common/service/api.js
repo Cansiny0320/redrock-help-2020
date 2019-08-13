@@ -86,6 +86,9 @@ export const AnswerService = {
   },
   delete (answerId) {
     return ApiService.post(`answer/questions/deleteanswer?ansId=${answerId}`)
+  },
+  post (questionId, params) {
+    return ApiService.post(`answer/questions/answer?queId=${questionId}`, params)
   }
 }
 

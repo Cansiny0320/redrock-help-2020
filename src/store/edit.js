@@ -12,7 +12,7 @@ import {
   SET_PORGRESSING,
   END_PORGRESSING,
 } from './type/mutations'
-import { QuestionService } from '@/common/service/api';
+import { QuestionService, AnswerService } from '@/common/service/api';
 
 const initialState = {
   words: '',
@@ -31,6 +31,14 @@ const actions = {
       tags: state.tags.map(item=>{
         return { id: item }
       }),
+      photo: [],
+    })
+    commit(END_PORGRESSING)
+  },
+  async [FETCH_PUBLISH_ANSWER] ({ commit, state }, questionId) {
+    commit(SET_PORGRESSING)
+    const { data } = await AnswerService.post(questionId, {
+      content: state.words,
       photo: [],
     })
     commit(END_PORGRESSING)

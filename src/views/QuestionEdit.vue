@@ -36,7 +36,6 @@ export default {
   },
   data () {
     return {
-      words: '',
       progressMassage: '发布中，请稍后...',
       tagTipsMassage: '你最少需要选择一个标签',
       isShowTagTips: false,

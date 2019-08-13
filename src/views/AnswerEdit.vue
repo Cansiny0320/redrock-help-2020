@@ -2,13 +2,18 @@
   <div>
     <header>
       <VBack />
-      <vPublishButton />
+      <div @click="handelAnswerPublished">
+        <vPublishButton />
+      </div>
     </header>
     <div class="question">{{ oneQuestion.content }}</div>
     <div class="title">问题回答</div>
     <EditAnswerBox />
     <EditImage />
-
+    <VPopup
+      :massage="progressMassage"
+      v-if="editProgress"
+    />
   </div>
 
 </template>
@@ -18,6 +23,8 @@ import { mapGetters } from 'vuex'
 
 import EditAnswerBox from '@/components/EditAnswerBox'
 import EditImage from '@/components/EditImage'
+import { FETCH_PUBLISH_ANSWER } from '../store/type/actions';
+import { END_PORGRESSING } from '../store/type/mutations';
 
 export default {
   name: 'answerEdit',
@@ -25,8 +32,27 @@ export default {
     EditAnswerBox,
     EditImage
   },
+  data() {
+    return {
+      progressMassage: '发布中，请稍后...',
+      subscriber: null,
+    }
+  },
   computed: {
-    ...mapGetters(['oneQuestion'])
+    ...mapGetters(['oneQuestion', 'editProgress'])
+  },
+  methods: {
+    handelAnswerPublished() {
+      this.$store.dispatch(FETCH_PUBLISH_ANSWER, this.oneQuestion.id)
+        // 订阅完成发布的事件
+        this.subscriber = this.$store.subscribe(async (mutation, state) => {
+          if (mutation.type === END_PORGRESSING) {
+            // 删除这个订阅
+            await this.subscriber()
+            this.$router.go(-1)
+          }
+        })
+    }
   }
 }
 </script>
