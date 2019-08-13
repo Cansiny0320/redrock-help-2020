@@ -42,8 +42,8 @@ const actions = {
     commit(FETCH_START)
     let { data } = await QuestionService.get(questionId)
     data.answer.forEach(item=>{
-      item.isApproval = item.isApproval === 'true'
-      item.isOppose = item.isOppose === 'true'
+      item.isApproval = item.isApproval === 'ture'
+      item.isOppose = item.isOppose === 'ture'
     })
     commit(FETCH_END)
     commit(SET_ONE_QUESTION, data)
