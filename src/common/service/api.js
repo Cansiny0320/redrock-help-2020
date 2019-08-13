@@ -66,8 +66,8 @@ export const QuestionService = {
   get (questionId) {
     return ApiService.get(`questions/id?id=${questionId}`)
   },
-  solve (questionId, params) {
-    return ApiService.patch(`questions/${questionId}`, params)
+  solve (questionId) {
+    return ApiService.patch(`questions?id=${questionId}`)
   },
   delete (questionId) {
     return ApiService.delete(`questions?id=${questionId}`)
