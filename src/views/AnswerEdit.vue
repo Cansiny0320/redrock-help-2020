@@ -6,7 +6,7 @@
     </header>
     <div class="question">{{ oneQuestion.content }}</div>
     <div class="title">问题回答</div>
-    <EditBox />
+    <EditAnswerBox />
     <EditImage />
 
   </div>
@@ -16,13 +16,13 @@
 <script>
 import { mapGetters } from 'vuex'
 
-import EditBox from '@/components/EditBox'
+import EditAnswerBox from '@/components/EditAnswerBox'
 import EditImage from '@/components/EditImage'
 
 export default {
   name: 'answerEdit',
   components: {
-    EditBox,
+    EditAnswerBox,
     EditImage
   },
   computed: {
