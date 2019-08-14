@@ -16,6 +16,10 @@
       :massage="tagTipsMassage"
       v-if="isShowTagTips"
     />
+    <VPopup
+      :massage="wordsMassage"
+      v-if="isShowWordsTips"
+    />
   </div>
 
 </template>
@@ -38,9 +42,12 @@ export default {
     return {
       progressMassage: '发布中，请稍后...',
       tagTipsMassage: '你最少需要选择一个标签',
+      wordsMassage: '你的输入必须大于 4 个字符',
       isShowTagTips: false,
       tagTipsTimer: null,
       subscriber: null,
+      isShowWordsTips: false,
+      timer: null,
     }
   },
   computed: {
@@ -57,6 +64,12 @@ export default {
         clearTimeout(this.tagTipsTimer)
         this.tagTipsTimer = setTimeout(() => {
           this.isShowTagTips = false
+        }, 1500)
+      } else if (this.editWord.length < 4) {
+        this.isShowWordsTips = true
+        clearTimeout(this.timer)
+        this.timer = setTimeout(() => {
+          this.isShowWordsTips = false
         }, 1500)
       } else {
         this.$store.dispatch(FETCH_PUBLISH_QUESTION)
