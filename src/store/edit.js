@@ -56,7 +56,7 @@ const actions = {
     commit(SET_IMAGE_UPLOADING)
     const { data } = await ImageService.post(blob)
     commit(END_IMAGE_UPLOADING)
-    commit(SET_EDIT_IMAGES, blob, data.id)
+    commit(SET_EDIT_IMAGES, { blob, imageId: data.id })
   },
   async [DLELTE_IMAGE] ({ commit, state }, index) {
     await ImageService.delete([state.imageId[index]])
@@ -71,9 +71,9 @@ const actions = {
 }
 
 const mutations = {
-  [SET_EDIT_IMAGES] (state, blob, id) {
+  [SET_EDIT_IMAGES] (state, { blob, imageId }) {
     state.image.push(blob)
-    state.imageId.push(id)
+    state.imageId.push(imageId)
   },
   [DELETE_EDIT_IMAGES] (state, index) {
     state.image.splice(index, 1)
@@ -102,6 +102,7 @@ const mutations = {
     state.words = ''
     state.image = []
     state.tags = []
+    state.isUploading = false
   }
 }
 

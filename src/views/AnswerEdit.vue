@@ -23,7 +23,7 @@ import { mapGetters } from 'vuex'
 
 import EditAnswerBox from '@/components/EditAnswerBox'
 import EditImage from '@/components/EditImage'
-import { FETCH_PUBLISH_ANSWER } from '../store/type/actions';
+import { FETCH_PUBLISH_ANSWER, EDIT_LEAVE } from '../store/type/actions';
 import { END_PORGRESSING } from '../store/type/mutations';
 
 export default {
