@@ -113,7 +113,7 @@ export default {
     .slide {
       img {
         max-height: 80vh;
-        width: 100vw;
+        margin: 0 auto;
       }
     }
   }
