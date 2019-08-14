@@ -63,7 +63,7 @@ const actions = {
     commit(DELETE_EDIT_IMAGES, index)
   },
   async [EDIT_LEAVE] ({ commit, state }) {
-    if (state.imageId.length) {
+    if (state.imageId.length && !isProgressing) {
       await ImageService.delete(state.imageId)
     }
     commit(END_PORGRESSING)

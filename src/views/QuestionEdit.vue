@@ -46,10 +46,10 @@ export default {
   computed: {
     ...mapGetters(['editProgress', 'editTags']),
   },
-  // beforeRouteLeave (_, __, next) {
-  //   this.$store.dispatch(EDIT_LEAVE)
-  //   next()
-  // },
+  beforeRouteLeave (_, __, next) {
+    this.$store.dispatch(EDIT_LEAVE)
+    next()
+  },
   methods: {
     handelQuestionPublished () {
       if (this.editTags.length === 0) {
