@@ -103,6 +103,7 @@ const mutations = {
     state.isProgressing = false
     state.words = ''
     state.image = []
+    state.imageId = []
     state.tags = []
     state.isUploading = false
   }
