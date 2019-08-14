@@ -1,12 +1,13 @@
 <template>
   <div class="home-tag">
-    <VHeader :titleStr="tagName"/>
+    <VHeader :titleStr="tagName" />
     <div class="question">
-      <VLoading v-if="isLoading"/>
-      <VQuestion
-        :questionData="questionList"
-      />
-      <div class="no-more" v-if="questionListNoMore">没有更多了</div>
+      <VLoading v-if="isLoading" />
+      <VQuestion :questionData="questionList" />
+      <div
+        class="no-more"
+        v-if="questionListNoMore"
+      >没有更多了</div>
     </div>
     <HomeEditButton />
   </div>
@@ -29,21 +30,25 @@ export default {
   },
   computed: {
     ...mapGetters(['tagHot', 'isLoading', 'questionList', 'questionListNoMore']),
-    tagName() {
+    tagName () {
       let tagName = ''
       this.tagHot.forEach(element => {
-        if(element.id === Number(this.$route.query.id)) {
+        if (element.id === Number(this.$route.query.id)) {
           tagName = element.name
         }
       });
       return `${tagName} 分类下的问题`
     }
   },
-  mounted () {
-    this.$store.dispatch(FETCH_QUESTION_BY_TAG, this.$route.query.id)
+  beforeRouteEnter (_, from, next) {
+    next(vm => {
+      if (from.name !== 'question') {
+        vm.$store.dispatch(FETCH_QUESTION_BY_TAG, vm.$route.query.id)
+      }
+    })
   },
   methods: {
-    handelFecthMore() {
+    handelFecthMore () {
       this.$store.dispatch(FETCH_NEXT_TAG_QUESTION, this.$route.query.id)
     }
   }

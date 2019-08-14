@@ -1,11 +1,12 @@
 <template>
   <div>
     <HomeHotTag />
-    <div
-      class="home-hot-question"
-    >
-      <VLoading v-if="isLoading"/>
-      <VQuestion v-else :questionData="questionList" />
+    <div class="home-hot-question">
+      <VLoading v-if="isLoading" />
+      <VQuestion
+        v-else
+        :questionData="questionList"
+      />
       <div
         class="no-more"
         v-if="questionListNoMore"
@@ -31,8 +32,12 @@ export default {
   computed: {
     ...mapGetters(['questionList', 'questionListNoMore', 'isLoading']),
   },
-  mounted () {
-    this.$store.dispatch(FETCH_QUESTION_HOT)
+  beforeRouteEnter (_, from, next) {
+    next(vm => {
+      if (from.name !== 'question') {
+        vm.$store.dispatch(FETCH_QUESTION_HOT)
+      }
+    })
   },
   methods: {
     handelFecthMore () {

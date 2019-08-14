@@ -1,12 +1,15 @@
 <template>
   <div class="home-new">
     <div class="question">
-      <VLoading v-if="isLoading"/>
+      <VLoading v-if="isLoading" />
       <VQuestion
         :isLoading="isLoading"
         :questionData="questionList"
       />
-      <div class="no-more" v-if="questionListNoMore">没有更多了</div>
+      <div
+        class="no-more"
+        v-if="questionListNoMore"
+      >没有更多了</div>
     </div>
   </div>
 </template>
@@ -19,14 +22,18 @@ import fecthMore from '@/mixin/fectchMore'
 export default {
   name: 'homeNew',
   mixins: [fecthMore],
-  mounted () {
-    this.$store.dispatch(FETCH_QUESTION_NEW)
+  beforeRouteEnter (_, from, next) {
+    next(vm => {
+      if (from.name !== 'question') {
+        vm.$store.dispatch(FETCH_QUESTION_NEW)
+      }
+    })
   },
   computed: {
     ...mapGetters(['isLoading', 'questionList', 'questionListNoMore']),
   },
   methods: {
-    handelFecthMore() {
+    handelFecthMore () {
       this.$store.dispatch(FETCH_NEXT_NEW_QUESTION)
     }
   }

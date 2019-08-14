@@ -35,17 +35,20 @@ export default {
     SearchBox,
     SearchHot,
   },
-  watch: {
-    $route (to) {
-      this.q = to.query.q
-      if (this.q) {
-        this.$store.dispatch(FETCH_QUESTION_BY_SEARCH, this.q)
+  beforeRouteEnter (to, from, next) {
+    next(vm => {
+      vm.q = vm.$route.query.q
+      if (from.name !== 'question') {
+        vm.$store.dispatch(FETCH_QUESTION_BY_SEARCH, vm.q)
       }
-    }
+    })
   },
-  mounted () {
-    this.q = this.$route.query.q
-    this.$store.dispatch(FETCH_QUESTION_BY_SEARCH, this.q)
+  beforeRouteUpdate (to, from, next) {
+    this.q = to.query.q
+    if (this.q) {
+      this.$store.dispatch(FETCH_QUESTION_BY_SEARCH, this.q)
+    }
+    next()
   },
   computed: {
     ...mapGetters(['isLoading', 'questionList'])
