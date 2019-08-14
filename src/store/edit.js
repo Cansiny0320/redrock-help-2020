@@ -48,7 +48,9 @@ const actions = {
     commit(SET_PORGRESSING)
     const { data } = await AnswerService.post(questionId, {
       content: state.words,
-      photo: [],
+      photo: state.imageId.map(item=>{
+        return { id: item }
+      }),
     })
     commit(END_PORGRESSING)
   },
