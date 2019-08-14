@@ -25,7 +25,7 @@ import { mapGetters } from 'vuex'
 
 import EditBox from '@/components/EditBox'
 import EditImage from '@/components/EditImage'
-import { FETCH_PUBLISH_QUESTION } from '../store/type/actions';
+import { FETCH_PUBLISH_QUESTION, EDIT_LEAVE } from '../store/type/actions';
 import { END_PORGRESSING } from '../store/type/mutations';
 
 export default {
@@ -45,6 +45,10 @@ export default {
   },
   computed: {
     ...mapGetters(['editProgress', 'editTags']),
+  },
+  beforeRouteLeave (_, __, next) {
+    this.$store.dispatch(EDIT_LEAVE)
+    next()
   },
   methods: {
     handelQuestionPublished () {

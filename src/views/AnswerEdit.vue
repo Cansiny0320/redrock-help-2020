@@ -32,7 +32,7 @@ export default {
     EditAnswerBox,
     EditImage
   },
-  data() {
+  data () {
     return {
       progressMassage: '发布中，请稍后...',
       subscriber: null,
@@ -41,17 +41,21 @@ export default {
   computed: {
     ...mapGetters(['oneQuestion', 'editProgress'])
   },
+  beforeRouteLeave (_, __, next) {
+    this.$store.dispatch(EDIT_LEAVE)
+    next()
+  },
   methods: {
-    handelAnswerPublished() {
+    handelAnswerPublished () {
       this.$store.dispatch(FETCH_PUBLISH_ANSWER, this.oneQuestion.id)
-        // 订阅完成发布的事件
-        this.subscriber = this.$store.subscribe(async (mutation, state) => {
-          if (mutation.type === END_PORGRESSING) {
-            // 删除这个订阅
-            await this.subscriber()
-            this.$router.go(-1)
-          }
-        })
+      // 订阅完成发布的事件
+      this.subscriber = this.$store.subscribe(async (mutation, state) => {
+        if (mutation.type === END_PORGRESSING) {
+          // 删除这个订阅
+          await this.subscriber()
+          this.$router.go(-1)
+        }
+      })
     }
   }
 }

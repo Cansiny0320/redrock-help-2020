@@ -3,6 +3,7 @@ import {
   FETCH_PUBLISH_QUESTION,
   UPLOAD_IMAGE,
   DLELTE_IMAGE,
+  EDIT_LEAVE,
 } from './type/actions'
 
 import {
@@ -61,6 +62,12 @@ const actions = {
     await ImageService.delete([state.imageId[index]])
     commit(DELETE_EDIT_IMAGES, index)
   },
+  async [EDIT_LEAVE] ({ commit, state }) {
+    if (state.imageId.length) {
+      await ImageService.delete(state.imageId)
+    }
+    commit(END_PORGRESSING)
+  }
 }
 
 const mutations = {
