@@ -24,10 +24,12 @@ import {
   DELETE_QUESTION,
   SET_QUESTION_SOLVE,
   SET_MORE_QUESTION,
+  SET_PROFILE_QUESTION_LIST,
 } from './type/mutations'
 
 const initialState = {
   data: [],
+  profileData: [],
   page: 1,
   noMore: false,
   prePage: 10,
@@ -96,7 +98,7 @@ const actions = {
     commit(FETCH_START)
     const { data } = await ProfileService.getQustion()
     commit(FETCH_END)
-    commit(SET_QUESTION_LIST, data)
+    commit(SET_PROFILE_QUESTION_LIST, data)
   },
   async [FETCH_DELETE_QUESTION] ({ commit }, questionId) {
     await QuestionService.delete(questionId)
@@ -114,6 +116,11 @@ const mutations = {
     state.noMore = false
     state.page = 1
   },
+  [SET_PROFILE_QUESTION_LIST] (state, data) {
+    state.profileData = data
+    state.noMore = false
+    state.page = 1
+  },
   [SET_MORE_QUESTION] (state, data) {
     state.data = [...state.data, ...data]
     state.page = state.page + 1
@@ -122,7 +129,7 @@ const mutations = {
     }
   },
   [DELETE_QUESTION] (state, questionId) {
-    state.data = state.data.filter(item => item.id !== questionId)
+    state.profileData = state.profileData.filter(item => item.id !== questionId)
   },
   [SET_QUESTION_SOLVE] (state, questionId) {
     state.data.forEach(item => {
@@ -138,7 +145,7 @@ const getters = {
     return state.data
   },
   profileQuestion (state) {
-    return state.data
+    return state.profileData
   },
   questionListNoMore (state) {
     return state.noMore

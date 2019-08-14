@@ -2,7 +2,10 @@
   <div class="profile-question">
     <VHeader :titleStr="titleStr" />
     <VLoading v-if="isLoading" />
-    <ProfileQuestion :questionData="profileQuestion" />
+    <ProfileQuestion
+      v-else
+      :questionData="profileQuestion"
+    />
   </div>
 </template>
 
