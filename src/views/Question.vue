@@ -40,8 +40,16 @@ export default {
   computed: {
     ...mapGetters(['oneQuestion', 'isLoading']),
     isShowQuestionReplyButton() {
-      return this.oneQuestion.answer.length < 31 &&
-        this.oneQuestion.status === '未解决'
+      let markAnswerCount = 0
+      this.oneQuestion.answer.map(item=>{
+        if (String(item.author.stuNum) === String(localStorage.getItem('stuNum'))) {
+          markAnswerCount++
+        }
+      })
+      return this.oneQuestion.answer.length < 31 
+        && this.oneQuestion.status === '未解决' 
+        && parseInt(localStorage.getItem('role')) === 0
+        && markAnswerCount === 0
     }
   }
 }

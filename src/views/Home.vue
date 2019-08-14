@@ -1,9 +1,9 @@
 <template>
   <div class="home">
     <HomeHeader />
-    <router-view class="router-home"/>
-    <HomeEditButton />
-  
+    <router-view class="router-home" />
+    <HomeEditButton v-if="isShowHomeEditButton" />
+
   </div>
 
 </template>
@@ -16,7 +16,12 @@ export default {
   components: {
     HomeEditButton,
     HomeHeader,
-    
+
+  },
+  computed: {
+    isShowHomeEditButton () {
+      return parseInt(localStorage.getItem('role')) === 1
+    }
   }
 }
 </script>
