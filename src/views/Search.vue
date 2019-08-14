@@ -39,7 +39,9 @@ export default {
     next(vm => {
       vm.q = vm.$route.query.q
       if (from.name !== 'question') {
-        vm.$store.dispatch(FETCH_QUESTION_BY_SEARCH, vm.q)
+        if (vm.q) {
+          vm.$store.dispatch(FETCH_QUESTION_BY_SEARCH, vm.q)
+        }
       }
     })
   },
