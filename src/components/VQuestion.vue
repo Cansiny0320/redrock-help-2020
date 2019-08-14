@@ -27,7 +27,7 @@
             {{ innerItem.name }}
           </div>
         </div>
-        <div class="count">{{ item.answersCount }} 条评论</div>
+        <div class="count">{{ item.answersCount }} 条回答</div>
       </div>
     </div>
   </div>

@@ -30,7 +30,7 @@ export default {
     titleStr () {
       switch (this.paramsResult) {
         case "comment":
-          return "我收到的评论"
+          return "我收到的回答"
           break;
         case "answers":
           return "我回答过的问题"
