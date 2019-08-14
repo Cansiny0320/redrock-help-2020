@@ -2,6 +2,9 @@ const path = require('path')
 const devServer = require('./mock')
 
 module.exports = {
+  publicPath: process.env.NODE_ENV === 'production'
+  ? '/game/xzxjbbm2019/'
+  : '/',
   chainWebpack: config => {
     // svg
     const svgRule = config.module.rule('svg');
