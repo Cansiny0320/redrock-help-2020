@@ -24,9 +24,16 @@
 <script>
 export default {
   name: 'vLoading',
+  props: {
+    number: {
+      type: Number,
+      required: false,
+      default: 4,
+    }
+  },
   data () {
     return {
-      array: Array(4)
+      array: Array(this.number)
     }
   }
 }

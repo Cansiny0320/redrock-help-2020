@@ -3,6 +3,7 @@
     class="v-question"
     v-if="!isLoading"
   >
+    <div class="no-content" v-if="isNoContent">空空如也，快来提一个问题</div>
     <div
       class="question"
       v-for="item of questionData"
@@ -47,7 +48,10 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['isLoading'])
+    ...mapGetters(['isLoading']),
+    isNoContent () {
+      return this.questionData.length === 0
+    }
   },
   methods: {
     handelQuestionBoxClick (id) {

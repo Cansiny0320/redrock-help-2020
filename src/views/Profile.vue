@@ -1,7 +1,20 @@
 <template>
-  <div>
-    <ProfileNew v-if="isNew" :profileData="profileIdentity" />
-    <ProfileOld v-if="isOld" :profileData="profileIdentity" />
+  <div class="profile">
+    <VLoading
+      :number="1"
+      v-if="isLoading"
+      class="loading"
+    />
+    <template v-else>
+      <ProfileNew
+        v-if="isNew"
+        :profileData="profileIdentity"
+      />
+      <ProfileOld
+        v-if="isOld"
+        :profileData="profileIdentity"
+      />
+    </template>
   </div>
 </template>
 
@@ -17,20 +30,25 @@ export default {
     ProfileNew,
     ProfileOld
   },
-  mounted() {
+  mounted () {
     this.$store.dispatch(FETCH_PROFILE_IDENTITY);
   },
-
   computed: {
-    ...mapGetters([ "profileIdentity", "isLoading"]),
-    isNew() {
+    ...mapGetters(["profileIdentity", "isLoading"]),
+    isNew () {
       if (this.profileIdentity.role === 1) return true;
       else return false;
     },
-    isOld() {
+    isOld () {
       if (this.profileIdentity.role === 0) return true;
       else return false;
     }
   }
 };
 </script>
+
+<style lang="less" scoped>
+.loading {
+  margin-top: 30px; 
+}
+</style>

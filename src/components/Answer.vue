@@ -1,5 +1,6 @@
 <template>
   <div class="v-answer">
+    <div class="no-content" v-if="isNoContent">空空如也，快来回答一个</div>
     <div
       v-for="item of answersData"
       :key="item.id"
@@ -35,6 +36,11 @@ export default {
   components: {
     AnswerAction,
   },
+  computed: {
+    isNoContent () {
+      return this.answersData.length === 0
+    }
+  },
   methods: {
     handelApprovalClick (answerId, isOppose) {
       if (!isOppose) this.$store.dispatch(FETCH_ANSWER_APPROVAL, answerId)
@@ -49,6 +55,9 @@ export default {
 <style lang="less" scoped>
 .v-answer {
   margin: 0 28px;
+  .no-content {
+    text-align: center;
+  }
   .answer {
     margin-bottom: 32px;
     border: 2px solid @mainColor;
