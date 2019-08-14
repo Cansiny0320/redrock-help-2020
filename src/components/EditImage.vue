@@ -3,7 +3,7 @@
     <ul>
       <li
         class="list"
-        v-for="(item, index) of editImage"
+        v-for="(item, index) of image"
         :key="index"
       >
         <img :src="item" />
@@ -90,11 +90,11 @@ export default {
           context.drawImage(img, 0, 0, targetWidth, targetHeight);
           /*第一个参数是创建的img对象；第二三个参数是左上角坐标，后面两个是画布区域宽高*/
 
-          //压缩后的图片转base64 url
+          //压缩后的图片转blob
           /*canvas.toDataURL(mimeType, qualityArgument),mimeType 默认值是'image/png';
            * qualityArgument表示导出的图片质量，只有导出为jpeg和webp格式的时候此参数才有效，默认值是0.92*/
-          const newUrl = canvas.toDataURL('image/jpeg', 0.92); //base64 格式
-          this.$store.commit(SET_EDIT_IMAGES, newUrl)
+          canvas.toBlob((blob) => {
+            this.$store.commit(SET_EDIT_IMAGES, blob)}, 'image/jpeg', 0.92);
         };
       }
       // 允许多次选择同样的照片
@@ -105,7 +105,10 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['editImage'])
+    ...mapGetters(['editImage']),
+    image() {
+      return this.editImage.map(item=>URL.createObjectURL(item))
+    }
   }
 };
 </script>
