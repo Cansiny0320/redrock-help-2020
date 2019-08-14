@@ -71,6 +71,7 @@ export default {
   left: 0;
   right: 0;
   height: 88px;
+  z-index: 10;
 
   display: flex;
   justify-content: center;
