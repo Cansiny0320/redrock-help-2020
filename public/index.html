@@ -27,4 +27,28 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
+  <script src="https://wx.idsbllp.cn/wx-api/share.js"></script>
+  <script>
+    WXSHARE.config({ debug: false });
+    WXSHARE.ready(function() {
+        var option = {
+            title: "学长学姐帮帮忙",
+            link: "http://wx.idsbllp.cn/game/xzxjbbm2019/",
+            imgUrl: 'http://hongyan.cqupt.edu.cn/app/favicon.ico',
+            desc: '学长学姐帮帮忙',
+            type: '',
+            success: function() {
+                console.log('分享成功');
+            },
+            cancel: function() {
+                console.log('取消分享');
+            },
+        };
+        wx.onMenuShareTimeline(option);
+        wx.onMenuShareAppMessage(option);
+        wx.onMenuShareQQ(option);
+        wx.onMenuShareWeibo(option);
+        wx.onMenuShareQZone(option);
+    });
+  </script>
 </html>
