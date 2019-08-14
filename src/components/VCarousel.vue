@@ -18,7 +18,7 @@
         v-for="(item, index) of imagesUrl"
         :key="index"
       >
-        <img :src="item">
+        <img :src="`${imgUrl}/getImage?imageName=${item.split('/')[3]}`">
       </slide>
     </carousel>
   </div>
@@ -56,6 +56,9 @@ export default {
   computed: {
     totalPageNum () {
       return this.imagesUrl.length
+    },
+    imgUrl () {
+      return process.env.VUE_APP_API
     }
   },
   methods: {

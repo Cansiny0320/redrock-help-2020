@@ -41,10 +41,10 @@ export default {
   computed: {
     ...mapGetters(['oneQuestion', 'editProgress'])
   },
-  beforeRouteLeave (_, __, next) {
-    this.$store.dispatch(EDIT_LEAVE)
-    next()
-  },
+  // beforeRouteLeave (_, __, next) {
+  //   this.$store.dispatch(EDIT_LEAVE)
+  //   next()
+  // },
   methods: {
     handelAnswerPublished () {
       this.$store.dispatch(FETCH_PUBLISH_ANSWER, this.oneQuestion.id)

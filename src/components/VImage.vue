@@ -9,7 +9,7 @@
       @click="handelImageClick(index)"
     >
       <img
-        :src="item"
+        :src="`${imgUrl}/getImage?imageName=${item.split('/')[3]}`"
         :class="[
           { one : oneImage },
           { two : twoImage },
@@ -70,6 +70,9 @@ export default {
     },
     moreImage () {
       return this.imagesUrl.length > 4
+    },
+    imgUrl () {
+      return process.env.VUE_APP_API
     }
   }
 }
