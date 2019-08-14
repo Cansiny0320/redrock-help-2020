@@ -51,7 +51,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['editProgress', 'editTags']),
+    ...mapGetters(['editProgress', 'editTags', 'editWord']),
   },
   beforeRouteLeave (_, __, next) {
     this.$store.dispatch(EDIT_LEAVE)
