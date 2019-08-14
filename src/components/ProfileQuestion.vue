@@ -1,7 +1,6 @@
 <template>
   <div
     class="profile-question"
-    v-if="!isLoading"
   >
     <div
       class="box"

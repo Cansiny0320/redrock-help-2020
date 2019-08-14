@@ -1,9 +1,8 @@
 <template>
   <div class="profile-question">
     <VHeader :titleStr="titleStr" />
-    <ProfileQuestion
-      :questionData="profileQuestion"
-    />
+    <VLoading v-if="isLoading" />
+    <ProfileQuestion :questionData="profileQuestion" />
   </div>
 </template>
 
@@ -23,8 +22,12 @@ export default {
   components: {
     ProfileQuestion,
   },
-  mounted () {
-    this.$store.dispatch(FETCH_PROFILE_QUESTION)
+  beforeRouteEnter (_, from, next) {
+    next(vm => {
+      if (from.name !== 'question') {
+        vm.$store.dispatch(FETCH_PROFILE_QUESTION)
+      }
+    })
   },
   computed: {
     ...mapGetters(['isLoading', 'profileQuestion']),

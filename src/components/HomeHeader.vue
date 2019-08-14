@@ -24,6 +24,7 @@ export default {
   mounted () {
     this.refershInfo()
   },
+  // 因为那个不是自己的路由，所以无法监控
   watch: {
     $route () {
       this.refershInfo()
