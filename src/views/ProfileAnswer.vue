@@ -21,9 +21,13 @@ export default {
   components: {
     ProfileAnswer,
   },
-  created () {
-    this.$store.dispatch(FETCH_PROFILE_ANSWER);
-    this.paramsResult = this.$route.query.type
+  beforeRouteEnter (_, from, next) {
+    next(vm => {
+      if (from.name !== 'question') {
+        vm.$store.dispatch(FETCH_PROFILE_ANSWER);
+        vm.paramsResult = vm.$route.query.type
+      }
+    })
   },
   computed: {
     ...mapGetters(["isLoading", "profileAnswer"]),

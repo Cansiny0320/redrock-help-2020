@@ -14,9 +14,10 @@
       if (token && token.length) {
         document.location.hash = '#/'
         localStorage.setItem('id_token', token)
-        const { exp, stuNum } = JSON.parse(atob(token.split('.')[1]))
+        const { exp, stuNum, role } = JSON.parse(atob(token.split('.')[1]))
         localStorage.setItem('exp', exp)
         localStorage.setItem('stuNum', stuNum)
+        localStorage.setItem('role', role)
       }
     </script>
   </head>
