@@ -12,9 +12,11 @@ import QuestionEdit from '@/views/QuestionEdit.vue'
 import AnswerEdit from '@/views/AnswerEdit.vue'
 import Question from '@/views/Question.vue'
 
+import ga from 'vue-ga'
+
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -74,3 +76,7 @@ export default new Router({
     },
   ]
 })
+
+ga(router, 'UA-145706329-1')
+
+export default router
