@@ -132,7 +132,7 @@ const mutations = {
     state.profileData = state.profileData.filter(item => item.id !== questionId)
   },
   [SET_QUESTION_SOLVE] (state, questionId) {
-    state.data.forEach(item => {
+    state.profileData.forEach(item => {
       if (item.id === questionId) {
         item.status = '已解决'
       }
