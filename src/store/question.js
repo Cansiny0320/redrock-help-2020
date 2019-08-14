@@ -33,6 +33,7 @@ const initialState = {
     answer: [],
     photoUrls: [],
   },
+  profileAnswer: [],
 }
 
 const state = { ...initialState }
@@ -112,16 +113,16 @@ const mutations = {
     })
   },
   [SET_PROFILE_ANSWER] (state, data) {
-    state.data.answer = data
+    state.profileAnswer = data
   },
   [SET_PROFILE_APPROVAL] (state, data) {
-    state.data.answer = data
+    state.profileAnswer = data
   },
   [SET_PROFILE_OPPOSE] (state, data) {
-    state.data.answer = data
+    state.profileAnswer = data
   },
   [DELETE_ANSWER] (state, answerId) {
-    state.data.answer = state.data.answer.filter(item => item.ansId !== answerId)
+    state.profileAnswer = state.profileAnswer.filter(item => item.ansId !== answerId)
   },
 }
 
@@ -130,7 +131,7 @@ const getters = {
     return state.data
   },
   profileAnswer(state) {
-    return state.data.answer
+    return state.profileAnswer
   },
 }
 
