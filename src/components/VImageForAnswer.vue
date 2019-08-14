@@ -1,6 +1,11 @@
 <template>
   <div class="v-image">
-    <VCarousel :imagesUrl="imagesUrl" v-if="isShowCarousel" @close="handelCloseClick" :navigateTo="navigateTo"/>
+    <VCarousel
+      :imagesUrl="imagesUrl"
+      v-if="isShowCarousel"
+      @close="handelCloseClick"
+      :navigateTo="navigateTo"
+    />
     <div
       v-for="(item, index) of showImages"
       :key="index"
@@ -9,7 +14,7 @@
       @click="handelImageClick(index)"
     >
       <img
-        :src="item"
+        :src="`${imgUrl}/getImage?imageName=${item.split('/')[3]}`"
         :class="[
           { one : oneImage },
           { two : twoImage },
@@ -70,6 +75,9 @@ export default {
     },
     moreImage () {
       return this.imagesUrl.length > 4
+    },
+    imgUrl () {
+      return process.env.VUE_APP_API
     }
   }
 }
