@@ -14,6 +14,11 @@
           <BaseDeleteSvg />
         </div>
       </li>
+      <li class="list" v-if="imageUploading">
+        <div class="loading">
+          <ImageLoadingSvg />
+        </div>
+      </li>
       <div>
         <input
           id="fileUpload"
@@ -34,12 +39,15 @@
 import { mapGetters } from 'vuex'
 
 import BaseDeleteSvg from '@/assets/svg/BaseDelete.svg'
-import { SET_EDIT_IMAGES, DELETE_EDIT_IMAGES } from '@/store/type/mutations'
+import ImageLoadingSvg from '@/assets/svg/ImageLoading.svg'
+import { DELETE_EDIT_IMAGES } from '@/store/type/mutations'
+import { UPLOAD_IMAGE } from '../store/type/actions';
 
 export default {
   name: "QuestionEditPhoto",
   components: {
     BaseDeleteSvg,
+    ImageLoadingSvg,
   },
   methods: {
     previewFiles (e) {
@@ -50,8 +58,6 @@ export default {
       for (let i = 0; i < filesLength; i++) {
         reader.readAsDataURL(files[i]);
         reader.onload = e => {
-          // let url = e.target.result;
-          // this.$store.commit(SET_EDIT_IMAGES, url)
           img.src = e.target.result;
         };
         img.onload = e => {
@@ -93,8 +99,7 @@ export default {
           //压缩后的图片转blob
           /*canvas.toDataURL(mimeType, qualityArgument),mimeType 默认值是'image/png';
            * qualityArgument表示导出的图片质量，只有导出为jpeg和webp格式的时候此参数才有效，默认值是0.92*/
-          canvas.toBlob((blob) => {
-            this.$store.commit(SET_EDIT_IMAGES, blob)}, 'image/jpeg', 0.92);
+          canvas.toBlob(blob => { this.$store.dispatch(UPLOAD_IMAGE, blob) }, 'image/jpeg', 0.92);
         };
       }
       // 允许多次选择同样的照片
@@ -105,9 +110,9 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['editImage']),
-    image() {
-      return this.editImage.map(item=>URL.createObjectURL(item))
+    ...mapGetters(['editImage', 'imageUploading']),
+    image () {
+      return this.editImage.map(item => URL.createObjectURL(item))
     }
   }
 };
@@ -127,6 +132,13 @@ ul {
       height: 164px;
       border-radius: 10px;
       object-fit: cover;
+    }
+    .loading {
+      width: 164px;
+      height: 164px;
+      justify-content: center;
+      align-items: center;
+      display: flex;
     }
     .delete {
       top: 0px;

@@ -39,7 +39,7 @@ const ApiService = {
     return Vue.axios.delete(resource).catch(error => {
       throw new Error(`[RWV] ApiService ${error}`);
     });
-  }
+  },
 };
 
 export default ApiService;
@@ -72,7 +72,7 @@ export const QuestionService = {
   delete (questionId) {
     return ApiService.delete(`questions?id=${questionId}`)
   },
-  post(params) {
+  post (params) {
     return ApiService.post(`questions`, params)
   }
 }
@@ -114,5 +114,13 @@ export const ProfileService = {
 export const TagService = {
   hot () {
     return ApiService.get(`tags/hot`)
+  }
+}
+
+export const ImageService = {
+  post (blob) {
+    const formData = new FormData()
+    formData.append('uploadFile', blob, `${Math.random().toString(36).substr(2)}.jpg`)
+    return ApiService.post(`image`, formData)
   }
 }

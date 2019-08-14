@@ -1,6 +1,7 @@
 import {
   FETCH_PUBLISH_ANSWER,
   FETCH_PUBLISH_QUESTION,
+  UPLOAD_IMAGE,
 } from './type/actions'
 
 import {
@@ -11,14 +12,17 @@ import {
   DELETE_EDIT_TAGS,
   SET_PORGRESSING,
   END_PORGRESSING,
+  SET_IMAGE_UPLOADING,
+  END_IMAGE_UPLOADING,
 } from './type/mutations'
-import { QuestionService, AnswerService } from '@/common/service/api';
+import { QuestionService, AnswerService, ImageService } from '@/common/service/api';
 
 const initialState = {
   words: '',
   tags: [],
   image: [],
   isProgressing: false,
+  isUploading: false,
 }
 
 const state = { ...initialState }
@@ -42,12 +46,18 @@ const actions = {
       photo: [],
     })
     commit(END_PORGRESSING)
+  },
+  async [UPLOAD_IMAGE] ({ commit }, blob) {
+    commit(SET_IMAGE_UPLOADING)
+    await ImageService.post(blob)
+    commit(END_IMAGE_UPLOADING)
+    commit(SET_EDIT_IMAGES, blob)
   }
 }
 
 const mutations = {
-  [SET_EDIT_IMAGES] (state, base64) {
-    state.image.push(base64)
+  [SET_EDIT_IMAGES] (state, blob) {
+    state.image.push(blob)
   },
   [DELETE_EDIT_IMAGES] (state, index) {
     state.image.splice(index, 1)
@@ -60,6 +70,12 @@ const mutations = {
   },
   [SET_EDIT_WORDS] (state, words) {
     state.words = words
+  },
+  [SET_IMAGE_UPLOADING] (state) {
+    state.isUploading = true
+  },
+  [END_IMAGE_UPLOADING] (state) {
+    state.isUploading = false
   },
   [SET_PORGRESSING] (state) {
     state.isProgressing = true
@@ -85,6 +101,9 @@ const getters = {
   editProgress() {
     return state.isProgressing
   },
+  imageUploading() {
+    return state.isUploading
+  }
 }
 
 export default {
