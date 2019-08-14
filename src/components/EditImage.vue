@@ -7,7 +7,10 @@
         :key="index"
       >
         <img :src="item" />
-        <div class="delete" @click="handelDeleteClick(index)">
+        <div
+          class="delete"
+          @click="handelDeleteClick(index)"
+        >
           <BaseDeleteSvg />
         </div>
       </li>
@@ -41,18 +44,63 @@ export default {
   methods: {
     previewFiles (e) {
       let files = e.target.files || e.dataTransfer.files;
-      const imgMasSize = 1024 * 1024 * 10; // 10MB
       let filesLength = files.length;
+      const reader = new FileReader();
+      const img = new Image();
       for (let i = 0; i < filesLength; i++) {
-        let reader = new FileReader();
         reader.readAsDataURL(files[i]);
         reader.onload = e => {
-          let url = e.target.result;
-          this.$store.commit(SET_EDIT_IMAGES, url)
+          // let url = e.target.result;
+          // this.$store.commit(SET_EDIT_IMAGES, url)
+          img.src = e.target.result;
+        };
+        img.onload = e => {
+          // 缩放图片需要的canvas（也可以在DOM中直接定义canvas标签，这样就能把压缩完的图片不转base64也能直接显示出来）
+          const canvas = document.createElement('canvas');
+          const context = canvas.getContext('2d');
+
+
+          // 图片原始尺寸
+          const originWidth = e.path[0].width;
+          const originHeight = e.path[0].height;
+
+          // 最大尺寸限制，可通过设置宽高来实现图片压缩程度
+          const maxWidth = 1000,
+            maxHeight = 1000;
+          // 目标尺寸
+          let targetWidth = originWidth,
+            targetHeight = originHeight;
+          // 图片尺寸超过300x300的限制
+          if (originWidth > maxWidth || originHeight > maxHeight) {
+            if (originWidth / originHeight > maxWidth / maxHeight) {
+              // 更宽，按照宽度限定尺寸
+              targetWidth = maxWidth;
+              targetHeight = Math.round(maxWidth * (originHeight / originWidth));
+            } else {
+              targetHeight = maxHeight;
+              targetWidth = Math.round(maxHeight * (originWidth / originHeight));
+            }
+          }
+          // canvas对图片进行缩放
+          canvas.width = targetWidth;
+          canvas.height = targetHeight;
+          // 清除画布
+          context.clearRect(0, 0, targetWidth, targetHeight);
+          // 图片压缩
+          context.drawImage(img, 0, 0, targetWidth, targetHeight);
+          /*第一个参数是创建的img对象；第二三个参数是左上角坐标，后面两个是画布区域宽高*/
+
+          //压缩后的图片转base64 url
+          /*canvas.toDataURL(mimeType, qualityArgument),mimeType 默认值是'image/png';
+           * qualityArgument表示导出的图片质量，只有导出为jpeg和webp格式的时候此参数才有效，默认值是0.92*/
+          const newUrl = canvas.toDataURL('image/jpeg', 0.92); //base64 格式
+          this.$store.commit(SET_EDIT_IMAGES, newUrl)
         };
       }
+      // 允许多次选择同样的照片
+      e.target.value = ''
     },
-    handelDeleteClick(index) {
+    handelDeleteClick (index) {
       this.$store.commit(DELETE_EDIT_IMAGES, index)
     }
   },
