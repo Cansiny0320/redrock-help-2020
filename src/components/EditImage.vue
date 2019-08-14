@@ -40,8 +40,7 @@ import { mapGetters } from 'vuex'
 
 import BaseDeleteSvg from '@/assets/svg/BaseDelete.svg'
 import ImageLoadingSvg from '@/assets/svg/ImageLoading.svg'
-import { DELETE_EDIT_IMAGES } from '@/store/type/mutations'
-import { UPLOAD_IMAGE } from '../store/type/actions';
+import { UPLOAD_IMAGE, DLELTE_IMAGE } from '../store/type/actions';
 
 export default {
   name: "QuestionEditPhoto",
@@ -106,7 +105,7 @@ export default {
       e.target.value = ''
     },
     handelDeleteClick (index) {
-      this.$store.commit(DELETE_EDIT_IMAGES, index)
+      this.$store.dispatch(DLELTE_IMAGE, index)
     }
   },
   computed: {

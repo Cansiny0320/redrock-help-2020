@@ -2,6 +2,7 @@ import {
   FETCH_PUBLISH_ANSWER,
   FETCH_PUBLISH_QUESTION,
   UPLOAD_IMAGE,
+  DLELTE_IMAGE,
 } from './type/actions'
 
 import {
@@ -21,6 +22,7 @@ const initialState = {
   words: '',
   tags: [],
   image: [],
+  imageId: [],
   isProgressing: false,
   isUploading: false,
 }
@@ -35,7 +37,9 @@ const actions = {
       tags: state.tags.map(item=>{
         return { id: item }
       }),
-      photo: [],
+      photo: state.imageId.map(item=>{
+        return { id: item }
+      }),
     })
     commit(END_PORGRESSING)
   },
@@ -49,18 +53,24 @@ const actions = {
   },
   async [UPLOAD_IMAGE] ({ commit }, blob) {
     commit(SET_IMAGE_UPLOADING)
-    await ImageService.post(blob)
+    const { data } = await ImageService.post(blob)
     commit(END_IMAGE_UPLOADING)
-    commit(SET_EDIT_IMAGES, blob)
-  }
+    commit(SET_EDIT_IMAGES, blob, data.id)
+  },
+  async [DLELTE_IMAGE] ({ commit, state }, index) {
+    await ImageService.delete([state.imageId[index]])
+    commit(DELETE_EDIT_IMAGES, index)
+  },
 }
 
 const mutations = {
-  [SET_EDIT_IMAGES] (state, blob) {
+  [SET_EDIT_IMAGES] (state, blob, id) {
     state.image.push(blob)
+    state.imageId.push(id)
   },
   [DELETE_EDIT_IMAGES] (state, index) {
     state.image.splice(index, 1)
+    state.imageId.splice(index, 1)
   },
   [SET_EDIT_TAGS] (state, tagId) {
     state.tags.push(tagId)

@@ -29,3 +29,4 @@ export const FETCH_DELETE_QUESTION = 'fetchDeleteQuestion'
 export const FETCH_DELETE_ANSWER = 'fetchDeleteAnswer'
 
 export const UPLOAD_IMAGE = 'uploadImage'
+export const DLELTE_IMAGE = 'uploadImage'

@@ -122,5 +122,8 @@ export const ImageService = {
     const formData = new FormData()
     formData.append('uploadFile', blob, `${Math.random().toString(36).substr(2)}.jpg`)
     return ApiService.post(`image`, formData)
+  },
+  delete (imageIds) {
+    return ApiService.post(`image/delete`, imageIds)
   }
 }
