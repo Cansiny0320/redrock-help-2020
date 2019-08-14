@@ -6,6 +6,7 @@
         class="search-input"
         placeholder="告诉我你的疑惑吧"
         v-model="searchVaule"
+        autofocus="autofocus"
       >
     </div>
     <div

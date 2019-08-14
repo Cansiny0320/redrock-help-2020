@@ -4,6 +4,7 @@
     <div class="box">
       <textarea
         v-model="words"
+        autofocus="autofocus"
       ></textarea>
       <EditTag />
     </div>
