@@ -25,6 +25,8 @@ import {
   SET_QUESTION_SOLVE,
   SET_MORE_QUESTION,
   SET_PROFILE_QUESTION_LIST,
+  SET_LOADING_MORE,
+  END_LOADING_MORE,
 } from './type/mutations'
 
 const initialState = {
@@ -33,6 +35,7 @@ const initialState = {
   page: 1,
   noMore: false,
   prePage: 10,
+  isLoadingMore: false,
 }
 
 const state = { ...initialState }
@@ -46,13 +49,17 @@ const actions = {
   },
   async [FETCH_NEXT_HOT_QUESTION] ({ commit, state }) {
     if (!state.noMore) {
+      commit(SET_LOADING_MORE)
       const { data } = await QuestionService.hot(state.page + 1)
+      commit(END_LOADING_MORE)
       commit(SET_MORE_QUESTION, data)
     }
   },
   async [FETCH_NEXT_NEW_QUESTION] ({ commit, state }) {
     if (!state.noMore) {
+      commit(SET_LOADING_MORE)
       const { data } = await QuestionService.new(state.page + 1)
+      commit(END_LOADING_MORE)
       commit(SET_MORE_QUESTION, data)
     }
   },
@@ -76,7 +83,9 @@ const actions = {
 
   async [FETCH_NEXT_TAG_QUESTION] ({ commit, state }, tagId) {
     if (!state.noMore) {
+      commit(SET_LOADING_MORE)
       let { data } = await QuestionService.tag(tagId, state.page + 1)
+      commit(END_LOADING_MORE)
       data = data.map(item => {
         return item.value
       })
@@ -137,6 +146,12 @@ const mutations = {
         item.status = '已解决'
       }
     })
+  },
+  [SET_LOADING_MORE] (state) {
+    state.isLoadingMore = true
+  },
+  [END_LOADING_MORE] (state) {
+    state.isLoadingMore = false
   }
 }
 
@@ -150,6 +165,9 @@ const getters = {
   questionListNoMore (state) {
     return state.noMore
   },
+  isLoadingMore(state) {
+    return state.isLoadingMore
+  }
 }
 
 export default {

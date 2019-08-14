@@ -29,3 +29,6 @@ export const SET_PORGRESSING = 'setProgressing'
 export const END_PORGRESSING = 'endProgressing'
 export const SET_IMAGE_UPLOADING = 'setImageUploading'
 export const END_IMAGE_UPLOADING = 'endImageUploading'
+
+export const SET_LOADING_MORE = 'setLoadingMore'
+export const END_LOADING_MORE = 'endLoadingMore'

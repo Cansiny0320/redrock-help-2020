@@ -7,6 +7,7 @@
         v-else
         :questionData="questionList"
       />
+      <VLoading v-if="isLoadingMore"/>
       <div
         class="no-more"
         v-if="questionListNoMore"
@@ -30,7 +31,7 @@ export default {
     HomeHotTag,
   },
   computed: {
-    ...mapGetters(['questionList', 'questionListNoMore', 'isLoading']),
+    ...mapGetters(['questionList', 'questionListNoMore', 'isLoading', 'isLoadingMore']),
   },
   beforeRouteEnter (_, from, next) {
     next(vm => {

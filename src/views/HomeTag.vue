@@ -4,6 +4,7 @@
     <div class="question">
       <VLoading v-if="isLoading" />
       <VQuestion :questionData="questionList" />
+      <VLoading v-if="isLoadingMore"/>
       <div
         class="no-more"
         v-if="questionListNoMore"
@@ -29,7 +30,7 @@ export default {
     HomeEditButton,
   },
   computed: {
-    ...mapGetters(['tagHot', 'isLoading', 'questionList', 'questionListNoMore']),
+    ...mapGetters(['tagHot', 'isLoading', 'questionList', 'questionListNoMore', 'isLoadingMore']),
     tagName () {
       let tagName = ''
       this.tagHot.forEach(element => {

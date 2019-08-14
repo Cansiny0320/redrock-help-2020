@@ -6,6 +6,7 @@
         :isLoading="isLoading"
         :questionData="questionList"
       />
+      <VLoading v-if="isLoadingMore"/>
       <div
         class="no-more"
         v-if="questionListNoMore"
@@ -30,7 +31,7 @@ export default {
     })
   },
   computed: {
-    ...mapGetters(['isLoading', 'questionList', 'questionListNoMore']),
+    ...mapGetters(['isLoading', 'questionList', 'questionListNoMore', 'isLoadingMore']),
   },
   methods: {
     handelFecthMore () {
