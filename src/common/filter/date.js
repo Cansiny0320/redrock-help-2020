@@ -10,6 +10,6 @@ export default date => {
   } else {
     time = new Date(date).getTime();
   }
-  const time = time + 8 * 1000 * 60 * 60
+  time = time + 8 * 1000 * 60 * 60
   return format(time, 'zh_CN')
 }
