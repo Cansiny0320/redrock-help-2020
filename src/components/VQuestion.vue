@@ -91,12 +91,13 @@ export default {
         margin: 20px;
       }
       .time {
+        font-size: 20px;
         margin: 0 20px 0 auto;
       }
     }
     .content {
       @nowrap();
-      padding: 20px;
+      padding: 0 20px 20px 20px;
     }
     .info {
       display: flex;
