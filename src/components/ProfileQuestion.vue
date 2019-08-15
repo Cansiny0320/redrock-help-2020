@@ -21,7 +21,10 @@
           @click="handelSolveClick(item.id)"
           v-if="item.status === '未解决'"
         >解决该问题</span>
-
+        <span
+          class="solve"
+          v-if="item.status === '已解决'"
+        >已解决</span>
         <span
           class="delete"
           @click="handelDeleteClick(item.id)"
