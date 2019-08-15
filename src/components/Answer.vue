@@ -8,7 +8,7 @@
     >
       <div class="user">
         <img :src="item.author.avatar | https">
-        <span class="name">{{ item.author.name }}</span>
+        <span class="name">{{ item.author.name | name }}</span>
       </div>
       <div class="content">{{ item.content }}</div>
       <div class="images">
@@ -57,6 +57,7 @@ export default {
   margin: 0 28px;
   .no-content {
     text-align: center;
+    color: @fontColor;
   }
   .answer {
     margin-bottom: 32px;

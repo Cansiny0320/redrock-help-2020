@@ -3,7 +3,10 @@
     class="v-question"
     v-if="!isLoading"
   >
-    <div class="no-content" v-if="isNoContent">空空如也，快来提一个问题</div>
+    <div
+      class="no-content"
+      v-if="isNoContent"
+    >空空如也，快来提一个问题</div>
     <div
       class="question"
       v-for="item of questionData"
@@ -66,6 +69,10 @@ export default {
 .v-question {
   // 这种有具体内容最好不要设定 height 和 width
   margin: 0 28px;
+  .no-content {
+    text-align: center;
+    color: @fontColor;
+  }
   .question {
     margin-bottom: 32px;
     border: 2px solid @mainColor;
