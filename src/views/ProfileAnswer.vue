@@ -1,7 +1,11 @@
 <template>
   <div class="profile-answer">
     <VHeader :titleStr="titleStr" />
-    <ProfileAnswer :commentData="profileAnswer" />
+    <VLoading v-if="isLoading" />
+    <ProfileAnswer
+      v-else
+      :commentData="profileAnswer"
+    />
   </div>
 </template>
 

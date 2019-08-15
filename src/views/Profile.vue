@@ -11,7 +11,7 @@
         :profileData="profileIdentity"
       />
       <ProfileOld
-        v-if="isOld"
+        v-else
         :profileData="profileIdentity"
       />
     </template>
@@ -36,13 +36,8 @@ export default {
   computed: {
     ...mapGetters(["profileIdentity", "isLoading"]),
     isNew () {
-      if (this.profileIdentity.role === 1) return true;
-      else return false;
+      return parseInt(localStorage.getItem('role')) === 1
     },
-    isOld () {
-      if (this.profileIdentity.role === 0) return true;
-      else return false;
-    }
   }
 };
 </script>
