@@ -2,7 +2,7 @@
   <div class="new">
 
     <div class="user">
-      <img class="img" :src="profileData.avatar"/>
+      <img class="img" :src="profileData.avatar | https"/>
       <span class="name">{{profileData.name}}</span>
     </div>
 

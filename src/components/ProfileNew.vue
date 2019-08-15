@@ -3,7 +3,7 @@
     <div class="user">
       <img
         class="img"
-        :src="profileData.avatar"
+        :src="profileData.avatar | https"
       />
       <span class="name">{{profileData.name}}</span>
     </div>

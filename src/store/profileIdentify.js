@@ -21,9 +21,13 @@ const state = { ...initialState }
 const actions = {
   async [FETCH_PROFILE_IDENTITY]({ commit }) {
     commit(FETCH_START)
-    const { data } = await ProfileService.identify()
-    commit(FETCH_END)
-    commit(SET_PROFILE_IDENTITY, data)
+    try {
+      const { data } = await ProfileService.identify()
+      commit(FETCH_END)
+      commit(SET_PROFILE_IDENTITY, data)
+    } catch (error) {
+      commit(FETCH_END)
+    }
   }
 }
 

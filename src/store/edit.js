@@ -33,36 +33,53 @@ const state = { ...initialState }
 const actions = {
   async [FETCH_PUBLISH_QUESTION] ({ commit, state }) {
     commit(SET_PORGRESSING)
-    const { data } = await QuestionService.post({
-      content: state.words,
-      tags: state.tags.map(item=>{
-        return { id: item }
-      }),
-      photo: state.imageId.map(item=>{
-        return { id: item }
-      }),
-    })
-    commit(END_PORGRESSING)
+    try {
+      const { data } = await QuestionService.post({
+        content: state.words,
+        tags: state.tags.map(item=>{
+          return { id: item }
+        }),
+        photo: state.imageId.map(item=>{
+          return { id: item }
+        }),
+      })
+      commit(END_PORGRESSING)
+    } catch (error) {
+      commit(END_PORGRESSING)
+    }
   },
   async [FETCH_PUBLISH_ANSWER] ({ commit, state }, questionId) {
     commit(SET_PORGRESSING)
-    const { data } = await AnswerService.post(questionId, {
-      content: state.words,
-      photo: state.imageId.map(item=>{
-        return { id: item }
-      }),
-    })
-    commit(END_PORGRESSING)
+    try {
+      const { data } = await AnswerService.post(questionId, {
+        content: state.words,
+        photo: state.imageId.map(item=>{
+          return { id: item }
+        }),
+      })
+      commit(END_PORGRESSING)
+    } catch (error) {
+      commit(END_PORGRESSING)
+    }
   },
   async [UPLOAD_IMAGE] ({ commit }, blob) {
     commit(SET_IMAGE_UPLOADING)
-    const { data } = await ImageService.post(blob)
-    commit(END_IMAGE_UPLOADING)
-    commit(SET_EDIT_IMAGES, { blob, imageId: data.id })
+    try {
+      const { data } = await ImageService.post(blob)
+      commit(END_IMAGE_UPLOADING)
+      commit(SET_EDIT_IMAGES, { blob, imageId: data.id })
+    } catch (error) {
+      commit(END_IMAGE_UPLOADING)
+    }
   },
   async [DLELTE_IMAGE] ({ commit, state }, index) {
-    await ImageService.delete([state.imageId[index]])
-    commit(DELETE_EDIT_IMAGES, index)
+    try {
+      await ImageService.delete([state.imageId[index]])
+      commit(DELETE_EDIT_IMAGES, index)
+    } catch (error) {
+      commit(DELETE_EDIT_IMAGES, index)
+    }
+
   },
   async [EDIT_LEAVE] ({ commit, state }) {
     // if (state.imageId.length && !state.isProgressing) {

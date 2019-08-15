@@ -29,6 +29,7 @@
         <label
           for="fileUpload"
           class="add"
+          v-if="image.length < 10"
         ></label>
       </div>
     </ul>
@@ -66,8 +67,8 @@ export default {
 
 
           // 图片原始尺寸
-          const originWidth = e.path[0].width;
-          const originHeight = e.path[0].height;
+          const originWidth = img.width;
+          const originHeight = img.height;
 
           // 最大尺寸限制，可通过设置宽高来实现图片压缩程度
           const maxWidth = 1000,

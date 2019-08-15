@@ -7,7 +7,7 @@
       class="answer"
     >
       <div class="user">
-        <img :src="item.author.avatar">
+        <img :src="item.author.avatar | https">
         <span class="name">{{ item.author.name }}</span>
       </div>
       <div class="content">{{ item.content }}</div>

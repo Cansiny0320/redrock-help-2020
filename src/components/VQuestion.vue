@@ -13,7 +13,7 @@
       <div class="user">
         <img
           class="img"
-          :src="item.author.avatar"
+          :src="item.author.avatar | https"
         >
         <span class="name">{{ item.author.name }}</span>
         <span class="time">{{ item.createdAt | date }}</span>

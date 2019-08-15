@@ -4,18 +4,27 @@ import router from './router'
 import store from './store'
 import './registerServiceWorker'
 import './globalsComponents'
+import * as Sentry from '@sentry/browser';
+import * as Integrations from '@sentry/integrations';
 
 import VueCarousel from 'vue-carousel';
 
 import ApiService from '@/common/service/api'
 import DateFilter from '@/common/filter/date'
+import HttpsFilter from '@/common/filter/https'
 
 import '@/assets/styles/reset.css'
 import '@/assets/styles/global.less'
 
+Sentry.init({
+  dsn: process.env.VUE_APP_DSN,
+  integrations: [new Integrations.Vue({Vue, attachProps: true})],
+});
+
 Vue.use(VueCarousel)
 
 Vue.filter('date', DateFilter)
+Vue.filter('https', HttpsFilter)
 
 ApiService.init()
 

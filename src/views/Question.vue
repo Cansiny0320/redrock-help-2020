@@ -5,7 +5,7 @@
     <VLoading v-if="isLoading" />
     <template v-else>
       <div class="user">
-        <img :src="oneQuestion.author.avatar">
+        <img :src="oneQuestion.author.avatar | https">
         <span class="name">{{ oneQuestion.author.name }}</span>
         <span class="status">{{ oneQuestion.status }}</span>
       </div>
