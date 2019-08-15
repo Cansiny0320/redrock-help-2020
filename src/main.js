@@ -12,6 +12,7 @@ import VueCarousel from 'vue-carousel';
 import ApiService from '@/common/service/api'
 import DateFilter from '@/common/filter/date'
 import HttpsFilter from '@/common/filter/https'
+import NameFilter from '@/common/filter/name'
 
 import '@/assets/styles/reset.css'
 import '@/assets/styles/global.less'
@@ -25,6 +26,7 @@ Vue.use(VueCarousel)
 
 Vue.filter('date', DateFilter)
 Vue.filter('https', HttpsFilter)
+Vue.filter('name', NameFilter)
 
 ApiService.init()
 
