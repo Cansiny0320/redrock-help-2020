@@ -5,8 +5,11 @@
       class="item"
       :class="{ active: isHome }"
     >
-      <div class="icon">
+      <div class="icon" v-if="isHome">
         <NavBarHomeSvg />
+      </div>
+      <div class="img" v-else>
+        <img src="../assets/img/HomeUnactive.png" alt="">
       </div>
       <div class="text">首页</div>
     </router-link>
@@ -15,8 +18,11 @@
       class="item"
       :class="{ active: isSearch }"
     >
-      <div class="icon">
-        <NavBarSearchSvg />
+      <div class="icon" v-if="isSearch">
+        <img src="../assets/img/ActiveSearch.png" alt="">
+      </div>
+      <div class="img" v-else>
+        <img src="../assets/img/search.png" alt="">
       </div>
       <div class="text">搜索</div>
     </router-link>
@@ -25,8 +31,11 @@
       class="item"
       :class="{ active: isProfile }"
     >
-      <div class="icon">
+      <div class="icon" v-if="isProfile">
         <NavBarProfileSvg />
+      </div>
+      <div class="img" v-else>
+        <img src="../assets/img/Profile.png" alt="">
       </div>
       <div class="text">我的</div>
     </router-link>
@@ -85,6 +94,10 @@ export default {
     text-align: center;
     font-size: 22px;
     color: @fontColor;
+    img {
+      width: 52px;
+      height: 52px;
+    }
     &.active {
       color: @mainColor;
 
