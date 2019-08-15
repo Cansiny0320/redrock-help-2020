@@ -38,6 +38,6 @@ export default {
   height: 220px;
   overflow: hidden;
   background-color: @backgroundColor;
-  border-bottom: 1px solid @borderColor;
+  border-bottom: 2px solid @borderColor;
 }
 </style>

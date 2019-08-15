@@ -1,6 +1,6 @@
 <template>
   <div
-    class="v-question"
+    class="v-question-home"
     v-if="!isLoading"
   >
     <div
@@ -19,18 +19,10 @@
           :src="item.author.avatar | https"
         >
         <span class="name">{{ item.author.name }}</span>
-        <span class="time">{{ item.createdAt | date }}</span>
       </div>
       <div class="content">{{ item.content }}</div>
       <div class="info">
-        <div class="tags">
-          <div
-            v-for="innerItem of item.tags"
-            :key="innerItem.id"
-          >
-            {{ innerItem.name }}
-          </div>
-        </div>
+        <span class="time">{{ item.createdAt | date }}</span>
         <div class="count">{{ item.answersCount }} 条回答</div>
       </div>
     </div>
@@ -43,7 +35,7 @@ import { mapGetters } from 'vuex'
 import { FETCH_NEXT_QUESTIONS } from '../store/type/actions';
 
 export default {
-  name: 'vQuestion',
+  name: 'vQuestionForHome',
   props: {
     questionData: {
       type: Array,
@@ -54,7 +46,7 @@ export default {
     ...mapGetters(['isLoading']),
     isNoContent () {
       return this.questionData.length === 0
-    },
+    }
   },
   methods: {
     handelQuestionBoxClick (id) {
@@ -66,7 +58,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.v-question {
+.v-question-home {
   // 这种有具体内容最好不要设定 height 和 width
   margin: 0 28px;
   .no-content {
@@ -91,7 +83,7 @@ export default {
         margin: 20px;
       }
       .time {
-        color: #c7c7c7;
+        color: #c7c7c7 !important;
         font-size: 20px;
         margin: 0 20px 0 auto;
       }
@@ -101,35 +93,13 @@ export default {
       padding: 0 20px 20px 20px;
     }
     .info {
+      color: #c7c7c7 !important;
       display: flex;
       font-size: 22px;
       color: @fontColor;
       justify-content: space-between;
       margin: 0 20px 20px 20px;
       line-height: 40px;
-      color: #c7c7c7;
-      .count {
-        padding: 0 0 0 20px;
-        @nowrap();
-        min-width: 110px;
-        text-align: end;
-      }
-      .tags {
-        display: flex;
-        @nowrap();
-        div {
-          margin: 0 0 0 24px;
-          border: 2px solid @mainColor;
-          line-height: 40px;
-          border-radius: 40px;
-          padding: 0 16px;
-          color: @mainColor;
-          box-sizing: border-box;
-          &:nth-child(1) {
-            margin: 0;
-          }
-        }
-      }
     }
   }
 }

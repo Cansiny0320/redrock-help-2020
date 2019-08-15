@@ -2,7 +2,7 @@
   <div class="v-header">
     <header>
       <VBack />
-      <div class="title">{{ titleStr }}</div>
+      <div class="title"></div>
     </header>
     <div class="block"></div>
   </div>

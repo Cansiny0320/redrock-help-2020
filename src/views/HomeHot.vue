@@ -3,7 +3,7 @@
     <HomeHotTag />
     <div class="home-hot-question">
       <VLoading v-if="isLoading" />
-      <VQuestion
+      <VQuestionForHome
         v-else
         :questionData="questionList"
       />
@@ -50,7 +50,7 @@ export default {
 
 <style lang="less" scoped>
 .home-hot-question {
-  margin-top: 240px;
+  margin-top: 265px;
 }
 .no-more {
   text-align: center;
