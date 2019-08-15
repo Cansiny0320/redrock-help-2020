@@ -7,7 +7,7 @@
       <div class="user">
         <img :src="oneQuestion.author.avatar | https">
         <span class="name">{{ oneQuestion.author.name }}</span>
-        <span class="status">{{ oneQuestion.status }}</span>
+        <span class="status" :class="{ active : isStautsActive  }">{{ oneQuestion.status }}</span>
       </div>
       <div class="content">
         {{ oneQuestion.content }}
@@ -50,6 +50,9 @@ export default {
         && this.oneQuestion.status === '未解决' 
         && parseInt(localStorage.getItem('role')) === 0
         && markAnswerCount === 0
+    },
+    isStautsActive() {
+      return this.oneQuestion.status === '已解决'
     }
   }
 }
@@ -69,7 +72,11 @@ export default {
     margin: 30px;
   }
   .status {
+    font-size: 24px;
     margin: 0 30px 0 auto;
+    &.active {
+      color: @mainColor;
+    }
   }
 }
 .content {
