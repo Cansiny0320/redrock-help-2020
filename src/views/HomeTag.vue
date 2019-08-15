@@ -10,7 +10,7 @@
         v-if="questionListNoMore"
       >没有更多了</div>
     </div>
-    <HomeEditButton />
+    <HomeEditButton v-if="isShowHomeEditButton"/>
   </div>
 </template>
 
