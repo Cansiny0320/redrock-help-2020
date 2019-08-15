@@ -8,9 +8,9 @@
     <title>学长学姐帮帮忙</title>
     <script>
       const token = document.location.hash.split('#/?token=')[1]
-      // if ((!localStorage.getItem('id_token') || parseInt(localStorage.getItem('exp')) < Math.floor(Date.now() / 1000) + 60 * 10) && !token) {
-      //   window.location.href = 'https://wx.idsbllp.cn/MagicLoop/index.php?s=/addon/Api/Api/oauth&redirect=https://wx.idsbllp.cn/234/seniorhelpme/user/weixin/getOpenid'
-      // }
+      if ((!localStorage.getItem('id_token') || parseInt(localStorage.getItem('exp')) < Math.floor(Date.now() / 1000) + 60 * 10) && !token) {
+        window.location.href = 'https://wx.idsbllp.cn/MagicLoop/index.php?s=/addon/Api/Api/oauth&redirect=https://wx.idsbllp.cn/234/seniorhelpme/user/weixin/getOpenid'
+      }
       if (token && token.length) {
         document.location.hash = '#/'
         localStorage.setItem('id_token', token)
