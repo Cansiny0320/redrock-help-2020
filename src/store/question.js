@@ -42,7 +42,7 @@ const actions = {
   async [FETCH_ONE_QUESTION_BY_ID] ({ commit }, questionId) {
     commit(FETCH_START)
     let { data } = await QuestionService.get(questionId)
-    data.answer.forEach(item=>{
+    data.answer.forEach(item => {
       item.isApproval = item.isApproval === 'ture'
       item.isOppose = item.isOppose === 'ture'
     })
@@ -50,12 +50,16 @@ const actions = {
     commit(SET_ONE_QUESTION, data)
   },
   async [FETCH_ANSWER_APPROVAL] ({ commit }, answerId) {
-    await AnswerService.approval(answerId)
-    commit(SET_ANSWER_APPROVAL, answerId)
+    if (parseInt(localStorage.getItem('role')) === 1) {
+      await AnswerService.approval(answerId)
+      commit(SET_ANSWER_APPROVAL, answerId)
+    }
   },
   async [FETCH_ANSWER_OPPOSE] ({ commit }, answerId) {
-    await AnswerService.oppose(answerId)
-    commit(SET_ANSWER_OPPOSE, answerId)
+    if (parseInt(localStorage.getItem('role')) === 1) {
+      await AnswerService.oppose(answerId)
+      commit(SET_ANSWER_OPPOSE, answerId)
+    }
   },
   async [FETCH_PROFILE_ANSWER] ({ commit }) {
     commit(FETCH_START)
@@ -87,8 +91,8 @@ const mutations = {
     state.data = data
   },
   [SET_ANSWER_APPROVAL] (state, answerId) {
-    state.data.answer.forEach(item=>{
-      if(item.id === answerId) {
+    state.data.answer.forEach(item => {
+      if (item.id === answerId) {
         if (!item.isApproval) {
           item.approvalNum++
           item.isApproval = true
@@ -100,8 +104,8 @@ const mutations = {
     })
   },
   [SET_ANSWER_OPPOSE] (state, answerId) {
-    state.data.answer.forEach(item=>{
-      if(item.id === answerId) {
+    state.data.answer.forEach(item => {
+      if (item.id === answerId) {
         if (!item.isOppose) {
           item.opposeNum++
           item.isOppose = true
@@ -127,10 +131,10 @@ const mutations = {
 }
 
 const getters = {
-  oneQuestion(state) {
+  oneQuestion (state) {
     return state.data
   },
-  profileAnswer(state) {
+  profileAnswer (state) {
     return state.profileAnswer
   },
 }
