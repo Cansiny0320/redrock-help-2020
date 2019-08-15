@@ -39,6 +39,9 @@ export default {
         }
       });
       return `${tagName} 分类下的问题`
+    },
+    isShowHomeEditButton () {
+      return parseInt(localStorage.getItem('role')) === 1
     }
   },
   beforeRouteEnter (_, from, next) {
