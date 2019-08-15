@@ -89,6 +89,18 @@ export default {
       font-size: 30px;
       border-radius: 64px;
       padding: 0 32px 0 32px;
+      &:focus::-webkit-input-placeholder {
+        color: transparent;
+      }
+      &:focus::-moz-placeholder {
+        color: transparent;
+      }
+      &:focus::-moz-placeholder {
+        color: transparent;
+      }
+      &:focus::-ms-input-placeholder {
+        color: transparent;
+      }
     }
   }
   .search-button-icon {
