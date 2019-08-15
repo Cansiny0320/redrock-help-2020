@@ -29,7 +29,7 @@
         <label
           for="fileUpload"
           class="add"
-          v-if="image.length < 10"
+          v-if="image.length < 9"
         ></label>
       </div>
     </ul>
