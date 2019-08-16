@@ -1,7 +1,7 @@
 export default http => {
   let https;
   try {
-    https = http.replace(/^http/,"https")
+    https = http ? http.replace(/^http/,"https") : http
   } catch (error) {
     https = http
   }
