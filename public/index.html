@@ -20,6 +20,11 @@
       localStorage.setItem('stuNum', stuNum)
       localStorage.setItem('role', role)
     }
+    const v = Number(localStorage.getItem('v'))
+    if (!localStorage.getItem('v') || v < 1) {
+      window.ProxyStatus.clearCookieAndCache(2);
+    }
+    localStorage.setItem('v', 1)
   </script>
 </head>
 
