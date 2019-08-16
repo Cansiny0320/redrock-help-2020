@@ -20,11 +20,11 @@
       localStorage.setItem('stuNum', stuNum)
       localStorage.setItem('role', role)
     }
-    const v = Number(localStorage.getItem('v'))
-    if (!localStorage.getItem('v') || v < 1) {
+    const v = Number(localStorage.getItem('version'))
+    if (!localStorage.getItem('version') || v < 2) {
       window.ProxyStatus.clearCookieAndCache(2);
     }
-    localStorage.setItem('v', 1)
+    localStorage.setItem('version', '2')
   </script>
 </head>
 
