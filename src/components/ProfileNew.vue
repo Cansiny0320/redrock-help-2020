@@ -3,16 +3,16 @@
     <div class="user">
       <img
         class="img"
-        :src="profileData.avatar | https"
+        :src="profileData.author.avatar | https"
       />
-      <span class="name">{{profileData.name}}</span>
+      <span class="name">{{profileData.author.name}}</span>
     </div>
 
     <div
       class="question"
       @click="handleProfileQuestionClick(profileData.id)"
     >
-      <span>我提过的问题 {{profileData.questionsNum}} 个</span>
+      <span>我提过的问题 {{profileData.author.questionsNum}} 个</span>
       <div class="front-icon">
         <BaseFront />
       </div>

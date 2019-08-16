@@ -70,13 +70,15 @@ const actions = {
   },
   async [FETCH_PROFILE_APPROVAL] ({ commit }) {
     commit(FETCH_START)
-    const { data } = await ProfileService.getApprovalAnswer()
+    let { data } = await ProfileService.getApprovalAnswer()
+    data = data.answers
     commit(FETCH_END)
     commit(SET_PROFILE_APPROVAL, data)
   },
   async [FETCH_PROFILE_OPPOSE] ({ commit }) {
     commit(FETCH_START)
-    const { data } = await ProfileService.getOpposeAnswer()
+    let { data } = await ProfileService.getOpposeAnswer()
+    data = data.answers
     commit(FETCH_END)
     commit(SET_PROFILE_OPPOSE, data)
   },

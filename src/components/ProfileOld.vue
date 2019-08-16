@@ -2,14 +2,14 @@
   <div class="new">
 
     <div class="user">
-      <img class="img" :src="profileData.avatar | https"/>
-      <span class="name">{{profileData.name}}</span>
+      <img class="img" :src="profileData.author.avatar | https"/>
+      <span class="name">{{profileData.author.name}}</span>
     </div>
 
-    <!-- <div 
+    <div 
     class="approval"
     @click="handleClick('approval')">
-      <span>我收到的赞同 {{profileData.approvalNum}} 个</span>
+      <span>我收到的赞同 {{profileData.number.approvalNum}} 个</span>
       <div class="front-icon">
         <BaseFront />
       </div>
@@ -18,16 +18,16 @@
     <div 
     class="oppose"
     @click="handleClick('oppose')">
-      <span>我收到的反对 {{profileData.opposeNum}} 个</span>
+      <span>我收到的反对 {{profileData.number.opposeNum}} 个</span>
       <div class="front-icon">
         <BaseFront />
       </div>
-    </div> -->
+    </div>
 
     <div 
     class="answer"
     @click="handleClick('answers')">
-      <span>我的回答 {{profileData.answersNum}} 个</span>
+      <span>我的回答 {{profileData.author.answersNum}} 个</span>
       <div class="front-icon">
         <BaseFront />
       </div>

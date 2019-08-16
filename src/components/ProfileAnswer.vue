@@ -4,6 +4,7 @@
       class="box"
       v-for="item in commentData"
       :key="item.ansId"
+      @click.self="handelQuestionClick(item.question.queId)"
     >
       <div class="comment">{{item.content}}</div>
       <div class="question">来自于问题“{{item.question.content}}”</div>
@@ -71,6 +72,9 @@ export default {
     handelDeleteCancel () {
       this.isShowToast = false
       this.deleteTipmassage = ''
+    },
+    handelQuestionClick (questionId) {
+      this.$router.push({ name: 'question', query: { id: questionId } })
     },
   }
 };

@@ -100,10 +100,10 @@ export const ProfileService = {
     return ApiService.get(`user/answers`)
   },
   getApprovalAnswer () {
-    return ApiService.get(`user/answers?status=approval`)
+    return ApiService.get(`user/answersagree`)
   },
   getOpposeAnswer () {
-    return ApiService.get(`user/answers?status=oppose`)
+    return ApiService.get(`user/answersnoagree`)
   },
   getQustion () {
     return ApiService.get(`/user/questions`)

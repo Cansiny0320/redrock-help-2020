@@ -11,7 +11,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import { FETCH_PROFILE_ANSWER } from "@/store/type/actions";
+import { FETCH_PROFILE_ANSWER, FETCH_PROFILE_APPROVAL, FETCH_PROFILE_OPPOSE } from "@/store/type/actions";
 
 import ProfileAnswer from '@/components/ProfileAnswer'
 
@@ -28,8 +28,14 @@ export default {
   beforeRouteEnter (_, from, next) {
     next(vm => {
       if (from.name !== 'question') {
-        vm.$store.dispatch(FETCH_PROFILE_ANSWER);
         vm.paramsResult = vm.$route.query.type
+        if (vm.paramsResult === 'approval') {
+          vm.$store.dispatch(FETCH_PROFILE_APPROVAL);
+        } else if (vm.paramsResult === 'oppose') {
+          vm.$store.dispatch(FETCH_PROFILE_OPPOSE)
+        } else {
+          vm.$store.dispatch(FETCH_PROFILE_ANSWER)
+        }
       }
     })
   },
