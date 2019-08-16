@@ -61,7 +61,7 @@ export default {
 
 <style lang="less" scoped>
 .question {
-  padding-top: 20px;
+  padding-top: 32px;
 }
 .no-more {
   text-align: center;

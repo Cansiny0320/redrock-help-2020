@@ -50,7 +50,7 @@ export default {
 <style lang="less" scoped>
 .v-hot-tag {
   .title {
-    margin: 30px 0 0 28px;
+    margin: 30px 0 0 30px;
     font-size: 28px;
     color: @fontColor;
   }
