@@ -46,7 +46,7 @@ export default {
           markAnswerCount++
         }
       })
-      return this.oneQuestion.answer.length < 31 
+      return this.oneQuestion.answer.length < 30
         && this.oneQuestion.status === '未解决' 
         && parseInt(localStorage.getItem('role')) === 0
         && markAnswerCount === 0
