@@ -1,56 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>学长学姐帮帮忙</title>
-    <script>
-      const token = document.location.hash.split('#/?token=')[1]
-      if ((!localStorage.getItem('id_token') || parseInt(localStorage.getItem('exp')) < Math.floor(Date.now() / 1000) + 60 * 10) && !token) {
-        window.location.href = 'https://wx.idsbllp.cn/MagicLoop/index.php?s=/addon/Api/Api/oauth&redirect=https://wx.idsbllp.cn/234/seniorhelpme/user/weixin/getOpenid'
-      }
-      if (token && token.length) {
-        document.location.hash = '#/'
-        localStorage.setItem('id_token', token)
-        const { exp, stuNum, role } = JSON.parse(atob(token.split('.')[1]))
-        localStorage.setItem('exp', exp)
-        localStorage.setItem('stuNum', stuNum)
-        localStorage.setItem('role', role)
-      }
-    </script>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but redrock-help-2019 doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
-  <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
-  <script src="https://wx.idsbllp.cn/wx-api/share.js"></script>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>学长学姐帮帮忙</title>
   <script>
-    WXSHARE.config({ debug: false });
-    WXSHARE.ready(function() {
-        var option = {
-            title: "学长学姐帮帮忙",
-            link: "http://wx.idsbllp.cn/game/xzxjbbm2019/",
-            imgUrl: 'http://wx.idsbllp.cn/game/xzxjbbm2019/favicon.ico',
-            desc: '学长学姐帮帮忙',
-            type: '',
-            success: function() {
-                console.log('分享成功');
-            },
-            cancel: function() {
-                console.log('取消分享');
-            },
-        };
-        wx.onMenuShareTimeline(option);
-        wx.onMenuShareAppMessage(option);
-        wx.onMenuShareQQ(option);
-        wx.onMenuShareWeibo(option);
-        wx.onMenuShareQZone(option);
-    });
+    const token = document.location.hash.split('#/?token=')[1]
+    if ((!localStorage.getItem('id_token') || parseInt(localStorage.getItem('exp')) < Math.floor(Date.now() / 1000) + 60 * 10) && !token) {
+      window.location.href = 'https://wx.idsbllp.cn/MagicLoop/index.php?s=/addon/Api/Api/oauth&redirect=https://wx.idsbllp.cn/234/seniorhelpme/user/weixin/getOpenid'
+    }
+    if (token && token.length) {
+      document.location.hash = '#/'
+      localStorage.setItem('id_token', token)
+      const { exp, stuNum, role } = JSON.parse(atob(token.split('.')[1]))
+      localStorage.setItem('exp', exp)
+      localStorage.setItem('stuNum', stuNum)
+      localStorage.setItem('role', role)
+    }
+
+
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      window.location.reload();
+    })
   </script>
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but redrock-help-2019 doesn't work properly without JavaScript enabled. Please enable it to
+      continue.</strong>
+  </noscript>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+</body>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="https://wx.idsbllp.cn/wx-api/share.js"></script>
+<script>
+  WXSHARE.config({ debug: false });
+  WXSHARE.ready(function () {
+    var option = {
+      title: "学长学姐帮帮忙",
+      link: "http://wx.idsbllp.cn/game/xzxjbbm2019/",
+      imgUrl: 'http://wx.idsbllp.cn/game/xzxjbbm2019/favicon.ico',
+      desc: '学长学姐帮帮忙',
+      type: '',
+      success: function () {
+        console.log('分享成功');
+      },
+      cancel: function () {
+        console.log('取消分享');
+      },
+    };
+    wx.onMenuShareTimeline(option);
+    wx.onMenuShareAppMessage(option);
+    wx.onMenuShareQQ(option);
+    wx.onMenuShareWeibo(option);
+    wx.onMenuShareQZone(option);
+  });
+</script>
+
 </html>

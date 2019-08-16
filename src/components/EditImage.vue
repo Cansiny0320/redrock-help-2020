@@ -14,7 +14,10 @@
           <BaseDeleteSvg />
         </div>
       </li>
-      <li class="list" v-if="imageUploading">
+      <li
+        class="list"
+        v-if="imageUploading"
+      >
         <div class="loading">
           <ImageLoadingSvg />
         </div>
@@ -38,6 +41,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import EXIF from 'exif-js'
 
 import BaseDeleteSvg from '@/assets/svg/BaseDelete.svg'
 import ImageLoadingSvg from '@/assets/svg/ImageLoading.svg'
@@ -61,6 +65,11 @@ export default {
           img.src = e.target.result;
         };
         img.onload = e => {
+          let orientation;
+          EXIF.getData(img, function () {
+            orientation = EXIF.getTag(this, 'Orientation');
+            console.log(orientation)
+          });
           // 缩放图片需要的canvas（也可以在DOM中直接定义canvas标签，这样就能把压缩完的图片不转base64也能直接显示出来）
           const canvas = document.createElement('canvas');
           const context = canvas.getContext('2d');
@@ -87,15 +96,30 @@ export default {
               targetWidth = Math.round(maxHeight * (originWidth / originHeight));
             }
           }
-          // canvas对图片进行缩放
           canvas.width = targetWidth;
           canvas.height = targetHeight;
           // 清除画布
           context.clearRect(0, 0, targetWidth, targetHeight);
-          // 图片压缩
-          context.drawImage(img, 0, 0, targetWidth, targetHeight);
-          /*第一个参数是创建的img对象；第二三个参数是左上角坐标，后面两个是画布区域宽高*/
-
+          if (orientation && orientation != 1) {
+            switch (orientation) {
+              case 6:     // 旋转90度
+                context.rotate(Math.PI / 2);
+                // (0,-targetHeight) 从旋转原理图那里获得的起始点
+                context.drawImage(img, 0, -targetHeight, targetWidth, targetHeight);
+                break;
+              case 3:     // 旋转180度
+                context.rotate(Math.PI);
+                context.drawImage(img, -targetWidth, -targetHeight, targetWidth, targetHeight);
+                break;
+              case 8:     // 旋转-90度
+                context.rotate(3 * Math.PI / 2);
+                context.drawImage(img, -targetWidth, 0, targetWidth, targetHeight);
+                break;
+            }
+          } else {
+            // canvas对图片进行缩放
+            context.drawImage(img, 0, 0, targetWidth, targetHeight);
+          }
           //压缩后的图片转blob
           /*canvas.toDataURL(mimeType, qualityArgument),mimeType 默认值是'image/png';
            * qualityArgument表示导出的图片质量，只有导出为jpeg和webp格式的时候此参数才有效，默认值是0.92*/
