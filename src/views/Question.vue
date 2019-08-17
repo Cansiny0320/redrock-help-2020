@@ -9,8 +9,7 @@
         <span class="name">{{ oneQuestion.author.name }}</span>
         <span class="status" :class="{ active : isStautsActive  }">{{ oneQuestion.status }}</span>
       </div>
-      <div class="content">
-        {{ oneQuestion.content }}
+      <div class="content" v-text="oneQuestion.content">
       </div>
       <div class="images">
         <VImage :imagesUrl="oneQuestion.photoUrls" />
@@ -82,6 +81,7 @@ export default {
 .content {
   line-height: 40px;
   margin: 0 30px 30px 30px;
+  word-wrap: break-word;
 }
 .images {
   padding: 0 30px 30px 30px;

@@ -9,7 +9,8 @@
         <p
           class="content"
           @click="handelQuestionClick(item.id)"
-        >{{item.content}}</p>
+          v-text="item.content"
+        ></p>
         <span
           class="solve"
           @click="handelSolveClick(item.id)"
