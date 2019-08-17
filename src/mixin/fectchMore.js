@@ -1,4 +1,5 @@
 import throttle from '@/common/throttle'
+import { mapGetters } from "vuex"
 
 export default {
   data () {
@@ -8,7 +9,7 @@ export default {
   },
   mounted() {
     this.throttleFunction = throttle(() => {
-      if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight)) {
+      if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight) && !this.isLoadingMore) {
         this.handelFecthMore();
       }
     }, 100, 200)
@@ -16,5 +17,8 @@ export default {
   },
   destroyed () {
     window.removeEventListener('scroll', this.throttleFunction, false);
-  }
+  },
+  computed: {
+    ...mapGetters(['isLoadingMore']),
+  },
 }
