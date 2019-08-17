@@ -14,7 +14,7 @@ module.exports = {
   port: 8088,
   proxy: {
     '/api1': {
-      target: 'http://202.202.43.234/seniorhelpme/', //对应自己的接口
+      target: 'https://wx.idsbllp.cn/234/seniorhelpme/', //对应自己的接口
       changeOrigin: true,
       ws: true,
       pathRewrite: {
