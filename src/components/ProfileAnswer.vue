@@ -108,6 +108,9 @@ export default {
     .action {
       margin: 0 30px 0 auto;
     }
+    .delete {
+      margin-left: 20px;
+    }
   }
 }
 </style>

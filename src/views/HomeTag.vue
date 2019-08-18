@@ -1,6 +1,6 @@
 <template>
   <div class="home-tag">
-    <VHeader :titleStr="tagName" />
+    <VHeader />
     <div class="question">
       <VLoading v-if="isLoading" />
       <VQuestion :questionData="questionList" />
@@ -31,15 +31,6 @@ export default {
   },
   computed: {
     ...mapGetters(['tagHot', 'isLoading', 'questionList', 'questionListNoMore', 'isLoadingMore']),
-    tagName () {
-      let tagName = ''
-      this.tagHot.forEach(element => {
-        if (element.id === Number(this.$route.query.id)) {
-          tagName = element.name
-        }
-      });
-      return `${tagName} 分类下的问题`
-    },
     isShowHomeEditButton () {
       return parseInt(localStorage.getItem('role')) === 1
     }

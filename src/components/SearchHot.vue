@@ -1,5 +1,5 @@
 <template>
-  <VHotTag
+  <VHotTagForSearch
     name="热门搜索"
     :hotTagData="searchHot"
     @hotTagClick="handelSearchHotTagClick"

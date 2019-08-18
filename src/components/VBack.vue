@@ -38,6 +38,7 @@ export default {
     display: flex;
     align-items: center;
     padding-right: 20px;
+    z-index: 29;
     svg {
       width: 38px;
       height: 38px;

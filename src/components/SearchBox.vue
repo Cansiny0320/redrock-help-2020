@@ -85,14 +85,20 @@ export default {
     .search-input {
       height: 100%;
       width: 100%;
-      color: @fontColor;
+      color: #cfcfcf;
       font-size: 30px;
       border-radius: 64px;
       padding: 0 32px 0 32px;
-      &:focus::-webkit-input-placeholder {
-        color: transparent;
+      &::-webkit-input-placeholder {
+        color: #cfcfcf;
       }
-      &:focus::-moz-placeholder {
+      &::-moz-placeholder {
+        color: #cfcfcf;
+      }
+      &::-ms-input-placeholder {
+        color: #cfcfcf;
+      }
+      &:focus::-webkit-input-placeholder {
         color: transparent;
       }
       &:focus::-moz-placeholder {

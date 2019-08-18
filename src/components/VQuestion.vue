@@ -19,7 +19,6 @@
           :src="item.author.avatar | https"
         >
         <span class="name">{{ item.author.name }}</span>
-        <span class="time">{{ item.createdAt | date }}</span>
       </div>
       <div
         class="content"
@@ -98,7 +97,7 @@ export default {
       }
       .time {
         color: #c7c7c7;
-        font-size: 20px;
+        font-size: 22px;
         margin: 0 20px 0 auto;
       }
     }

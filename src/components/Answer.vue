@@ -75,6 +75,9 @@ export default {
       align-items: center;
       justify-content: flex-start;
       color: @fontColor;
+      .name {
+        font-size: 26px;
+      }
       img {
         width: 86px;
         height: 86px;

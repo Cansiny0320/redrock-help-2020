@@ -1,5 +1,5 @@
 <template>
-  <div class="v-hot-tag">
+  <div class="v-hot-tag-search">
     <div class="title">{{ name }}</div>
     <div class="content">
       <div
@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: "vHotTag",
+  name: "vHotTagForSearch",
   props: {
     name: {
       type: String,
@@ -48,9 +48,9 @@ export default {
 
 
 <style lang="less" scoped>
-.v-hot-tag {
+.v-hot-tag-search {
   .title {
-    margin: 30px 0 14px 30px;
+    margin: 30px 0 0 30px;
     font-size: 28px;
     color: @fontColor;
   }
@@ -60,9 +60,10 @@ export default {
     display: flex;
     flex-wrap: wrap;
     .item {
+      line-height: 40px;
       border-radius: 40px;
-      margin: 16px 12px 0 12px;
-      padding: 8px 16px 8px 16px;
+      margin: 28px 12px 0 12px;
+      padding: 0 14px 0 14px;
       background-color: #ffffff;
       border: 2px solid @mainColor;
       box-sizing: border-box;

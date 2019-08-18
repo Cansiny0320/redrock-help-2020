@@ -121,6 +121,7 @@ export default {
       font-size: 22px;
     }
     .solved {
+      margin-top: 10px;
       min-width: 150px;
       text-align: end;
       font-size: 22px;
@@ -136,11 +137,11 @@ export default {
   .tips {
     display: flex;
     span {
-      color: @fontColor;
+      color: #c2c2c2;
       font-size: 22px;
       &.comment {
         display: block;
-        margin: 0 30px 0 auto;
+        margin: 0 50px 0 auto;
       }
     }
   }

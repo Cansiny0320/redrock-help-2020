@@ -88,10 +88,11 @@ export default {
   display: flex;
   align-items: center;
   color: @fontColor;
+  margin-right: 10px;
   .item {
     display: flex;
     align-items: center;
-    margin: 0 10px;
+    margin-left: 47px;
     svg {
       margin: 0 4px;
       height: 30px;

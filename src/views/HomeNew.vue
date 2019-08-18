@@ -2,7 +2,7 @@
   <div class="home-new">
     <div class="question">
       <VLoading v-if="isLoading" />
-      <VQuestion
+      <VQuestionForHome
         :isLoading="isLoading"
         :questionData="questionList"
       />

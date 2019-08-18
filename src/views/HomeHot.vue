@@ -50,7 +50,7 @@ export default {
 
 <style lang="less" scoped>
 .home-hot-question {
-  margin-top: 250px;
+  margin-top: 230px;
 }
 .no-more {
   text-align: center;

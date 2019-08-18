@@ -20,7 +20,10 @@
         >
         <span class="name">{{ item.author.name }}</span>
       </div>
-      <div class="content" v-text="item.content"></div>
+      <div
+        class="content"
+        v-text="item.content"
+      ></div>
       <div class="info">
         <span class="time">{{ item.createdAt | date }}</span>
         <div class="count">{{ item.answersCount }} 条回答</div>

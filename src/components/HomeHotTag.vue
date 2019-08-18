@@ -38,6 +38,5 @@ export default {
   height: 200px;
   overflow: hidden;
   background-color: @backgroundColor;
-  border-bottom: 1px solid @borderColor;
 }
 </style>
