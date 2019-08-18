@@ -12,6 +12,7 @@
     if ((!localStorage.getItem('id_token') || parseInt(localStorage.getItem('exp')) < Math.floor(Date.now() / 1000) + 60 * 60 * 24 * 2) && !token) {
       window.location.href = 'https://wx.idsbllp.cn/MagicLoop/index.php?s=/addon/Api/Api/oauth&redirect=https://wx.idsbllp.cn/234/seniorhelpme/user/weixin/getOpenid'
     }
+    document.location.hash = '/?refresh=123'
     if (token && token.length) {
       document.location.hash = '#/'
       localStorage.setItem('id_token', token)

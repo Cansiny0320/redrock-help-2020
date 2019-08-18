@@ -2,6 +2,7 @@ const path = require('path')
 const devServer = require('./mock')
 
 module.exports = {
+  productionSourceMap: false,
   publicPath: process.env.NODE_ENV === 'production'
   ? '/game/xzxjbbm2019/'
   : '/',
