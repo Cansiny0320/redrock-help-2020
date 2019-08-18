@@ -82,6 +82,9 @@ export default {
         background: @mainColor;
         margin: 20px;
       }
+      .name {
+        font-size: 26px;
+      }
       .time {
         color: #c7c7c7 !important;
         font-size: 20px;

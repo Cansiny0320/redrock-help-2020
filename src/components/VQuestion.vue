@@ -21,7 +21,10 @@
         <span class="name">{{ item.author.name }}</span>
         <span class="time">{{ item.createdAt | date }}</span>
       </div>
-      <div class="content" v-text="item.content"></div>
+      <div
+        class="content"
+        v-text="item.content"
+      ></div>
       <div class="info">
         <div class="tags">
           <div
@@ -83,6 +86,9 @@ export default {
       align-items: center;
       justify-content: flex-start;
       color: #a0a0a0;
+      .name {
+        font-size: 26px;
+      }
       .img {
         width: 86px;
         height: 86px;

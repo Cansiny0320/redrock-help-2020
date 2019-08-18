@@ -85,19 +85,18 @@ export default {
 <style lang="less" scoped>
 .box {
   background: #ffffff;
-  height: 160px;
   margin: 30px;
   padding: 30px 30px 20px 30px;
   border-radius: 10px;
   .comment {
     @nowrap();
-    font-size: 40px;
+    font-size: 30px;
     margin-bottom: 20px;
   }
   .question {
     @nowrap();
     color: #8d8d8d;
-    font-size: 30px;
+    font-size: 26px;
     margin-bottom: 30px;
   }
   .info {
