@@ -4,7 +4,7 @@
       class="box"
       v-for="item in commentData"
       :key="item.ansId"
-      @click.self="handelQuestionClick(item.question.queId)"
+      @click="handelQuestionClick(item.question.queId)"
     >
       <div class="comment">{{item.content}}</div>
       <div class="question">来自于问题“{{item.question.content}}”</div>
@@ -18,7 +18,7 @@
         />
         <div
           class="delete"
-          @click="handelDeleteClick(item.ansId)"
+          @click.stop="handelDeleteClick(item.ansId)"
         >删除</div>
       </div>
     </div>
@@ -96,7 +96,7 @@ export default {
   }
   .question {
     @nowrap();
-    color: @fontColor;
+    color: #8d8d8d;
     font-size: 30px;
     margin-bottom: 30px;
   }
@@ -104,7 +104,7 @@ export default {
     display: flex;
     font-size: 24px;
     line-height: 30px;
-    color: @fontColor;
+    color: #c2c2c2;
     justify-content: space-between;
     .action {
       margin: 0 30px 0 auto;

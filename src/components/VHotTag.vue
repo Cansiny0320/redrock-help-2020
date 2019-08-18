@@ -50,7 +50,7 @@ export default {
 <style lang="less" scoped>
 .v-hot-tag {
   .title {
-    margin: 30px 0 0 30px;
+    margin: 30px 0 14px 30px;
     font-size: 28px;
     color: @fontColor;
   }
@@ -60,15 +60,15 @@ export default {
     display: flex;
     flex-wrap: wrap;
     .item {
-      height: 44px;
-      line-height: 44px;
-      border-radius: 44px;
-      margin: 28px 12px 0 12px;
-      padding: 0 20px 0 20px;
+      height: 40px;
+      line-height: 40px;
+      border-radius: 40px;
+      margin: 16px 12px 0 12px;
+      padding: 0 14px 0 14px;
       background-color: #ffffff;
       border: 2px solid @mainColor;
       box-sizing: border-box;
-      font-size: 28px;
+      font-size: 24px;
       color: @mainColor;
     }
     .active {

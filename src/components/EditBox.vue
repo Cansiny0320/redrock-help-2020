@@ -55,7 +55,7 @@ export default {
 .box {
   margin: 0 30px;
   border: 1px solid @mainColor;
-  height: 380px;
+  height: 384px;
   border-radius: 30px;
   background: #ffffff;
   textarea {
@@ -63,7 +63,7 @@ export default {
     outline: 0;
     width: 650px;
     background: none;
-    min-height: 140px;
+    min-height: 150px;
     padding: 20px 20px 0 20px;
     font-size: 30px;
   }
