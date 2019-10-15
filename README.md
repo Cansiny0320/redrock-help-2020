@@ -183,16 +183,16 @@ VUE_APP_DSN='https://**' // sentry.io 报错平台
 
 ## 图例
 
-![Screenshot_2019-09-20-18-02-11-892_com.tencent.mm](C:\Users\skywalker512\Desktop\code\help\redrock-help-2019\README.assets\Screenshot_2019-09-20-18-02-11-892_com.tencent.mm.png)
+![Screenshot_2019-09-20-18-02-11-892_com.tencent.mm](./README.assets/Screenshot_2019-09-20-18-02-11-892_com.tencent.mm.png)
 
-![Screenshot_2019-09-20-18-02-24-201_com.tencent.mm](C:\Users\skywalker512\Desktop\code\help\redrock-help-2019\README.assets\Screenshot_2019-09-20-18-02-24-201_com.tencent.mm.png)
+![Screenshot_2019-09-20-18-02-24-201_com.tencent.mm](./README.assets/Screenshot_2019-09-20-18-02-24-201_com.tencent.mm.png)
 
-![Screenshot_2019-09-20-18-02-33-391_com.tencent.mm](C:\Users\skywalker512\Desktop\code\help\redrock-help-2019\README.assets\Screenshot_2019-09-20-18-02-33-391_com.tencent.mm.png)
+![Screenshot_2019-09-20-18-02-33-391_com.tencent.mm](./README.assets/Screenshot_2019-09-20-18-02-33-391_com.tencent.mm.png)
 
-![Screenshot_2019-09-20-18-02-38-045_com.tencent.mm](C:\Users\skywalker512\Desktop\code\help\redrock-help-2019\README.assets\Screenshot_2019-09-20-18-02-38-045_com.tencent.mm.png)
+![Screenshot_2019-09-20-18-02-38-045_com.tencent.mm](./README.assets/Screenshot_2019-09-20-18-02-38-045_com.tencent.mm.png)
 
-![Screenshot_2019-09-20-18-02-56-945_com.tencent.mm](C:\Users\skywalker512\Desktop\code\help\redrock-help-2019\README.assets\Screenshot_2019-09-20-18-02-56-945_com.tencent.mm.png)
+![Screenshot_2019-09-20-18-02-56-945_com.tencent.mm](./README.assets/Screenshot_2019-09-20-18-02-56-945_com.tencent.mm.png)
 
-![Screenshot_2019-09-20-18-03-01-130_com.tencent.mm](C:\Users\skywalker512\Desktop\code\help\redrock-help-2019\README.assets\Screenshot_2019-09-20-18-03-01-130_com.tencent.mm.png)
+![Screenshot_2019-09-20-18-03-01-130_com.tencent.mm](./README.assets/Screenshot_2019-09-20-18-03-01-130_com.tencent.mm.png)
 
-![Screenshot_2019-09-20-18-03-22-548_com.tencent.mm](C:\Users\skywalker512\Desktop\code\help\redrock-help-2019\README.assets\Screenshot_2019-09-20-18-03-22-548_com.tencent.mm.png)
+![Screenshot_2019-09-20-18-03-22-548_com.tencent.mm](./README.assets/Screenshot_2019-09-20-18-03-22-548_com.tencent.mm.png)
