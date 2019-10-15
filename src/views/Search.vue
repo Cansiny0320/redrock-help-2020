@@ -2,60 +2,54 @@
   <div class="search">
     <SearchBox />
     <SearchHot v-if="!q" />
-    <div
-      v-else
-      class="search-qustion-list"
-    >
+    <div v-else class="search-qustion-list">
       <div class="title">
         相关问题
       </div>
-      <VQuestion
-        :isLoading="isLoading"
-        :questionData="questionList"
-      />
+      <VQuestion :isLoading="isLoading" :questionData="questionList"></VQuestion>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex";
 
-import SearchBox from '@/components/SearchBox'
-import SearchHot from '@/components/SearchHot'
-import { FETCH_QUESTION_BY_SEARCH } from '@/store/type/actions'
+import SearchBox from "@/components/SearchBox";
+import SearchHot from "@/components/SearchHot";
+import { FETCH_QUESTION_BY_SEARCH } from "@/store/type/actions";
 
 export default {
-  name: 'search',
-  data () {
+  name: "search",
+  data() {
     return {
       q: null
-    }
+    };
   },
   components: {
     SearchBox,
-    SearchHot,
+    SearchHot
   },
-  beforeRouteEnter (to, from, next) {
+  beforeRouteEnter(to, from, next) {
     next(vm => {
-      vm.q = vm.$route.query.q
-      if (from.name !== 'question') {
+      vm.q = vm.$route.query.q;
+      if (from.name !== "question") {
         if (vm.q) {
-          vm.$store.dispatch(FETCH_QUESTION_BY_SEARCH, vm.q)
+          vm.$store.dispatch(FETCH_QUESTION_BY_SEARCH, vm.q);
         }
       }
-    })
+    });
   },
-  beforeRouteUpdate (to, from, next) {
-    this.q = to.query.q
+  beforeRouteUpdate(to, from, next) {
+    this.q = to.query.q;
     if (this.q) {
-      this.$store.dispatch(FETCH_QUESTION_BY_SEARCH, this.q)
+      this.$store.dispatch(FETCH_QUESTION_BY_SEARCH, this.q);
     }
-    next()
+    next();
   },
   computed: {
-    ...mapGetters(['isLoading', 'questionList'])
+    ...mapGetters(["isLoading", "questionList"])
   }
-}
+};
 </script>
 
 <style lang="less" scoped>
@@ -67,5 +61,3 @@ export default {
   }
 }
 </style>
-
-
