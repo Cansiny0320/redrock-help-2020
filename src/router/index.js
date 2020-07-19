@@ -1,82 +1,71 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Home from '@/views/Home.vue'
-import HomeHot from '@/views/HomeHot.vue'
-import HomeNew from '@/views/HomeNew.vue'
-import HomeTag from '@/views/HomeTag.vue'
-import Search from '@/views/Search.vue'
-import Profile from '@/views/Profile.vue'
-import ProfileQuestion from '@/views/ProfileQuestion.vue'
-import ProfileAnswer from '@/views/ProfileAnswer.vue'
-import QuestionEdit from '@/views/QuestionEdit.vue'
-import AnswerEdit from '@/views/AnswerEdit.vue'
-import Question from '@/views/Question.vue'
+import Vue from 'vue';
+import Router from 'vue-router';
 
-import ga from 'vue-ga'
+import ga from 'vue-ga';
 
-Vue.use(Router)
+Vue.use(Router);
 
 const router = new Router({
   routes: [
     {
       path: '/',
-      component: Home,
+      component: () => import('@/views/Home.vue'),
       children: [
         {
           path: '',
           name: 'homeHot',
-          component: HomeHot,
+          component: () => import('@/views/HomeHot.vue'),
         },
         {
           path: 'new',
           name: 'homeNew',
-          component: HomeNew,
+          component: () => import('@/views/HomeNew.vue'),
         },
-      ]
+      ],
     },
     {
       path: '/tag',
       name: 'homeTag',
-      component: HomeTag,
+      component: () => import('@/views/HomeTag.vue'),
     },
     {
       path: '/search',
       name: 'search',
-      component: Search,
+      component: () => import('@/views/Search.vue'),
     },
     {
       path: '/profile',
       name: 'profile',
-      component: Profile,
+      component: () => import('@/views/Profile.vue'),
     },
     {
       path: '/profile/question',
       name: 'profileQuestion',
-      component: ProfileQuestion,
+      component: () => import('@/views/ProfileQuestion.vue'),
     },
     {
       path: '/profile/answer',
       name: 'profileAnswer',
-      component: ProfileAnswer,
+      component: () => import('@/views/ProfileAnswer.vue'),
     },
     {
       path: '/questionEdit',
       name: 'questionEdit',
-      component: QuestionEdit,
+      component: () => import('@/views/QuestionEdit.vue'),
     },
     {
       path: '/answserEdit',
       name: 'answserEdit',
-      component: AnswerEdit,
+      component: () => import('@/views/AnswerEdit.vue'),
     },
     {
       path: '/question',
       name: 'question',
-      component: Question,
+      component: () => import('@/views/Question.vue'),
     },
-  ]
-})
+  ],
+});
 
-ga(router, process.env.VUE_APP_GA)
+ga(router, process.env.VUE_APP_GA);
 
-export default router
+export default router;
