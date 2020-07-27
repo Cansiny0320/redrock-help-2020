@@ -28,11 +28,11 @@ const router = new Router({
       name: 'homeTag',
       component: () => import('@/views/HomeTag.vue'),
     },
-    {
-      path: '/search',
-      name: 'search',
-      component: () => import('@/views/Search.vue'),
-    },
+    // {
+    //   path: '/search',
+    //   name: 'search',
+    //   component: () => import('@/views/Search.vue'),
+    // },
     {
       path: '/profile',
       name: 'profile',
