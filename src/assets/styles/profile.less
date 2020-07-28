@@ -1,18 +1,30 @@
+.profile-item {
+  height: 100vh;
+  background-color: #fff;
+}
 .user {
   display: flex;
   align-items: center;
-  padding: 30px;
-
+  padding: 64px 23px;
+  border-bottom: 2px solid #eee;
   .img {
     width: 140px;
     height: 140px;
-    border-radius: 140px;
+    border-radius: 100%;
     background: @mainColor;
   }
-
-  .name {
-    color: @fontColor;
-    margin-left: 25px;
+  .info {
+    margin-left: 54px;
+    .name {
+      color: @fontColor;
+      font-size: 40px;
+      font-weight: bold;
+    }
+    .id {
+      font-size: 26px;
+      color: #555;
+      margin-top: 23px;
+    }
   }
 }
 
@@ -21,22 +33,19 @@
 .approval,
 .oppose,
 .answer {
-  height: 90px;
-  border: 2px solid @mainColor;
-  border-radius: 15px;
-  margin: 0 30px 30px 30px;
   background-color: #ffffff;
+  border-bottom: 2px solid #eee;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  span {
-    line-height: 90px;
-    padding-left: 30px;
-    color: #6a6a6a;
-    font-size: 30px;
+  padding: 55px 24px;
+  color: #333;
+  font-size: 30px;
+  .new {
+    color: @mainColor;
+    font-size: 24px;
+    margin-left: auto;
   }
-
   .front-icon {
     padding-right: 20px;
 
@@ -46,7 +55,7 @@
       height: 40px;
 
       path {
-        fill: #9595957e;
+        fill: #838383;
       }
     }
   }
