@@ -1,19 +1,13 @@
 <template>
-  <div>
-    <HomeHotTag />
-    <div class="home-hot-question">
-      <VLoading v-if="isLoading" />
-      <VQuestionForHome
-        v-else
-        :questionData="questionList"
-      />
-      <VLoading v-if="isLoadingMore"/>
-      <div
-        class="no-more"
-        v-if="questionListNoMore"
-      >没有更多了</div>
+    <div>
+        <HomeHotTag />
+        <div class="home-hot-question">
+            <VLoading v-if="isLoading" />
+            <VQuestionForHomeHot v-else :questionData="questionList" />
+            <VLoading v-if="isLoadingMore" />
+            <div class="no-more" v-if="questionListNoMore">没有更多了</div>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -25,36 +19,36 @@ import HomeHotTag from '@/components/HomeHotTag'
 import fecthMore from '@/mixin/fectchMore'
 
 export default {
-  name: 'homeHot',
-  mixins: [fecthMore],
-  components: {
-    HomeHotTag,
-  },
-  computed: {
-    ...mapGetters(['questionList', 'questionListNoMore', 'isLoading', 'isLoadingMore']),
-  },
-  beforeRouteEnter (_, from, next) {
-    next(vm => {
-      if (from.name !== 'question') {
-        vm.$store.dispatch(FETCH_QUESTION_HOT)
-      }
-    })
-  },
-  methods: {
-    handelFecthMore () {
-      this.$store.dispatch(FETCH_NEXT_HOT_QUESTION)
+    name: 'homeHot',
+    mixins: [fecthMore],
+    components: {
+        HomeHotTag,
+    },
+    computed: {
+        ...mapGetters(['questionList', 'questionListNoMore', 'isLoading', 'isLoadingMore']),
+    },
+    beforeRouteEnter(_, from, next) {
+        next(vm => {
+            if (from.name !== 'question') {
+                vm.$store.dispatch(FETCH_QUESTION_HOT)
+            }
+        })
+    },
+    methods: {
+        handelFecthMore() {
+            this.$store.dispatch(FETCH_NEXT_HOT_QUESTION)
+        }
     }
-  }
 }
 </script>
 
 <style lang="less" scoped>
 .home-hot-question {
-  margin-top: 230px;
+    margin-top: 175px;
 }
 .no-more {
-  text-align: center;
-  padding: 0 30px 30px 30px;
+    text-align: center;
+    padding: 0 30px 30px 30px;
 }
 </style>
 
