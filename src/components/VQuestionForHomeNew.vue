@@ -11,11 +11,18 @@
         >
             <div class="user">
                 <img class="img" :src="item.author.avatar | https" />
-                <span class="name">{{ item.author.name }}</span>
+                <div class="user__info">
+                    <div class="name">{{ item.author.name }}</div>
+                    <div class="time">
+                        {{ item.createdAt | date }}
+                    </div>
+                </div>
             </div>
             <div class="content" v-text="item.content"></div>
             <div class="info">
-                <span class="date">{{ item.createdAt | date }}</span>
+                <span class="tag" v-for="tag of item.tags" :key="tag.id"
+                    >#{{ tag.name }}#</span
+                >
                 <div class="count">{{ item.answersCount }} 条回答</div>
             </div>
         </div>
@@ -59,42 +66,59 @@ export default {
     }
     .question {
         margin-bottom: 32px;
-        border: 2px solid @mainColor;
         border-radius: 8px;
         background: #ffffff;
+        color: #222;
+        padding-bottom: 28px;
+        border-radius: 12px;
+        padding: 28px 24px;
         .user {
             display: flex;
             align-items: center;
-            justify-content: flex-start;
-            color: #a0a0a0;
+            margin-bottom: 24px;
+            &__info {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                .name {
+                    font-size: 28px;
+                    color: #333;
+                    margin-bottom: 10px;
+                }
+                .time {
+                    color: #808080 !important;
+                    font-size: 22px;
+                }
+            }
             .img {
-                width: 86px;
-                height: 86px;
-                border-radius: 86px;
+                width: 60px;
+                height: 60px;
+                border-radius: 100%;
                 background: @mainColor;
-                margin: 20px;
-            }
-            .name {
-                font-size: 26px;
-            }
-            .time {
-                color: #c7c7c7 !important;
-                font-size: 20px;
-                margin: 0 20px 0 auto;
+                margin-right: 17px;
             }
         }
         .content {
             @nowrap();
-            padding: 0 20px 20px 20px;
+            margin-bottom: 20px;
         }
         .info {
             color: #c7c7c7 !important;
             display: flex;
-            font-size: 22px;
+            font-size: 28px;
             color: @fontColor;
-            margin: 0 20px 20px 20px;
             line-height: 40px;
-            justify-content: space-between;
+            .tag {
+                padding: 0 10px;
+                margin-right: 10px;
+                font-size: 26px;
+                color: @mainColor;
+            }
+            .count {
+                margin-left: auto;
+                font-size: 24px;
+                color: #808080;
+            }
         }
     }
 }

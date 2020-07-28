@@ -51,7 +51,7 @@ export default {
     font-size: 36px;
     line-height: 70px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     color: #353535;
     background-color: @HeaderBgColor;
     border-bottom: 2px solid @borderColor;

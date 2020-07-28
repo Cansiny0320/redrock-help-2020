@@ -51,7 +51,7 @@ export default {
 
 <style lang="less" scoped>
 .home-tag {
-    margin-top: 175px;
+    margin-top: 135px;
 }
 .question {
     padding-top: 32px;

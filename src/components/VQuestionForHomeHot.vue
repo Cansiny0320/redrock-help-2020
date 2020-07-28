@@ -9,16 +9,17 @@
             :key="item.id"
             @click="handelQuestionBoxClick(item.id)"
         >
+            <div class="content" v-text="item.content"></div>
             <div class="user">
                 <img class="img" :src="item.author.avatar | https" />
                 <span class="name">{{ item.author.name }}</span>
             </div>
-            <div class="content" v-text="item.content"></div>
+            <div class="anwser" v-text="item.content"></div>
             <div class="info">
-                <span class="tag" v-for="tag of item.tags" :key="tag.id">{{
-                    tag.name
-                }}</span>
-                <div class="count">{{ item.answersCount }} 条回答</div>
+                <span class="tag" v-for="tag of item.tags" :key="tag.id"
+                    >#{{ tag.name }}#</span
+                >
+                <div class="count">{{ item.answersCount }}人回答</div>
             </div>
         </div>
     </div>
@@ -61,49 +62,52 @@ export default {
     }
     .question {
         margin-bottom: 32px;
-        border: 2px solid @mainColor;
         border-radius: 8px;
         background: #ffffff;
+        color: #222;
+        padding-bottom: 28px;
+        border-radius: 12px;
+        padding: 28px 24px;
         .user {
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            color: #a0a0a0;
+            color: #555;
+            margin-top: 24px;
             .img {
-                width: 86px;
-                height: 86px;
-                border-radius: 86px;
+                width: 40px;
+                height: 40px;
+                border-radius: 100%;
                 background: @mainColor;
-                margin: 20px;
+                margin-right: 18px;
             }
             .name {
-                font-size: 26px;
-            }
-            .time {
-                color: #c7c7c7 !important;
-                font-size: 20px;
-                margin: 0 20px 0 auto;
+                font-size: 24px;
             }
         }
         .content {
+            font-size: 32px;
+        }
+        .anwser {
             @nowrap();
-            padding: 0 20px 20px 20px;
+            font-size: 28px;
+            padding: 24px 0 20px;
         }
         .info {
             color: #c7c7c7 !important;
             display: flex;
-            font-size: 22px;
+            font-size: 28px;
             color: @fontColor;
-            margin: 0 20px 20px 20px;
             line-height: 40px;
             .tag {
-                padding: 0 10px;
-                border: 1px solid #000;
-                border-radius: 20px;
                 margin-right: 10px;
+                font-size: 26px;
+                color: @mainColor;
             }
             .count {
                 margin-left: auto;
+                font-size: 24px;
+                color: #808080;
             }
         }
     }
