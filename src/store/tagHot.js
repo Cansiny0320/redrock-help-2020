@@ -1,58 +1,49 @@
-import {
-  TagService,
-} from '@/common/service/api'
+import { TagService } from '@/common/service/api';
 
-import {
-  FETCH_TAG_HOT,
-} from './type/actions'
+import { FETCH_TAG_HOT } from './type/actions';
 
-import {
-  FETCH_START,
-  FETCH_END,
-  SET_TAG_HOT,
-} from './type/mutations'
+import { FETCH_START, FETCH_END, SET_TAG_HOT } from './type/mutations';
 
 const initialState = {
   data: [],
-}
+};
 
-const state = { ...initialState }
+const state = { ...initialState };
 
 const actions = {
-  async [FETCH_TAG_HOT] ({ commit, state }) {
-    let hotData
+  async [FETCH_TAG_HOT]({ commit, state }) {
+    let hotData;
     if (!state.data.length) {
-      commit(FETCH_START)
-      let { data } = await TagService.hot()
-      data = data.map(item=>{
-        item.name = item.label
-        delete item.label
-        return item
-      })
-      commit(FETCH_END)
-      hotData = data
+      commit(FETCH_START);
+      let { data } = await TagService.hot();
+      data = data.map(item => ({
+        id: item.id,
+        name: item.name,
+      }));
+      commit(FETCH_END);
+      hotData = data;
     } else {
-      hotData = state.data
+      hotData = state.data;
     }
-    commit(SET_TAG_HOT, hotData)
-  }
-}
+    commit(SET_TAG_HOT, hotData);
+  },
+};
 
 const mutations = {
-  [SET_TAG_HOT] (state, data) {
-    state.data = data
-  }
-}
+  [SET_TAG_HOT](state, data) {
+    state.data = data;
+  },
+};
 
 const getters = {
   tagHot(state) {
-    return state.data
+    return state.data;
   },
-}
+};
 
 export default {
   state,
   actions,
   mutations,
-  getters
+  getters,
 };

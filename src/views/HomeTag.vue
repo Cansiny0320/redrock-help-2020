@@ -4,7 +4,7 @@
         <HomeHotTag />
         <div class="question">
             <VLoading v-if="isLoading" />
-            <VQuestion :questionData="questionList" />
+            <VQuestionForHomeNew :questionData="questionList" />
             <VLoading v-if="isLoadingMore" />
             <div class="no-more" v-if="questionListNoMore">没有更多了</div>
         </div>
@@ -51,7 +51,8 @@ export default {
 
 <style lang="less" scoped>
 .home-tag {
-    margin-top: 135px;
+    margin-top: 165px;
+    background-color: @backgroundColor;
 }
 .question {
     padding-top: 32px;
