@@ -34,6 +34,11 @@ export default {
             return parseInt(localStorage.getItem('role')) === 1
         },
     },
+    watch: {
+        '$route'(to, from) {
+            this.$store.dispatch(FETCH_QUESTION_BY_TAG, this.$route.query.id)
+        }
+    },
     beforeRouteEnter(_, from, next) {
         next(vm => {
             if (from.name !== 'question') {

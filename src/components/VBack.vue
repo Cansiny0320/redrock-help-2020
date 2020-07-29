@@ -1,35 +1,31 @@
 <template>
-  <div
-    class="v-back"
-    v-if="isShowBack"
-    @click="handelBackClick"
-  >
-    <BaseBackSvg />
-  </div>
+    <div class="v-back" v-if="isShowBack" @click="handelBackClick">
+        <BaseBackSvg />
+    </div>
 </template>
 
 <script>
 import BaseBackSvg from '@/assets/svg/BaseBack.svg'
 
 export default {
-  name: 'vBack',
-  props: {
-    isShowBack: {
-      type: Boolean,
-      required: false,
-      default: true
-    }
-  },
-  components: {
-    BaseBackSvg,
-  },
-  methods: {
-    handelBackClick () {
-      window.history.length > 1
-        ? this.$router.go(-1)
-        : this.$router.push('/')
+    name: 'vBack',
+    props: {
+        isShowBack: {
+            type: Boolean,
+            required: false,
+            default: true
+        }
     },
-  }
+    components: {
+        BaseBackSvg,
+    },
+    methods: {
+        handelBackClick() {
+            window.history.length > 1
+                ? this.$router.go(-1)
+                : this.$router.push('/')
+        },
+    }
 }
 </script>
 
@@ -40,11 +36,11 @@ export default {
     padding-right: 20px;
     z-index: 29;
     svg {
-      width: 38px;
-      height: 38px;
-      path {
-        fill: @mainColor;
-      }
+        width: 38px;
+        height: 38px;
+        path {
+            fill: #696969;
+        }
     }
-  }
+}
 </style>

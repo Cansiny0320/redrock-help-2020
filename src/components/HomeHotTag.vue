@@ -25,7 +25,8 @@ export default {
     methods: {
         handelHomeHotTagClick(index) {
             this.activeId = this.tagHot[index].id
-            this.$router.push({ name: 'homeTag', query: { id: this.tagHot[index].id } })
+            let query = { id: this.tagHot[index].id }
+            this.$router.push({ name: 'homeTag', query })
         }
     },
     mounted() {

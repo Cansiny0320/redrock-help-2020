@@ -23,7 +23,7 @@
                 <span class="tag" v-for="tag of item.tags" :key="tag.id"
                     >#{{ tag.name }}#</span
                 >
-                <div class="count">{{ item.answersCount }} 条回答</div>
+                <div class="count">{{ item.author.answersCount }} 条回答</div>
             </div>
         </div>
     </div>

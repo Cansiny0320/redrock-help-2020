@@ -19,7 +19,7 @@
                 <span class="tag" v-for="tag of item.tags" :key="tag.id"
                     >#{{ tag.name }}#</span
                 >
-                <div class="count">{{ item.answersCount }}人回答</div>
+                <div class="count">{{ item.author.answersCount }}人回答</div>
             </div>
         </div>
     </div>
@@ -86,12 +86,15 @@ export default {
             }
         }
         .content {
+            line-height: 120%;
             font-size: 32px;
+            @ellisis-2();
         }
         .anwser {
-            @nowrap();
+            @ellisis-2();
             font-size: 28px;
-            padding: 24px 0 20px;
+            line-height: 120%;
+            margin: 24px 0 20px;
         }
         .info {
             color: #c7c7c7 !important;
