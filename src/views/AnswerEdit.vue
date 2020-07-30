@@ -76,7 +76,7 @@ header {
     justify-content: space-between;
 }
 .question {
-    padding: 30px 53px 63px 25px;
+    padding: 33px 24px 25px;
     font-size: 32px;
     line-height: 1.25;
     color: @fontColor;

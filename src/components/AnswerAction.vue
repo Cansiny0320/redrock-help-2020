@@ -3,7 +3,7 @@
         <div
             class="item"
             :class="{ active: item.isApproval }"
-            @click="handelApprovalClick(item.id, item.isOppose)"
+            @click="handelApprovalClick(item.id)"
         >
             {{ item.approvalNum }}
             <AnswerApprovalSvg />
@@ -15,11 +15,9 @@
 <script>
 import {
     FETCH_ANSWER_APPROVAL,
-    FETCH_ANSWER_OPPOSE,
 } from '@/store/type/actions'
 
 import AnswerApprovalSvg from '@/assets/svg/AnswerApproval.svg'
-import AnswerOpposeSvg from '@/assets/svg/AnswerOppose.svg'
 
 export default {
     name: 'answerAction',
@@ -28,9 +26,6 @@ export default {
             type: Object,
             required: true,
         }
-    },
-    created() {
-        console.log(this.item.isApproval);
     },
     data() {
         return {
@@ -41,10 +36,10 @@ export default {
     },
     components: {
         AnswerApprovalSvg,
-        AnswerOpposeSvg,
     },
     methods: {
-        handelApprovalClick(answerId, isOppose) {
+        handelApprovalClick(answerId) {
+            
             this.$store.dispatch(FETCH_ANSWER_APPROVAL, answerId)
         },
         autoHidePopup() {

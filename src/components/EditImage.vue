@@ -19,7 +19,7 @@
                     multiple
                     @change="previewFiles($event)"
                 />
-                <label for="fileUpload" class="add" v-if="image.length < 9">
+                <label for="fileUpload" class="add" v-if="image.length < 3">
                     <img src="../assets/images/camera.png" alt=""
                 /></label>
             </div>
@@ -132,7 +132,7 @@ export default {
 
 <style lang="less" scoped>
 ul {
-    margin: 36px 18px 30px;
+    margin: 36px 24px 0;
     display: flex;
     flex-wrap: wrap;
     li {
@@ -140,14 +140,14 @@ ul {
         margin-right: 10px;
         margin-bottom: 20px;
         img {
-            width: 228px;
-            height: 228px;
+            width: 224px;
+            height: 224px;
             border-radius: 10px;
             object-fit: cover;
         }
         .loading {
-            width: 228px;
-            height: 228px;
+            width: 224px;
+            height: 224px;
             justify-content: center;
             align-items: center;
             display: flex;
@@ -186,8 +186,8 @@ ul {
     background-color: #f1f1f1;
     border-radius: 5px;
     opacity: 0.98;
-    width: 228px;
-    height: 228px;
+    width: 224px;
+    height: 224px;
     img {
         width: 58px;
         height: 49px;

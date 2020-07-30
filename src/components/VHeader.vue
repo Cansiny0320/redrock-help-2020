@@ -39,6 +39,8 @@ export default {
             left: 0;
             right: 0;
             text-align: center;
+            font-size: 36px;
+            color: #353535;
         }
     }
     .block {

@@ -71,19 +71,20 @@ export default {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 88px;
+    height: 98px;
+    box-sizing: border-box;
     z-index: 10;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #ffffff;
     border-top: 1px solid @borderColor;
-    padding-top: 12px;
     .item {
         width: 100%;
         text-align: center;
         font-size: 20px;
         color: @fontColor;
+        padding-top: 12px;
         img {
             width: 52px;
             height: 52px;

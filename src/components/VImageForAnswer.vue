@@ -83,32 +83,37 @@ export default {
 <style lang="less" scoped>
 .v-image {
     display: flex;
-    justify-content: space-between;
     .item {
         position: relative;
-        &.four {
-            width: 154px;
-            height: 154px;
+        margin-right: 10px;
+        &:nth-child(3) {
+            margin-right: 0;
         }
+        // &.four {
+        //     width: 154px;
+        //     height: 154px;
+        // }
         img {
-            border-radius: 10px;
+            border-radius: 8px;
             object-fit: cover;
-            &.one {
-                width: 100%;
-                height: 400px;
-            }
-            &.two {
-                width: 320px;
-                height: 240px;
-            }
-            &.three {
-                width: 210px;
-                height: 170px;
-            }
-            &.four {
-                width: 154px;
-                height: 154px;
-            }
+            width: 226px;
+            height: 226px;
+            // &.one {
+            //     width: 100%;
+            //     height: 400px;
+            // }
+            // &.two {
+            //     width: 320px;
+            //     height: 240px;
+            // }
+            // &.three {
+            //     width: 210px;
+            //     height: 170px;
+            // }
+            // &.four {
+            //     width: 154px;
+            //     height: 154px;
+            // }
         }
     }
 

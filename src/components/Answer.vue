@@ -57,6 +57,7 @@ export default {
         border-radius: 8px;
         background: #ffffff;
         padding: 28px 24px;
+        border-bottom: 1px solid #f2f2f2;
         .user {
             display: flex;
             justify-content: flex-start;

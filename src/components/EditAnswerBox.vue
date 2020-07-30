@@ -45,9 +45,10 @@ export default {
 
 <style lang="less" scoped>
 .box {
-    margin: 0 30px;
-    border-radius: 30px;
+    padding: 0 24px;
     background: #ffffff;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #e5e5e5;
     textarea {
         border: 0;
         outline: 0;

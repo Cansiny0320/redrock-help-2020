@@ -1,6 +1,5 @@
 <template>
     <div class="qustion">
-        <QuestionReplyButton v-if="isShowQuestionReplyButton" />
         <VHeader />
         <VLoading v-if="isLoading" />
         <template v-else>

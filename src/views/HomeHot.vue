@@ -44,7 +44,7 @@ export default {
 
 <style lang="less" scoped>
 .home-hot-question {
-    margin-top: 135px;
+    margin-top: 125px;
 }
 .no-more {
     text-align: center;
