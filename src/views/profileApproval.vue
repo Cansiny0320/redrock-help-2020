@@ -1,51 +1,49 @@
 <template>
-    <div class="profile-answer">
-        <VHeader titleStr="我的回答" />
+    <div class="profile-approval">
+        <VHeader titleStr="我收到的赞同" />
         <VLoading v-if="isLoading" />
-        <div class="img" v-else-if="!profileAnswer.length">
-            <img src="../assets/images/answer.png" />
-            <div class="tip">学弟学妹们都等着急了~</div>
+        <div class="img" v-else-if="!profileApproval.length">
+            <img src="../assets/images/approval.png" />
+            <div class="tip">知音在路上啦~~</div>
         </div>
-        <ProfileAnswer v-else :commentData="profileAnswer" />
+        <ProfileComment v-else :commentData="profileApproval" />
     </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import { FETCH_PROFILE_ANSWER } from "@/store/type/actions";
+import { FETCH_PROFILE_APPROVAL } from "@/store/type/actions";
 
-import ProfileAnswer from '@/components/ProfileAnswer'
+import ProfileComment from '@/components/profileComment'
 
 export default {
-    name: "profileAnswer",
+    name: "profileApproval",
     data() {
         return {
-            paramsResult: ""
+
         }
     },
     components: {
-        ProfileAnswer,
+        ProfileComment,
     },
-
     beforeRouteEnter(_, from, next) {
         next(vm => {
             if (from.name !== 'question') {
-                vm.$store.dispatch(FETCH_PROFILE_ANSWER)
+                vm.$store.dispatch(FETCH_PROFILE_APPROVAL);
+
             }
         })
     },
     computed: {
-        ...mapGetters(["isLoading", "profileAnswer"]),
+        ...mapGetters(["isLoading", "profileApproval"]),
     }
-};
+}
 </script>
 
 <style lang="less" scoped>
-.profile-answer {
-    background-color: @backgroundColor;
+.profile-approval {
+    background-color: #fff;
     width: 100%;
-    height: calc(100vh - 198px);
-
     .img {
         height: calc(100vh - 198px);
         background-color: #fff;
@@ -54,7 +52,7 @@ export default {
         flex-direction: column;
         align-items: center;
         img {
-            width: 511px;
+            width: 501px;
             margin-top: 300px;
         }
         .tip {

@@ -8,7 +8,13 @@
         >
             <div class="question">{{ item.question.content }}</div>
             <div class="comment">{{ item.content }}</div>
-
+            <div class="imgs">
+                <img
+                    :src="`${imgUrl}/getImage?imageName=${item.split('/')[3]}`"
+                    v-for="item of item.photoUrls"
+                    :key="item"
+                />
+            </div>
             <div class="info">
                 <div class="time">{{ item.createdAt | date }}</div>
                 <div class="v-answer-action">
@@ -32,9 +38,10 @@
 </template>
 
 <script>
+import { API_URL } from '@/common/config';
+
 import { mapGetters } from "vuex";
 import { FETCH_PROFILE_COMMENT, FETCH_DELETE_ANSWER } from "@/store/type/actions";
-
 import AnswerAction from '@/components/AnswerAction'
 import AnswerApprovalSvg from '@/assets/svg/AnswerApproval.svg'
 export default {
@@ -56,6 +63,9 @@ export default {
         }
     },
     computed: {
+        imgUrl() {
+            return API_URL;
+        },
         ...mapGetters(['isLoading'])
     },
     methods: {
@@ -100,6 +110,17 @@ export default {
         margin-bottom: 30px;
         font-weight: bold;
         line-height: 120%;
+    }
+    .imgs {
+        img {
+            width: 211px;
+            height: 211px;
+            margin-right: 10px;
+            border-radius: 5px;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
     }
     .info {
         display: flex;
