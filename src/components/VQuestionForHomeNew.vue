@@ -18,14 +18,15 @@
                     {{ item.createdAt | date }}
                 </div>
             </div>
-            <div class="anwser" v-text="item.content"></div>
+            <div class="anwser" v-text="item.content" v-if="false"></div>
             <div class="info">
-                <span
+                <div
                     class="tag"
                     v-for="tag of item.tags.slice(0, showTagNum)"
                     :key="tag.id"
-                    >#{{ tag.name }}#</span
                 >
+                    #{{ tag.name }}#
+                </div>
                 <div class="count">{{ item.answersCount }} 条回答</div>
             </div>
         </div>
@@ -46,7 +47,7 @@ export default {
     },
     data() {
         return {
-            showTagNum: 3,
+            showTagNum: 2,
         }
     },
     computed: {
@@ -75,7 +76,7 @@ export default {
     }
     .question {
         margin-bottom: 20px;
-        border-radius: 8px;
+        border-radius: 12px;
         background: #ffffff;
         color: @fontColor;
         padding-bottom: 28px;
@@ -84,7 +85,7 @@ export default {
         .user {
             display: flex;
             align-items: center;
-            margin-top: 18px;
+            margin-top: 16px;
             .name {
                 font-size: 24px;
                 color: @fontLightColor;
@@ -103,22 +104,23 @@ export default {
             }
         }
         .content {
-            line-height: 120%;
-            font-size: 40px;
+            font-weight: bold;
+            line-height: 40px;
+            font-size: 32px;
             @ellisis-2();
         }
         .anwser {
             @ellisis-2();
             font-size: 28px;
             line-height: 36px;
-            margin: 32px 0 18px;
+            margin: 32px 0 0;
         }
         .info {
+            margin-top: 20px;
             color: #c7c7c7 !important;
             display: flex;
             font-size: 28px;
             color: @fontColor;
-            line-height: 40px;
             .tag {
                 padding: 0 10px;
                 margin-right: 10px;

@@ -20,7 +20,7 @@
                 <div class="v-answer-action">
                     <div class="item">
                         <AnswerApprovalSvg />
-                        {{ item.approvalNum }}
+                        <span class="num">{{ item.approvalNum }}</span>
                     </div>
                 </div>
                 <div class="delete" @click.stop="handelDeleteClick(item.ansId)">
@@ -95,21 +95,21 @@ export default {
 <style lang="less" scoped>
 .box {
     background: #ffffff;
-    margin: 30px;
-    padding: 30px 24px 28px 25px;
+    margin: 20px 24px;
+    padding: 28px 24px;
     border-radius: 10px;
     .comment {
         font-size: 28px;
-        margin-bottom: 20px;
         color: #404040;
+        margin: 20px 0;
+        letter-spacing: 0.4px;
     }
     .question {
         @nowrap();
         color: @fontColor;
         font-size: 32px;
-        margin-bottom: 30px;
         font-weight: bold;
-        line-height: 120%;
+        letter-spacing: 0.4px;
     }
     .imgs {
         img {
@@ -126,31 +126,20 @@ export default {
         display: flex;
         align-items: center;
         font-size: 22px;
-        line-height: 30px;
         color: #808080;
-        .action {
-            margin: 0 30px 0 auto;
-        }
-        .delete {
-            margin-left: auto;
-            font-size: 24px;
-            color: @mainColor;
-            border: 1px solid @mainColor;
-            padding: 14px 25px;
-            border-radius: 80px;
-        }
         .v-answer-action {
             display: flex;
             align-items: center;
-            margin-right: 10px;
+            margin-left: 55px;
             .item {
                 display: flex;
                 align-items: center;
-                margin-left: 56px;
+                .num {
+                    margin-left: 8px;
+                }
                 svg {
-                    margin: 0 4px;
-                    height: 30px;
-                    width: 30px;
+                    width: 25px;
+                    height: 25px;
                 }
                 fill: #808080;
                 &.active {
@@ -158,6 +147,16 @@ export default {
                     color: @mainColor;
                 }
             }
+        }
+        .delete {
+            margin-left: auto;
+            font-size: 24px;
+            color: @mainColor;
+            border: 1px solid @mainColor;
+            padding: 13px 25px;
+            border-radius: 100px;
+            font-weight: 500;
+            letter-spacing: 1.6px;
         }
     }
 }

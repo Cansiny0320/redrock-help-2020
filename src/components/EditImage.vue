@@ -4,7 +4,7 @@
             <li class="list" v-for="(item, index) of image" :key="index">
                 <img :src="item" />
                 <div class="delete" @click="handelDeleteClick(index)">
-                    <BaseDeleteSvg />
+                    <div class="icon"></div>
                 </div>
             </li>
             <li class="list" v-if="imageUploading">
@@ -137,7 +137,10 @@ ul {
     overflow: hidden;
     li {
         position: relative;
-        margin-right: 12px;
+        margin-right: 18px;
+        &:nth-child(3) {
+            margin-right: 0;
+        }
         img {
             width: 222px;
             height: 222px;
@@ -152,13 +155,30 @@ ul {
             display: flex;
         }
         .delete {
-            top: 0px;
-            left: 0px;
+            top: 0;
+            left: 0;
             right: 0;
             bottom: 0;
             position: absolute;
             display: flex;
             justify-content: flex-end;
+            .icon {
+                position: relative;
+                width: 39px;
+                height: 38px;
+                background: rgba(0, 0, 0, 0.25);
+                border-radius: 5px;
+                background-image: url('../assets/images/delete.png');
+                background-repeat: no-repeat;
+                background-size: contain;
+                // &::before {
+                //     position: absolute;
+                //     content: '\d7';
+                //     color: #fff;
+                //     left: 50%;
+                //     transform: translateX(-50%);
+                // }
+            }
             svg {
                 margin: 5px;
                 width: 50px;

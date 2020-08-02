@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="no-footer">
         <header>
             <VBack />
             <div @click="handelAnswerPublished">
@@ -70,6 +70,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import '../assets/styles/nofooter.less';
 header {
     margin: 30px;
     display: flex;

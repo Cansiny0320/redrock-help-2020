@@ -2,13 +2,13 @@
     <div class="profile-question">
         <div class="box" v-for="item of questionData" :key="item.id">
             <div class="fix">
-                <p
+                <div
                     class="content"
                     @click="handelQuestionClick(item.id)"
                     v-text="item.content"
-                ></p>
+                ></div>
                 <div class="tags">
-                    <span v-for="item of item.tags.slice(0, 3)" :key="item.id"
+                    <span v-for="item of item.tags.slice(0, 2)" :key="item.id"
                         >#{{ item.name }}#</span
                     >
                 </div>
@@ -111,11 +111,9 @@ export default {
 .box {
     background: #ffffff;
     margin: 20px 24px;
-    padding: 28px 23px;
+    padding: 28px 24px;
     border-radius: 10px;
     .fix {
-        // display: flex;
-        // justify-content: space-between;
         margin-bottom: 31px;
         .content {
             margin-bottom: 15px;
@@ -149,7 +147,6 @@ export default {
                     background-size: contain;
                     margin-right: 9px;
                 }
-                // margin: 0 50px 0 auto;
             }
         }
         .solve {

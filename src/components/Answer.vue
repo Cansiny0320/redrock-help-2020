@@ -17,6 +17,7 @@
                 <VImageForAnswer :imagesUrl="item.photoUrls" />
             </div>
         </div>
+        <div class="bottom" v-if="!isNoContent">已经到底了</div>
     </div>
 </template>
 
@@ -95,6 +96,12 @@ export default {
             text-align: justify;
             font-weight: 500;
         }
+    }
+    .bottom {
+        margin-top: 43px;
+        text-align: center;
+        font-size: 24px;
+        color: #808080;
     }
 }
 </style>

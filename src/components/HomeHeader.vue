@@ -47,18 +47,34 @@ export default {
     top: 0;
     right: 0;
     left: 0;
-    height: 70px;
-    font-size: 36px;
-    line-height: 70px;
     display: flex;
-    justify-content: space-around;
-    color: #353535;
+    justify-content: space-between;
     background-color: @HeaderBgColor;
-    border-bottom: 2px solid @borderColor;
     box-sizing: border-box;
-    .active {
-        border-bottom: 4px solid @mainColor;
-        color: @fontColor;
+    border-radius: 2px;
+    padding: 0 131px;
+    .item {
+        font-size: 36px;
+        line-height: 71px;
+        color: #555;
+        letter-spacing: 1px;
+        font-weight: 500;
+        &.active {
+            position: relative;
+            color: @fontColor;
+            font-weight: bold;
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 91px;
+                height: 4px;
+                border-radius: 2px;
+                background: rgba(118, 118, 242, 1);
+            }
+        }
     }
 }
 </style>

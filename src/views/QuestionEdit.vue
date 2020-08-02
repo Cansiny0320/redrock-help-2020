@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="no-footer">
         <header class="header">
             <VBack />
             <div @click="handelQuestionPublished">
@@ -49,7 +49,7 @@ export default {
     },
     methods: {
         handelQuestionPublished() {
-            if (this.editTags.length === 0 ) {
+            if (this.editTags.length === 0) {
                 this.isShowTagTips = true
                 clearTimeout(this.tagTipsTimer)
                 this.tagTipsTimer = setTimeout(() => {
@@ -78,6 +78,8 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import '../assets/styles/nofooter.less';
+
 .header {
     margin: 30px;
     display: flex;

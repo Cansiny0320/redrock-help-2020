@@ -35,7 +35,11 @@ export default {
                 this.$set(this.whichItemsClicked, index, false);
                 this.$emit('hotTagRemove', index)
             } else {
-                if (this.selectedTagNum >= this.selectTagLimit) return
+                if (this.selectedTagNum >= this.selectTagLimit) {
+                    const preIndex = this.whichItemsClicked.indexOf(true)
+                    this.$set(this.whichItemsClicked, preIndex, false)
+                    this.$emit('hotTagRemove', preIndex)
+                }
                 this.$set(this.whichItemsClicked, index, true);
                 this.$emit('hotTagAdd', index)
             }

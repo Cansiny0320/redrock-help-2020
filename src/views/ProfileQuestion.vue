@@ -1,5 +1,8 @@
 <template>
-    <div class="profile-question">
+    <div
+        class="profile-question no-footer"
+        :class="{ noContent: !profileQuestion.length }"
+    >
         <VHeader titleStr="我提过的问题" />
         <VLoading v-if="isLoading" />
         <div class="img" v-else-if="!profileQuestion.length">
@@ -35,10 +38,14 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import '../assets/styles/nofooter.less';
+
 .profile-question {
+    &.noContent {
+        background-color: #fff;
+    }
     background-color: @backgroundColor;
     width: 100%;
-    height: calc(100vh - 98px);
     .img {
         height: calc(100vh - 198px);
         background-color: #fff;

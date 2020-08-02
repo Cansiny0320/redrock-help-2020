@@ -59,7 +59,7 @@ export default {
             background-color: #ffffff;
             box-sizing: border-box;
             font-size: 30px;
-            color: #333333;
+            color: #555;
             padding: 32px 0;
             margin-right: 57px;
         }

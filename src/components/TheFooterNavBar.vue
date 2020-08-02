@@ -78,7 +78,7 @@ export default {
     justify-content: center;
     align-items: center;
     background-color: #ffffff;
-    border-top: 1px solid @borderColor;
+    box-shadow: 0px 0px 15px 0px rgba(118, 118, 242, 0.1);
     .item {
         width: 100%;
         text-align: center;

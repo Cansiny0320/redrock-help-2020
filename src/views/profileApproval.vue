@@ -1,5 +1,8 @@
 <template>
-    <div class="profile-approval">
+    <div
+        class="profile-approval no-footer"
+        :class="{ noContent: !profileApproval.length }"
+    >
         <VHeader titleStr="我收到的赞同" />
         <VLoading v-if="isLoading" />
         <div class="img" v-else-if="!profileApproval.length">
@@ -41,11 +44,14 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import '../assets/styles/nofooter.less';
 .profile-approval {
+    &.noContent {
+        background-color: #fff;
+    }
     background-color: #fff;
     width: 100%;
     .img {
-        height: calc(100vh - 198px);
         background-color: #fff;
         position: relative;
         display: flex;

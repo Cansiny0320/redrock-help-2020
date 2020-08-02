@@ -1,0 +1,16 @@
+.no-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #fff;
+  z-index: 999;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+  &.router-app {
+    padding-bottom: 0;
+  }
+}

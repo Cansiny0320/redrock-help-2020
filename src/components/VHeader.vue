@@ -41,6 +41,7 @@ export default {
             text-align: center;
             font-size: 36px;
             color: #353535;
+            letter-spacing: 1px;
         }
     }
     .block {

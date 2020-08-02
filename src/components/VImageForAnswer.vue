@@ -41,7 +41,7 @@ export default {
     },
     data() {
         return {
-            showImages: this.imagesUrl.slice(0, 4),
+            showImages: this.imagesUrl.slice(0, 3),
             isShowCarousel: false,
             navigateTo: 0,
         }

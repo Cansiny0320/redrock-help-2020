@@ -65,7 +65,7 @@ export default {
         box-sizing: border-box;
         background: none;
         height: 445px;
-        padding: 27px 0 0 23px;
+        padding: 27px 24px 0 23px;
         font-size: 32px;
         resize: none;
         &::placeholder {

@@ -14,14 +14,19 @@
                 <img class="img" :src="item.author.avatar | https" />
                 <span class="name">{{ item.author.name }}</span>
             </div>
-            <div class="anwser" v-text="item.hotanwer.content"></div>
+            <div
+                class="anwser"
+                v-text="item.hotanwer.content"
+                v-if="item.hotanwer.content !== '暂无回答'"
+            ></div>
             <div class="info">
-                <span
+                <div
                     class="tag"
                     v-for="tag of item.tags.slice(0, showTagNum)"
                     :key="tag.id"
-                    >#{{ tag.name }}#</span
                 >
+                    #{{ tag.name }}#
+                </div>
                 <div class="count">{{ item.answersCount }}人回答</div>
             </div>
         </div>
@@ -42,7 +47,7 @@ export default {
     },
     data() {
         return {
-            showTagNum: 3,
+            showTagNum: 2,
         }
     },
     computed: {
@@ -70,17 +75,17 @@ export default {
     }
     .question {
         margin-bottom: 20px;
-        border-radius: 8px;
+        border-radius: 12px;
         background: #ffffff;
         color: @fontColor;
         border-radius: 12px;
-        padding: 27px 24px;
+        padding: 28px 24px;
         .user {
             display: flex;
             align-items: center;
             justify-content: flex-start;
             color: @fontLightColor;
-            margin-top: 24px;
+            margin-top: 16px;
             .img {
                 width: 40px;
                 height: 40px;
@@ -102,14 +107,14 @@ export default {
             @ellisis-2();
             font-size: 28px;
             line-height: 36px;
-            margin: 23px 0 18px;
+            margin: 32px 0 0;
         }
         .info {
+            margin-top: 20px;
             color: #c7c7c7 !important;
             display: flex;
             font-size: 28px;
             color: @fontColor;
-            line-height: 40px;
             .tag {
                 margin-right: 10px;
                 font-size: 26px;
@@ -119,7 +124,6 @@ export default {
                 margin-left: auto;
                 font-size: 24px;
                 color: #808080;
-                line-height: 71px;
             }
         }
     }
