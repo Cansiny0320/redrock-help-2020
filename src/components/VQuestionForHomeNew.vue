@@ -9,21 +9,24 @@
             :key="item.id"
             @click="handelQuestionBoxClick(item.id)"
         >
+            <div class="content" v-text="item.content"></div>
             <div class="user">
                 <img class="img" :src="item.author.avatar | https" />
-                <div class="user__info">
-                    <div class="name">{{ item.author.name }}</div>
-                    <div class="time">
-                        {{ item.createdAt | date }}
-                    </div>
+
+                <div class="name">{{ item.author.name }}</div>
+                <div class="time">
+                    {{ item.createdAt | date }}
                 </div>
             </div>
-            <div class="content" v-text="item.content"></div>
+            <div class="anwser" v-text="item.content"></div>
             <div class="info">
-                <span class="tag" v-for="tag of item.tags" :key="tag.id"
+                <span
+                    class="tag"
+                    v-for="tag of item.tags.slice(0, showTagNum)"
+                    :key="tag.id"
                     >#{{ tag.name }}#</span
                 >
-                <div class="count">{{ item.author.answersCount }} 条回答</div>
+                <div class="count">{{ item.answersCount }} 条回答</div>
             </div>
         </div>
     </div>
@@ -39,6 +42,11 @@ export default {
         questionData: {
             type: Array,
             required: true,
+        }
+    },
+    data() {
+        return {
+            showTagNum: 3,
         }
     },
     computed: {
@@ -59,48 +67,51 @@ export default {
 <style lang="less" scoped>
 .v-question-home {
     // 这种有具体内容最好不要设定 height 和 width
-    margin: 0 28px;
+    margin: 0 24px;
+
     .no-content {
         text-align: center;
         color: @fontColor;
     }
     .question {
-        margin-bottom: 32px;
+        margin-bottom: 20px;
         border-radius: 8px;
         background: #ffffff;
-        color: #222;
+        color: @fontColor;
         padding-bottom: 28px;
         border-radius: 12px;
         padding: 28px 24px;
         .user {
             display: flex;
             align-items: center;
-            margin-bottom: 24px;
-            &__info {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                .name {
-                    font-size: 28px;
-                    color: #333;
-                    margin-bottom: 10px;
-                }
-                .time {
-                    color: #808080 !important;
-                    font-size: 22px;
-                }
+            margin-top: 18px;
+            .name {
+                font-size: 24px;
+                color: @fontLightColor;
+            }
+            .time {
+                color: #999;
+                font-size: 22px;
+                margin-left: auto;
             }
             .img {
-                width: 60px;
-                height: 60px;
+                width: 40px;
+                height: 40px;
                 border-radius: 100%;
                 background: @mainColor;
-                margin-right: 17px;
+                margin-right: 18px;
             }
         }
         .content {
-            @nowrap();
-            margin-bottom: 20px;
+            line-height: 120%;
+            font-size: 40px;
+            @ellisis-2();
+        }
+        .anwser {
+            @ellisis-2();
+            font-size: 28px;
+            line-height: 36px;
+            margin: 32px 0 18px;
         }
         .info {
             color: #c7c7c7 !important;

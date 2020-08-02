@@ -72,7 +72,6 @@ const actions = {
   async [FETCH_QUESTION_BY_TAG]({ commit }, tagId) {
     commit(FETCH_START);
     let { data } = await QuestionService.tag(tagId);
-
     commit(FETCH_END);
     commit(SET_QUESTION_LIST, data);
   },

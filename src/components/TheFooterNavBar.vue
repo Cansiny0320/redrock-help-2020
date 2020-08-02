@@ -85,9 +85,8 @@ export default {
         font-size: 20px;
         color: @fontColor;
         padding-top: 12px;
-        img {
-            width: 52px;
-            height: 52px;
+        .text {
+            font-weight: bold;
         }
         &.active {
             color: @mainColor;
@@ -98,8 +97,8 @@ export default {
     }
     .icon {
         display: inline-block;
-        width: 52px;
-        height: 52px;
+        width: 39px;
+        height: 41px;
         margin-bottom: 10px;
         img {
             width: 100%;

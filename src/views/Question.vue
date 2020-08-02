@@ -11,16 +11,20 @@
                     <span class="count">
                         {{ oneQuestion.answersCount }}人回答</span
                     >
-                    <span
-                        class="status"
-                        :class="{ active: isStautsActive }"
-                        @click="toAnswserEdit(oneQuestion.status)"
-                        >{{
-                            oneQuestion.status === '已解决'
-                                ? '已解决'
-                                : '去回答'
-                        }}</span
-                    >
+                    <template v-if="isShowQuestionReplyButton">
+                        <span
+                            class="status"
+                            @click="toAnswserEdit(oneQuestion.status)"
+                            v-if="!isStautsActive"
+                            >去回答</span
+                        >
+                        <span
+                            class="status"
+                            :class="{ active: isStautsActive }"
+                            v-if="isStautsActive"
+                            >已解决</span
+                        >
+                    </template>
                 </div>
             </div>
             <Answer :answersData="oneQuestion.answer" class="answer" />
@@ -54,7 +58,6 @@ export default {
                 }
             })
             return this.oneQuestion.answer.length < 30
-                && this.oneQuestion.status === '未解决'
                 && parseInt(localStorage.getItem('role')) === 0
                 && markAnswerCount === 0
         },
@@ -75,54 +78,54 @@ export default {
 <style lang="less" scoped>
 .qustion {
     background-color: @backgroundColor;
-}
-.user {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    color: @fontColor;
-    .name {
-        font-size: 24px;
-        color: @fontLightColor;
-        margin-right: 22px;
-    }
-    img {
-        width: 40px;
-        height: 40px;
-        border-radius: 100%;
-        background: @mainColor;
-        margin-right: 8px;
-    }
-    .count {
-        font-size: 24px;
-        color: #808080;
-    }
-    .status {
-        font-size: 28px;
-        margin: 0 30px 0 auto;
-        color: @mainColor;
-        &.active {
-            color: #808080;
+    min-height: calc(100vh - 98px);
+    .top {
+        background-color: #fff;
+        padding: 27px 23px 24px 13px;
+        .content {
+            font-size: 32px;
+            color: @fontColor;
+            margin-bottom: 23px;
+            font-weight: bold;
+            line-height: 45px;
+            padding-right: 40px;
+        }
+        .user {
+            display: flex;
+            align-items: center;
+            color: @fontColor;
+            img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: @mainColor;
+                margin-right: 8px;
+                margin-left: 1px;
+            }
+            .name {
+                font-size: 24px;
+                color: @fontLightColor;
+                margin-right: 22px;
+            }
+            .count {
+                font-size: 24px;
+                color: #808080;
+            }
+            .status {
+                font-size: 28px;
+                margin-left: auto;
+                font-weight: bold;
+                color: @mainColor;
+                &.active {
+                    color: #808080;
+                    font-weight: 400;
+                }
+            }
         }
     }
-}
-.top {
-    background-color: #fff;
-    padding: 28px 24px 23px 14px;
-    .content {
-        word-wrap: break-word;
-        font-size: 32px;
-        color: @fontColor;
-        line-height: 1.406;
-        margin-bottom: 23px;
+    .answer {
+        margin-top: 11px;
     }
-}
-
-.images {
-    padding: 0 30px 30px 30px;
-}
-.answer {
-    margin-top: 11px;
 }
 </style>
 

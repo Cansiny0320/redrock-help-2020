@@ -18,7 +18,7 @@ const actions = {
       let { data } = await TagService.hot();
       data = data.map(item => ({
         id: item.id,
-        name: item.name,
+        label: item.label,
       }));
       commit(FETCH_END);
       hotData = data;

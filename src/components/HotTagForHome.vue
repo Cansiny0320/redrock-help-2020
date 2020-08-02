@@ -16,7 +16,7 @@
                 @click="handelItemClick(index, item.id)"
                 :class="{ active: item.id === activeId }"
             >
-                {{ item.name }}
+                {{ item.label }}
             </div>
         </div>
     </div>
@@ -46,16 +46,22 @@ export default {
 
 <style lang="less" scoped>
 .v-hot-tag {
+    padding: 0 23px;
     .content {
-        margin: 0 24px;
         display: flex;
-        justify-content: space-between;
+        width: 100%;
+        overflow-x: auto;
+        &::-webkit-scrollbar {
+            height: 0;
+        }
         .item {
+            white-space: nowrap;
             background-color: #ffffff;
             box-sizing: border-box;
             font-size: 30px;
             color: #333333;
             padding: 32px 0;
+            margin-right: 57px;
         }
         .active {
             color: @mainColor;

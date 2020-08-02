@@ -8,7 +8,7 @@
                     <div class="name">{{ item.author.name }}</div>
                     <div class="time">{{ item.createdAt | date }}</div>
                 </div>
-                <div class="info">
+                <div class="action">
                     <AnswerAction :item="item" />
                 </div>
             </div>
@@ -54,67 +54,46 @@ export default {
         color: @fontColor;
     }
     .answer {
-        border-radius: 8px;
         background: #ffffff;
         padding: 28px 24px;
-        border-bottom: 1px solid #f2f2f2;
+        border-bottom: 1px solid @backgroundColor;
         .user {
             display: flex;
-            justify-content: flex-start;
             color: @fontColor;
             margin-bottom: 24px;
-            .info {
+            .action {
                 display: flex;
                 font-size: 24px;
-                line-height: 30px;
                 color: @fontColor;
                 margin-left: auto;
-                .action {
-                    display: flex;
-                    align-items: center;
-                    color: @fontColor;
-                    div {
-                        display: flex;
-                        align-items: center;
-                        margin: 0 10px;
-                        svg {
-                            margin: 0 4px;
-                            height: 30px;
-                            width: 30px;
-                        }
-                        fill: @fontColor;
-                        &.active {
-                            fill: @mainColor;
-                            color: @mainColor;
-                        }
-                    }
-                }
             }
             &__info {
-                .time {
-                    color: #808080;
-                    font-size: 22px;
-                }
                 .name {
+                    font-weight: 800;
                     font-size: 28px;
                     color: #333;
                     margin-bottom: 10px;
+                }
+                .time {
+                    color: #808080;
+                    font-size: 22px;
                 }
             }
             img {
                 width: 60px;
                 height: 60px;
-                border-radius: 100%;
+                border-radius: 50%;
                 background: @mainColor;
                 margin-right: 16px;
             }
         }
         .content {
-            padding: 0 0 16px;
-            line-height: 1.286;
+            margin: 0 0 16px;
+            line-height: 36px;
             color: #404040;
             font-size: 28px;
             text-align: justify;
+            font-weight: 500;
         }
     }
 }

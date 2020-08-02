@@ -49,7 +49,7 @@ export default {
     },
     methods: {
         handelQuestionPublished() {
-            if (this.editTags.length === 0) {
+            if (this.editTags.length === 0 ) {
                 this.isShowTagTips = true
                 clearTimeout(this.tagTipsTimer)
                 this.tagTipsTimer = setTimeout(() => {

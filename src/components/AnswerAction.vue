@@ -2,11 +2,14 @@
     <div class="v-answer-action">
         <div
             class="item"
-            :class="{ active: item.isApproval }"
+            :class="{ active: isApproval(item.isApproval) }"
             @click="handelApprovalClick(item.id)"
         >
-            {{ item.approvalNum }}
-            <AnswerApprovalSvg />
+            <div class="num">{{ item.approvalNum }}</div>
+            <div
+                class="like"
+                :class="{ active: isApproval(item.isApproval) }"
+            ></div>
         </div>
         <VPopup v-if="isShowPopup" :massage="approvalOpposeTipsMassage" />
     </div>
@@ -17,7 +20,7 @@ import {
     FETCH_ANSWER_APPROVAL,
 } from '@/store/type/actions'
 
-import AnswerApprovalSvg from '@/assets/svg/AnswerApproval.svg'
+
 
 export default {
     name: 'answerAction',
@@ -34,20 +37,21 @@ export default {
             timer: null,
         }
     },
-    components: {
-        AnswerApprovalSvg,
-    },
     methods: {
         handelApprovalClick(answerId) {
-            
             this.$store.dispatch(FETCH_ANSWER_APPROVAL, answerId)
         },
         autoHidePopup() {
+            const showTime = 1500
             this.isShowPopup = true
             clearTimeout(this.timer)
             this.timer = setTimeout(() => {
                 this.isShowPopup = false
-            }, 1500)
+            }, showTime)
+        },
+        // 传入的false/true 是字符串
+        isApproval(str) {
+            return JSON.parse(str)
         }
     }
 }
@@ -55,23 +59,27 @@ export default {
 
 <style lang="less" scoped>
 .v-answer-action {
-    display: flex;
-    align-items: center;
-    color: @fontColor;
-    margin-right: 10px;
     .item {
         display: flex;
         align-items: center;
-        margin-left: 47px;
-        svg {
-            margin: 0 4px;
-            height: 30px;
-            width: 30px;
-        }
-        fill: @fontColor;
+        color: #808080;
+        font-size: 24px;
         &.active {
-            fill: @mainColor;
             color: @mainColor;
+        }
+        .num {
+            height: 19px;
+        }
+        .like {
+            width: 24px;
+            height: 23px;
+            background-image: url('../assets/images/like.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin-left: 5px;
+            &.active {
+                background-image: url('../assets/images/likeActive.png');
+            }
         }
     }
 }

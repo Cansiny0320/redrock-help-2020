@@ -58,7 +58,7 @@ export default {
     box-sizing: border-box;
     .active {
         border-bottom: 4px solid @mainColor;
-        color: #222222;
+        color: @fontColor;
     }
 }
 </style>

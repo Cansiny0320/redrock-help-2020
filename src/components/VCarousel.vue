@@ -18,14 +18,17 @@
                 v-for="(item, index) of imagesUrl"
                 :key="index"
             >
-                <!-- <img :src="`${imgUrl}/getImage?imageName=${item.split('/')[3]}`"> -->
-                <img :src="item" />
+                <img
+                    :src="`${imgUrl}/getImage?imageName=${item.split('/')[3]}`"
+                />
             </slide>
         </carousel>
     </div>
 </template>
 
 <script>
+import { API_URL } from '@/common/config';
+
 import { mapGetters } from 'vuex'
 
 import { Carousel, Slide } from 'vue-carousel'
@@ -59,7 +62,7 @@ export default {
             return this.imagesUrl.length
         },
         imgUrl() {
-            return process.env.VUE_APP_API
+            return API_URL
         }
     },
     methods: {

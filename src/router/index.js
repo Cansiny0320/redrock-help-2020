@@ -49,6 +49,16 @@ const router = new Router({
       component: () => import('@/views/ProfileAnswer.vue'),
     },
     {
+      path: '/profile/comment',
+      name: 'profileComment',
+      component: () => import('@/views/profileComment.vue'),
+    },
+    {
+      path: '/profile/approval',
+      name: 'profileApproval',
+      component: () => import('@/views/profileApproval.vue'),
+    },
+    {
       path: '/questionEdit',
       name: 'questionEdit',
       component: () => import('@/views/QuestionEdit.vue'),

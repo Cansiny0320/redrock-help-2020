@@ -1,41 +1,41 @@
-import Vue from "vue";
-import axios from "axios";
-import VueAxios from "vue-axios";
-import JwtService from "@/common/service/jwt";
-import { API_URL } from "@/common/config";
+import Vue from 'vue';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
+import JwtService from '@/common/service/jwt';
+import { API_URL } from '@/common/config';
 
 const ApiService = {
-  init () {
-    Vue.use(VueAxios, axios)
-    Vue.axios.defaults.baseURL = API_URL
-    this.setHeader()
+  init() {
+    Vue.use(VueAxios, axios);
+    Vue.axios.defaults.baseURL = API_URL;
+    this.setHeader();
   },
 
-  setHeader () {
+  setHeader() {
     Vue.axios.defaults.headers.common[
-      "Authorization"
+      'Authorization'
     ] = `Bearer ${JwtService.getToken()}`;
   },
 
-  get (resource) {
+  get(resource) {
     return Vue.axios.get(resource).catch(error => {
       throw new Error(`[RWV] ApiService ${error}`);
     });
   },
 
-  post (resource, params) {
+  post(resource, params) {
     return Vue.axios.post(`${resource}`, params);
   },
 
-  patch (resource, params) {
+  patch(resource, params) {
     return Vue.axios.patch(resource, params);
   },
 
-  put (resource, params) {
+  put(resource, params) {
     return Vue.axios.put(resource, params);
   },
 
-  delete (resource) {
+  delete(resource) {
     return Vue.axios.delete(resource).catch(error => {
       throw new Error(`[RWV] ApiService ${error}`);
     });
@@ -45,85 +45,94 @@ const ApiService = {
 export default ApiService;
 
 export const SearchService = {
-  hot () {
-    return ApiService.get(`search/hot`)
+  hot() {
+    return ApiService.get(`search/hot`);
   },
-  search (q) {
-    return ApiService.get(`search/questions?content=${q}`)
-  }
-}
+  search(q) {
+    return ApiService.get(`search/questions?content=${q}`);
+  },
+};
 
 export const QuestionService = {
-  hot (page = 1) {
-    return ApiService.get(`questions?pageNo=${page}`)
+  hot(page = 1) {
+    return ApiService.get(`questions?pageNo=${page}&sortby=hot`);
   },
-  new (page = 1) {
-    return ApiService.get(`questions?pageNo=${page}&sortby=new`)
+  new(page = 1) {
+    return ApiService.get(`questions?pageNo=${page}&sortby=new`);
   },
-  tag (tagId, page = 1) {
-    return ApiService.get(`questions/tag?tagId=${tagId}&pageNo=${page}`)
+  tag(tagId, page = 1) {
+    return ApiService.get(`questions/tag?tagId=${tagId}&pageNo=${page}`);
   },
-  get (questionId) {
-    return ApiService.get(`questions/id?id=${questionId}`)
+  get(questionId) {
+    return ApiService.get(`questions/id?id=${questionId}`);
   },
-  solve (questionId) {
-    return ApiService.patch(`questions?id=${questionId}`)
+  add(questionId) {
+    return ApiService.get(`hot/click?id=${questionId}`);
   },
-  delete (questionId) {
-    return ApiService.delete(`questions?id=${questionId}`)
+  solve(questionId) {
+    return ApiService.patch(`questions?id=${questionId}`);
   },
-  post (params) {
-    return ApiService.post(`questions`, params)
-  }
-}
+  delete(questionId) {
+    return ApiService.delete(`questions?id=${questionId}`);
+  },
+  post(params) {
+    return ApiService.post(`questions`, params);
+  },
+};
 
 export const AnswerService = {
-  approval (answerId) {
-    return ApiService.get(`attitude/agree?ansId=${answerId}`)
+  approval(answerId) {
+    return ApiService.post(`attitude/agree?ansId=${answerId}`);
   },
-  oppose (answerId) {
-    return ApiService.get(`attitude/disagree?ansId=${answerId}`)
+  delete(answerId) {
+    return ApiService.delete(`answer/questions/deleteanswer?ansId=${answerId}`);
   },
-  delete (answerId) {
-    return ApiService.post(`answer/questions/deleteanswer?ansId=${answerId}`)
+  post(questionId, params) {
+    return ApiService.post(
+      `answer/questions/answer?queId=${questionId}`,
+      params,
+    );
   },
-  post (questionId, params) {
-    return ApiService.post(`answer/questions/answer?queId=${questionId}`, params)
-  }
-}
+};
 
 export const ProfileService = {
-  identify () {
-    return ApiService.get(`user/info`)
+  identify() {
+    return ApiService.get(`user/info`);
   },
-  getAllAnswer () {
-    return ApiService.get(`user/answers`)
+  getAllAnswer() {
+    return ApiService.get(`user/answers`);
   },
-  getApprovalAnswer () {
-    return ApiService.get(`user/answersagree`)
+  getApprovalAnswer() {
+    return ApiService.get(`user/answersagree`);
   },
-  getOpposeAnswer () {
-    return ApiService.get(`user/answersnoagree`)
-  },
-  getQustion () {
-    return ApiService.get(`/user/questions`)
-  },
-}
 
+  getQustion() {
+    return ApiService.get(`/user/questions`);
+  },
+  getComment() {
+    return ApiService.get('/user/comment');
+  },
+};
 
 export const TagService = {
-  hot () {
-    return ApiService.get(`tags/hot`)
-  }
-}
+  hot() {
+    return ApiService.get(`tags/hot`);
+  },
+};
 
 export const ImageService = {
-  post (blob) {
-    const formData = new FormData()
-    formData.append('uploadFile', blob, `${Math.random().toString(36).substr(2)}.jpg`)
-    return ApiService.post(`image`, formData)
+  post(blob) {
+    const formData = new FormData();
+    formData.append(
+      'uploadFile',
+      blob,
+      `${Math.random()
+        .toString(36)
+        .substr(2)}.jpg`,
+    );
+    return ApiService.post(`image`, formData);
   },
-  delete (imageIds) {
-    return ApiService.post(`image/delete`, imageIds)
-  }
-}
+  delete(imageIds) {
+    return ApiService.post(`image/delete`, imageIds);
+  },
+};

@@ -27,6 +27,7 @@ export default {
 <style lang="less" scoped>
 .home {
     background-color: @backgroundColor;
+    min-height: calc(100vh - 98px);
 }
 .router-home {
     padding-top: 70px;

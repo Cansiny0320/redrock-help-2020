@@ -14,12 +14,15 @@
                 <img class="img" :src="item.author.avatar | https" />
                 <span class="name">{{ item.author.name }}</span>
             </div>
-            <div class="anwser" v-text="item.content"></div>
+            <div class="anwser" v-text="item.hotanwer.content"></div>
             <div class="info">
-                <span class="tag" v-for="tag of item.tags" :key="tag.id"
+                <span
+                    class="tag"
+                    v-for="tag of item.tags.slice(0, showTagNum)"
+                    :key="tag.id"
                     >#{{ tag.name }}#</span
                 >
-                <div class="count">{{ item.author.answersCount }}人回答</div>
+                <div class="count">{{ item.answersCount }}人回答</div>
             </div>
         </div>
     </div>
@@ -35,6 +38,11 @@ export default {
         questionData: {
             type: Array,
             required: true,
+        }
+    },
+    data() {
+        return {
+            showTagNum: 3,
         }
     },
     computed: {
@@ -55,24 +63,23 @@ export default {
 <style lang="less" scoped>
 .v-question-home {
     // 这种有具体内容最好不要设定 height 和 width
-    margin: 0 28px;
+    margin: 0 24px;
     .no-content {
         text-align: center;
         color: @fontColor;
     }
     .question {
-        margin-bottom: 32px;
+        margin-bottom: 20px;
         border-radius: 8px;
         background: #ffffff;
-        color: #222;
-        padding-bottom: 28px;
+        color: @fontColor;
         border-radius: 12px;
-        padding: 28px 24px;
+        padding: 27px 24px;
         .user {
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            color: #555;
+            color: @fontLightColor;
             margin-top: 24px;
             .img {
                 width: 40px;
@@ -86,15 +93,16 @@ export default {
             }
         }
         .content {
-            line-height: 120%;
+            line-height: 40px;
             font-size: 32px;
+            font-weight: bold;
             @ellisis-2();
         }
         .anwser {
             @ellisis-2();
             font-size: 28px;
-            line-height: 120%;
-            margin: 24px 0 20px;
+            line-height: 36px;
+            margin: 23px 0 18px;
         }
         .info {
             color: #c7c7c7 !important;
@@ -111,6 +119,7 @@ export default {
                 margin-left: auto;
                 font-size: 24px;
                 color: #808080;
+                line-height: 71px;
             }
         }
     }

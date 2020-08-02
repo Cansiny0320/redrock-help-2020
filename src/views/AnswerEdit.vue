@@ -76,12 +76,13 @@ header {
     justify-content: space-between;
 }
 .question {
-    padding: 33px 24px 25px;
+    padding: 0 52px 33px 24px;
     font-size: 32px;
-    line-height: 1.25;
+    line-height: 40px;
     color: @fontColor;
     text-align: justify;
     border-bottom: 1px solid #e5e5e5;
+    font-weight: 500;
 }
 .title {
     margin: 30px 0 20px 30px;

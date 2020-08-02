@@ -45,20 +45,23 @@ export default {
 
 <style lang="less" scoped>
 .box {
-    padding: 0 24px;
     background: #ffffff;
-    padding-bottom: 24px;
     border-bottom: 1px solid #e5e5e5;
     textarea {
         border: 0;
         outline: 0;
         background: none;
-        min-height: 140px;
         width: 100%;
-        height: 495px;
-        font-size: 30px;
+        height: 449px;
+        box-sizing: border-box;
+        font-size: 32px;
+        resize: none;
+        color: #333;
+        padding: 27px 0 0 24px;
     }
     .count {
+        padding-right: 24px;
+        padding-bottom: 23px;
         text-align: right;
         font-size: 24px;
         color: #969696;

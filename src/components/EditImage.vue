@@ -20,8 +20,9 @@
                     @change="previewFiles($event)"
                 />
                 <label for="fileUpload" class="add" v-if="image.length < 3">
-                    <img src="../assets/images/camera.png" alt=""
-                /></label>
+                    <img src="../assets/images/camera.png" alt="" />
+                    <div class="limit">{{ image.length }}/3</div></label
+                >
             </div>
         </ul>
     </div>
@@ -56,7 +57,6 @@ export default {
                     let orientation;
                     EXIF.getData(img, function () {
                         orientation = EXIF.getTag(this, 'Orientation');
-                        console.log(orientation)
                     });
                     // 缩放图片需要的canvas（也可以在DOM中直接定义canvas标签，这样就能把压缩完的图片不转base64也能直接显示出来）
                     const canvas = document.createElement('canvas');
@@ -132,22 +132,21 @@ export default {
 
 <style lang="less" scoped>
 ul {
-    margin: 36px 24px 0;
+    margin: 41px 24px 10px;
     display: flex;
-    flex-wrap: wrap;
+    overflow: hidden;
     li {
         position: relative;
-        margin-right: 10px;
-        margin-bottom: 20px;
+        margin-right: 12px;
         img {
-            width: 224px;
-            height: 224px;
-            border-radius: 10px;
+            width: 222px;
+            height: 222px;
+            border-radius: 5px;
             object-fit: cover;
         }
         .loading {
-            width: 224px;
-            height: 224px;
+            width: 222px;
+            height: 222px;
             justify-content: center;
             align-items: center;
             display: flex;
@@ -186,8 +185,8 @@ ul {
     background-color: #f1f1f1;
     border-radius: 5px;
     opacity: 0.98;
-    width: 224px;
-    height: 224px;
+    width: 222px;
+    height: 222px;
     img {
         width: 58px;
         height: 49px;
@@ -195,6 +194,14 @@ ul {
         top: 50%;
         left: 50%;
         transform: translate(-29px, -24px);
+    }
+    .limit {
+        position: absolute;
+        left: 50%;
+        bottom: 48px;
+        color: #808080;
+        font-size: 24px;
+        transform: translateX(-50%);
     }
 }
 

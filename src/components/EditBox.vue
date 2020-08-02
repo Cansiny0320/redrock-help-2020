@@ -55,24 +55,30 @@ export default {
 
 <style lang="less" scoped>
 .box {
-    border-top: 1px solid #555;
-    border-bottom: 1px solid #555;
-    height: 384px;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
     background: #ffffff;
     textarea {
         border: 0;
         outline: 0;
-        width: 650px;
+        width: 100%;
+        box-sizing: border-box;
         background: none;
-        min-height: 150px;
-        height: 80%;
-        padding: 20px 20px 0 20px;
+        height: 445px;
+        padding: 27px 0 0 23px;
         font-size: 32px;
+        resize: none;
+        &::placeholder {
+            color: #808080;
+            font-size: 32px;
+            font-family: PingFang SC;
+        }
     }
     .count {
         font-size: 24px;
-        color: #808080;
+        color: #969696;
         padding-right: 24px;
+        padding-bottom: 23px;
         text-align: right;
     }
 }

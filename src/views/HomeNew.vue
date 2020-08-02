@@ -37,7 +37,7 @@ export default {
 
 <style lang="less" scoped>
 .question {
-    margin-top: 30px;
+    margin-top: 20px;
 }
 .no-more {
     text-align: center;

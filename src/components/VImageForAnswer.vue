@@ -14,7 +14,7 @@
             @click="handelImageClick(index)"
         >
             <img
-                :src="item"
+                :src="`${imgUrl}/getImage?imageName=${item.split('/')[3]}`"
                 :class="[
                     { one: oneImage },
                     { two: twoImage },
@@ -22,14 +22,15 @@
                     { four: fourImage },
                 ]"
             />
-            <div class="tips" v-if="moreImage && index === 3">
+            <!-- <div class="tips" v-if="moreImage && index === 3">
                 <span>+{{ imagesLeftNum }}</span>
-            </div>
+            </div> -->
         </div>
     </div>
 </template>
 
 <script>
+import { API_URL } from '@/common/config';
 export default {
     name: 'vImageForAnswer',
     props: {
@@ -74,7 +75,7 @@ export default {
             return this.imagesUrl.length > 4
         },
         imgUrl() {
-            return process.env.VUE_APP_API
+            return API_URL;
         }
     }
 }
@@ -84,8 +85,7 @@ export default {
 .v-image {
     display: flex;
     .item {
-        position: relative;
-        margin-right: 10px;
+        margin-right: 18px;
         &:nth-child(3) {
             margin-right: 0;
         }
@@ -94,10 +94,10 @@ export default {
         //     height: 154px;
         // }
         img {
-            border-radius: 8px;
             object-fit: cover;
-            width: 226px;
-            height: 226px;
+            width: 222px;
+            height: 222px;
+            border-radius: 5px;
             // &.one {
             //     width: 100%;
             //     height: 400px;
@@ -117,20 +117,20 @@ export default {
         }
     }
 
-    .tips {
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        bottom: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: rgba(0, 0, 0, 0.3);
-        border-radius: 10px;
-        color: #ffffff;
-        font-size: 40px;
-    }
+    // .tips {
+    //     position: absolute;
+    //     top: 0;
+    //     right: 0;
+    //     left: 0;
+    //     bottom: 0;
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     background-color: rgba(0, 0, 0, 0.3);
+    //     border-radius: 10px;
+    //     color: #ffffff;
+    //     font-size: 40px;
+    // }
 }
 </style>
 

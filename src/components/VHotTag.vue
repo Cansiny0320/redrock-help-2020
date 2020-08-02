@@ -9,7 +9,7 @@
                 @click="handelItemClick(index)"
                 :class="{ active: whichItemsClicked[index] }"
             >
-                {{ item.name }}
+                {{ item.label }}
             </div>
         </div>
     </div>
@@ -32,18 +32,30 @@ export default {
         handelItemClick(index) {
             this.$emit("hotTagClick", index)
             if (this.whichItemsClicked[index]) {
-                this.$set(this.whichItemsClicked, index, 0);
+                this.$set(this.whichItemsClicked, index, false);
                 this.$emit('hotTagRemove', index)
             } else {
-                this.$set(this.whichItemsClicked, index, 1);
+                if (this.selectedTagNum >= this.selectTagLimit) return
+                this.$set(this.whichItemsClicked, index, true);
                 this.$emit('hotTagAdd', index)
             }
         }
     },
     data() {
         return {
-            whichItemsClicked: Array(this.hotTagData.length + 1)
+            whichItemsClicked: Array(this.hotTagData.length + 1),
+            selectedTagNum: 0,
+            selectTagLimit: 2,
         };
+    },
+    watch: {
+        whichItemsClicked() {
+            let count = 0;
+            this.whichItemsClicked.forEach(item => {
+                item && count++;
+            })
+            this.selectedTagNum = count;
+        },
     }
 };
 </script>
@@ -52,29 +64,31 @@ export default {
 <style lang="less" scoped>
 .v-hot-tag {
     .title {
-        margin: 30px 0 14px 30px;
+        margin: 32px 0 32px 24px;
         font-size: 28px;
-        color: #555;
+        color: @fontLightColor;
     }
 
     .content {
-        margin: 0 16px 0 16px;
+        margin: 0 24px;
         display: flex;
         flex-wrap: wrap;
         .item {
-            border-radius: 40px;
-            margin: 16px 12px 0 12px;
-            padding: 8px 16px 8px 16px;
+            border-radius: 100px;
+            margin-bottom: 40px;
+            margin-right: 35px;
+            padding: 10px 24px;
             background-color: #ffffff;
-            border: 2px solid #555;
+            border: 1px solid #999;
             box-sizing: border-box;
-            color: #555;
+            color: #999;
             font-size: 28px;
+            font-weight: 500;
         }
         .active {
-            background: #aaabfb;
+            background: #8c8cfb;
             color: #fff;
-            border: 2px solid transparent;
+            border: 1px solid transparent;
         }
     }
 }
