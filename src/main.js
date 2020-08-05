@@ -17,7 +17,7 @@ import '@/assets/styles/reset.css';
 import '@/assets/styles/global.less';
 
 Vue.use(VueCarousel);
-
+console.log(process.env.VUE_APP_API);
 Vue.filter('date', DateFilter);
 Vue.filter('https', HttpsFilter);
 
