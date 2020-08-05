@@ -69,4 +69,13 @@ const router = new Router({
   ],
 });
 
+router.beforeEach((to, from, next) => {
+  if (window._hmt) {
+    if (to.path) {
+      window._hmt.push(['_trackPageview', '/#' + to.fullPath]);
+    }
+  }
+  next();
+});
+
 export default router;
