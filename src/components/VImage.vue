@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import { API_URL } from '@/common/config/index'
 export default {
     name: 'vImage',
     props: {
@@ -74,7 +75,7 @@ export default {
             return this.imagesUrl.length > 4
         },
         imgUrl() {
-            return process.env.VUE_APP_API
+            return API_URL
         }
     }
 }
