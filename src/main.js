@@ -22,14 +22,6 @@ Vue.filter('https', HttpsFilter);
 
 ApiService.init();
 
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement('script');
-  hm.src = 'https://hm.baidu.com/hm.js?21539512a892219bc8d4c9745677c786';
-  var s = document.getElementsByTagName('script')[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-
 Vue.config.productionTip = false;
 new Vue({
   router,

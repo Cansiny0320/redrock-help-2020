@@ -44,6 +44,27 @@
       </strong>
     </noscript>
     <div id="app"></div>
+    <script>
+      /* 百度统计代码 */
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement('script');
+        hm.src = 'https://hm.baidu.com/hm.js?21539512a892219bc8d4c9745677c786';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(hm, s);
+        /* 下面的代码非常重要！！！ 文档：https://tongji.baidu.com/web/help/article?id=324&type=0 */
+        var _hmt = _hmt || [];
+        _hmt.push([
+          '_requirePlugin',
+          'UrlChangeTracker',
+          {
+            shouldTrackUrlChange: function(newPath, oldPath) {
+              return newPath && oldPath;
+            },
+          },
+        ]);
+      })();
+    </script>
     <!-- built files will be auto injected -->
   </body>
   <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
