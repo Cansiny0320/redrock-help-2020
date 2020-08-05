@@ -67,9 +67,6 @@ export default {
         &.active {
             color: @mainColor;
         }
-        .num {
-            height: 19px;
-        }
         .like {
             width: 24px;
             height: 23px;
@@ -77,6 +74,7 @@ export default {
             background-repeat: no-repeat;
             background-size: contain;
             margin-left: 5px;
+            margin-bottom: 1px;
             &.active {
                 background-image: url('../assets/images/likeActive.png');
             }

@@ -57,7 +57,11 @@ export default {
         font-size: 32px;
         resize: none;
         color: #333;
-        padding: 27px 0 0 24px;
+        padding: 27px 24px 0;
+        word-break: break-all;
+        &::-webkit-scrollbar {
+            width: 0;
+        }
     }
     .count {
         padding-right: 24px;

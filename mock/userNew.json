@@ -1,5 +1,5 @@
 {
-  "id": 0,
+  "id": 123123,
   "stuNum": 0,
   "name": "昵称",
   "gender": "男",
@@ -8,5 +8,6 @@
   "createdAt": "2019-07-21T06:33:23.243Z",
   "updatedAt": "2019-07-21T06:33:23.243Z",
   "questionsNum": 0,
-  "answersNum": 0
+  "answersNum": 0,
+  "newAnswerNum": 2
 }

@@ -85,7 +85,7 @@ export default {
 .v-image {
     display: flex;
     .item {
-        margin-right: 18px;
+        margin-right: 9px;
         &:nth-child(3) {
             margin-right: 0;
         }
@@ -95,9 +95,10 @@ export default {
         // }
         img {
             object-fit: cover;
-            width: 222px;
-            height: 222px;
+            width: 228px;
+            height: 228px;
             border-radius: 5px;
+            vertical-align: top;
             // &.one {
             //     width: 100%;
             //     height: 400px;

@@ -1,6 +1,6 @@
 <template>
     <div class="v-answer">
-        <div class="no-content" v-if="isNoContent">空空如也，快来回答一个</div>
+        <div class="no-content" v-if="isNoContent"></div>
         <div v-for="item of answersData" :key="item.id" class="answer">
             <div class="user">
                 <img :src="item.author.avatar | https" />
@@ -51,8 +51,12 @@ export default {
 <style lang="less" scoped>
 .v-answer {
     .no-content {
-        text-align: center;
-        color: @fontColor;
+        width: 100%;
+        height: 350px;
+        background-image: url('../assets/images/nocontent.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center bottom;
     }
     .answer {
         background: #ffffff;
@@ -62,6 +66,7 @@ export default {
             display: flex;
             color: @fontColor;
             margin-bottom: 24px;
+            align-items: center;
             .action {
                 display: flex;
                 font-size: 24px;

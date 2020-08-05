@@ -1,14 +1,9 @@
-import {
-  QuestionService,
-  SearchService,
-  ProfileService,
-} from '@/common/service/api';
+import { QuestionService, ProfileService } from '@/common/service/api';
 
 import {
   FETCH_QUESTION_HOT,
   FETCH_QUESTION_NEW,
   FETCH_QUESTION_BY_TAG,
-  FETCH_QUESTION_BY_SEARCH,
   FETCH_PROFILE_QUESTION,
   FETCH_DELETE_QUESTION,
   FETCH_QUESTION_SOLVE,
@@ -86,17 +81,6 @@ const actions = {
       });
       commit(SET_MORE_QUESTION, data);
     }
-  },
-  async [FETCH_QUESTION_BY_SEARCH]({ commit }, q) {
-    commit(FETCH_START);
-    let { data } = await SearchService.search(q);
-    data = data.map(item => {
-      item.value.answersCount = item.value.author.answersCount;
-      delete item.value.author.answersCount;
-      return item.value;
-    });
-    commit(FETCH_END);
-    commit(SET_QUESTION_LIST, data);
   },
   async [FETCH_PROFILE_QUESTION]({ commit }) {
     commit(FETCH_START);

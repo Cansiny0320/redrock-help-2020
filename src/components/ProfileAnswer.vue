@@ -19,7 +19,7 @@
                 <div class="time">{{ item.createdAt | date }}</div>
                 <div class="v-answer-action">
                     <div class="item">
-                        <AnswerApprovalSvg />
+                        <img src="~@/assets/images/like.png" class="like" />
                         <span class="num">{{ item.approvalNum }}</span>
                     </div>
                 </div>
@@ -43,11 +43,10 @@ import { API_URL } from '@/common/config';
 import { mapGetters } from "vuex";
 import { FETCH_PROFILE_COMMENT, FETCH_DELETE_ANSWER } from "@/store/type/actions";
 import AnswerAction from '@/components/AnswerAction'
-import AnswerApprovalSvg from '@/assets/svg/AnswerApproval.svg'
 export default {
     name: "profileAnswer",
     components: {
-        AnswerAction, AnswerApprovalSvg
+        AnswerAction
     },
     data() {
         return {
@@ -134,6 +133,10 @@ export default {
             .item {
                 display: flex;
                 align-items: center;
+                .like {
+                    width: 22px;
+                    height: 21px;
+                }
                 .num {
                     margin-left: 8px;
                 }

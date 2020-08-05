@@ -32,14 +32,12 @@
 import { mapGetters } from 'vuex'
 import EXIF from 'exif-js'
 
-import BaseDeleteSvg from '@/assets/svg/BaseDelete.svg'
 import ImageLoadingSvg from '@/assets/svg/ImageLoading.svg'
 import { UPLOAD_IMAGE, DLELTE_IMAGE } from '../store/type/actions';
 
 export default {
     name: "QuestionEditPhoto",
     components: {
-        BaseDeleteSvg,
         ImageLoadingSvg,
     },
     methods: {
@@ -137,19 +135,20 @@ ul {
     overflow: hidden;
     li {
         position: relative;
-        margin-right: 18px;
+        margin-right: 9px;
         &:nth-child(3) {
             margin-right: 0;
         }
         img {
-            width: 222px;
-            height: 222px;
+            width: 228px;
+            height: 228px;
             border-radius: 5px;
             object-fit: cover;
+            vertical-align: top;
         }
         .loading {
-            width: 222px;
-            height: 222px;
+            width: 228px;
+            height: 228px;
             justify-content: center;
             align-items: center;
             display: flex;
@@ -205,8 +204,8 @@ ul {
     background-color: #f1f1f1;
     border-radius: 5px;
     opacity: 0.98;
-    width: 222px;
-    height: 222px;
+    width: 228px;
+    height: 228px;
     img {
         width: 58px;
         height: 49px;

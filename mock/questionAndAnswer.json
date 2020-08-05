@@ -23,16 +23,8 @@
   "answer": [
     {
       "id": 0,
-      "content": "15栋圆通快递点在学校哪个地方圆通快递点在学校哪个地方圆通快递点在学校哪个地方圆通快递点在学校哪个地方圆通快递点在学校哪个地方圆通快递点在学校哪个地方圆通快递点在学校哪个地方圆通快递点在学校哪个地方圆通快递点在学校哪个地",
-      "photoUrls": [
-        "https://cdn.pixabay.com/photo/2019/07/25/10/43/ballerina-4362282_960_720.jpg",
-        "https://cdn.pixabay.com/photo/2019/07/25/14/39/skipper-4362807_960_720.jpg",
-        "https://cdn.pixabay.com/photo/2019/07/25/14/39/skipper-4362807_960_720.jpg",
-        "https://cdn.pixabay.com/photo/2019/07/25/10/43/ballerina-4362282_960_720.jpg",
-        "https://cdn.pixabay.com/photo/2019/07/25/14/39/skipper-4362807_960_720.jpg",
-        "https://cdn.pixabay.com/photo/2019/07/25/10/43/ballerina-4362282_960_720.jpg",
-        "https://cdn.pixabay.com/photo/2019/07/25/14/39/skipper-4362807_960_720.jpg"
-      ],
+      "content": "不知道",
+      "photoUrls": [],
       "author": {
         "id": 0,
         "stuNum": 0,
@@ -46,7 +38,6 @@
       "approvalNum": 2,
       "opposeNum": 4,
       "isApproval": true,
-      "isOppose": false,
       "createdAt": "2019-07-29T06:29:49.972Z",
       "updatedAt": "2019-07-29T06:29:49.972Z"
     },
@@ -69,7 +60,6 @@
       "approvalNum": 2,
       "opposeNum": 3,
       "isApproval": false,
-      "isOppose": true,
       "createdAt": "2019-07-29T06:29:49.972Z",
       "updatedAt": "2019-07-29T06:29:49.972Z"
     },
@@ -91,10 +81,9 @@
         "createdAt": "2019-07-21T02:05:28.742Z",
         "updatedAt": "2019-07-21T02:05:28.742Z"
       },
-      "approvalNum": 0,
+      "approvalNum": 1,
       "opposeNum": 0,
-      "isApproval": false,
-      "isOppose": false,
+      "isApproval": true,
       "createdAt": "2019-07-29T06:29:49.972Z",
       "updatedAt": "2019-07-29T06:29:49.972Z"
     },
@@ -118,10 +107,10 @@
       "approvalNum": 0,
       "opposeNum": 0,
       "isApproval": false,
-      "isOppose": false,
       "createdAt": "2019-07-29T06:29:49.972Z",
       "updatedAt": "2019-07-29T06:29:49.972Z"
-    },{
+    },
+    {
       "id": 4,
       "content": "重邮 CDB 15 栋",
       "photoUrls": [
@@ -141,7 +130,6 @@
       "approvalNum": 0,
       "opposeNum": 0,
       "isApproval": false,
-      "isOppose": false,
       "createdAt": "2019-07-29T06:29:49.972Z",
       "updatedAt": "2019-07-29T06:29:49.972Z"
     },
@@ -165,7 +153,6 @@
       "approvalNum": 0,
       "opposeNum": 0,
       "isApproval": false,
-      "isOppose": false,
       "createdAt": "2019-07-29T06:29:49.972Z",
       "updatedAt": "2019-07-29T06:29:49.972Z"
     },
@@ -189,7 +176,6 @@
       "approvalNum": 0,
       "opposeNum": 0,
       "isApproval": false,
-      "isOppose": false,
       "createdAt": "2019-07-29T06:29:49.972Z",
       "updatedAt": "2019-07-29T06:29:49.972Z"
     }
@@ -205,7 +191,7 @@
     "updatedAt": "2019-07-21T02:05:28.742Z"
   },
   "answersCount": 0,
-  "status": "已解决",
+  "status": "未解决",
   "createdAt": "2019-07-29T06:29:49.972Z",
   "updatedAt": "2019-07-29T06:29:49.972Z"
 }

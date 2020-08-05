@@ -1,8 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import ga from 'vue-ga';
-
 Vue.use(Router);
 
 const router = new Router({
@@ -28,11 +26,6 @@ const router = new Router({
       name: 'homeTag',
       component: () => import('@/views/HomeTag.vue'),
     },
-    // {
-    //   path: '/search',
-    //   name: 'search',
-    //   component: () => import('@/views/Search.vue'),
-    // },
     {
       path: '/profile',
       name: 'profile',
@@ -75,7 +68,5 @@ const router = new Router({
     },
   ],
 });
-
-ga(router, process.env.VUE_APP_GA);
 
 export default router;

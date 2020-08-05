@@ -2,7 +2,7 @@
     <div class="home-new">
         <div class="question">
             <VLoading v-if="isLoading" />
-            <VQuestionForHomeNew :questionData="questionList" />
+            <VQuestionForHomeHot :questionData="questionList" />
             <VLoading v-if="isLoadingMore" />
             <div class="no-more" v-if="questionListNoMore">没有更多了</div>
         </div>

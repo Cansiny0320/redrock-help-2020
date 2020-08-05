@@ -44,15 +44,6 @@ const ApiService = {
 
 export default ApiService;
 
-export const SearchService = {
-  hot() {
-    return ApiService.get(`search/hot`);
-  },
-  search(q) {
-    return ApiService.get(`search/questions?content=${q}`);
-  },
-};
-
 export const QuestionService = {
   hot(page = 1) {
     return ApiService.get(`questions?pageNo=${page}&sortby=hot`);

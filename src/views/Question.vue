@@ -1,5 +1,5 @@
 <template>
-    <div class="qustion">
+    <div class="qustion" :class="{ nocontent: !oneQuestion.answer.length }">
         <VHeader />
         <VLoading v-if="isLoading" />
         <template v-else>
@@ -36,13 +36,11 @@
 import { mapGetters } from 'vuex'
 import { FETCH_ONE_QUESTION_BY_ID } from '@/store/type/actions'
 
-import QuestionReplyButton from '@/components/QuestionReplyButton'
 import Answer from '@/components/Answer'
 
 export default {
     name: 'qustion',
     components: {
-        QuestionReplyButton,
         Answer,
     },
     mounted() {
@@ -79,6 +77,9 @@ export default {
 .qustion {
     background-color: @backgroundColor;
     min-height: calc(100vh - 98px);
+    &.nocontent {
+        background-color: #fff;
+    }
     .top {
         background-color: #fff;
         padding: 27px 23px 24px 13px;

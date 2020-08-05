@@ -1,13 +1,18 @@
 {
   "id": 0,
   "stuNum": 0,
-  "name": "昵称",
   "gender": "男",
-  "avatar": "https://cdn.v2ex.com/gravatar/b0c30f91732cc5307a1cdcfa4d58cb19?s=48&d=retro",
+  "author": {
+    "avatar": "https://cdn.v2ex.com/gravatar/b0c30f91732cc5307a1cdcfa4d58cb19?s=48&d=retro",
+    "name": "昵称",
+    "answersNum": 10
+  },
   "role": "志愿者",
   "createdAt": "2019-07-21T06:33:23.243Z",
   "updatedAt": "2019-07-21T06:33:23.243Z",
-  "approvalNum": 0,
-  "opposeNum": 0,
-  "questionsNum": 0
+  "number": {
+    "approvalNum": 0,
+    "opposeNum": 0,
+    "questionsNum": 0
+  }
 }
