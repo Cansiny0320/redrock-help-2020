@@ -1,5 +1,8 @@
 <template>
-    <div class="qustion" :class="{ nocontent: !oneQuestion.answer.length }">
+    <div
+        class="qustion no-footer"
+        :class="{ nocontent: !oneQuestion.answer.length }"
+    >
         <VHeader />
         <VLoading v-if="isLoading" />
         <template v-else>
@@ -74,6 +77,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import '../assets/styles/nofooter.less';
 .qustion {
     background-color: @backgroundColor;
     min-height: calc(100vh - 98px);
@@ -82,14 +86,14 @@ export default {
     }
     .top {
         background-color: #fff;
-        padding: 27px 23px 24px 13px;
+        padding: 27px 24px 24px 24px;
         .content {
             font-size: 32px;
             color: @fontColor;
             margin-bottom: 23px;
             font-weight: bold;
             line-height: 45px;
-            padding-right: 40px;
+            text-align: justify;
         }
         .user {
             display: flex;

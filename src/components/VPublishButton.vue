@@ -16,7 +16,7 @@ export default {
 <style lang="less" scoped>
 .publish {
     padding: 17px 32px;
-    border-radius: 31px;
+    border-radius: 100px;
     background: @mainColor;
     color: #ffffff;
     font-size: 30px;

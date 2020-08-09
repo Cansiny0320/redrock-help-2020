@@ -54,7 +54,7 @@ const actions = {
     commit(FETCH_START);
     let { data } = await ProfileService.getAllAnswer();
     commit(FETCH_END);
-    commit(SET_PROFILE_ANSWER, data.answers);
+    commit(SET_PROFILE_ANSWER, data);
   },
   async [FETCH_PROFILE_APPROVAL]({ commit }) {
     commit(FETCH_START);
@@ -66,7 +66,7 @@ const actions = {
     commit(FETCH_START);
     let { data } = await ProfileService.getComment();
     commit(FETCH_END);
-    commit(SET_PROFILE_COMMENT, data);
+    commit(SET_PROFILE_COMMENT, data.answers);
   },
   async [FETCH_DELETE_ANSWER]({ commit }, answerId) {
     await AnswerService.delete(answerId);

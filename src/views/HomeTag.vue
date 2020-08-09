@@ -63,7 +63,7 @@ export default {
     min-height: calc(100vh - 263px);
 }
 .question {
-    padding-top: 19px;
+    padding-top: 20px;
 }
 .no-more {
     text-align: center;

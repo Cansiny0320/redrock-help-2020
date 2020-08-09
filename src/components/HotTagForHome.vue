@@ -65,6 +65,7 @@ export default {
         }
         .active {
             color: @mainColor;
+            font-weight: bold;
         }
     }
 }

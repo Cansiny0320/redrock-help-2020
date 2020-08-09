@@ -84,22 +84,25 @@ export default {
     }
     .user {
         display: flex;
-        align-items: center;
         .avatar {
             width: 60px;
             height: 60px;
             margin-right: 16px;
             img {
-                border-radius: 100%;
+                border-radius: 50%;
                 width: 100%;
+                height: 100%;
             }
         }
         .info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 60px;
             .name {
                 font-size: 28px;
                 font-weight: 800;
                 color: rgba(51, 51, 51, 1);
-                margin-bottom: 8px;
             }
             .time {
                 font-size: 22px;
@@ -129,7 +132,7 @@ export default {
         font-weight: 500;
         color: #666666;
         line-height: 32px;
-        padding: 16px 0 14px 27px;
+        padding: 16px 27px 14px 27px;
         background: #f5f5f5;
         border-radius: 4px;
     }

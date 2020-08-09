@@ -13,17 +13,30 @@
       // 新生
       // const token =
       //   'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoxLCJqdGkiOiIyMDE4MjExMjU5IiwiZXhwIjoxNTk2ODkzMDQ5LCJzdWIiOiJ7XCJzdHVOdW1cIjoyMDE4MjExMjU5fSIsImlhdCI6MTU5NjI4ODI0OSwic3R1TnVtIjoiMjAxODIxMTI1OSJ9.ZPCBqTTJu8h58avsOILRl-HW5ANM3OPS2nCKiuHZ7rg';
-      // const role = 1;
       //志愿者
-      const token =
-        'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjowLCJqdGkiOiIyMDE4MjEyODIyIiwiZXhwIjoxNTk2ODkyOTk0LCJzdWIiOiJ7XCJzdHVOdW1cIjoyMDE4MjEyODIyfSIsImlhdCI6MTU5NjI4ODE5NCwic3R1TnVtIjoiMjAxODIxMjgyMiJ9.wRaQwc9nyzn0D6D9GtcUQEy3UOQ2vA1nCUWfevW2k2c';
-      const role = 0;
-      localStorage.setItem('id_token', token);
-      localStorage.setItem('role', role);
+      // const token =
+      //   'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjowLCJqdGkiOiIyMDE4MjEyODIyIiwiZXhwIjoxNTk2ODkyOTk0LCJzdWIiOiJ7XCJzdHVOdW1cIjoyMDE4MjEyODIyfSIsImlhdCI6MTU5NjI4ODE5NCwic3R1TnVtIjoiMjAxODIxMjgyMiJ9.wRaQwc9nyzn0D6D9GtcUQEy3UOQ2vA1nCUWfevW2k2c';
       // const token = document.location.hash.split('#/?token=')[1]
-      // if ((!localStorage.getItem('id_token') || parseInt(localStorage.getItem('exp')) < Math.floor(Date.now() / 1000) + 60 * 60 * 24 * 2) && !token) {
-      //   window.location.href = 'https://wx.redrock.team/wxapi/seniorhelpme2020/user/weixin/getOpenid'
-      // }
+      const token = document.location.href.split('token=')[1];
+      if (token && token.length) {
+        document.location.hash = '#/';
+        localStorage.setItem('id_token', token);
+        const { exp, stuNum, role } = JSON.parse(atob(token.split('.')[1]));
+        localStorage.setItem('exp', exp);
+        localStorage.setItem('stuNum', stuNum);
+        localStorage.setItem('role', role);
+      }
+      if (
+        (!localStorage.getItem('id_token') ||
+          parseInt(localStorage.getItem('exp')) <
+            Math.floor(Date.now() / 1000) + 60 * 60 * 24 * 2) &&
+        !token
+      ) {
+        window.location.href =
+          'https://wx.redrock.team/magicloop/rushb?b=' +
+          encodeURI('https://wx.redrock.team/wxapi/seniorhelpme2020/enter') +
+          '&scope=normal';
+      }
       // document.location.hash = '/?refresh=123'
       // if (token && token.length) {
       //   document.location.hash = '#/'
@@ -58,12 +71,6 @@
           'UrlChangeTracker',
           {
             shouldTrackUrlChange: function(newPath, oldPath) {
-              console.log(
-                'newPath=',
-                newPath,
-                ';oldPath=',
-                oldPath,
-              ); /* 控制台可查看日志，发布时请删除此行代码 */
               return newPath && oldPath;
             },
           },

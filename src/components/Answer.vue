@@ -68,17 +68,21 @@ export default {
             margin-bottom: 24px;
             align-items: center;
             .action {
+                height: 60px;
                 display: flex;
                 font-size: 24px;
                 color: @fontColor;
                 margin-left: auto;
             }
             &__info {
+                height: 60px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
                 .name {
                     font-weight: 800;
                     font-size: 28px;
                     color: #333;
-                    margin-bottom: 10px;
                 }
                 .time {
                     color: #808080;

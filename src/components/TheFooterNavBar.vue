@@ -20,9 +20,11 @@
         >
             <div class="icon" v-if="isProfile">
                 <img src="../assets/images/NavBarProfileActive.png" alt="" />
+                <div class="dot" v-if="hasNew"></div>
             </div>
             <div class="icon" v-else>
                 <img src="../assets/images/NavBarProfile.png" alt="" />
+                <div class="dot" v-if="hasNew"></div>
             </div>
             <div class="text">我的</div>
         </router-link>
@@ -30,7 +32,7 @@
 </template>
 
 <script>
-
+import { mapGetters } from 'vuex'
 
 export default {
     name: 'theFooterNavBar',
@@ -39,6 +41,11 @@ export default {
             isHome: true,
             isProfile: false,
         }
+    },
+    computed: {
+        ...mapGetters([
+            'hasNew'
+        ])
     },
     watch: {
         $route(to) {
@@ -82,11 +89,21 @@ export default {
     }
     .icon {
         display: inline-block;
+        position: relative;
         width: 39px;
         height: 41px;
         margin-bottom: 10px;
         img {
             width: 100%;
+        }
+        .dot {
+            position: absolute;
+            width: 14px;
+            height: 15px;
+            background: rgba(254, 103, 96, 1);
+            border-radius: 50%;
+            top: -11px;
+            right: -9px;
         }
     }
 }

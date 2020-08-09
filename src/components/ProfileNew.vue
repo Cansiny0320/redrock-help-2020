@@ -23,7 +23,9 @@
                 <span class="num">{{ profileData.author.answersNum }}</span>
                 <span class="text">个</span></span
             >
-            <span class="new">有{{ profileData.newAnswerNum }}条未读消息</span>
+            <span class="new" v-if="hasNew"
+                >有{{ profileData.author.newAnswersNum }}条未读消息</span
+            >
             <div class="front-icon">
                 <BaseFront />
             </div>
@@ -32,6 +34,7 @@
 </template>
 
 <script>
+import { mapMutations, mapGetters } from 'vuex'
 import BaseFront from "@/assets/svg/BaseFront.svg";
 export default {
     name: "profileNew",
@@ -49,8 +52,17 @@ export default {
             this.$router.push({ name: 'profileQuestion', query: { id } })
         },
         handleProfileAnswerClick(type) {
+            this.setHasNew(false)
             this.$router.push({ name: 'profileComment' })
         },
+        ...mapMutations({
+            setHasNew: 'SET_HAS_NEW',
+        })
+    },
+    computed: {
+        ...mapGetters([
+            'hasNew'
+        ])
     }
 };
 </script>

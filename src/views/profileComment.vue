@@ -1,5 +1,8 @@
 <template>
-    <div class="profile-comment">
+    <div
+        class="profile-comment no-footer"
+        :class="{ noContent: !profileComment.length }"
+    >
         <VHeader titleStr="我收到的评论" />
         <VLoading v-if="isLoading" />
         <div class="img" v-else-if="!profileComment.length">
@@ -41,6 +44,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import '../assets/styles/nofooter.less';
 .profile-comment {
     background-color: #fff;
     width: 100%;

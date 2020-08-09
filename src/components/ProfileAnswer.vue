@@ -132,10 +132,10 @@ export default {
             margin-left: 55px;
             .item {
                 display: flex;
-                align-items: center;
+                // align-items: center;
                 .like {
                     width: 22px;
-                    height: 21px;
+                    height: 22px;
                 }
                 .num {
                     margin-left: 8px;

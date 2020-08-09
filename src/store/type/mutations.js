@@ -33,3 +33,5 @@ export const END_IMAGE_UPLOADING = 'endImageUploading';
 
 export const SET_LOADING_MORE = 'setLoadingMore';
 export const END_LOADING_MORE = 'endLoadingMore';
+
+export const SET_HAS_NEW = 'SET_HAS_NEW';

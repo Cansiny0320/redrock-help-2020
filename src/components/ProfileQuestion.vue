@@ -15,8 +15,8 @@
             </div>
             <div class="tips">
                 <span class="time">{{ item.createdAt | date }}</span>
-                <span class="comment"
-                    ><i class="icon"></i>{{ item.answerCount }}</span
+                <span class="comment">
+                    <i class="icon"></i>{{ item.answersCount }}</span
                 >
                 <!-- <span class="delete" @click="handelDeleteClick(item.id)"
                     >删除</span
@@ -24,10 +24,12 @@
                 <span
                     class="solve"
                     @click="handelSolveClick(item.id)"
-                    v-if="item.status === '未解决'"
+                    v-if="item.status === '未解决' || item.status === '0'"
                     >确认解决</span
                 >
-                <span class="solved" v-if="item.status === '已解决'"
+                <span
+                    class="solved"
+                    v-if="item.status === '1' || item.status === '已解决'"
                     >已解决</span
                 >
             </div>
@@ -136,16 +138,17 @@ export default {
             color: #808080;
             font-size: 22px;
             &.comment {
-                display: block;
+                display: flex;
                 margin-left: 48px;
+                align-items: center;
                 .icon {
-                    display: inline-block;
+                    display: block;
                     width: 19px;
-                    height: 17px;
-                    background: url('../assets/images/comment.png');
+                    height: 19px;
+                    background-image: url('../assets/images/comment.png');
                     background-repeat: no-repeat;
-                    background-size: contain;
                     margin-right: 9px;
+                    background-size: 100% 100%;
                 }
             }
         }
@@ -154,7 +157,7 @@ export default {
             font-size: 24px;
             color: @mainColor;
             border: 1px solid @mainColor;
-            border-radius: 24px;
+            border-radius: 300px;
             padding: 13px 24px;
         }
         .solved {

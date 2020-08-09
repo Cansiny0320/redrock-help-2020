@@ -72,7 +72,7 @@ export default {
 <style lang="less" scoped>
 @import '../assets/styles/nofooter.less';
 header {
-    margin: 30px;
+    margin: 30px 24px;
     display: flex;
     justify-content: space-between;
 }
