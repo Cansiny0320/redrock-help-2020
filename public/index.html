@@ -16,7 +16,7 @@
       //志愿者
       // const token =
       //   'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjowLCJqdGkiOiIyMDE4MjEyODIyIiwiZXhwIjoxNTk2ODkyOTk0LCJzdWIiOiJ7XCJzdHVOdW1cIjoyMDE4MjEyODIyfSIsImlhdCI6MTU5NjI4ODE5NCwic3R1TnVtIjoiMjAxODIxMjgyMiJ9.wRaQwc9nyzn0D6D9GtcUQEy3UOQ2vA1nCUWfevW2k2c';
-      // const token = document.location.hash.split('#/?token=')[1]
+
       const token = document.location.href.split('token=')[1];
       if (token && token.length) {
         document.location.hash = '#/';
@@ -35,17 +35,8 @@
         window.location.href =
           'https://wx.redrock.team/magicloop/rushb?b=' +
           encodeURI('https://wx.redrock.team/wxapi/seniorhelpme2020/enter') +
-          '&scope=normal';
+          '&scope=student';
       }
-      // document.location.hash = '/?refresh=123'
-      // if (token && token.length) {
-      //   document.location.hash = '#/'
-      //   localStorage.setItem('id_token', token)
-      //   const { exp, stuNum, role } = JSON.parse(atob(token.split('.')[1]))
-      //   localStorage.setItem('exp', exp)
-      //   localStorage.setItem('stuNum', stuNum)
-      //   localStorage.setItem('role', role)
-      // }
     </script>
   </head>
 
