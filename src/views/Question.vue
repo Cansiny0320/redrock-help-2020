@@ -9,7 +9,7 @@
             <div class="top">
                 <div class="content" v-text="oneQuestion.content"></div>
                 <div class="user">
-                    <img :src="oneQuestion.author.avatar | https" />
+                    <img :src="oneQuestion.author.avatar" />
                     <span class="name">{{ oneQuestion.author.name }}</span>
                     <span class="count">
                         {{ oneQuestion.answersCount }}人回答</span

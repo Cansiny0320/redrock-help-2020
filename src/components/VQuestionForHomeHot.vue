@@ -11,7 +11,7 @@
         >
             <div class="content" v-text="item.content"></div>
             <div class="user">
-                <img class="img" :src="item.author.avatar | https" />
+                <img class="img" :src="item.author.avatar" />
                 <span class="name">{{ item.author.name }}</span>
             </div>
             <div

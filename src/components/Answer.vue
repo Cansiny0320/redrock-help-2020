@@ -3,7 +3,7 @@
         <div class="no-content" v-if="isNoContent"></div>
         <div v-for="item of answersData" :key="item.id" class="answer">
             <div class="user">
-                <img :src="item.author.avatar | https" />
+                <img :src="item.author.avatar" />
                 <div class="user__info">
                     <div class="name">{{ item.author.name }}</div>
                     <div class="time">{{ item.createdAt | date }}</div>

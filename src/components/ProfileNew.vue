@@ -1,7 +1,7 @@
 <template>
     <div class="profile-new profile-item">
         <div class="user">
-            <img class="img" :src="profileData.author.avatar | https" />
+            <img class="img" :src="profileData.author.avatar" />
             <div class="name">{{ profileData.author.name }}</div>
         </div>
         <div
