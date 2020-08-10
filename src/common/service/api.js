@@ -101,7 +101,7 @@ export const ProfileService = {
     return ApiService.get(`/user/questions`);
   },
   getComment() {
-    return ApiService.get('/user/comment');
+    return ApiService.get('/user/questionsans');
   },
 };
 

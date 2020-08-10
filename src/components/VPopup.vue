@@ -22,6 +22,7 @@ export default {
   background: rgba(0, 0, 0, 0.4);
   position: fixed;
   left: 50%;
+  // right: 50%;
   top: 75%;
   transform: translate(-50%, -50%);
   z-index: 2;
@@ -29,6 +30,7 @@ export default {
     font-size: 24px;
     padding: 24px 52px;
     color: #ffffff;
+    white-space: nowrap;
   }
 }
 </style>

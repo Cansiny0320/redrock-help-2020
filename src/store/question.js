@@ -66,7 +66,7 @@ const actions = {
     commit(FETCH_START);
     let { data } = await ProfileService.getComment();
     commit(FETCH_END);
-    commit(SET_PROFILE_COMMENT, data.answers);
+    commit(SET_PROFILE_COMMENT, data.answer);
   },
   async [FETCH_DELETE_ANSWER]({ commit }, answerId) {
     await AnswerService.delete(answerId);
