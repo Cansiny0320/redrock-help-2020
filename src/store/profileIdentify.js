@@ -41,7 +41,7 @@ const actions = {
       const { data } = await ProfileService.identify();
       commit(FETCH_END);
       commit(SET_PROFILE_IDENTITY, data);
-      data.author.newAnswersNum && commit(SET_HAS_NEW, true);
+      data.number.newNum && commit(SET_HAS_NEW, true);
     } catch (error) {
       commit(FETCH_END);
     }

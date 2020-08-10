@@ -1,36 +1,36 @@
 <template>
-    <div class="profile-new profile-item">
-        <div class="user">
-            <img class="img" :src="profileData.author.avatar" />
-            <div class="name">{{ profileData.author.name }}</div>
-        </div>
-        <div
-            class="question"
-            @click="handleProfileQuestionClick(profileData.author.id)"
-        >
-            <span
-                >我提过的问题
-                <span class="num">{{ profileData.author.questionsNum }}</span>
-                <span class="text">个</span></span
-            >
-            <div class="front-icon">
-                <BaseFront />
-            </div>
-        </div>
-        <div class="comment" @click="handleProfileAnswerClick">
-            <span
-                >我收到的回答
-                <span class="num">{{ profileData.author.answersNum }}</span>
-                <span class="text">个</span></span
-            >
-            <span class="new" v-if="hasNew"
-                >有{{ profileData.author.newAnswersNum }}条未读消息</span
-            >
-            <div class="front-icon">
-                <BaseFront />
-            </div>
-        </div>
+  <div class="profile-new profile-item">
+    <div class="user">
+      <img class="img" :src="profileData.author.avatar" />
+      <div class="name">{{ profileData.author.name }}</div>
     </div>
+    <div
+      class="question"
+      @click="handleProfileQuestionClick(profileData.author.id)"
+    >
+      <span
+        >我提过的问题
+        <span class="num">{{ profileData.author.questionsNum }}</span>
+        <span class="text">个</span></span
+      >
+      <div class="front-icon">
+        <BaseFront />
+      </div>
+    </div>
+    <div class="comment" @click="handleProfileAnswerClick">
+      <span
+        >我收到的回答
+        <span class="num">{{ profileData.author.answersNum }}</span>
+        <span class="text">个</span></span
+      >
+      <span class="new" v-if="hasNew"
+        >有{{ profileData.number.newNum }}条未读消息</span
+      >
+      <div class="front-icon">
+        <BaseFront />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
