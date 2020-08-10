@@ -1,37 +1,34 @@
 <template>
-  <VMask>
-    <div class="tip">
-      <p>{{ massage }}</p>
-    </div>
-  </VMask>
+  <div class="tip">
+    <p>{{ massage }}</p>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "vPopup",
-  props: {
-    massage: {
-      type: String,
-      required: true,
+    name: "vPopup",
+    props: {
+        massage: {
+            type: String,
+            required: true,
+        },
     },
-  },
 };
 </script>
 
 <style lang="less" scoped>
 .tip {
-  border-radius: 10px;
-  background: #9a9a9b;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.4);
   position: fixed;
   left: 50%;
-  top: 50%;
+  top: 75%;
   transform: translate(-50%, -50%);
   z-index: 2;
   p {
-    padding: 30px;
+    font-size: 24px;
+    padding: 24px 52px;
     color: #ffffff;
-    text-align: center;
-    line-height: 40px;
   }
 }
 </style>

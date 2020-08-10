@@ -1,17 +1,17 @@
 <template>
-    <div class="no-footer">
-        <header class="header">
-            <VBack />
-            <div @click="handelQuestionPublished">
-                <vPublishButton />
-            </div>
-        </header>
-        <EditBox />
-        <!-- <EditImage /> -->
-        <VPopup :massage="progressMassage" v-if="editProgress" />
-        <VPopup :massage="tagTipsMassage" v-if="isShowTagTips" />
-        <VPopup :massage="wordsMassage" v-if="isShowWordsTips" />
-    </div>
+  <div class="no-footer">
+    <header class="header">
+      <VBack />
+      <div @click="handelQuestionPublished">
+        <vPublishButton />
+      </div>
+    </header>
+    <EditBox />
+    <!-- <EditImage /> -->
+    <VPopup :massage="progressMassage" v-if="editProgress" />
+    <VPopup :massage="tagTipsMassage" v-if="isShowTagTips" />
+    <VPopup :massage="wordsMassage" v-if="isShowWordsTips" />
+  </div>
 </template>
 
 <script>
@@ -31,7 +31,7 @@ export default {
     data() {
         return {
             progressMassage: '发布中，请稍后...',
-            tagTipsMassage: '你最少需要选择一个标签',
+            tagTipsMassage: '至少添加一个标签哦~',
             wordsMassage: '你的输入必须大于 4 个字符',
             isShowTagTips: false,
             tagTipsTimer: null,
@@ -81,9 +81,9 @@ export default {
 @import '../assets/styles/nofooter.less';
 
 .header {
-    margin: 30px 24px;
-    display: flex;
-    justify-content: space-between;
+  margin: 30px 24px;
+  display: flex;
+  justify-content: space-between;
 }
 </style>
 

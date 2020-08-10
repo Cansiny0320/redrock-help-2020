@@ -74,7 +74,12 @@ export default {
     &::placeholder {
       color: #808080;
       font-size: 32px;
-      font-family: PingFang SC;
+      font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue,
+        PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC,
+        WenQuanYi Micro Hei, sans-serif;
+    }
+    &::-webkit-scrollbar {
+      width: 0;
     }
   }
   .count {

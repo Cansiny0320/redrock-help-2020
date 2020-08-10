@@ -62,6 +62,13 @@ export default {
     color: #333;
     padding: 27px 24px 0;
     word-break: break-all;
+    &::placeholder {
+      color: #808080;
+      font-size: 32px;
+      font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue,
+        PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC,
+        WenQuanYi Micro Hei, sans-serif;
+    }
     &::-webkit-scrollbar {
       width: 0;
     }
