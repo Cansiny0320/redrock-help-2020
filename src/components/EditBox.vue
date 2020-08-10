@@ -1,16 +1,16 @@
 <template>
-    <div class="question-edit-box">
-        <VPopup :massage="TipsMassage" v-if="isShowTips" />
-        <div class="box">
-            <textarea
-                v-model="words"
-                autofocus="autofocus"
-                placeholder="输入你的问题吧!(最多输入300字)"
-            ></textarea>
-            <div class="count">共 {{ words.length }} 字</div>
-        </div>
-        <EditTag />
+  <div class="question-edit-box">
+    <VPopup :massage="TipsMassage" v-if="isShowTips" />
+    <div class="box">
+      <textarea
+        v-model="words"
+        autofocus="autofocus"
+        placeholder="输入你的问题吧!(最多输入300字)"
+      ></textarea>
+      <div class="count">共 {{ words.length }} 字</div>
     </div>
+    <EditTag />
+  </div>
 </template>
 
 <script>
@@ -55,31 +55,34 @@ export default {
 
 <style lang="less" scoped>
 .box {
-    border-top: 1px solid #e5e5e5;
-    border-bottom: 1px solid #e5e5e5;
-    background: #ffffff;
-    textarea {
-        border: 0;
-        outline: 0;
-        width: 100%;
-        box-sizing: border-box;
-        background: none;
-        height: 445px;
-        padding: 27px 24px 0 23px;
-        font-size: 32px;
-        resize: none;
-        &::placeholder {
-            color: #808080;
-            font-size: 32px;
-            font-family: PingFang SC;
-        }
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  background: #ffffff;
+  textarea {
+    font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC,
+      Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei,
+      sans-serif;
+    border: 0;
+    outline: 0;
+    width: 100%;
+    box-sizing: border-box;
+    background: none;
+    height: 445px;
+    padding: 27px 24px 0 23px;
+    font-size: 32px;
+    resize: none;
+    &::placeholder {
+      color: #808080;
+      font-size: 32px;
+      font-family: PingFang SC;
     }
-    .count {
-        font-size: 24px;
-        color: #969696;
-        padding-right: 24px;
-        padding-bottom: 23px;
-        text-align: right;
-    }
+  }
+  .count {
+    font-size: 24px;
+    color: #969696;
+    padding-right: 24px;
+    padding-bottom: 23px;
+    text-align: right;
+  }
 }
 </style>

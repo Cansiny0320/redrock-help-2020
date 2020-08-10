@@ -54,13 +54,13 @@ const actions = {
     commit(FETCH_START);
     let { data } = await ProfileService.getAllAnswer();
     commit(FETCH_END);
-    commit(SET_PROFILE_ANSWER, data);
+    commit(SET_PROFILE_ANSWER, data.answer);
   },
   async [FETCH_PROFILE_APPROVAL]({ commit }) {
     commit(FETCH_START);
     let { data } = await ProfileService.getApprovalAnswer();
     commit(FETCH_END);
-    commit(SET_PROFILE_APPROVAL, data.answers);
+    commit(SET_PROFILE_APPROVAL, data.answer);
   },
   async [FETCH_PROFILE_COMMENT]({ commit }) {
     commit(FETCH_START);
