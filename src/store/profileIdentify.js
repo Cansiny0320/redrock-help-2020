@@ -41,7 +41,9 @@ const actions = {
       const { data } = await ProfileService.identify();
       commit(FETCH_END);
       commit(SET_PROFILE_IDENTITY, data);
-      data.number.newNum && commit(SET_HAS_NEW, true);
+      if (localStorage.getItem('role') === 1 && data.number.newNum) {
+        commit(SET_HAS_NEW, true);
+      }
     } catch (error) {
       commit(FETCH_END);
     }
