@@ -101,7 +101,7 @@ export default {
       line-height: 40px;
       font-size: 32px;
       font-weight: bold;
-      letter-spacing: 0.6px;
+      letter-spacing: 0.4px;
       @ellisis-2();
     }
     .anwser {
