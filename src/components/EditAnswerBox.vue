@@ -2,7 +2,11 @@
   <div class="answer-edit-box">
     <VPopup :massage="TipsMassage" v-if="isShowTips" />
     <div class="box">
-      <textarea v-model="words" autofocus="autofocus"></textarea>
+      <textarea
+        v-model="words"
+        autofocus="autofocus"
+        placeholder="输入你的回答吧!(最多输入400字)"
+      ></textarea>
       <div class="count">共 {{ words.length }} 字</div>
     </div>
   </div>
