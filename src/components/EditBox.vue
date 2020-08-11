@@ -3,7 +3,7 @@
     <VPopup :massage="TipsMassage" v-if="isShowTips" />
     <div class="box">
       <textarea
-        v-model="words"
+        v-model.trim="words"
         autofocus="autofocus"
         placeholder="输入你的问题吧!(最多输入300字)"
       ></textarea>
