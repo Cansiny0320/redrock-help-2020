@@ -16,10 +16,6 @@
       //志愿者
       // const token =
       //   'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjowLCJqdGkiOiIyMDE4MjEyODIyIiwiZXhwIjoxNTk2ODkyOTk0LCJzdWIiOiJ7XCJzdHVOdW1cIjoyMDE4MjEyODIyfSIsImlhdCI6MTU5NjI4ODE5NCwic3R1TnVtIjoiMjAxODIxMjgyMiJ9.wRaQwc9nyzn0D6D9GtcUQEy3UOQ2vA1nCUWfevW2k2c';
-      window.location.href =
-        'https://wx.redrock.team/magicloop/rushb?b=' +
-        encodeURI('https://wx.redrock.team/wxapi/seniorhelpme2020/enter') +
-        '&scope=student';
       const token = document.location.href.split('token=')[1];
       if (token && token.length) {
         document.location.hash = '#/';
