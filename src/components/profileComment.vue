@@ -9,7 +9,7 @@
     <div
       class="box"
       v-for="item in commentData"
-      :key="item.ansId"
+      :key="item.id"
       @click="handelQuestionClick(item.questions.id)"
     >
       <div class="user">

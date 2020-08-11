@@ -105,7 +105,7 @@ const mutations = {
   },
   [DELETE_ANSWER](state, answerId) {
     state.profileAnswer = state.profileAnswer.filter(
-      item => item.ansId !== answerId,
+      item => item.id !== answerId,
     );
   },
 };
