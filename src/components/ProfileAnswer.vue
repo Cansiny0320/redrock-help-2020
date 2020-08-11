@@ -4,7 +4,7 @@
       class="box"
       v-for="item in commentData"
       :key="item.ansId"
-      @click="handelQuestionClick(item.questions.queId)"
+      @click="handelQuestionClick(item.questions.id)"
     >
       <div class="question">{{ item.questions.content }}</div>
       <div class="comment">{{ item.content }}</div>

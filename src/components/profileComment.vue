@@ -10,7 +10,7 @@
       class="box"
       v-for="item in commentData"
       :key="item.ansId"
-      @click="handelQuestionClick(item.question.queId)"
+      @click="handelQuestionClick(item.questions.id)"
     >
       <div class="user">
         <div class="avatar">
