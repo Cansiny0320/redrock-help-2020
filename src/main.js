@@ -6,9 +6,6 @@ import './globalsComponents';
 
 import VueCarousel from 'vue-carousel';
 
-import Vconsole from 'vconsole';
-Vue.prototype.$vConsole = new Vconsole();
-
 import ApiService from '@/common/service/api';
 import DateFilter from '@/common/filter/date';
 import HttpsFilter from '@/common/filter/https';
