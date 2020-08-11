@@ -1,16 +1,16 @@
 <template>
-    <div
-        class="profile-answer no-footer"
-        :class="{ noContent: !profileAnswer.length }"
-    >
-        <VHeader titleStr="我的回答" />
-        <VLoading v-if="isLoading" />
-        <div class="img" v-else-if="!profileAnswer.length">
-            <img src="../assets/images/answer.png" />
-            <div class="tip">学弟学妹们都等着急了~</div>
-        </div>
-        <ProfileAnswer v-else :commentData="profileAnswer" />
+  <div
+    class="profile-answer no-footer"
+    :class="{ noContent: !profileAnswer.length }"
+  >
+    <VHeader titleStr="我的回答" />
+    <VLoading v-if="isLoading" />
+    <div class="img" v-else-if="!profileAnswer.length">
+      <img src="../assets/images/answer.png" />
+      <div class="tip">学弟学妹们都等着急了~</div>
     </div>
+    <ProfileAnswer v-else :commentData="profileAnswer" />
+  </div>
 </template>
 
 <script>
@@ -47,25 +47,29 @@ export default {
 @import '../assets/styles/nofooter.less';
 
 .profile-answer {
-    &.noContent {
-        background-color: #fff;
+  &.noContent {
+    background-color: #fff;
+  }
+  background-color: @backgroundColor;
+  width: 100%;
+  .img {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+      width: 511px;
+      margin-top: 177px;
     }
-    background-color: @backgroundColor;
-    width: 100%;
-    .img {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        img {
-            width: 511px;
-            margin-top: 300px;
-        }
-        .tip {
-            color: #60606d;
-            margin-top: 70px;
-            font-size: 32px;
-        }
+    .tip {
+      position: absolute;
+      top: 512px;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      color: #60606d;
+      font-size: 32px;
     }
+  }
 }
 </style>

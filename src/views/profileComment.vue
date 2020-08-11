@@ -57,11 +57,15 @@ export default {
     align-items: center;
     img {
       width: 349px;
-      margin-top: 300px;
+      margin-top: 120px;
     }
     .tip {
+      position: absolute;
+      top: 512px;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
       color: #60606d;
-      margin-top: 70px;
       font-size: 32px;
     }
   }

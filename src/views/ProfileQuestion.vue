@@ -1,16 +1,16 @@
 <template>
-    <div
-        class="profile-question no-footer"
-        :class="{ noContent: !profileQuestion.length }"
-    >
-        <VHeader titleStr="我提过的问题" />
-        <VLoading v-if="isLoading" />
-        <div class="img" v-else-if="!profileQuestion.length">
-            <img src="../assets/images/question.png" />
-            <div class="tip">这里静悄悄，期待你的躁动~</div>
-        </div>
-        <ProfileQuestion v-else :questionData="profileQuestion" />
+  <div
+    class="profile-question no-footer"
+    :class="{ noContent: !profileQuestion.length }"
+  >
+    <VHeader titleStr="我提过的问题" />
+    <VLoading v-if="isLoading" />
+    <div class="img" v-else-if="!profileQuestion.length">
+      <img src="../assets/images/question.png" />
+      <div class="tip">这里静悄悄，期待你的躁动~</div>
     </div>
+    <ProfileQuestion v-else :questionData="profileQuestion" />
+  </div>
 </template>
 
 <script>
@@ -41,27 +41,31 @@ export default {
 @import '../assets/styles/nofooter.less';
 
 .profile-question {
-    &.noContent {
-        background-color: #fff;
+  &.noContent {
+    background-color: #fff;
+  }
+  background-color: @backgroundColor;
+  width: 100%;
+  .img {
+    height: calc(100vh - 198px);
+    background-color: #fff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+      width: 453px;
+      margin-top: 176px;
     }
-    background-color: @backgroundColor;
-    width: 100%;
-    .img {
-        height: calc(100vh - 198px);
-        background-color: #fff;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        img {
-            width: 453px;
-            margin-top: 300px;
-        }
-        .tip {
-            color: #60606d;
-            margin-top: 70px;
-            font-size: 32px;
-        }
+    .tip {
+      position: absolute;
+      top: 512px;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      color: #60606d;
+      font-size: 32px;
     }
+  }
 }
 </style>
