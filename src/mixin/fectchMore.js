@@ -13,8 +13,11 @@ export default {
         if (
           window.innerHeight + window.scrollY + 10 >=
             document.body.offsetHeight &&
-          !this.isLoadingMore
+          !this.isLoadingMore &&
+          !this.isLoading
         ) {
+          console.log(window.innerHeight + window.scrollY);
+          console.log(document.body.offsetHeight);
           this.handelFecthMore();
         }
       },
@@ -27,6 +30,6 @@ export default {
     window.removeEventListener('scroll', this.throttleFunction, false);
   },
   computed: {
-    ...mapGetters(['isLoadingMore']),
+    ...mapGetters(['isLoadingMore', 'isLoading']),
   },
 };
