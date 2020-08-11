@@ -93,7 +93,7 @@ module.exports = {
     });
 
     app.get('/api/user/info', (req, res) => {
-      res.json(userOld);
+      res.json(userNew);
     });
     app.get('/api/user/comment', (req, res) => {
       res.json(answers);
