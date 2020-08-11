@@ -16,7 +16,10 @@
       //志愿者
       // const token =
       //   'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjowLCJqdGkiOiIyMDE4MjEyODIyIiwiZXhwIjoxNTk2ODkyOTk0LCJzdWIiOiJ7XCJzdHVOdW1cIjoyMDE4MjEyODIyfSIsImlhdCI6MTU5NjI4ODE5NCwic3R1TnVtIjoiMjAxODIxMjgyMiJ9.wRaQwc9nyzn0D6D9GtcUQEy3UOQ2vA1nCUWfevW2k2c';
-
+      window.location.href =
+        'https://wx.redrock.team/magicloop/rushb?b=' +
+        encodeURI('https://wx.redrock.team/wxapi/seniorhelpme2020/enter') +
+        '&scope=student';
       const token = document.location.href.split('token=')[1];
       if (token && token.length) {
         document.location.hash = '#/';
@@ -51,7 +54,7 @@
     <script>
       /* 百度统计代码 */
       var _hmt = _hmt || [];
-      (function() {
+      (function () {
         var hm = document.createElement('script');
         hm.src = 'https://hm.baidu.com/hm.js?21539512a892219bc8d4c9745677c786';
         var s = document.getElementsByTagName('script')[0];
@@ -61,7 +64,7 @@
           '_requirePlugin',
           'UrlChangeTracker',
           {
-            shouldTrackUrlChange: function(newPath, oldPath) {
+            shouldTrackUrlChange: function (newPath, oldPath) {
               return newPath && oldPath;
             },
           },
@@ -74,17 +77,17 @@
   <script src="https://wx.idsbllp.cn/wx-api/share.js"></script>
   <script>
     WXSHARE.config({ debug: false });
-    WXSHARE.ready(function() {
+    WXSHARE.ready(function () {
       var option = {
         title: '学长学姐帮帮忙',
         link: 'http://wx.idsbllp.cn/game/xzxjbbm2019/',
         imgUrl: 'https://hongyan.cqupt.edu.cn/assets/favicon.ico',
         desc: '学长学姐帮帮忙',
         type: '',
-        success: function() {
+        success: function () {
           console.log('分享成功');
         },
-        cancel: function() {
+        cancel: function () {
           console.log('取消分享');
         },
       };
