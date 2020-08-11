@@ -68,7 +68,7 @@ export default {
                     if (mutation.type === END_PORGRESSING) {
                         // 删除这个订阅
                         await this.subscriber()
-                        this.$router.push('/new')
+                        this.$router.go(-1)
                     }
                 })
             }
