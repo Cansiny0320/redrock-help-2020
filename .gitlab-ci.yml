@@ -1,6 +1,6 @@
 image: redrock-fe
 variables:
-  REPO_NAME: xzxjbbm2020
+  REPO_NAME: xzxjbbm-2020
 
 stages:
   - setup
