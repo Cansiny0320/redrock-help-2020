@@ -12,10 +12,10 @@
     <script>
       // 新生
       // const token =
-      //   'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoxLCJqdGkiOiIyMDE4MjExMjU5IiwiZXhwIjoxNTk2ODkzMDQ5LCJzdWIiOiJ7XCJzdHVOdW1cIjoyMDE4MjExMjU5fSIsImlhdCI6MTU5NjI4ODI0OSwic3R1TnVtIjoiMjAxODIxMTI1OSJ9.ZPCBqTTJu8h58avsOILRl-HW5ANM3OPS2nCKiuHZ7rg';
+      //   'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoxLCJqdGkiOiIyMDE4MjExMjU5IiwiZXhwIjoxNTk3NzMxMTQ1LCJzdWIiOiJ7XCJzdHVOdW1cIjoyMDE4MjExMjU5fSIsImlhdCI6MTU5NzEyNjM0NSwic3R1TnVtIjoiMjAxODIxMTI1OSJ9.wkquOl-osHvf7G3bmnK3AfjBLgfvTdIN2hVMHGsvFuY';
       //志愿者
       // const token =
-      //   'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjowLCJqdGkiOiIyMDE4MjEyODIyIiwiZXhwIjoxNTk2ODkyOTk0LCJzdWIiOiJ7XCJzdHVOdW1cIjoyMDE4MjEyODIyfSIsImlhdCI6MTU5NjI4ODE5NCwic3R1TnVtIjoiMjAxODIxMjgyMiJ9.wRaQwc9nyzn0D6D9GtcUQEy3UOQ2vA1nCUWfevW2k2c';
+      //   'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjowLCJqdGkiOiIyMDE4MjEyODIyIiwiZXhwIjoxNTk3NzI4NjgzLCJzdWIiOiJ7XCJzdHVOdW1cIjoyMDE4MjEyODIyfSIsImlhdCI6MTU5NzEyMzg4Mywic3R1TnVtIjoiMjAxODIxMjgyMiJ9.3YcjIPEMbjZiwsJ14QQXkJoqDaxlFsPaJHIedYXMXVM';
       const token = document.location.href.split('token=')[1];
       if (token && token.length) {
         document.location.hash = '#/';
@@ -50,7 +50,7 @@
     <script>
       /* 百度统计代码 */
       var _hmt = _hmt || [];
-      (function () {
+      (function() {
         var hm = document.createElement('script');
         hm.src = 'https://hm.baidu.com/hm.js?21539512a892219bc8d4c9745677c786';
         var s = document.getElementsByTagName('script')[0];
@@ -60,7 +60,7 @@
           '_requirePlugin',
           'UrlChangeTracker',
           {
-            shouldTrackUrlChange: function (newPath, oldPath) {
+            shouldTrackUrlChange: function(newPath, oldPath) {
               return newPath && oldPath;
             },
           },
@@ -69,29 +69,30 @@
     </script>
     <!-- built files will be auto injected -->
   </body>
-  <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+  <script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
   <script src="https://wx.idsbllp.cn/wx-api/share.js"></script>
   <script>
-    WXSHARE.config({ debug: false });
-    WXSHARE.ready(function () {
+    WXSHARE.config({
+      debug: false,
+      jsApiList: ['updateAppMessageShareData', 'updateTimelineShareData'],
+    });
+    WXSHARE.ready(function() {
       var option = {
         title: '学长学姐帮帮忙',
-        link: 'http://wx.idsbllp.cn/game/xzxjbbm2019/',
-        imgUrl: 'https://hongyan.cqupt.edu.cn/assets/favicon.ico',
-        desc: '学长学姐帮帮忙',
+        link: 'https://wx.redrock.team/game/xzxjbbm2020/',
+        imgUrl:
+          'https://static01.imgkr.com/temp/9133c0cff9984608a36a3bb4e0155c62.jpeg',
+        desc: '有问题，就找学长学姐！',
         type: '',
-        success: function () {
+        success: function() {
           console.log('分享成功');
         },
-        cancel: function () {
+        cancel: function() {
           console.log('取消分享');
         },
       };
-      wx.onMenuShareTimeline(option);
-      wx.onMenuShareAppMessage(option);
-      wx.onMenuShareQQ(option);
-      wx.onMenuShareWeibo(option);
-      wx.onMenuShareQZone(option);
+      wx.updateAppMessageShareData(option);
+      wx.updateTimelineShareData(option);
     });
   </script>
 </html>
