@@ -9,7 +9,6 @@ import VueCarousel from 'vue-carousel';
 import ApiService from '@/common/service/api';
 import DateFilter from '@/common/filter/date';
 import HttpsFilter from '@/common/filter/https';
-import PadFilter from '@/common/filter/pad';
 
 import '@/assets/styles/reset.css';
 import '@/assets/styles/global.less';
@@ -17,7 +16,6 @@ import '@/assets/styles/global.less';
 Vue.use(VueCarousel);
 Vue.filter('date', DateFilter);
 Vue.filter('https', HttpsFilter);
-Vue.filter('pad', PadFilter);
 
 ApiService.init();
 

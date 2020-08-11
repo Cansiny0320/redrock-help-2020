@@ -10,7 +10,7 @@
     >
       <span
         >我提过的问题
-        <span class="num">{{ profileData.author.questionsNum | pad }}</span>
+        <span class="num">{{ profileData.author.questionsNum }}</span>
         <span class="text">个</span></span
       >
       <div class="front-icon">
@@ -20,7 +20,7 @@
     <div class="comment" @click="handleProfileAnswerClick">
       <span
         >我收到的回答
-        <span class="num">{{ profileData.author.answersNum | pad }}</span>
+        <span class="num">{{ profileData.author.answersNum }}</span>
         <span class="text">个</span></span
       >
       <span class="new" v-if="hasNew"

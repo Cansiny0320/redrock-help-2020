@@ -7,7 +7,7 @@
     <router-link class="answer" to="/profile/answer" tag="div">
       <span
         >我回答的问题：
-        <span class="num">{{ profileData.author.answersNum | pad }}</span>
+        <span class="num">{{ profileData.author.answersNum }}</span>
         <span class="text">个</span></span
       >
       <div class="front-icon">
@@ -17,7 +17,7 @@
     <router-link class="approval" to="/profile/approval" tag="div">
       <span
         >我收到的赞同：
-        <span class="num">{{ profileData.number.approvalNum | pad }}</span>
+        <span class="num">{{ profileData.number.approvalNum }}</span>
         <span class="text">个</span></span
       >
       <div class="front-icon">
