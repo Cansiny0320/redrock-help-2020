@@ -80,7 +80,6 @@ export default {
     color: @fontColor;
     border-radius: 12px;
     padding: 28px 24px;
-    letter-spacing: 0.6px;
     .user {
       display: flex;
       align-items: center;
@@ -102,6 +101,7 @@ export default {
       line-height: 40px;
       font-size: 32px;
       font-weight: bold;
+      letter-spacing: 0.6px;
       @ellisis-2();
     }
     .anwser {
