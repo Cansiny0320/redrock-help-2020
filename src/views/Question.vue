@@ -12,18 +12,24 @@
           <img :src="oneQuestion.author.avatar" />
           <span class="name">{{ oneQuestion.author.name }}</span>
           <span class="count"> {{ oneQuestion.answersCount }}人回答</span>
-          <template v-if="isShowQuestionReplyButton">
-            <span
-              class="status"
-              @click="toAnswserEdit(oneQuestion.status)"
-              v-if="!isStautsActive"
-              >去回答</span
-            >
+          <template>
             <span
               class="status"
               :class="{ active: isStautsActive }"
               v-if="isStautsActive"
               >已解决</span
+            >
+            <span
+              class="status"
+              v-else-if="isAnswered && isShowStatus"
+              :class="{ active: isAnswered }"
+              >已回答</span
+            >
+            <span
+              class="status"
+              @click="toAnswserEdit(oneQuestion.status)"
+              v-else-if="isShowStatus"
+              >去回答</span
             >
           </template>
         </div>
@@ -49,15 +55,18 @@ export default {
     },
     computed: {
         ...mapGetters(['oneQuestion', 'isLoading']),
-        isShowQuestionReplyButton() {
+        isAnswered() {
             let markAnswerCount = 0
             this.oneQuestion.answer.map(item => {
                 if (String(item.author.stuNum) === String(localStorage.getItem('stuNum'))) {
                     markAnswerCount++
                 }
             })
+            return markAnswerCount > 0
+        },
+
+        isShowStatus() {
             return parseInt(localStorage.getItem('role')) === 0
-                && markAnswerCount === 0
         },
         isStautsActive() {
             return this.oneQuestion.status === '已解决'
@@ -65,7 +74,7 @@ export default {
     },
     methods: {
         toAnswserEdit(status) {
-            this.isShowQuestionReplyButton && this.$router.push({
+            this.$router.push({
                 name: 'answserEdit',
             })
         }
