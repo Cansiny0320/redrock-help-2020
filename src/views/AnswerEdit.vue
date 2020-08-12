@@ -78,7 +78,6 @@ header {
 }
 .question {
   word-wrap: break-word;
-  word-break: break-all;
   padding: 0 52px 33px 24px;
   font-size: 32px;
   line-height: 40px;

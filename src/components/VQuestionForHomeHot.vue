@@ -98,7 +98,6 @@ export default {
       }
     }
     .content {
-      word-break: break-all;
       word-wrap: break-word;
       line-height: 40px;
       font-size: 32px;

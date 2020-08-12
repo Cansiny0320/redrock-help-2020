@@ -104,7 +104,6 @@ export default {
       }
     }
     .content {
-      word-break: break-all;
       word-wrap: break-word;
       font-weight: bold;
       line-height: 40px;
