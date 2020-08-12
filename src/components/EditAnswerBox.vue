@@ -52,6 +52,8 @@ export default {
   background: #ffffff;
   border-bottom: 1px solid #e5e5e5;
   textarea {
+    word-break: break-all;
+    word-wrap: break-word;
     font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC,
       Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei,
       sans-serif;
