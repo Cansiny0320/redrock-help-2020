@@ -95,6 +95,7 @@ export default {
       }
       .name {
         font-size: 24px;
+        font-weight: 500;
       }
     }
     .content {

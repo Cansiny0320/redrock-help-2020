@@ -1,17 +1,17 @@
 <template>
-    <router-link :to="{ name: 'questionEdit' }" class="home-edit-button">
-        <div class="icon">
-            <img src="../assets/images/HomeEditButton.png" />
-        </div>
-    </router-link>
+  <router-link :to="{ name: 'questionEdit' }" class="home-edit-button">
+    <div class="icon">
+      <PenSvg />
+    </div>
+  </router-link>
 </template>
 
 <script>
-
+import PenSvg from '@/assets/svg/mybi.svg'
 
 export default {
     name: 'homeEditButton',
-
+    components: { PenSvg }
 }
 </script>
 
