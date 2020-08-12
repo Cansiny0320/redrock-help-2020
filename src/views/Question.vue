@@ -118,6 +118,7 @@ export default {
         font-size: 24px;
         color: @fontLightColor;
         margin-right: 22px;
+        font-weight: 500;
       }
       .count {
         font-size: 24px;
