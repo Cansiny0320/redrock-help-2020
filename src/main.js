@@ -5,7 +5,9 @@ import store from './store';
 import './globalsComponents';
 
 import VueCarousel from 'vue-carousel';
-
+import Vconsole from 'vconsole';
+let vConsole = new Vconsole();
+Vue.use(vConsole);
 import ApiService from '@/common/service/api';
 import DateFilter from '@/common/filter/date';
 import HttpsFilter from '@/common/filter/https';
