@@ -1,6 +1,6 @@
 <template>
   <div class="v-question-home" v-if="!isLoading">
-    <div class="no-content" v-if="!isNoContent">
+    <div class="no-content" v-if="isNoContent">
       空空如也，快来提一个问题
     </div>
     <div
