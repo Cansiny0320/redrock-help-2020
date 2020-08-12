@@ -86,7 +86,6 @@ export default {
     background-color: #fff;
     padding: 27px 24px 24px 24px;
     .content {
-      word-break: break-all;
       word-wrap: break-word;
       font-size: 32px;
       color: @fontColor;
