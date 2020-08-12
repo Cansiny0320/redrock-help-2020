@@ -1,6 +1,6 @@
 <template>
   <div class="v-question-home" v-if="!isLoading">
-    <div class="no-content" v-if="isNoContent">
+    <div class="no-content" v-if="!isNoContent">
       空空如也，快来提一个问题
     </div>
     <div
@@ -70,6 +70,7 @@ export default {
   // 这种有具体内容最好不要设定 height 和 width
   margin: 0 24px;
   .no-content {
+    margin-top: 150px;
     text-align: center;
     color: @fontColor;
   }
