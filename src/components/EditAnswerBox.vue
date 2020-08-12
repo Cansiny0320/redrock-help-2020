@@ -51,9 +51,8 @@ export default {
 .box {
   background: #ffffff;
   border-bottom: 1px solid #e5e5e5;
+  width: 100%;
   textarea {
-    word-break: break-all;
-    word-wrap: break-word;
     font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC,
       Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei,
       sans-serif;
@@ -67,7 +66,6 @@ export default {
     resize: none;
     color: #333;
     padding: 27px 24px 0;
-    word-break: break-all;
     &::placeholder {
       color: #808080;
       font-size: 32px;

@@ -99,7 +99,7 @@ export default {
     }
     .content {
       word-break: break-all;
-      word-wrap: break-word;
+      //   word-wrap: break-word;
       margin: 0 0 16px;
       line-height: 36px;
       color: #404040;
