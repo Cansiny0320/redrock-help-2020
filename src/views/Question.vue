@@ -56,8 +56,7 @@ export default {
                     markAnswerCount++
                 }
             })
-            return this.oneQuestion.answer.length < 30
-                && parseInt(localStorage.getItem('role')) === 0
+            return parseInt(localStorage.getItem('role')) === 0
                 && markAnswerCount === 0
         },
         isStautsActive() {
