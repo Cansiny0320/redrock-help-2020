@@ -159,10 +159,13 @@ export default {
     .delete {
       margin-left: auto;
       font-size: 24px;
+      width: 98px;
+      height: 49px;
+      text-align: center;
+      line-height: 49px;
+      border-radius: 100px;
       color: @mainColor;
       border: 1px solid @mainColor;
-      padding: 13px 25px;
-      border-radius: 100px;
       font-weight: 500;
       letter-spacing: 1.6px;
     }
