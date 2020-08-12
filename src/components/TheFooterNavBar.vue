@@ -77,7 +77,7 @@ export default {
     text-align: center;
     font-size: 20px;
     color: @fontColor;
-    padding-top: 16px;
+    padding-top: 18px;
     .text {
       font-weight: bold;
     }

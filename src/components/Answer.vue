@@ -12,7 +12,7 @@
           <AnswerAction :item="item" />
         </div>
       </div>
-      <div class="content" v-html="wrap(item.content)"></div>
+      <div class="content" v-text="item.content"></div>
       <div class="images">
         <VImageForAnswer :imagesUrl="item.photoUrls" />
       </div>
@@ -43,11 +43,6 @@ export default {
     methods: {
         handelOpposeClick(answerId, isApproval) {
             if (!isApproval) this.$store.dispatch(FETCH_ANSWER_OPPOSE, answerId)
-        },
-        wrap(str) {
-            let content = JSON.stringify(str)
-            content = content.replace(/\\n/g, '<br />');
-            return content.substring(1, content.length - 1);
         }
     }
 }
