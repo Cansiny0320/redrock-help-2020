@@ -9,7 +9,7 @@
       @click="handleProfileQuestionClick(profileData.author.id)"
     >
       <span
-        >我提过的问题
+        >我提过的问题：
         <span class="num">{{ profileData.author.questionsNum }}</span>
         <span class="text">个</span></span
       >
@@ -19,7 +19,7 @@
     </div>
     <div class="comment" @click="handleProfileAnswerClick">
       <span
-        >我收到的回答
+        >我收到的回答：
         <span class="num">{{ profileData.author.answersNum }}</span>
         <span class="text">个</span></span
       >
