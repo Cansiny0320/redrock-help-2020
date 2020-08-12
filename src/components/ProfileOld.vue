@@ -5,7 +5,7 @@
       <div class="name">{{ profileData.author.name }}</div>
     </div>
     <router-link class="answer" to="/profile/answer" tag="div">
-      <span
+      <span class="item"
         >我回答的问题：
         <span class="num">{{ profileData.author.answersNum }}</span>
         <span class="text">个</span></span
@@ -15,7 +15,7 @@
       </div>
     </router-link>
     <router-link class="approval" to="/profile/approval" tag="div">
-      <span
+      <span class="item"
         >我收到的赞同：
         <span class="num">{{ profileData.number.approvalNum }}</span>
         <span class="text">个</span></span
