@@ -1,17 +1,17 @@
 <template>
-    <div class="no-footer">
-        <header>
-            <VBack />
-            <div @click="handelAnswerPublished">
-                <vPublishButton />
-            </div>
-        </header>
-        <div class="question">{{ oneQuestion.content }}</div>
-        <EditAnswerBox />
-        <EditImage />
-        <VPopup :massage="progressMassage" v-if="editProgress" />
-        <VPopup :massage="wordsMassage" v-if="isShowWordsTips" />
-    </div>
+  <div class="no-footer">
+    <header>
+      <VBack />
+      <div @click="handelAnswerPublished">
+        <vPublishButton />
+      </div>
+    </header>
+    <div class="question">{{ oneQuestion.content }}</div>
+    <EditAnswerBox />
+    <EditImage />
+    <VPopup :massage="progressMassage" v-if="editProgress" />
+    <VPopup :massage="wordsMassage" v-if="isShowWordsTips" />
+  </div>
 </template>
 
 <script>
@@ -72,22 +72,24 @@ export default {
 <style lang="less" scoped>
 @import '../assets/styles/nofooter.less';
 header {
-    margin: 30px 24px;
-    display: flex;
-    justify-content: space-between;
+  margin: 30px 24px;
+  display: flex;
+  justify-content: space-between;
 }
 .question {
-    padding: 0 52px 33px 24px;
-    font-size: 32px;
-    line-height: 40px;
-    color: @fontColor;
-    text-align: justify;
-    border-bottom: 1px solid #e5e5e5;
-    font-weight: 500;
+  word-wrap: break-word;
+  word-break: break-all;
+  padding: 0 52px 33px 24px;
+  font-size: 32px;
+  line-height: 40px;
+  color: @fontColor;
+  text-align: justify;
+  border-bottom: 1px solid #e5e5e5;
+  font-weight: 500;
 }
 .title {
-    margin: 30px 0 20px 30px;
-    font-size: 28px;
-    color: @fontColor;
+  margin: 30px 0 20px 30px;
+  font-size: 28px;
+  color: @fontColor;
 }
 </style>
