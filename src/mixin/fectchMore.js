@@ -16,8 +16,6 @@ export default {
           !this.isLoadingMore &&
           !this.isLoading
         ) {
-          console.log(window.innerHeight + window.scrollY);
-          console.log(document.body.offsetHeight);
           this.handelFecthMore();
         }
       },
