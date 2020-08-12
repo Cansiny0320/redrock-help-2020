@@ -98,6 +98,8 @@ export default {
   padding: 28px 24px;
   border-radius: 10px;
   .comment {
+    word-wrap: break-word;
+    @nowrap();
     font-size: 28px;
     color: #404040;
     margin: 20px 0;

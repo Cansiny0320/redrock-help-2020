@@ -113,6 +113,7 @@ export default {
   }
   .comment {
     @ellisis-2();
+    word-wrap: break-word;
     font-size: 28px;
     font-weight: 500;
     color: rgba(64, 64, 64, 1);
