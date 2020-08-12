@@ -159,8 +159,8 @@ export default {
     .delete {
       margin-left: auto;
       font-size: 24px;
+      vertical-align: text-top;
       width: 98px;
-      height: 49px;
       text-align: center;
       line-height: 49px;
       border-radius: 100px;
