@@ -107,7 +107,7 @@ export default {
       @ellisis-2();
     }
     .anwser {
-      @ellisis-2();
+      @nowrap();
       font-size: 28px;
       line-height: 36px;
       margin: 32px 0 0;
