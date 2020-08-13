@@ -1,12 +1,12 @@
 <template>
-    <div class="question-edit-tag">
-        <VHotTag
-            name="#选择一个话题标签#"
-            :hotTagData="tagHot"
-            @hotTagAdd="handelHotTagAdd"
-            @hotTagRemove="handelHotTagRemove"
-        />
-    </div>
+  <div class="question-edit-tag">
+    <VHotTag
+      name="#请选择话题标签#"
+      :hotTagData="tagHot"
+      @hotTagAdd="handelHotTagAdd"
+      @hotTagRemove="handelHotTagRemove"
+    />
+  </div>
 </template>
 
 <script>
