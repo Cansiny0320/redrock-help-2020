@@ -66,6 +66,11 @@ const router = new Router({
       name: 'question',
       component: () => import('@/views/Question.vue'),
     },
+    {
+      path: '/refresh',
+      name: 'refresh',
+      component: () => import('@/views/Refresh.vue'),
+    },
   ],
 });
 
