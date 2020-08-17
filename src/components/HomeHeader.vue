@@ -51,9 +51,8 @@ export default {
   justify-content: space-between;
   background-color: @HeaderBgColor;
   box-sizing: border-box;
-  border-radius: 2px;
   padding: 0 131px;
-  height: 70px;
+  height: 71px;
   .item {
     font-size: 36px;
     line-height: 71px;
