@@ -29,6 +29,7 @@
               class="status"
               @click="toAnswserEdit(oneQuestion.status)"
               v-else-if="isShowStatus"
+              :class="{ limited: limited }"
               >去回答</span
             >
           </template>
@@ -70,13 +71,18 @@ export default {
         },
         isStautsActive() {
             return this.oneQuestion.status === '已解决'
+        },
+        limited() {
+            return this.oneQuestion.answersCount >= 30;
         }
     },
     methods: {
         toAnswserEdit(status) {
-            this.$router.push({
-                name: 'answserEdit',
-            })
+            if (!this.limited) {
+                this.$router.push({
+                    name: 'answserEdit',
+                })
+            }
         }
     }
 }
@@ -132,6 +138,9 @@ export default {
         &.active {
           color: #808080;
           font-weight: 400;
+        }
+        &.limited {
+          color: #808080;
         }
       }
     }
